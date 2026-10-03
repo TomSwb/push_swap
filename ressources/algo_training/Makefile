@@ -19,6 +19,7 @@ LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
 SRCS = main.c \
+	bubble_sort_tester.c \
 	bubble_sort.c
 
 OBJS = $(SRCS:.c=.o)

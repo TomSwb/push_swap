@@ -1,30 +1,5 @@
 
-#include "./libft/libft.h"
 
-void bubble_sort_int_arr(int **arr, int len);
-
-int main(void)
-{
-    int arr[10] = {7, 6, 2, 4, 9, 1, 3, 0, 5, 8};
-    int i = 0;
-    int len = 10;
-    
-    ft_printf("\n");
-    while (i < len)
-    {
-        ft_printf("%d, ", arr[i]);
-        i++;
-    }
-    ft_printf("\n");
-    bubble_sort_int_arr(arr, len);
-    i = 0;
-    while (i < len)
-    {
-        ft_printf("%d, ", arr[i]);
-        i++;
-    }
-    ft_printf("\n");
-}
 
 // 3rd try 2nd optimization
 void bubble_sort_int_arr(int *arr, int len)
@@ -36,7 +11,7 @@ void bubble_sort_int_arr(int *arr, int len)
     
     swapped = 1;
     pass = 0;
-    while (pass < len - 1 && count > 0)
+    while (pass < len - 1 && swapped > 0)
     {
         swapped = 0;
         i = 0;

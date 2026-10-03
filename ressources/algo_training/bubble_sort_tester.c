@@ -1,11 +1,11 @@
 
 #include "algo_learning.h"
 
-void test_bs_1(int *arr)
+void test_bs_1(int *arr, int len)
 {
-    int i = 0;
-    int len = 10;
+    int i;
     
+    i = 0;
     ft_printf("\n");
     while (i < len - 1)
     {
@@ -25,11 +25,11 @@ void test_bs_1(int *arr)
 	ft_printf("\n");
 }
 
-void test_bs_2(int *arr)
+void test_bs_2(int *arr, int len)
 {
-    int i = 0;
-    int len = 10;
+    int i;
     
+    i = 0;
     ft_printf("\n");
     while (i < len - 1)
     {
@@ -49,11 +49,11 @@ void test_bs_2(int *arr)
 	ft_printf("\n");
 }
 
-void test_bs_3(int *arr)
+void test_bs_3(int *arr, int len)
 {
-    int i = 0;
-    int len = 10;
+    int i;
     
+    i = 0;
     ft_printf("\n");
     while (i < len - 1)
     {

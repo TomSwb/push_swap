@@ -26,6 +26,7 @@ int main(void)
     ft_printf("\n");
 }
 
+// 3rd try 2nd optimization
 void bubble_sort_int_arr(int *arr, int len)
 {
     int i;
@@ -50,6 +51,56 @@ void bubble_sort_int_arr(int *arr, int len)
     }
 }
 
+/*
+// 2nd try 1st optimization
+// resets to i = 0 only once the highest 
+value reaches the end then next highest 
+reaches end - 1, etc...
+void bubble_sort_int_arr(int *arr, int len)
+{
+    int i;
+    int temp;
+    int pass;
+    
+    pass = 0;
+    while (pass < len - 1)
+    {
+        i = 0;
+        while (i < len - 1 - pass)
+        {
+            if (arr[i] > arr[i + 1])
+            {
+                temp = arr[i];
+                arr[i] = arr[i + 1];
+                arr[i + 1] = temp;
+            }
+            i++;
+        }
+        pass++;
+    }
+}
+
+// 1st try
+// resets to i = 0 everytime
+void bubble_sort_int_arr(int *arr, int len)
+{
+    int i;
+    int temp;
+    
+    while (i < len - 1)
+    {
+        if (arr[i] > arr[i + 1])
+        {
+            temp = arr[i];
+            arr[i] = arr[i + 1];
+            arr[i + 1] = temp;
+            i = 0;
+        }
+        i++;
+    }
+}
+
+// stack version
 void bubble_sort_stack(t_stack **stack)
 {
     t_stack *head;
@@ -58,3 +109,4 @@ void bubble_sort_stack(t_stack **stack)
     while (head->next != *stack->next)
         head = head->next;
 }
+*/

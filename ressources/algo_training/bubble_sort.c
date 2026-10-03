@@ -28,7 +28,7 @@ void bubble_sort_5(int *arr, int len, int *operations)
             (*operations)++;
         }
         if (last_swap >= 0)
-            end = last_swap;
+            end = last_swap + 1;
         last_swap = -1;
         i = end;
         while (i > start)
@@ -44,7 +44,7 @@ void bubble_sort_5(int *arr, int len, int *operations)
             (*operations)++;
         }
         if (last_swap >= 0)
-            start = last_swap;
+            start = last_swap - 1;
     }
 }
 

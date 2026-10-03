@@ -32,10 +32,13 @@ void bubble_sort_int_arr(int *arr, int len)
     int i;
     int temp;
     int pass;
+    int swapped;
     
+    swapped = 1;
     pass = 0;
-    while (pass < len - 1)
+    while (pass < len - 1 && count > 0)
     {
+        swapped = 0;
         i = 0;
         while (i < len - 1 - pass)
         {
@@ -44,6 +47,7 @@ void bubble_sort_int_arr(int *arr, int len)
                 temp = arr[i];
                 arr[i] = arr[i + 1];
                 arr[i + 1] = temp;
+                swapped = 1;
             }
             i++;
         }

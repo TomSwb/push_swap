@@ -4,7 +4,9 @@
 void test_bs_1(int *arr, int len)
 {
     int i;
+    int efficiency;
     
+    efficiency = 0;
     i = 0;
     ft_printf("\n");
     while (i < len - 1)
@@ -14,7 +16,7 @@ void test_bs_1(int *arr, int len)
     }
     ft_printf("%d\n", arr[i]);
 	ft_printf("\n");
-    bubble_sort_1(arr, len);
+    bubble_sort_1(arr, len, &efficiency);
     i = 0;
     while (i < len - 1)
     {
@@ -22,6 +24,7 @@ void test_bs_1(int *arr, int len)
         i++;
     }
 	ft_printf("%d\n", arr[i]);
+    ft_printf("efficiency: %d", efficiency);
 	ft_printf("\n");
 }
 

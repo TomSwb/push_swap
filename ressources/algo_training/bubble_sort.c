@@ -65,7 +65,7 @@ void bubble_sort_2(int *arr, int len)
 // resets to i = 0 everytime
 // sequencing is n * n * n etc... until passing n times
 // passes n times doing n operstions every time
-void bubble_sort_1(int *arr, int len)
+void bubble_sort_1(int *arr, int len, int *efficiency)
 {
     int i;
     int temp;
@@ -80,6 +80,7 @@ void bubble_sort_1(int *arr, int len)
             i = 0;
         }
         i++;
+        (*efficiency)++;
     }
 }
 

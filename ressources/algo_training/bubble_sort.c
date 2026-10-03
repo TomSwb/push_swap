@@ -3,7 +3,6 @@
 void bubble_sort_5(int *arr, int len, int *operations)
 {
     int i;
-    int temp;
     int start;
     int end;
     int last_swap;
@@ -16,36 +15,46 @@ void bubble_sort_5(int *arr, int len, int *operations)
         last_swap = -1;
         i = start;
         while (i < end)
-        {
-            if (arr[i] > arr[i + 1])
-            {
-                temp = arr[i];
-                arr[i] = arr[i + 1];
-                arr[i + 1] = temp;
-                last_swap = i;
-            }
-            i++;
-            (*operations)++;
-        }
+            left_right_swap(arr, &i, &last_swap, operations)
         if (last_swap >= 0)
             end = last_swap + 1;
         last_swap = -1;
         i = end;
         while (i > start)
-        {
-            if (arr[i] < arr[i - 1])
-            {
-                temp = arr[i];
-                arr[i] = arr[i - 1];
-                arr[i - 1] = temp;
-                last_swap = i;
-            }
-            i--;
-            (*operations)++;
-        }
+            right_left_swap(arr, &i, &last_swap, operations)
         if (last_swap >= 0)
             start = last_swap - 1;
     }
+}
+
+void left_right_swap(int *arr, int i, int *last_swap, int *operations)
+{
+    int temp;
+    
+    if (arr[*i] > arr[(*i) + 1])
+    {
+        temp = arr[*i];
+        arr[*i] = arr[(*i) + 1];
+        arr[(*i) + 1] = temp;
+        *last_swap = *i;
+    }
+    (*i)++;
+    (*operations)++;
+}
+
+void right_left_swap(int *arr, int *i, int *last_swap, int *operations)
+{
+    int temp;
+    
+    if (arr[*i] < arr[(*i) - 1])
+    {
+        temp = arr[*i];
+        arr[*i] = arr[(*i) - 1];
+        arr[(*i) - 1] = temp;
+        *last_swap = *i;
+    }
+    (*i)--;
+    (*operations)++;
 }
 
 // 4th try 3rd optimization

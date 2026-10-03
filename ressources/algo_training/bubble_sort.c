@@ -16,7 +16,7 @@ int main(void)
         i++;
     }
     ft_printf("\n");
-    bubble_sort_int_arr(&arr, len);
+    bubble_sort_int_arr(arr, len);
     i = 0;
     while (i < len)
     {
@@ -26,22 +26,27 @@ int main(void)
     ft_printf("\n");
 }
 
-void bubble_sort_int_arr(int **arr, int len)
+void bubble_sort_int_arr(int *arr, int len)
 {
     int i;
     int temp;
+    int pass;
     
-    i = 0;
-    while (i < len - 1)
+    pass = 0;
+    while (pass < len - 1)
     {
-        if (*arr[i] > *arr[i + 1])
+        i = 0;
+        while (i < len - 1 - pass)
         {
-            temp = *arr[i];
-            *arr[i] = *arr[i + 1];
-            *arr[i + 1] = temp;
-            i = 0;
+            if (arr[i] > arr[i + 1])
+            {
+                temp = arr[i];
+                arr[i] = arr[i + 1];
+                arr[i + 1] = temp;
+            }
+            i++;
         }
-        i++;
+        pass++;
     }
 }
 

@@ -1,5 +1,34 @@
 
-
+// 4th try 3rd optimization
+void bubble_sort_4(int *arr, int len, int *operations)
+{
+    int i;
+    int temp;
+    int boundary;
+    int last_swap;
+    
+    last_swap = 0;
+    boundary = 0;
+    while (boundary < len - 1 && last_swap >= 0)
+    {
+        last_swap = -1;
+        i = 0;
+        while (i < len - 1 - boundary)
+        {
+            if (arr[i] > arr[i + 1])
+            {
+                temp = arr[i];
+                arr[i] = arr[i + 1];
+                arr[i + 1] = temp;
+                last_swap = i;
+            }
+            i++;
+            (*operations)++;
+        }
+        if (last_swap >= 0)
+            boundary = last_swap;
+    }
+}
 
 // 3rd try 2nd optimization
 void bubble_sort_3(int *arr, int len, int *operations)

@@ -1,7 +1,7 @@
 
 #include "./libft/libft.h"
 
-void bubble_sorr_int_arr(int **arr, int len);
+void bubble_sort_int_arr(int **arr, int len);
 
 int main(void)
 {
@@ -26,7 +26,7 @@ int main(void)
     ft_printf("\n");
 }
 
-void bubble_sorr_int_arr(int **arr, int len)
+void bubble_sort_int_arr(int **arr, int len)
 {
     int i;
     int temp;

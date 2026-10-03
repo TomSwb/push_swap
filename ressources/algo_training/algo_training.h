@@ -8,10 +8,12 @@
 void test_bs_1(int *arr, int len);
 void test_bs_2(int *arr, int len);
 void test_bs_3(int *arr, int len);
+void test_bs_4(int *arr, int len);
 
 // bubble_sort.c
 void bubble_sort_1(int *arr, int len, int *operations);
 void bubble_sort_2(int *arr, int len, int *operations);
 void bubble_sort_3(int *arr, int len, int *operations);
+void bubble_sort_4(int *arr, int len, int *operations);
 
 #endif

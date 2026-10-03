@@ -4,9 +4,9 @@
 void test_bs_1(int *arr, int len)
 {
     int i;
-    int efficiency;
+    int operations;
     
-    efficiency = 0;
+    operations = 0;
     i = 0;
     ft_printf("\n");
     while (i < len - 1)
@@ -16,7 +16,7 @@ void test_bs_1(int *arr, int len)
     }
     ft_printf("%d\n", arr[i]);
 	ft_printf("\n");
-    bubble_sort_1(arr, len, &efficiency);
+    bubble_sort_1(arr, len, &operations);
     i = 0;
     while (i < len - 1)
     {
@@ -24,14 +24,16 @@ void test_bs_1(int *arr, int len)
         i++;
     }
 	ft_printf("%d\n", arr[i]);
-    ft_printf("efficiency: %d", efficiency);
+    ft_printf("Operations: %d", operations);
 	ft_printf("\n");
 }
 
 void test_bs_2(int *arr, int len)
 {
     int i;
+    int operations;
     
+    operations = 0;
     i = 0;
     ft_printf("\n");
     while (i < len - 1)
@@ -41,7 +43,7 @@ void test_bs_2(int *arr, int len)
     }
     ft_printf("%d\n", arr[i]);
 	ft_printf("\n");
-    bubble_sort_2(arr, len);
+    bubble_sort_2(arr, len, &operations);
     i = 0;
     while (i < len - 1)
     {
@@ -49,13 +51,16 @@ void test_bs_2(int *arr, int len)
         i++;
     }
 	ft_printf("%d\n", arr[i]);
+    ft_printf("Operations: %d", operations);
 	ft_printf("\n");
 }
 
 void test_bs_3(int *arr, int len)
 {
     int i;
+    int operations;
     
+    operations = 0;
     i = 0;
     ft_printf("\n");
     while (i < len - 1)
@@ -65,7 +70,7 @@ void test_bs_3(int *arr, int len)
     }
     ft_printf("%d\n", arr[i]);
 	ft_printf("\n");
-    bubble_sort_3(arr, len);
+    bubble_sort_3(arr, len, &operations);
     i = 0;
     while (i < len - 1)
     {
@@ -73,5 +78,6 @@ void test_bs_3(int *arr, int len)
         i++;
     }
 	ft_printf("%d\n", arr[i]);
+    ft_printf("Operations: %d", operations);
 	ft_printf("\n");
 }

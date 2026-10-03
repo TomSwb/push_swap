@@ -1,15 +1,9 @@
 
-void bubble_sort_stack(t_stack *stack)
-{
-    t_stack *head;
-    
-    head = stack;
-    while (head->next != stack->next)
-        head = head->next;
-}
+#include "./libft/libft.h"
 
+void bubble_sorr_int_arr(int **arr, int len);
 
-int main(vois)
+int main(void)
 {
     int arr[10] = {7, 6, 2, 4, 9, 1, 3, 0, 5, 8};
     int i = 0;
@@ -49,4 +43,13 @@ void bubble_sorr_int_arr(int **arr, int len)
         }
         i++;
     }
+}
+
+void bubble_sort_stack(t_stack **stack)
+{
+    t_stack *head;
+    
+    head = *stack;
+    while (head->next != *stack->next)
+        head = head->next;
 }

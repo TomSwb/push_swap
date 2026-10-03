@@ -82,7 +82,8 @@ void bubble_sort_1(int *arr, int len, int *operations)
             arr[i + 1] = temp;
             i = 0;
         }
-        i++;
+        else
+            i++;
         (*operations)++;
     }
 }

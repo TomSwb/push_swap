@@ -1,5 +1,5 @@
 
-#include "algo_learning.h"
+#include "algo_training.h"
 
 void test_bs_1(int *arr, int len)
 {
@@ -15,7 +15,6 @@ void test_bs_1(int *arr, int len)
         i++;
     }
     ft_printf("%d\n", arr[i]);
-	ft_printf("\n");
     bubble_sort_1(arr, len, &operations);
     i = 0;
     while (i < len - 1)
@@ -24,8 +23,7 @@ void test_bs_1(int *arr, int len)
         i++;
     }
 	ft_printf("%d\n", arr[i]);
-    ft_printf("Operations: %d", operations);
-	ft_printf("\n");
+    ft_printf("Operations: %d\n", operations);
 }
 
 void test_bs_2(int *arr, int len)
@@ -42,7 +40,6 @@ void test_bs_2(int *arr, int len)
         i++;
     }
     ft_printf("%d\n", arr[i]);
-	ft_printf("\n");
     bubble_sort_2(arr, len, &operations);
     i = 0;
     while (i < len - 1)
@@ -51,8 +48,7 @@ void test_bs_2(int *arr, int len)
         i++;
     }
 	ft_printf("%d\n", arr[i]);
-    ft_printf("Operations: %d", operations);
-	ft_printf("\n");
+    ft_printf("Operations: %d\n", operations);
 }
 
 void test_bs_3(int *arr, int len)
@@ -69,7 +65,6 @@ void test_bs_3(int *arr, int len)
         i++;
     }
     ft_printf("%d\n", arr[i]);
-	ft_printf("\n");
     bubble_sort_3(arr, len, &operations);
     i = 0;
     while (i < len - 1)
@@ -78,6 +73,5 @@ void test_bs_3(int *arr, int len)
         i++;
     }
 	ft_printf("%d\n", arr[i]);
-    ft_printf("Operations: %d", operations);
-	ft_printf("\n");
+    ft_printf("Operations: %d\n", operations);
 }

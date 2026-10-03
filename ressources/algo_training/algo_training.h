@@ -4,6 +4,10 @@
 
 #include "./libft/libft.h"
 
-void bubble_sort_int_arr(int *arr, int len);
+// bubble_sort_tester.c
+void test_bs_1(void);
+
+// bubble_sort.c
+void bubble_sort_1(int *arr, int len);
 
 #endif

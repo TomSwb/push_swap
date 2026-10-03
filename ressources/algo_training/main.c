@@ -82,7 +82,7 @@ void bs_test(void)
 	test_bs_5(rev_arr5, len);
 	test_bs_5(arr5, len);
 	test_bs_5(str_arr5, len);
-	test_bs5(end_arr5, len);
+	test_bs_5(end_arr5, len);
 	
 	ft_printf("\n");
 }

@@ -1,4 +1,6 @@
 
+#include "algo_training.h"
+
 // 5th try last optimization
 void bubble_sort_5(int *arr, int len, int *operations)
 {
@@ -15,19 +17,21 @@ void bubble_sort_5(int *arr, int len, int *operations)
         last_swap = -1;
         i = start;
         while (i < end)
-            left_right_swap(arr, &i, &last_swap, operations)
+            left_right_swap(arr, &i, &last_swap, operations);
         if (last_swap >= 0)
             end = last_swap + 1;
+        else if (last_swap == -1)
+            break;
         last_swap = -1;
         i = end;
         while (i > start)
-            right_left_swap(arr, &i, &last_swap, operations)
+            right_left_swap(arr, &i, &last_swap, operations);
         if (last_swap >= 0)
             start = last_swap - 1;
     }
 }
 
-void left_right_swap(int *arr, int i, int *last_swap, int *operations)
+void left_right_swap(int *arr, int *i, int *last_swap, int *operations)
 {
     int temp;
     

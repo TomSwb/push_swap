@@ -75,3 +75,28 @@ void test_bs_3(int *arr, int len)
 	ft_printf("%d\n", arr[i]);
     ft_printf("Operations: %d\n", operations);
 }
+
+void test_bs_4(int *arr, int len)
+{
+    int i;
+    int operations;
+    
+    operations = 0;
+    i = 0;
+    ft_printf("\n");
+    while (i < len - 1)
+    {
+        ft_printf("%d, ", arr[i]);
+        i++;
+    }
+    ft_printf("%d\n", arr[i]);
+    bubble_sort_4(arr, len, &operations);
+    i = 0;
+    while (i < len - 1)
+    {
+        ft_printf("%d, ", arr[i]);
+        i++;
+    }
+	ft_printf("%d\n", arr[i]);
+    ft_printf("Operations: %d\n", operations);
+}

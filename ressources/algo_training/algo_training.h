@@ -5,9 +5,13 @@
 #include "./libft/libft.h"
 
 // bubble_sort_tester.c
-void test_bs_1(void);
+void test_bs_1(int *arr, int len);
+void test_bs_2(int *arr, int len);
+void test_bs_3(int *arr, int len);
 
 // bubble_sort.c
 void bubble_sort_1(int *arr, int len);
+void bubble_sort_2(int *arr, int len);
+void bubble_sort_3(int *arr, int len);
 
 #endif

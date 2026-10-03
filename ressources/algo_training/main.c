@@ -3,6 +3,11 @@
 
 int main(void)
 {
+	bs_test();
+}
+
+void bs_test(void)
+{
 	int len = 10;
 	
 	// int arr1[10] = {7, 6, 2, 4, 9, 1, 3, 0, 5, 8};

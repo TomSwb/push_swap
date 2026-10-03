@@ -4,16 +4,18 @@ void bubble_sort_5(int *arr, int len, int *operations)
 {
     int i;
     int temp;
-    int boundary;
+    int start;
+    int end;
     int last_swap;
     
     last_swap = 0;
-    boundary = 0;
-    while (boundary < len - 1 && last_swap >= 0)
+    start = 0;
+    end = len - 1;
+    while (start < end && last_swap >= 0)
     {
         last_swap = -1;
-        i = 0;
-        while (i < len - 1 - boundary)
+        i = start;
+        while (i < end)
         {
             if (arr[i] > arr[i + 1])
             {
@@ -26,7 +28,23 @@ void bubble_sort_5(int *arr, int len, int *operations)
             (*operations)++;
         }
         if (last_swap >= 0)
-            boundary = last_swap;
+            end = last_swap;
+        last_swap = -1;
+        i = end;
+        while (i > start)
+        {
+            if (arr[i] < arr[i - 1])
+            {
+                temp = arr[i];
+                arr[i] = arr[i - 1];
+                arr[i - 1] = temp;
+                last_swap = i;
+            }
+            i--;
+            (*operations)++;
+        }
+        if (last_swap >= 0)
+            start = last_swap;
     }
 }
 

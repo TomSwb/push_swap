@@ -40,10 +40,15 @@ void is_test(void)
 	ft_printf("\n-----------------------\n");
 	ft_printf("Testing is_2:");
 	ft_printf("\n-----------------------\n");
+	ft_printf("\nMixed:\n");
 	test_is_2(arr2, len);
+	ft_printf("\nReverse:\n");
 	test_is_2(rev_arr2, len);
+	ft_printf("\nSorted:\n");
 	test_is_2(arr2, len);
+	ft_printf("\nLight start mixed:\n");
 	test_is_2(str_arr2, len);
+	ft_printf("\nLight end mixed:\n");
 	test_is_2(end_arr2, len);
 
 	/*
@@ -56,10 +61,15 @@ void is_test(void)
 	ft_printf("\n-----------------------\n");
 	ft_printf("Testing is_3:");
 	ft_printf("\n-----------------------\n");
+	ft_printf("\nMixed:\n");
 	test_is_3(arr3, len);
+	ft_printf("\nReverse:\n");
 	test_is_3(rev_arr3, len);
+	ft_printf("\nSorted:\n");
 	test_is_3(arr3, len);
+	ft_printf("\nLight start mixed:\n");
 	test_is_3(str_arr3, len);
+	ft_printf("\nLight end mixed:\n");
 	test_is_3(end_arr3, len);
 	
 	
@@ -72,10 +82,15 @@ void is_test(void)
 	ft_printf("\n-----------------------\n");
 	ft_printf("Testing is_4:");
 	ft_printf("\n-----------------------\n");
+	ft_printf("\nMixed:\n");
 	test_is_4(arr4, len);
+	ft_printf("\nReverse:\n");
 	test_is_4(rev_arr4, len);
+	ft_printf("\nSorted:\n");
 	test_is_4(arr4, len);
+	ft_printf("\nLight start mixed:\n");
 	test_is_4(str_arr4, len);
+	ft_printf("\nLight end mixed:\n");
 	test_is_4(end_arr4, len);
 	
 	
@@ -88,10 +103,15 @@ void is_test(void)
 	ft_printf("\n-----------------------\n");
 	ft_printf("Testing is_5:");
 	ft_printf("\n-----------------------\n");
+	ft_printf("\nMixed:\n");
 	test_is_5(arr5, len);
+	ft_printf("\nReverse:\n");
 	test_is_5(rev_arr5, len);
+	ft_printf("\nSorted:\n");
 	test_is_5(arr5, len);
+	ft_printf("\nLight start mixed:\n");
 	test_is_5(str_arr5, len);
+	ft_printf("\nLight end mixed:\n");
 	test_is_5(end_arr5, len);
 
 	ft_printf("\n");

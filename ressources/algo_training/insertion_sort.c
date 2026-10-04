@@ -9,7 +9,7 @@ void insertion_sort_3(int *arr, int len, int *insertions)
     int next;
     int temp;
 
-    i = 1;
+    i = 0;
     while (i < len - 1)
     {
         block_len = 0;

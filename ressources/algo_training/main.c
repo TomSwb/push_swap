@@ -3,8 +3,8 @@
 
 int main(void)
 {
-	bs_test();
 	is_test();
+	bs_test();
 }
 
 void is_test(void)

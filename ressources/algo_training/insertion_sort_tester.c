@@ -1,7 +1,7 @@
 
 #include "algo_training.h"
 
-void test_bs_1(int *arr, int len)
+void test_is_1(int *arr, int len)
 {
     int i;
     int insertions;

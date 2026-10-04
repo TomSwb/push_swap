@@ -72,7 +72,7 @@ void is_test(void)
 	ft_printf("\nLight end mixed:\n");
 	test_is_3(end_arr3, len);
 	
-	/*
+	
 	int arr4[10] = {7, 2, 9, 0, 5, 3, 8, 1, 6, 4};
 	int rev_arr4[10] = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
 	int	str_arr4[10] = {1, 0, 2, 3, 4, 5, 6, 7, 8, 9};
@@ -93,7 +93,7 @@ void is_test(void)
 	ft_printf("\nLight end mixed:\n");
 	test_is_4(end_arr4, len);
 	
-	
+	/*
 	int arr5[10] = {7, 2, 9, 0, 5, 3, 8, 1, 6, 4};
 	int rev_arr5[10] = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
 	int	str_arr5[10] = {1, 0, 2, 3, 4, 5, 6, 7, 8, 9};

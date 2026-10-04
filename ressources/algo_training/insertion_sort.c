@@ -14,19 +14,22 @@ void insertion_sort_3(int *arr, int len, int *insertions)
         block_len = 0;
         while (i < len - 1 && arr[i] > arr[i - 1])
             i++;
-        temp = arr[i];
-        next = i;
-        while (i > 0 && temp < arr[i - 1])
-        {
-            i--;
-            block_len++;
-        }
-        if (block_len > 0)
-            memmove(&arr[i] + 1, &arr[i], sizeof(int) * block_len);
-        arr[i] = temp;
         if (i < len)
-            (*insertions)++;
-        i = next;
+        {
+            temp = arr[i];
+            next = i;
+            while (i > 0 && temp < arr[i - 1])
+            {
+                i--;
+                block_len++;
+            }
+            if (block_len > 0)
+            {
+                memmove(&arr[i] + 1, &arr[i], sizeof(int) * block_len);
+                arr[i] = temp;
+                (*insertions)++;
+                i = next;
+            }
         }
     }
 }

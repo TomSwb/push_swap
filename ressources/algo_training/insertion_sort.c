@@ -16,7 +16,7 @@ void insertion_sort_2(int *arr, int len, int *insertions)
             i++;
         temp = arr[i];
         next = i;
-        while (i > 0 && temp < arr[i - 1])
+        while (i > 0 && arr[i] < arr[i - 1])
         {
             arr[i] = arr[i - 1];
             i--;

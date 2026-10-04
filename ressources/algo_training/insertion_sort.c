@@ -9,14 +9,14 @@ void insertion_sort_2(int *arr, int len, int *insertions)
     int insertion;
     
     insertion = 0;
-    i = 0;
+    i = 1;
     while (i < len - 1)
     {
         while (i < len - 1 && arr[i] > arr[i - 1])
             i++;
         temp = arr[i];
         next = i;
-        while (i > 0 && temp < arr[i])
+        while (i > 0 && temp < arr[i - 1])
         {
             arr[i] = arr[i - 1];
             i--;
@@ -34,8 +34,8 @@ void insertion_sort_1(int *arr, int len, int *insertions)
     int temp;
     int insertion;
     
-    i = 1;
     insertion = 0;
+    i = 1;
     while (i < len - 1)
     {
         while (i < len - 1 && arr[i] > arr[i - 1])

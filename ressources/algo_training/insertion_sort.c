@@ -21,7 +21,8 @@ void insertion_sort_3(int *arr, int len, int *insertions)
             i--;
             block_len++;
         }
-        memmove(&arr[i] + 1, &arr[i], sizeof(int) * block_len);
+        if (block_len > 0)
+            memmove(&arr[i] + 1, &arr[i], sizeof(int) * block_len);
         arr[i] = temp;
         if (i < len)
             (*insertions)++;

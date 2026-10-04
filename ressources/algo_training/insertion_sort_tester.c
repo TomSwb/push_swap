@@ -8,7 +8,6 @@ void test_is_1(int *arr, int len)
     
     insertions = 0;
     i = 0;
-    ft_printf("\n");
     while (i < len - 1)
     {
         ft_printf("%d, ", arr[i]);

@@ -30,6 +30,8 @@ void insertion_sort_3(int *arr, int len, int *insertions)
                 (*insertions)++;
                 i = next;
             }
+            else
+             i++;
         }
     }
 }

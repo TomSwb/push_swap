@@ -24,4 +24,11 @@ void bubble_sort_3(int *arr, int len, int *operations);
 void bubble_sort_2(int *arr, int len, int *operations);
 void bubble_sort_1(int *arr, int len, int *operations);
 
+// insertion_sort_tester.c
+void test_is_1(int *arr, int len);
+
+// insertion_sort.c
+void insertion_sort_1(int *arr, int len, int *insertions);
+
+
 #endif

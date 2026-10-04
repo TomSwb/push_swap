@@ -11,7 +11,7 @@ void insertion_sort_3(int *arr, int len, int *insertions)
     i = 1;
     while (i < len)
     {
-        block_len = 1;
+        block_len = 0;
         while (i < len - 1 && arr[i] > arr[i - 1])
             i++;
         temp = arr[i];

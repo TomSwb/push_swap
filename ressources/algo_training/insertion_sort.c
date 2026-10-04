@@ -1,6 +1,58 @@
 
 #include "algo_training.h"
 
+void insertion_sort_4(int *arr, int len, int *insertions)
+{
+    int i;
+
+    i = 1;
+    while (i < len)
+    {
+        while (i < len - 1 && arr[i] > arr[i - 1])
+            i++;
+        if (i < len)
+            binary_insert(&i, arr, insertions);
+        else
+            i++;
+        }
+    }
+}
+
+void binary_insert(int i, int *arr, int *insertions)
+{
+    int block_len;
+    int temp;
+    int low;
+    
+    block_len = 0;
+    temp = arr[i];
+    low = 0;
+    block_len = binary_search(i, arr, temp, &low);
+    if (block_len > 0)
+    {
+        memmove(&arr[low] + 1, &arr[low], sizeof(int) * block_len);
+        arr[low] = temp;
+        (*insertions)++;
+    }
+}
+
+int binary_search(int i, int *arr, int temp, int *low)
+{
+    int mid;
+    int high;
+    
+    high = i;
+    while (*low < high)
+    {
+        mid = (*low) + (high - (*low)) / 2;
+        if (arr[mid] < temp)
+            (*low) = mid + 1;
+        else
+            high = mid;
+    }
+    return (i - (*low));
+}
+
 void insertion_sort_3(int *arr, int len, int *insertions)
 {
     int i;

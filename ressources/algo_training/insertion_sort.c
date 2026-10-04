@@ -20,9 +20,11 @@ void insertion_sort_2(int *arr, int len, int *insertions)
         {
             arr[i] = arr[i - 1];
             i--;
+            insertion++;
         }
         arr[i] = temp;
-        (*insertions)++;
+        if (insertion > 0)
+            (*insertions)++;
         i = next;
     }
 }

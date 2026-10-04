@@ -11,7 +11,7 @@ void bs_test(void);
 // insertion_sort.c
 void insertion_sort_4(int *arr, int len, int *insertions);
 void binary_insert(int i, int *arr, int *insertions);
-
+int binary_search(int i, int *arr, int temp, int *low);
 
 void insertion_sort_3(int *arr, int len, int *insertions);
 void insertion_sort_2(int *arr, int len, int *insertions);

@@ -22,7 +22,8 @@ void insertion_sort_3(int *arr, int len, int *insertions)
         temp = arr[i];
         next = i;
         memmove(&arr[src] + 1, &arr[src], sizeof(int) * block_len);
-        (*insertions)++;
+        if (i < len - 1)
+            (*insertions)++;
         arr[i] = temp;
         i = next;
     }

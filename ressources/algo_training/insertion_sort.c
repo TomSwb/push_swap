@@ -1,6 +1,33 @@
 
 #include "algo_training.h"
 
+void insertion_sort_3(int *arr, int len, int *insertions)
+{
+    int i;
+    int src;
+    int block_len;
+    int next;
+    int temp;
+
+    i = 1;
+    while (i < len - 1)
+    {
+        block_len = 0;
+        src = i;
+        while (i < len - 1 && arr[i] > arr[i - 1])
+        {
+            i++;
+            block_len++;
+        }
+        temp = arr[i];
+        next = i;
+        memmove(&arr[src] + 1, &arr[src], sizeof(int) * block_len);
+        (*insertions)++;
+        arr[i] = temp;
+        i = next;
+    }
+}
+
 void insertion_sort_2(int *arr, int len, int *insertions)
 {
     int i;

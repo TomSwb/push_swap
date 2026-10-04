@@ -1,7 +1,7 @@
 
 #include "algo_training.h"
 
-void insertion_sort_1(int *arr, int len, int *insertion)
+void insertion_sort_1(int *arr, int len, int *insertions)
 {
     int i;
     int next;
@@ -21,6 +21,6 @@ void insertion_sort_1(int *arr, int len, int *insertion)
             i--;
         }
         i = next;
-        (*insertion)++;
+        (*insertions)++;
     }
 }

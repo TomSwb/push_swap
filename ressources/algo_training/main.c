@@ -19,10 +19,15 @@ void is_test(void)
 	ft_printf("\n-----------------------\n");
 	ft_printf("Testing is_1:");
 	ft_printf("\n-----------------------\n");
+	ft_printf("Mixed:\n");
 	test_is_1(arr1, len);
+	ft_printf("Reverse:\n");
 	test_is_1(rev_arr1, len);
+	ft_printf("Sorted:\n");
 	test_is_1(arr1, len);
+	ft_printf("Light start mixed:\n");
 	test_is_1(str_arr1, len);
+	ft_printf("Light end mixed:\n");
 	test_is_1(end_arr1, len);
 
 	/*

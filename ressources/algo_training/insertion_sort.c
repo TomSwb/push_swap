@@ -20,7 +20,7 @@ void insertion_sort_2(int *arr, int len, int *insertions)
         {
             temp = arr[next];
             last = next;
-            while (next > i + 1)
+            while (next > i)
             {
                 arr[next] = arr[next - 1];
                 next--;

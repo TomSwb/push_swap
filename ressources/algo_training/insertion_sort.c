@@ -15,17 +15,14 @@ void insertion_sort_2(int *arr, int len, int *insertions)
         while (i < len - 1 && arr[i] > arr[i - 1])
             i++;
         next = i;
-        if (arr[i] < arr[i - 1])
+        temp = arr[i];
+        while (i > 0 && arr[i] < arr[i - 1])
         {
-            temp = arr[i];
-            while (i > 0 && arr[i] < arr[i - 1])
-            {
-                arr[i] = arr[i - 1];
-                i--;
-            }
-            arr[i - 1] = temp;
+            arr[i] = arr[i - 1];
+            i--;
             insertion++;
         }
+        arr[i - 1] = temp;
         if (insertion > 0)
             (*insertions)++;
         i = next;

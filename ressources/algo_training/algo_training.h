@@ -9,9 +9,11 @@ void is_test(void);
 void bs_test(void);
 
 // insertion_sort.c
+void insertion_sort_2(int *arr, int len, int *insertions);
 void insertion_sort_1(int *arr, int len, int *insertions);
 
 // insertion_sort_tester.c
+void test_is_2(int *arr, int len);
 void test_is_1(int *arr, int len);
 
 // bubble_sort.c

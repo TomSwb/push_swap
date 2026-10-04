@@ -5,27 +5,33 @@ void insertion_sort_2(int *arr, int len, int *insertions)
 {
     int i;
     int next;
+    int last;
     int temp;
     int insertion;
     
-    i = 1;
-    while (i < len - 1)
+    insertion = 0;
+    i = 0;
+    next = 1;
+    while (next < len)
     {
-        insertion = 0;
-        while (i < len - 1 && arr[i] > arr[i - 1])
-            i++;
-        next = i;
-        temp = arr[i];
-        while (i > 0 && arr[i] < arr[i - 1])
+        while (next < len && arr[i] < arr[next])
+            next++;
+        if (arr[i] < arr[next])
         {
-            arr[i] = arr[i - 1];
-            i--;
+            temp = arr[next];
+            last = next;
+            while (next > i + 1 && arr[i] < arr[next])
+            {
+                arr[next - 1] = arr[next];
+                next--;
+            }
+            arr[i] = temp;
             insertion++;
+            i = next;
+            next = last;
         }
-        arr[i - 1] = temp;
         if (insertion > 0)
             (*insertions)++;
-        i = next;
     }
 }
 

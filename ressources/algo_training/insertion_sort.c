@@ -10,7 +10,7 @@ void insertion_sort_1(int *arr, int len, int *insertions)
     i = 1;
     while (i < len)
     {
-        while (arr[i] > arr[i - 1])
+        while (i < len && arr[i] > arr[i - 1])
             i++;
         next = i;
         while (arr[i] < arr[i - 1])

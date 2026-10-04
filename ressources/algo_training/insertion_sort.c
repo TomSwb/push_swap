@@ -11,10 +11,8 @@ void insertion_sort_4(int *arr, int len, int *insertions)
         while (i < len - 1 && arr[i] > arr[i - 1])
             i++;
         if (i < len)
-            binary_insert(&i, arr, insertions);
-        else
-            i++;
-        }
+            binary_insert(i, arr, insertions);
+        i++;
     }
 }
 
@@ -30,7 +28,7 @@ void binary_insert(int i, int *arr, int *insertions)
     block_len = binary_search(i, arr, temp, &low);
     if (block_len > 0)
     {
-        memmove(&arr[low] + 1, &arr[low], sizeof(int) * block_len);
+        ft_memmove(&arr[low] + 1, &arr[low], sizeof(int) * block_len);
         arr[low] = temp;
         (*insertions)++;
     }
@@ -46,7 +44,7 @@ int binary_search(int i, int *arr, int temp, int *low)
     {
         mid = (*low) + (high - (*low)) / 2;
         if (arr[mid] < temp)
-            (*low) = mid + 1;
+            *low = mid + 1;
         else
             high = mid;
     }
@@ -77,7 +75,7 @@ void insertion_sort_3(int *arr, int len, int *insertions)
             }
             if (block_len > 0)
             {
-                memmove(&arr[i] + 1, &arr[i], sizeof(int) * block_len);
+                ft_memmove(&arr[i] + 1, &arr[i], sizeof(int) * block_len);
                 arr[i] = temp;
                 (*insertions)++;
                 i = next;

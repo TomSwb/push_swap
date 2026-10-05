@@ -1,5 +1,5 @@
 
-#include "algo_training.h"
+#include "../algo_training.h"
 
 void test_ss_1(int *arr, int len)
 {

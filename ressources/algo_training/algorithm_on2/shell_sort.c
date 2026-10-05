@@ -5,9 +5,11 @@ void shell_sort_1(int *arr, int len)
 {
     int i;
     int i_gap;
+    int div;
     int temp;
     
     i = 0;
+    div = 2;
     while (i < len - 1)
     {
         if (len > div)

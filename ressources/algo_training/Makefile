@@ -6,7 +6,7 @@
 #    By: tomswb <tomswb@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/01 23:17:43 by tomswb            #+#    #+#              #
-#    Updated: 2026/10/03 12:54:41 by tomswb           ###   ########.fr        #
+#    Updated: 2026/10/05 10:43:02 by tomswb           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,12 +19,12 @@ LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
 SRCS = main.c \
-	./algorithm/bubble_sort.c \
-	./algorithm/bubble_sort_tester.c \
-	./algorithm/insertion_sort.c \
-	./algorithm/insertion_sort_tester.c \
-	./algorithm/selection_sort.c \
-	./algorithm/selection_sort_tester.c
+	./algorithm_on2/bubble_sort.c \
+	./algorithm_on2/bubble_sort_tester.c \
+	./algorithm_on2/insertion_sort.c \
+	./algorithm_on2/insertion_sort_tester.c \
+	./algorithm_on2/selection_sort.c \
+	./algorithm_on2/selection_sort_tester.c
 
 OBJS = $(SRCS:.c=.o)
 

@@ -9,6 +9,10 @@ void ss_test(void);
 void is_test(void);
 void bs_test(void);
 
+//---------------------------//
+
+// ./algorithm_on2/..
+
 // selection_sort.c
 void selection_sort_1(int *arr, int len, int *selections, int *comparisons);
 

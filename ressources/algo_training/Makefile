@@ -24,7 +24,9 @@ SRCS = main.c \
 	./algorithm_on2/insertion_sort.c \
 	./algorithm_on2/insertion_sort_tester.c \
 	./algorithm_on2/selection_sort.c \
-	./algorithm_on2/selection_sort_tester.c
+	./algorithm_on2/selection_sort_tester.c \
+	./algorithm_on2/shell_sort.c \
+	./algorithm_on2/shell_sort_tester.c
 
 OBJS = $(SRCS:.c=.o)
 

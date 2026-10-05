@@ -5,8 +5,10 @@ void test_ss_1(int *arr, int len)
 {
     int i;
     int selections;
+    int comparisons;
     
     selections = 0;
+    comparisons = 0;
     i = 0;
     while (i < len - 1)
     {
@@ -14,7 +16,7 @@ void test_ss_1(int *arr, int len)
         i++;
     }
     ft_printf("%d\n", arr[i]);
-    selection_sort_1(arr, len, &selections);
+    selection_sort_1(arr, len, &selections, &comparisons);
     i = 0;
     while (i < len - 1)
     {
@@ -22,5 +24,7 @@ void test_ss_1(int *arr, int len)
         i++;
     }
 	ft_printf("%d\n", arr[i]);
+    ft_printf("Comparisons: %d\n", comparisons);
     ft_printf("Selections: %d\n", selections);
+    ft_printf("Moves: %d\n", selections * 2);
 }

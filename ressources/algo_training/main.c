@@ -5,10 +5,10 @@ int main(void)
 {
 	bs_test();
 	is_test();
-	ss_test();
+	slct_test();
 }
 
-void ss_test(void)
+void select_test(void)
 {
 	int len = 10;
 	
@@ -18,18 +18,18 @@ void ss_test(void)
 	int	end_arr1[10] = {0, 1, 2, 3, 4, 5, 6, 7, 9, 8};
 
 	ft_printf("\n-----------------------\n");
-	ft_printf("Testing ss_1:");
+	ft_printf("Testing slct_1:");
 	ft_printf("\n-----------------------\n");
 	ft_printf("\nMixed:\n");
-	test_ss_1(arr1, len);
+	test_slct_1(arr1, len);
 	ft_printf("\nReverse:\n");
-	test_ss_1(rev_arr1, len);
+	test_slct_1(rev_arr1, len);
 	ft_printf("\nSorted:\n");
-	test_ss_1(arr1, len);
+	test_slct_1(arr1, len);
 	ft_printf("\nLight start mixed:\n");
-	test_ss_1(str_arr1, len);
+	test_slct_1(str_arr1, len);
 	ft_printf("\nLight end mixed:\n");
-	test_ss_1(end_arr1, len);
+	test_slct_1(end_arr1, len);
 
 	ft_printf("\n");
 }

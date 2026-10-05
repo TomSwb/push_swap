@@ -15,6 +15,7 @@ void bs_test(void);
 
 // shell_sort.c
 void shell_sort_1(int *arr, int len);
+void place_back_loop(int *arr, int *i, int len, int div);
 
 // shell_sort_tester.c
 void test_shell_1(int *arr, int len);

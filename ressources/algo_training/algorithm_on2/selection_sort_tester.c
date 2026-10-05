@@ -1,7 +1,7 @@
 
 #include "../algo_training.h"
 
-void test_ss_1(int *arr, int len)
+void test_slct_1(int *arr, int len)
 {
     int i;
     int selections;

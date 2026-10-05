@@ -5,7 +5,7 @@
 #include "./libft/libft.h"
 
 // main.c
-void ss_test(void);
+void slct_test(void);
 void is_test(void);
 void bs_test(void);
 
@@ -18,8 +18,7 @@ void selection_sort_1(int *arr, int len, int *selections, int *comparisons);
 void place_lowest(int *arr, int pos, int lowest_pos, int *selections);
 
 // selection_sort_tester.c
-void test_ss_2(int *arr, int len);
-void test_ss_1(int *arr, int len);
+void test_slct_1(int *arr, int len);
 
 // insertion_sort.c
 void insertion_sort_4(int *arr, int len, int *insertions, int *comparisons, int* moves);

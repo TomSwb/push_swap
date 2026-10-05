@@ -1,5 +1,5 @@
 
-#include "algo_training.h"
+#include "../algo_training.h"
 
 // 5th try last optimization
 void bubble_sort_5(int *arr, int len, int *operations)

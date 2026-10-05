@@ -27,7 +27,8 @@ void shell_sort_1(int *arr, int len)
                     temp = arr[i];
                     arr[i] = arr[i_gap];
                     arr[i_gap] = temp;
-                    i = i - i_gap;
+                    i -= i_gap;
+                    i_gap -= i_gap;
                 }
                 i = 0;
                 if (len > div)

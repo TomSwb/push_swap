@@ -3,9 +3,101 @@
 
 int main(void)
 {
-	//select_test();
+	ss_test();
 	is_test();
 	bs_test();
+}
+
+void ss_test(void)
+{
+	
+	int len = 10;
+	
+	int arr1[10] = {7, 2, 9, 0, 5, 3, 8, 1, 6, 4};
+	int rev_arr1[10] = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
+	int	str_arr1[10] = {1, 0, 2, 3, 4, 5, 6, 7, 8, 9};
+	int	end_arr1[10] = {0, 1, 2, 3, 4, 5, 6, 7, 9, 8};
+
+	ft_printf("\n-----------------------\n");
+	ft_printf("Testing ss_1:");
+	ft_printf("\n-----------------------\n");
+	ft_printf("\nMixed:\n");
+	test_ss_1(arr1, len);
+	ft_printf("\nReverse:\n");
+	test_ss_1(rev_arr1, len);
+	ft_printf("\nSorted:\n");
+	test_ss_1(arr1, len);
+	ft_printf("\nLight start mixed:\n");
+	test_ss_1(str_arr1, len);
+	ft_printf("\nLight end mixed:\n");
+	test_ss_1(end_arr1, len);
+
+	/*
+	int arr2[10] = {7, 2, 9, 0, 5, 3, 8, 1, 6, 4}; 
+	int rev_arr2[10] = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
+	int	str_arr2[10] = {1, 0, 2, 3, 4, 5, 6, 7, 8, 9};
+	int	end_arr2[10] = {0, 1, 2, 3, 4, 5, 6, 7, 9, 8};
+
+	ft_printf("\n");
+	ft_printf("\n-----------------------\n");
+	ft_printf("Testing is_2:");
+	ft_printf("\n-----------------------\n");
+	ft_printf("\nMixed:\n");
+	test_is_2(arr2, len);
+	ft_printf("\nReverse:\n");
+	test_is_2(rev_arr2, len);
+	ft_printf("\nSorted:\n");
+	test_is_2(arr2, len);
+	ft_printf("\nLight start mixed:\n");
+	test_is_2(str_arr2, len);
+	ft_printf("\nLight end mixed:\n");
+	test_is_2(end_arr2, len);
+
+
+	int arr3[10] = {7, 2, 9, 0, 5, 3, 8, 1, 6, 4};
+	int rev_arr3[10] = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
+	int	str_arr3[10] = {1, 0, 2, 3, 4, 5, 6, 7, 8, 9};
+	int	end_arr3[10] = {0, 1, 2, 3, 4, 5, 6, 7, 9, 8};
+
+	ft_printf("\n");
+	ft_printf("\n-----------------------\n");
+	ft_printf("Testing is_3:");
+	ft_printf("\n-----------------------\n");
+	ft_printf("\nMixed:\n");
+	test_is_3(arr3, len);
+	ft_printf("\nReverse:\n");
+	test_is_3(rev_arr3, len);
+	ft_printf("\nSorted:\n");
+	test_is_3(arr3, len);
+	ft_printf("\nLight start mixed:\n");
+	test_is_3(str_arr3, len);
+	ft_printf("\nLight end mixed:\n");
+	test_is_3(end_arr3, len);
+	
+	
+	int arr4[10] = {7, 2, 9, 0, 5, 3, 8, 1, 6, 4};
+	int rev_arr4[10] = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
+	int	str_arr4[10] = {1, 0, 2, 3, 4, 5, 6, 7, 8, 9};
+	int	end_arr4[10] = {0, 1, 2, 3, 4, 5, 6, 7, 9, 8};
+	
+	ft_printf("\n");
+	ft_printf("\n-----------------------\n");
+	ft_printf("Testing is_4:");
+	ft_printf("\n-----------------------\n");
+	ft_printf("\nMixed:\n");
+	test_is_4(arr4, len);
+	ft_printf("\nReverse:\n");
+	test_is_4(rev_arr4, len);
+	ft_printf("\nSorted:\n");
+	test_is_4(arr4, len);
+	ft_printf("\nLight start mixed:\n");
+	test_is_4(str_arr4, len);
+	ft_printf("\nLight end mixed:\n");
+	test_is_4(end_arr4, len);
+	
+	
+	ft_printf("\n");
+	*/
 }
 
 void is_test(void)

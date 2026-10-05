@@ -6,6 +6,8 @@
 
 // main.c
 void shell_test(void);
+
+// on2_test.c
 void slct_test(void);
 void is_test(void);
 void bs_test(void);

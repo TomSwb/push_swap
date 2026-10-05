@@ -5,6 +5,7 @@
 #include "./libft/libft.h"
 
 // main.c
+void shell_test(void);
 void slct_test(void);
 void is_test(void);
 void bs_test(void);

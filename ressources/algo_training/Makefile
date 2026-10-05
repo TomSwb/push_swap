@@ -18,7 +18,8 @@ CFLAGS = -Wall -Wextra -Werror
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-ON2 = ./algorithm_on2/bubble_sort.c \
+ON2 = on2_test.c \
+	./algorithm_on2/bubble_sort.c \
 	./algorithm_on2/bubble_sort_tester.c \
 	./algorithm_on2/insertion_sort.c \
 	./algorithm_on2/insertion_sort_tester.c \

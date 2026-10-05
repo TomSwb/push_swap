@@ -61,6 +61,7 @@ int binary_search(int i, int *arr, int temp, int *low, int *comparisons)
     return (i - (*low));
 }
 
+/*
 void insertion_sort_3(int *arr, int len, int *insertions)
 {
     int i;
@@ -151,3 +152,4 @@ void insertion_sort_1(int *arr, int len, int *insertions)
         i = next;
     }
 }
+*/

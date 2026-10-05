@@ -26,5 +26,5 @@ void test_ss_1(int *arr, int len)
 	ft_printf("%d\n", arr[i]);
     ft_printf("Comparisons: %d\n", comparisons);
     ft_printf("Selections: %d\n", selections);
-    ft_printf("Moves: %d\n", selections * 2);
+    ft_printf("Moves: %d\n", selections);
 }

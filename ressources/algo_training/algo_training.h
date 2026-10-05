@@ -15,8 +15,10 @@ void bs_test(void);
 
 // selection_sort.c
 void selection_sort_1(int *arr, int len, int *selections, int *comparisons);
+void place_lowest(int *arr, int pos, int lowest_pos, int *selections);
 
 // selection_sort_tester.c
+void test_ss_2(int *arr, int len);
 void test_ss_1(int *arr, int len);
 
 // insertion_sort.c

@@ -31,6 +31,7 @@ void test_is_4(int *arr, int len)
     ft_printf("Moves: %d\n", moves);
 }
 
+/*
 void test_is_3(int *arr, int len)
 {
     int i;
@@ -102,3 +103,4 @@ void test_is_1(int *arr, int len)
 	ft_printf("%d\n", arr[i]);
     ft_printf("Insertions: %d\n", insertions);
 }
+*/

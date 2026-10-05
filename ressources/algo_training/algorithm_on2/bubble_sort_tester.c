@@ -31,7 +31,7 @@ void test_bs_5(int *arr, int len)
     ft_printf("Bubble Swaps: %d\n", swaps);
     ft_printf("Moves: %d\n", moves);
 }
-
+/*
 void test_bs_4(int *arr, int len)
 {
     int i;
@@ -131,3 +131,4 @@ void test_bs_1(int *arr, int len)
 	ft_printf("%d\n", arr[i]);
     ft_printf("Operations: %d\n", operations);
 }
+*/

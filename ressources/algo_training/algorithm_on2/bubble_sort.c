@@ -65,6 +65,7 @@ void right_left_swap(int *arr, int *i, int *last_swap, int *comparisons, int *sw
     (*i)--;
 }
 
+/*
 // 4th try 3rd optimization
 void bubble_sort_4(int *arr, int len, int *operations)
 {
@@ -183,7 +184,6 @@ void bubble_sort_1(int *arr, int len, int *operations)
     }
 }
 
-/*
 // stack version
 void bubble_sort_stack(t_stack **stack)
 {

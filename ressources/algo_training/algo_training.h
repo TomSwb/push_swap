@@ -5,8 +5,15 @@
 #include "./libft/libft.h"
 
 // main.c
+void ss_test(void);
 void is_test(void);
 void bs_test(void);
+
+// selection_sort.c
+void selection_sort_1(int *arr, int len, int *selections);
+
+// selection_sort_tester.c
+void test_ss_1(int *arr, int len);
 
 // insertion_sort.c
 void insertion_sort_4(int *arr, int len, int *insertions);

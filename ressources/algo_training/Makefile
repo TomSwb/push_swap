@@ -18,15 +18,17 @@ CFLAGS = -Wall -Wextra -Werror
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-SRCS = main.c \
-	./algorithm_on2/bubble_sort.c \
+ON2 = ./algorithm_on2/bubble_sort.c \
 	./algorithm_on2/bubble_sort_tester.c \
 	./algorithm_on2/insertion_sort.c \
 	./algorithm_on2/insertion_sort_tester.c \
 	./algorithm_on2/selection_sort.c \
-	./algorithm_on2/selection_sort_tester.c \
-	./algorithm_on2/shell_sort.c \
-	./algorithm_on2/shell_sort_tester.c
+	./algorithm_on2/selection_sort_tester.c
+
+ONROOTN = ./algorithm_onrootn/shell_sort.c \
+	./algorithm_onrootn/shell_sort_tester.c
+
+SRCS = main.c ${ON2} ${ONROOTN}
 
 OBJS = $(SRCS:.c=.o)
 

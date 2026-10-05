@@ -13,6 +13,12 @@ void bs_test(void);
 
 // ./algorithm_on2/..
 
+// shell_sort.c
+void shell_sort_1(int *arr, int len);
+
+// shell_sort_tester.c
+void test_shell_1(int *arr, int len);
+
 // selection_sort.c
 void selection_sort_1(int *arr, int len, int *selections, int *comparisons);
 void place_lowest(int *arr, int pos, int lowest_pos, int *selections);

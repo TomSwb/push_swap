@@ -7,23 +7,34 @@ void selection_sort_2(int *arr, int len, int *selections, int *comparisons)
     int pos;
     int lowest;
     int lowest_pos;
+    int skip;
     
+    skip = 1;
     pos = 0;
     while (pos < len - 1)
     {
         lowest = arr[pos];
         lowest_pos = pos;
-        i = pos + 1;
+        i = skip;
+        skip = pos + 1;
         while (i < len)
-            find_lowest(arr, &i, &lowest, &lowest_pos, comparisons)
-		if (arr[pos] > arr[lowest_pos])
-    		place_lowest(arr, pos, lowest_pos, selections)
+        {
+            if (find_lowest(arr, &i, &lowest, &lowest_pos, comparisons))
+                skip = i - 1;
+        }
+        if (arr[pos] > arr[lowest_pos])
+            place_lowest(arr, pos, lowest_pos, selections)
         pos++;
     }
 }
 
-void find_lowest(int *arr, int *i, int *lowest, int *lowest_pos, int *comparisons)
+int find_lowest(int *arr, int *i, int *lowest, int *lowest_pos, int *comparisons)
 {
+    int sorted
+    
+    sorted = 0;
+    if (arr[*i] < arr[(*i) - 1]
+        sorted = 1;
     (*comparisons)++;
     if (*lowest > arr[*i])
     {
@@ -31,16 +42,17 @@ void find_lowest(int *arr, int *i, int *lowest, int *lowest_pos, int *comparison
         *lowest_pos = *i;
     }
     (*i)++;
+    return (sorted);
 }
 
 void place_lowest(int *arr, int pos, int lowest_pos, int *selections)
 {
-	int temp;
+    int temp;
     
     temp = arr[pos];
-	arr[pos] = arr[lowest_pos];
-	arr[lowest_pos] = temp;
-	(*selections)++;
+    arr[pos] = arr[lowest_pos];
+    arr[lowest_pos] = temp;
+    (*selections)++;
 }
 
 void selection_sort_1(int *arr, int len, int *selections, int *comparisons)

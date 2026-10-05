@@ -4,7 +4,6 @@
 void shell_sort_1(int *arr, int len)
 {
     int i;
-    int i_gap;
     int div;
     int temp;
     
@@ -12,37 +11,28 @@ void shell_sort_1(int *arr, int len)
     div = 2;
     while (i < len - 1)
     {
-        if (len > div)
-            i_gap = len / div;
-        else
-            i_gap = 1;
         // looking forward loop
-        while (i_gap < len)
+        while (len / div < len)
         {
-            if (arr[i] > arr[i_gap])
+            if (arr[i] > arr[len / div])
             {
                 // bringing back loop
-                while (i => 0 && arr[i] > arr[i_gap])
+                while (i => 0 && arr[i] > arr[len / div])
                 {
                     temp = arr[i];
-                    arr[i] = arr[i_gap];
-                    arr[i_gap] = temp;
-                    i -= i_gap;
-                    i_gap -= i_gap;
+                    arr[i] = arr[len / div];
+                    arr[len / div] = temp;
+                    i -= (len / div)
                 }
                 i = 0;
-                if (len > div)
-                    i_gap = len / div;
-                else
-                    i_gap = 1;
             }
             else
-            {
                 i++;
-                i_gap++;
-            }
         }
-        div *= 2;
+        if (div < len)
+            div *= 2;
+        else
+            div = len;
         i++;
     }
 }

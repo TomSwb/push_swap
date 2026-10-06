@@ -11,7 +11,7 @@ void merge_sort_1(int *arr, int len)
 	if (len <= 1)
 		return ;
 	merge_sort_1(arr, len / 2);
-	merge_sort_1(arr[len / 2], len / 2);
+	merge_sort_1(arr + len / 2, len - len / 2);
 	temp = malloc(sizeof(int) * len);
 	if (!temp)
 		return ;

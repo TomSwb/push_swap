@@ -9,7 +9,7 @@ void merge_sort_1(int *arr, int len)
 	if (!is_sorted(arr, len))
 	{
 		merge_sort_1(arr, len / 2);
-		merge_sort_1(arr[len / 2], len / 2);
+		merge_sort_1(&arr[len / 2], len / 2);
 	}
 	i = 0;
 	if (len <= 0)

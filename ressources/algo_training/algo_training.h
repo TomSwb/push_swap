@@ -24,6 +24,7 @@ void merge_test(void);
 
 // merge_sort.c
 void merge_sort_1(int *arr, int len);
+int *sort_temp(int *arr, int len, int left, int right);
 
 // merge_sort_tester.c
 void test_merge_1(int *arr, int len);

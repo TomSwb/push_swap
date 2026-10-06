@@ -21,6 +21,7 @@ void merge_test(void);
 
 // merge_sort.c
 void merge_sort_1(int *arr, int len);
+int is_sorted(int *arr, int len);
 
 // merge_sort_tester.c
 void test_merge_1(int *arr, int len);

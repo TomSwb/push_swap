@@ -11,18 +11,18 @@ void merge_test(void)
 	int	end_arr1[10] = {0, 1, 2, 3, 4, 5, 6, 7, 9, 8};
 
 	ft_printf("\n-----------------------\n");
-	ft_printf("Testing shell_1:");
+	ft_printf("Testing merge_1:");
 	ft_printf("\n-----------------------\n");
 	ft_printf("\nMixed:\n");
-	test_shell_1(arr1, len);
+	test_merge_1(arr1, len);
 	ft_printf("\nReverse:\n");
-	test_shell_1(rev_arr1, len);
+	test_merge_1(rev_arr1, len);
 	ft_printf("\nSorted:\n");
-	test_shell_1(arr1, len);
+	test_merge_1(arr1, len);
 	ft_printf("\nLight start mixed:\n");
-	test_shell_1(str_arr1, len);
+	test_merge_1(str_arr1, len);
 	ft_printf("\nLight end mixed:\n");
-	test_shell_1(end_arr1, len);
+	test_merge_1(end_arr1, len);
 
 	ft_printf("\n");
 }

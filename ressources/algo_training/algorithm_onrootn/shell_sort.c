@@ -4,58 +4,57 @@
 void shell_sort_1(int *arr, int len)
 {
 	int	i;
-	int	i_gap;
-	int	div;
-	int	temp;
+	int	gap;
 	int swapped;
+	int	swap_1;
 
 	i = 0;
-	div = 2;
+	swap_1 = 0;
+	gap = len / 2;
 	while (i < len - 1)
 	{
-		if (len / div >= 1)
-			i_gap = len / div;
-		else
-		 	i_gap = 1;
 		swapped = 0;
-		while ((i + i_gap) < len)
-		{
-			if (arr[i] > arr[i + i_gap])
-			{
-				// bringing back loop
-				// place_back_loop(arr, &i, len, div)
-				while (i >= 0 && arr[i] > arr[i + i_gap])
-				{
-					temp = arr[i];
-					arr[i] = arr[i + i_gap];
-					arr[i + i_gap] = temp;
-					i -= i_gap;
-					swapped += 1;
-				}
-				i = 0;
-			}
-			else
-				i++;
-		}
-		ft_printf("%d\n", i_gap);
-		div *= 2;
-		if (swapped)
+		while ((i + gap) < len)
+			swapped += shell_manager(arr, &i, gap, &swap_1);
+		if (gap / 2 > 1)
+			gap /= 2;
+		else
+		 	gap = 1;
+		if (swapped || !swap_1)
 			i = 0;
 		else
 			i++;
 	}
 }
 
-void place_back_loop(int *arr, int *i, int len, int div)
+int	shell_manager(int *arr, int *i, int gap, int *swap_1)
+{
+	int swapped;
+
+	swapped = 0;
+	if (gap == 1)
+		(*swap_1) += 1;
+	if (arr[*i] > arr[(*i) + gap])
+		swapped += place_back_loop(arr, i, gap);
+	else
+		(*i)++;
+	return (swapped);
+}
+
+int place_back_loop(int *arr, int *i, int gap)
 {
 	int	temp;
-	// bringing back loop
-	while (*i >= 0 && arr[*i] > arr[len / div])
+	int swapped;
+
+	swapped = 0;
+	while (*i >= 0 && arr[*i] > arr[(*i) + gap])
 	{
 		temp = arr[*i];
-		arr[*i] = arr[len / div];
-		arr[len / div] = temp;
-		*i -= len / div;
+		arr[*i] = arr[(*i) + gap];
+		arr[(*i) + gap] = temp;
+		*i -= gap;
+		swapped += 1;
 	}
 	*i = 0;
+	return (swapped);
 }

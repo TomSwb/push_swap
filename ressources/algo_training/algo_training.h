@@ -4,21 +4,33 @@
 
 #include "./libft/libft.h"
 
-// main.c
-void shell_test(void);
-
 // on2_test.c
 void slct_test(void);
 void is_test(void);
 void bs_test(void);
 
+// onrootn_test.c
+void shell_test(void);
+
+// onlogn_test.c
+void merge_test(void);
+
 //---------------------------//
+
+// ./algorithm_onlogn/..
+
+// merge_sort.c
+void merge_sort_1(int *arr, int len);
+
+// merge_sort_tester.c
+void test_merge_1(int *arr, int len);
 
 // ./algorithm_onrootn/..
 
 // shell_sort.c
 void shell_sort_1(int *arr, int len);
-void place_back_loop(int *arr, int *i, int len, int div);
+int	shell_manager(int *arr, int *i, int gap, int *swap_1);
+int place_back_loop(int *arr, int *i, int gap);
 
 // shell_sort_tester.c
 void test_shell_1(int *arr, int len);

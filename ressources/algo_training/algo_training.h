@@ -2,25 +2,35 @@
 #ifndef ALGO_TRAINING_H
 # define ALGO_TRAINING_H
 
+//----------- Libraries ----------------//
+
+// libft
 #include "./libft/libft.h"
 
 // malloc(); free();
 # include <unistd.h>
 
+//----------- Functions ----------------//
+
+// onlogn_test.c
+void quick_test(void);
+void merge_test(void);
+
 // on2_test.c
+void shell_test(void);
 void slct_test(void);
 void is_test(void);
 void bs_test(void);
 
-// onrootn_test.c
-void shell_test(void);
-
-// onlogn_test.c
-void merge_test(void);
-
-//---------------------------//
+//---------- O(n log n) ----------------//
 
 // ./algorithm_onlogn/..
+
+// quick_sort.c
+void quick_sort_1(int *arr, int len);
+
+// quick_sort_tester.c
+void test_quick_1(int *arr, int len);
 
 // merge_sort.c
 void merge_sort_1(int *arr, int len);
@@ -29,7 +39,9 @@ int *sort_temp(int *arr, int len, int left, int right);
 // merge_sort_tester.c
 void test_merge_1(int *arr, int len);
 
-// ./algorithm_onrootn/..
+//---------- O(n2) --------------------//
+
+// ./algorithm_on2/..
 
 // shell_sort.c
 void shell_sort_1(int *arr, int len);
@@ -38,10 +50,6 @@ int place_back_loop(int *arr, int *i, int gap);
 
 // shell_sort_tester.c
 void test_shell_1(int *arr, int len);
-
-//---------------------------//
-
-// ./algorithm_on2/..
 
 // selection_sort.c
 void selection_sort_1(int *arr, int len, int *selections, int *comparisons);

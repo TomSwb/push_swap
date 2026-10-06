@@ -28,7 +28,7 @@ int *sort_temp(int *arr, int len, int left, int right)
 	dest = 0;
 	temp = malloc(sizeof(int) * len);
 	if (!temp)
-		return ;
+		return (NULL);
 	while (left < len / 2 && right < len)
 	{
 		if (arr[left] < arr[right])

@@ -4,6 +4,9 @@
 
 #include "./libft/libft.h"
 
+// malloc(); free();
+# include <unistd.h>
+
 // on2_test.c
 void slct_test(void);
 void is_test(void);

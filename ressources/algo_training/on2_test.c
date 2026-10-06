@@ -1,7 +1,7 @@
 
 #include "algo_training.h"
 
-void select_test(void)
+void slct_test(void)
 {
 	int len = 10;
 	

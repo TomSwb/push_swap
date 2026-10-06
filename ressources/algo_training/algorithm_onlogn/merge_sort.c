@@ -3,26 +3,34 @@
 
 void merge_sort_1(int *arr, int len)
 {
-	int i;
+	int left;
+	int right;
 	int temp;
 	
 	if (!is_sorted(arr, len))
 	{
 		merge_sort_1(arr, len / 2);
-		merge_sort_1(&arr[len / 2], len / 2);
+		merge_sort_1(arr[len / 2], len / 2);
 	}
-	i = 0;
+	left = 0;
+	right = len / 2;
 	if (len <= 0)
 		len = 1;
-	while (i < len - 1)
+	while (left < len - 1)
 	{
-		if (arr[i] > arr[i + 1])
+		if (arr[left] > arr[right])
 		{
-			temp = arr[i];
-			arr[i] = arr[i + 1];
-			arr[i + 1] = temp;
+			temp = arr[left];
+			arr[left] = arr[right];
+			arr[right] = temp;
 		}
-		i++;
+		if (right < len - 1)
+			right++;
+		else
+		{
+			left++;
+			right = len / 2;
+		}
 	}
 }
 

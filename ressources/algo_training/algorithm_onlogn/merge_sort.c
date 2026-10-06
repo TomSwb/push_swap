@@ -18,6 +18,9 @@ void merge_sort_1(int *arr, int len)
 	left = 0;
 	right = len / 2;
 	dest = 0;
+	
+	
+	
 	while (left < len / 2)
 	{
 		if (arr[left] > arr[right])
@@ -35,20 +38,4 @@ void merge_sort_1(int *arr, int len)
 		}
 	}
 	free(temp);
-}
-
-int is_sorted(int *arr, int len)
-{
-	int i;
-	
-	i = 0;
-	if (len <= 1)
-		return (1);
-	while (i < len - 1)
-	{
-		if (arr[i] > arr[i + 1])
-			return (0);
-		i++;
-	}
-	return (1);
 }

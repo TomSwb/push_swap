@@ -16,7 +16,7 @@ void merge_sort_1(int *arr, int len)
 	right = len / 2;
 	if (len <= 0)
 		len = 1;
-	while (left < len - 1)
+	while (left < len / 2)
 	{
 		if (arr[left] > arr[right])
 		{

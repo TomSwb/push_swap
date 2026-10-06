@@ -24,7 +24,7 @@ void merge_sort_1(int *arr, int len)
 			arr[left] = arr[right];
 			arr[right] = temp;
 		}
-		if (right < len - 1)
+		if (right < len)
 			right++;
 		else
 		{

@@ -18,24 +18,38 @@ void merge_sort_1(int *arr, int len)
 	left = 0;
 	right = len / 2;
 	dest = 0;
-	
-	
-	
-	while (left < len / 2)
+	while (left < len / 2 && right < len)
 	{
-		if (arr[left] > arr[right])
+		if (arr[left] < arr[right])
 		{
-			temp = arr[left];
-			arr[left] = arr[right];
-			arr[right] = temp;
+			temp[dest] = arr[left];
+			dest++;
+			left++;
 		}
-		if (right < len)
-			right++;
 		else
 		{
-			left++;
-			right = len / 2;
+			temp[dest] = arr[right];
+			dest++;
+			right++;
 		}
+	}
+	while (left < len / 2)
+	{
+		temp[dest] = arr[left];
+		dest++;
+		left++;
+	}
+	while (right < len)
+	{
+		temp[dest] = arr[right];
+		dest++;
+		left++;
+	}
+	dest = 0;
+	while (dest < len)
+	{
+		arr[dest] = temp[dest];
+		dest++;
 	}
 	free(temp);
 }

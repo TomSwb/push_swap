@@ -16,7 +16,7 @@ void test_quick_1(int *arr, int len)
         i++;
     }
     ft_printf("%d\n", arr[i]);
-    quick_sort_1(arr, len);
+    quick_sort_1(arr, 0, len - 1);
     i = 0;
     while (i < len - 1)
     {

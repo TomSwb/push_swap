@@ -11,7 +11,7 @@ void quick_test(void)
 	int	end_arr1[10] = {0, 1, 2, 3, 4, 5, 6, 7, 9, 8};
 
 	ft_printf("\n-----------------------\n");
-	ft_printf("Testing merge_1:");
+	ft_printf("Testing quick_1:");
 	ft_printf("\n-----------------------\n");
 	ft_printf("\nMixed:\n");
 	test_quick_1(arr1, len);

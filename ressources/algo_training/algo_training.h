@@ -27,7 +27,8 @@ void bs_test(void);
 // ./algorithm_onlogn/..
 
 // quick_sort.c
-void quick_sort_1(int *arr, int low, int high);
+void	quick_sort_1(int *arr, int low, int high);
+void    quick_loop(int *arr, int *i, int *j, int low);
 
 // quick_sort_tester.c
 void test_quick_1(int *arr, int len);

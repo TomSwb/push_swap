@@ -11,9 +11,9 @@ void quick_sort_1(int *arr, int low, int high)
     if (low >= high)
         return ;
     pivot = arr[low];
-    i = low;
-    j = low;
-    while (j < high)
+    i = low + 1;
+    j = low + 1;
+    while (j <= high)
     {
         if (arr[j] < pivot)
         {
@@ -24,8 +24,9 @@ void quick_sort_1(int *arr, int low, int high)
         }
         j++;
     }
-    temp = arr[high];
-    arr[high] = arr[i];
+    i--;
+    temp = arr[low];
+    arr[low] = arr[i];
     arr[i] = temp;
     quick_sort_1(arr, low, i - 1);
     quick_sort_1(arr, i + 1, high);

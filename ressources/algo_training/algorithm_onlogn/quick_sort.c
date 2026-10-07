@@ -37,9 +37,22 @@ void quick_sort_1(int *arr, int len)
             i++;
         }
     }
-    quick_sort_1(left, len);
-    arr[j] = pivot;
-    quick_sort_1(right, len);
+    i = 0;
+    while (i < j)
+    {
+        arr[i] = left[i];
+        i++;
+    }
+    arr[i] = pivot;
+    i++;
+    j = 0;
+    while (i < len)
+    {
+        arr[i] = right[j];
+        i++;
+        j++;
+    }
 	free(left);
     free(right);
+    return (arr);
 }

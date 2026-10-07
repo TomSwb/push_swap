@@ -1,58 +1,32 @@
 
 #include "../algo_training.h"
 
-void quick_sort_1(int *arr, int len)
+void quick_sort_1(int *arr, int low, int high)
 {
 	int pivot;
     int i;
     int j;
-    int k;
-	int *left;
-    int *right
-	
-	if (len <= 1)
-		return ;
-    i = 0;
-    j = 0;
-    k = 0;
-    left = malloc(sizeof(int) * len);
-	if (!left)
-		return (NULL);
-    right = malloc(sizeof(int) * len);
-	if (!right)
-		return (NULL);
-	pivot = arr[i]
-    while (i < len - 1)
+    int temp;
+    
+    if (low >= high)
+        return ;
+    pivot = arr[low];
+    i = low;
+    j = low;
+    while (j < high)
     {
-        if (pivot < arr[i])
+        if (arr[j] < pivot)
         {
-            left[j] = arr[i]
-            j++;
+            temp = arr[j];
+            arr[j] = arr[i];
+            arr[i] = temp;
             i++;
         }
-        else
-        {
-            right[k] = arr[i]
-            k++;
-            i++;
-        }
-    }
-    i = 0;
-    while (i < j)
-    {
-        arr[i] = left[i];
-        i++;
-    }
-    arr[i] = pivot;
-    i++;
-    j = 0;
-    while (i < len)
-    {
-        arr[i] = right[j];
-        i++;
         j++;
     }
-	free(left);
-    free(right);
-    return (arr);
+    temp = arr[high];
+    arr[high] = arr[i];
+    arr[i] = temp;
+    quick_sort_1(arr, low, i - 1);
+    quick_sort_1(arr, i + 1, high);
 }

@@ -3,14 +3,6 @@
 
 void quick_sort_1(int *arr, int len)
 {
-    int pivot;
-    
-    pivot = len - 1;
-    
-}
-
-void quick_sort_1(int *arr, int len)
-{
 	int pivot;
     int i;
     int j;
@@ -69,27 +61,4 @@ void quick_sort_1(int *arr, int len)
     }
 	free(left);
     free(right);
-}
-
-int *sort_temp(int *arr, int len, int left, int right)
-{
-	int *temp;
-	int dest;
-	
-	dest = 0;
-	temp = malloc(sizeof(int) * len);
-	if (!temp)
-		return (NULL);
-	while (left < len / 2 && right < len)
-	{
-		if (arr[left] < arr[right])
-			temp[dest++] = arr[left++];
-		else
-			temp[dest++] = arr[right++];
-	}
-	while (left < len / 2)
-		temp[dest++] = arr[left++];
-	while (right < len)
-		temp[dest++] = arr[right++];
-	return (temp);
 }

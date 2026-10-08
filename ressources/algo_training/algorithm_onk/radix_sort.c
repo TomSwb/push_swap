@@ -4,7 +4,7 @@
 void radix_sort_2(int *arr, int len)
 {
     long iteration;
-    long it;
+    int it;
     
     iteration = find_longest(int *arr, int len);
     it = 1;
@@ -15,7 +15,7 @@ void radix_sort_2(int *arr, int len)
     }
 }
 
-void counting_sort( int *arr, int len, long it)
+void counting_sort( int *arr, int len, int it)
 {
     int *count;
     int *temp;
@@ -44,7 +44,7 @@ void counting_sort( int *arr, int len, long it)
     free(count);
 }
 
-int *create_count(int *arr, int len, long it)
+int *create_count(int *arr, int len, int it)
 {
     int *count;
     int i;
@@ -88,7 +88,7 @@ void radix_sort_1(int *arr, int len)
     }
 }
 
-void digit_sort( int *arr, int len, long it)
+void digit_sort( int *arr, int len, int it)
 {
     int *temp;
     int j;

@@ -31,13 +31,13 @@ void bs_test(void);
 
 // radix_sort.c
 void radix_sort_2(int *arr, int len);
-void counting_sort(int *arr, int len, long it);
-int *create_count(int *arr, int len, long it);
+void counting_sort(int *arr, int len, int it);
+int *create_count(int *arr, int len, int it);
 
 void radix_sort_1(int *arr, int len);
-void digit_sort( int *arr, int len, long it);
+void digit_sort( int *arr, int len, int it);
 
-int find_longest(int *arr, int len);
+long find_longest(int *arr, int len);
 void temp_to_arr(int *arr, int *temp, int len);
 
 // radix_sort_tester.c

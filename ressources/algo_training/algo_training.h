@@ -22,6 +22,18 @@ void slct_test(void);
 void is_test(void);
 void bs_test(void);
 
+//---------- O(nk) ----------------//
+
+// ./algorithm_onk/..
+
+// radix_sort.c
+void radix_sort_1(int *arr, int len);
+
+
+// radix_sort_tester.c
+void test_radix_2(int *arr, int len);
+void test_radix_1(int *arr, int len);
+
 //---------- O(n log n) ----------------//
 
 // ./algorithm_onlogn/..

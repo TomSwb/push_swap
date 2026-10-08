@@ -1,11 +1,11 @@
 
 #include "../algo_training.h"
 
-void merge_sort_1(int *arr, int len)
+void	merge_sort_1(int *arr, int len)
 {
-	int dest;
-	int *temp;
-	
+	int	dest;
+	int	*temp;
+
 	if (len <= 1)
 		return ;
 	merge_sort_1(arr, len / 2);
@@ -20,11 +20,11 @@ void merge_sort_1(int *arr, int len)
 	free(temp);
 }
 
-int *sort_temp(int *arr, int len, int left, int right)
+int	*sort_temp(int *arr, int len, int left, int right)
 {
-	int *temp;
-	int dest;
-	
+	int	*temp;
+	int	dest;
+
 	dest = 0;
 	temp = malloc(sizeof(int) * len);
 	if (!temp)

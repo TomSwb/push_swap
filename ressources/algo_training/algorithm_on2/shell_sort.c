@@ -1,11 +1,11 @@
 
 #include "../algo_training.h"
 
-void shell_sort_1(int *arr, int len)
+void	shell_sort_1(int *arr, int len)
 {
 	int	i;
 	int	gap;
-	int swapped;
+	int	swapped;
 	int	swap_1;
 
 	i = 0;
@@ -17,9 +17,9 @@ void shell_sort_1(int *arr, int len)
 		while ((i + gap) < len)
 			swapped += shell_manager(arr, &i, gap, &swap_1);
 		if (gap / 2 > 1)
-			gap /= 2;
+			gap /= 2; 
 		else
-		 	gap = 1;
+			gap = 1;
 		if (swapped || !swap_1)
 			i = 0;
 		else
@@ -44,7 +44,7 @@ int	shell_manager(int *arr, int *i, int gap, int *swap_1)
 int place_back_loop(int *arr, int *i, int gap)
 {
 	int	temp;
-	int swapped;
+	int	swapped;
 
 	swapped = 0;
 	while (*i >= 0 && arr[*i] > arr[(*i) + gap])

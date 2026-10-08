@@ -34,7 +34,11 @@ ONLOGN = onlogn_test.c \
 	./algorithm_onlogn/quick_sort.c \
 	./algorithm_onlogn/quick_sort_tester.c
 
-SRCS = main.c ${ON2} ${ONLOGN}
+ONK = onk_test.c \
+	./algorithm_onk/radix_sort.c \
+	./algorithm_onk/radix_sort_tester.c
+
+SRCS = main.c ${ON2} ${ONLOGN} ${ONK}
 
 OBJS = $(SRCS:.c=.o)
 

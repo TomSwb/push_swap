@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   merge_sort_tester.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tomswb <tomswb@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/08 14:14:26 by tomswb            #+#    #+#             */
+/*   Updated: 2026/10/08 14:14:35 by tomswb           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../algo_training.h"
 
@@ -6,7 +17,6 @@ void	test_merge_1(int *arr, int len)
 	int	i;
 	// int selections;
 	// int comparisons;
-
 	// selections = 0;
 	// comparisons = 0;
 	i = 0;

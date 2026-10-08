@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   shell_sort.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tomswb <tomswb@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/08 14:12:19 by tomswb            #+#    #+#             */
+/*   Updated: 2026/10/08 14:12:52 by tomswb           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../algo_training.h"
 
@@ -17,7 +28,7 @@ void	shell_sort_1(int *arr, int len)
 		while ((i + gap) < len)
 			swapped += shell_manager(arr, &i, gap, &swap_1);
 		if (gap / 2 > 1)
-			gap /= 2; 
+			gap /= 2;
 		else
 			gap = 1;
 		if (swapped || !swap_1)
@@ -29,7 +40,7 @@ void	shell_sort_1(int *arr, int len)
 
 int	shell_manager(int *arr, int *i, int gap, int *swap_1)
 {
-	int swapped;
+	int	swapped;
 
 	swapped = 0;
 	if (gap == 1)
@@ -41,7 +52,7 @@ int	shell_manager(int *arr, int *i, int gap, int *swap_1)
 	return (swapped);
 }
 
-int place_back_loop(int *arr, int *i, int gap)
+int	place_back_loop(int *arr, int *i, int gap)
 {
 	int	temp;
 	int	swapped;

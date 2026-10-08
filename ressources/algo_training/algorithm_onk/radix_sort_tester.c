@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   radix_sort_tester.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tomswb <tomswb@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/08 14:13:49 by tomswb            #+#    #+#             */
+/*   Updated: 2026/10/08 14:14:03 by tomswb           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../algo_training.h"
 
@@ -6,7 +17,6 @@ void	test_radix_2(int *arr, int len)
 	int	i;
 	// int selections;
 	// int comparisons;
-
 	// selections = 0;
 	// comparisons = 0;
 	i = 0;
@@ -34,7 +44,6 @@ void	test_radix_1(int *arr, int len)
 	int	i;
 	// int selections;
 	// int comparisons;
-
 	// selections = 0;
 	// comparisons = 0;
 	i = 0;

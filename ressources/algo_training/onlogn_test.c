@@ -1,10 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   onlogn_test.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tomswb <tomswb@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/08 14:21:18 by tomswb            #+#    #+#             */
+/*   Updated: 2026/10/08 14:21:20 by tomswb           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "algo_training.h"
 
-void quick_test(void)
+void	quick_test(void)
 {
 	int	len = 10;
-
 	int	arr1[10] = {7, -2, 9, 0, -5, 3, 8, 1, 6, 4};
 	int	rev_arr1[10] = {9, 8, 7, 6, -5, 4, 3, 2, 1, 0};
 	int	str_arr1[10] = {1, 0, -2, 3, 4, 5, 6, 7, 8, 9};
@@ -23,14 +33,12 @@ void quick_test(void)
 	test_quick_1(str_arr1, len);
 	ft_printf("\nLight end mixed:\n");
 	test_quick_1(end_arr1, len);
-
 	ft_printf("\n");
 }
 
-void merge_test(void)
+void	merge_test(void)
 {
 	int	len = 10;
-
 	int	arr1[10] = {7, 2, -9, 0, -5, 3, 8, 1, 6, 4};
 	int	rev_arr1[10] = {9, 8, -7, 6, 5, 4, 3, 2, 1, 0};
 	int	str_arr1[10] = {1, 0, -2, 3, 4, 5, 6, 7, 8, 9};
@@ -49,6 +57,5 @@ void merge_test(void)
 	test_merge_1(str_arr1, len);
 	ft_printf("\nLight end mixed:\n");
 	test_merge_1(end_arr1, len);
-
 	ft_printf("\n");
 }

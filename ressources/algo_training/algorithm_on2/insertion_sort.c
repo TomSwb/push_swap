@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   insertion_sort.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tomswb <tomswb@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/08 13:57:38 by tomswb            #+#    #+#             */
+/*   Updated: 2026/10/08 13:58:04 by tomswb           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../algo_training.h"
 
@@ -43,7 +54,7 @@ void	binary_insert(int i, int *arr, int *insertions, int *comparisons, int *move
 	}
 }
 
-int binary_search(int i, int *arr, int temp, int *low, int *comparisons)
+int	binary_search(int i, int *arr, int temp, int *low, int *comparisons)
 {
 	int	mid;
 	int	high;

@@ -6,14 +6,14 @@
 /*   By: tomswb <tomswb@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/08 13:55:48 by tomswb            #+#    #+#             */
-/*   Updated: 2026/10/08 13:55:51 by tomswb           ###   ########.fr       */
+/*   Updated: 2026/10/08 13:57:05 by tomswb           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../algo_training.h"
 
 // 5th try last optimization
-void bubble_sort_5(int *arr, int len, int *comparisons, int *swaps, int *moves)
+void	bubble_sort_5(int *arr, int len, int *comparisons, int *swaps, int *moves)
 {
 	int	i;
 	int	start;
@@ -32,7 +32,7 @@ void bubble_sort_5(int *arr, int len, int *comparisons, int *swaps, int *moves)
 		if (last_swap >= 0)
 			end = last_swap + 1;
 		else if (last_swap == -1)
-			break;
+			break ;
 		last_swap = -1;
 		i = end;
 		while (i > start)

@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   algo_training.h                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tomswb <tomswb@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/08 14:18:44 by tomswb            #+#    #+#             */
+/*   Updated: 2026/10/08 14:19:30 by tomswb           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef ALGO_TRAINING_H
 # define ALGO_TRAINING_H
@@ -5,7 +16,7 @@
 //----------- Libraries ----------------//
 
 // libft
-#include "./libft/libft.h"
+# include "./libft/libft.h"
 
 // malloc(); free();
 # include <unistd.h>
@@ -86,7 +97,7 @@ void	place_lowest(int *arr, int pos, int lowest_pos, int *selections);
 void	test_slct_1(int *arr, int len);
 
 // insertion_sort.c
-void	insertion_sort_4(int *arr, int len, int *insertions, int *comparisons, int* moves);
+void	insertion_sort_4(int *arr, int len, int *insertions, int *comparisons, int *moves);
 void	binary_insert(int i, int *arr, int *insertions, int *comparisons, int *moves);
 int		binary_search(int i, int *arr, int temp, int *low, int *comparisons);
 

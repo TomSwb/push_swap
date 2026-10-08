@@ -20,7 +20,6 @@ void counting_sort( int *arr, int len, int it)
     int *count;
     int *temp;
     int i;
-    int digit;
     
     count = create_count(arr, len, it);
     if (!count)
@@ -33,12 +32,7 @@ void counting_sort( int *arr, int len, int it)
     }
     i = 0;
     while (i < len)
-    {
-        digit = (arr[i] / it) % 10
-        temp[count[digit]] = arr[i];
-        count[digit]++;
-        i++;
-    }
+        count_sorting(arr, &i, count, temp)
     i = 0;
     while (i < len)
     {
@@ -77,6 +71,16 @@ int *create_count(int *arr, int len, int it)
         i++;
     }
     return (count);
+}
+
+int *count_sorting(int *arr, int *i, int *count, int *temp)
+{
+    int digit;
+    
+    digit = (arr[*i] / it) % 10
+    temp[count[digit]] = arr[*i];
+    count[digit]++;
+    (*i)++;
 }
 
 void radix_sort_1(int *arr, int len)

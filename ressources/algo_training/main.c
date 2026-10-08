@@ -12,8 +12,12 @@ int main(void)
 
 //-- test O(n log n) --//
 
-	merge_test();
-	quick_test();
+	// merge_test();
+	// quick_test();
+    
+//-- test O(nk) --//
+
+    radix_test();
 	
 }
 

@@ -1,6 +1,6 @@
 
 #include "algo_training.h"
-/*
+
 void radix_sort_2(int *arr, int len)
 {
     int iteration;
@@ -17,9 +17,27 @@ void radix_sort_2(int *arr, int len)
 
 void counting_sort( int *arr, int len, int it)
 {
+    int *count;
+    int i;
+    int j;
     
+    count = ft_calloc(10, sizeof(int));
+    if (!count)
+        return ;
+    i = 0;
+    while (i < 10)
+    {
+        j = 0;
+        while (j < len)
+        {
+            if ((arr[j] / it)) % 10 == i)
+                count[i]++;
+            j++;
+        }
+        i++;
+    }
 }
-*/
+
 
 void radix_sort_1(int *arr, int len)
 {

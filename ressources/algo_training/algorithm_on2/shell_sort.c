@@ -12,7 +12,7 @@
 
 #include "../algo_training.h"
 
-void	shell_sort_1(int *arr, int len)
+void	shell_sort(int *arr, int len)
 {
 	int	i;
 	int	gap;

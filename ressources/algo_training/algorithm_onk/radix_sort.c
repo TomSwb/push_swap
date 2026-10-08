@@ -4,44 +4,26 @@
 void radix_sort(int *arr, int len)
 {
     int iteration;
-    int *temp;
     int it;
-    int i;
-    int j;
-    int lsd;
     
-    temp = malloc(sizeof(int) * len);
-    if (!temp)
-        return ;
-    interation = find_longest(int *arr, int len);
+    iteration = find_longest(int *arr, int len);
     it = 1;
     while (it < iteration)
     {
-        j = 0;
-        lsd = 0;
-        while (lsd < 10)
-        {
-            i = 0;
-            while (i < len)
-            {
-                if ((arr[i] / it)) % 10 == lsd)
-                {
-                    temp[j] = arr[i];
-                    j++;
-                }
-                i++;
-            }
-            lsd++;
-        }
+        counting_sort(arr, len, it);
         it *= 10;
     }
-
-
-
 }
 
-void counting_sort()
+void counting_sort( int *arr, int len, int it)
 {
+    int *temp;
+    int j;
+    int i;
+    
+    temp = malloc(sizeof(int) * len)
+    if (!temp)
+        return ;
     j = 0;
     lsd = 0;
     while (lsd < 10)
@@ -58,6 +40,13 @@ void counting_sort()
         }
     lsd++;
     }
+    i = 0;
+    while (i < len)
+    {
+        arr[i] = temp[i];
+        i++;
+    }
+    free(temp);
 }
 
 int find_longest(int *arr, int len)

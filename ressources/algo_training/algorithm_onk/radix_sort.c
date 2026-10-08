@@ -22,7 +22,7 @@ void counting_sort( int *arr, int len, int it)
     int i;
     int digit;
     
-    count = create_count(arr, len);
+    count = create_count(arr, len, it);
     if (!count)
         return ;
     temp = malloc(sizeof(int) * len;
@@ -49,26 +49,22 @@ void counting_sort( int *arr, int len, int it)
     free(count);
 }
 
-int *create_count(int *arr, int len)
+int *create_count(int *arr, int len, int it)
 {
     int *count;
     int i;
     int j;
+    int digit;
     int index;
     
     count = ft_calloc(10, sizeof(int));
     if (!count)
         return (NULL);
     i = 0;
-    while (i < 10)
+    while (i < len)
     {
-        j = 0;
-        while (j < len)
-        {
-            if ((arr[j] / it) % 10) == i)
-                count[i]++;
-            j++;
-        }
+        digit = (arr[i] / it) % 10;
+        count[digit]++;
         i++;
     }
     i = 0;

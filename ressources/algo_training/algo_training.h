@@ -30,8 +30,12 @@ void bs_test(void);
 // ./algorithm_onk/..
 
 // radix_sort.c
-void radix_sort_1(int *arr, int len);
+void radix_sort_2(int *arr, int len);
 void counting_sort( int *arr, int len, int it);
+
+void radix_sort_1(int *arr, int len);
+void digit_sort( int *arr, int len, int it);
+int find_longest(int *arr, int len);
 
 // radix_sort_tester.c
 void test_radix_2(int *arr, int len);

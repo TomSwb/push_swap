@@ -1,7 +1,7 @@
 
 #include "algo_training.h"
-
-void radix_sort_1(int *arr, int len)
+/*
+void radix_sort_2(int *arr, int len)
 {
     int iteration;
     int it;
@@ -16,6 +16,26 @@ void radix_sort_1(int *arr, int len)
 }
 
 void counting_sort( int *arr, int len, int it)
+{
+    
+}
+*/
+
+void radix_sort_1(int *arr, int len)
+{
+    int iteration;
+    int it;
+    
+    iteration = find_longest(int *arr, int len);
+    it = 1;
+    while (it < iteration)
+    {
+        digit_sort(arr, len, it);
+        it *= 10;
+    }
+}
+
+void digit_sort( int *arr, int len, int it)
 {
     int *temp;
     int j;

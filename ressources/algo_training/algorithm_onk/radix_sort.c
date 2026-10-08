@@ -20,6 +20,7 @@ void counting_sort( int *arr, int len, int it)
     int *count;
     int *temp;
     int i;
+    unsigned int key;
     int digit;
     
     count = create_count(arr, len, it);
@@ -34,7 +35,8 @@ void counting_sort( int *arr, int len, int it)
     i = 0;
     while (i < len)
     {
-        digit = (arr[i] / it) % 10
+        key = (unsigned int)arr[i] ^ 0x80000000u;
+        digit = (key / it) % 10
         temp[count[digit]] = arr[i];
         count[digit]++;
         i++;
@@ -58,7 +60,7 @@ int *create_count(int *arr, int len, int it)
     i = 0;
     while (i < len)
     {
-        digit = (arr[i] / it) % 10;
+        digit = (((unsigned int)arr[i] ^ 0x80000000u) / it) % 10;
         count[digit]++;
         i++;
     }

@@ -42,7 +42,22 @@ void radix_sort(int *arr, int len)
 
 void counting_sort()
 {
-    
+    j = 0;
+    lsd = 0;
+    while (lsd < 10)
+    {
+        i = 0;
+        while (i < len)
+        {
+            if ((arr[i] / it)) % 10 == lsd)
+            {
+                temp[j] = arr[i];
+                j++;
+            }
+            i++;
+        }
+    lsd++;
+    }
 }
 
 int find_longest(int *arr, int len)

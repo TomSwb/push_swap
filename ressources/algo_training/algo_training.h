@@ -31,7 +31,7 @@ void bs_test(void);
 
 // radix_sort.c
 void radix_sort_1(int *arr, int len);
-
+void counting_sort( int *arr, int len, int it);
 
 // radix_sort_tester.c
 void test_radix_2(int *arr, int len);

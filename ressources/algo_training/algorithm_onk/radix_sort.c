@@ -33,6 +33,7 @@ void radix_sort(int *arr, int len)
             }
             lsd++;
         }
+        it *= 10;
     }
 
 

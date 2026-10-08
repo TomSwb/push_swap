@@ -18,26 +18,70 @@ void radix_sort_2(int *arr, int len)
 void counting_sort( int *arr, int len, int it)
 {
     int *count;
+    int *temp;
+    int i;
+    int digit;
+    
+    count = create_count(arr, len);
+    if (!count)
+        return ;
+    temp = malloc(sizeof(int) * len;
+    if (!temp)
+    {
+        free(count);
+        return ;
+    }
+    i = 0;
+    while (i < len)
+    {
+        digit = (arr[i] / it) % 10
+        temp[count[digit]] = arr[i];
+        count[digit]++;
+        i++;
+    }
+    i = 0;
+    while (i < len)
+    {
+        arr[i] = temp[i];
+        i++;
+    }
+    free(temp);
+    free(count);
+}
+
+int *create_count(int *arr, int len)
+{
+    int *count;
     int i;
     int j;
+    int index;
     
     count = ft_calloc(10, sizeof(int));
     if (!count)
-        return ;
+        return (NULL);
     i = 0;
     while (i < 10)
     {
         j = 0;
         while (j < len)
         {
-            if ((arr[j] / it)) % 10 == i)
+            if ((arr[j] / it) % 10) == i)
                 count[i]++;
             j++;
         }
         i++;
     }
+    i = 0;
+    index = 0;
+    while (i < 10)
+    {
+        j = count[i];
+        count[i] = index;
+        index += j;
+        i++;
+    }
+    return (count);
 }
-
 
 void radix_sort_1(int *arr, int len)
 {

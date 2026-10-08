@@ -59,7 +59,7 @@ int find_longest(int *arr, int len)
         i++;
     }
     max = 1;
-    while (i > 1)
+    while (i > 0)
     {
         max *= 10;
         i--;

@@ -33,11 +33,12 @@ void bs_test(void);
 void radix_sort_2(int *arr, int len);
 void counting_sort(int *arr, int len, int it);
 int *create_count(int *arr, int len, int it);
-int *count_sorting(int *arr, int *i, int *count, int *temp);
 
 void radix_sort_1(int *arr, int len);
 void digit_sort( int *arr, int len, int it);
+
 int find_longest(int *arr, int len);
+void temp_to_arr(int *arr, int *temp, int len);
 
 // radix_sort_tester.c
 void test_radix_2(int *arr, int len);

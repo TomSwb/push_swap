@@ -74,18 +74,6 @@ int *create_count(int *arr, int len, int it)
     return (count);
 }
 
-void temp_to_arr(int *arr, int *temp, int len)
-{
-    int i;
-    
-    i = 0;
-    while (i < len)
-    {
-        arr[i] = temp[i];
-        i++;
-    }
-}
-
 void radix_sort_1(int *arr, int len)
 {
     int iteration;
@@ -155,4 +143,16 @@ int find_longest(int *arr, int len)
         i--;
     }
     return (max);
+}
+
+void temp_to_arr(int *arr, int *temp, int len)
+{
+    int i;
+    
+    i = 0;
+    while (i < len)
+    {
+        arr[i] = temp[i];
+        i++;
+    }
 }

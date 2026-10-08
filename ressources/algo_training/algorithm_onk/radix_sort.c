@@ -40,6 +40,11 @@ void radix_sort(int *arr, int len)
 
 }
 
+void counting_sort()
+{
+    
+}
+
 int find_longest(int *arr, int len)
 {
     int max;

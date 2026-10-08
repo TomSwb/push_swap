@@ -90,33 +90,36 @@ void radix_sort_1(int *arr, int len)
     }
 }
 
-void digit_sort( int *arr, int len, int it)
+void	digit_sort(int *arr, int len, long it)
 {
-    int *temp;
-    int j;
-    int i;
-    
-    temp = malloc(sizeof(int) * len)
-    if (!temp)
-        return ;
-    j = 0;
-    lsd = 0;
-    while (lsd < 10)
-    {
-        i = 0;
-        while (i < len)
-        {
-            if ((arr[i] / it)) % 10 == lsd)
-            {
-                temp[j] = arr[i];
-                j++;
-            }
-            i++;
-        }
-    lsd++;
-    }
-    temp_to_arr(arr, temp, len)
-    free(temp);
+	int			*temp;
+	int			j;
+	int			i;
+	int			lsd;
+	unsigned int	key;
+
+	temp = malloc(sizeof(int) * len);
+	if (!temp)
+		return ;
+	j = 0;
+	lsd = 0;
+	while (lsd < 10)
+	{
+		i = 0;
+		while (i < len)
+		{
+			key = (unsigned int)arr[i] ^ 0x80000000u;
+			if ((key / it) % 10 == (unsigned int)lsd)
+			{
+				temp[j] = arr[i];
+				j++;
+			}
+			i++;
+		}
+		lsd++;
+	}
+	temp_to_arr(arr, temp, len);
+	free(temp);
 }
 
 long find_longest(int *arr, int len)

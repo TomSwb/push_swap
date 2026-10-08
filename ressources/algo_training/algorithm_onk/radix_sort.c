@@ -12,7 +12,7 @@
 
 #include "../algo_training.h"
 
-void	radix_sort_2(int *arr, int len)
+void	radix_sort(int *arr, int len)
 {
 	long	iteration;
 	long	it;
@@ -84,7 +84,7 @@ int	*create_count(int *arr, int len, long it)
 	return (count);
 }
 
-void	radix_sort_1(int *arr, int len)
+void	radix_digit_sort(int *arr, int len)
 {
 	long	iteration;
 	long	it;

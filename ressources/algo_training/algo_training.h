@@ -30,8 +30,10 @@ void bs_test(void);
 // ./algorithm_onk/..
 
 // radix_sort.c
-// void radix_sort_2(int *arr, int len);
-// void counting_sort( int *arr, int len, int it);
+void radix_sort_2(int *arr, int len);
+void counting_sort(int *arr, int len, int it);
+int *create_count(int *arr, int len, int it);
+int *count_sorting(int *arr, int *i, int *count, int *temp);
 
 void radix_sort_1(int *arr, int len);
 void digit_sort( int *arr, int len, int it);

@@ -12,6 +12,9 @@
 
 //----------- Functions ----------------//
 
+// onk_test.c
+void radix_test(void);
+
 // onlogn_test.c
 void quick_test(void);
 void merge_test(void);

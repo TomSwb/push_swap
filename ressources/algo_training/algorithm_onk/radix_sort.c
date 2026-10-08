@@ -1,7 +1,7 @@
 
 #include "algo_training.h"
 
-void radix_sort(int *arr, int len)
+void radix_sort_1(int *arr, int len)
 {
     int iteration;
     int it;

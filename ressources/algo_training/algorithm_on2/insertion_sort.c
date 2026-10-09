@@ -6,13 +6,13 @@
 /*   By: tomswb <tomswb@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/08 13:57:38 by tomswb            #+#    #+#             */
-/*   Updated: 2026/10/08 13:58:04 by tomswb           ###   ########.fr       */
+/*   Updated: 2026/10/09 08:51:42 by tomswb           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../algo_training.h"
 
-void	insertion_sort_4(int *arr, int len, int *insertions, int *comparisons, int *moves)
+void	insertion_sort(int *arr, int len, int *insertions, int *comparisons, int *moves)
 {
 	int	i;
 

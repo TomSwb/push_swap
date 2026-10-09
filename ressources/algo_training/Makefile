@@ -6,7 +6,7 @@
 #    By: tomswb <tomswb@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/01 23:17:43 by tomswb            #+#    #+#              #
-#    Updated: 2026/10/07 01:20:29 by tomswb           ###   ########.fr        #
+#    Updated: 2026/10/09 08:46:27 by tomswb           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,8 @@ LIBFT = $(LIBFT_DIR)/libft.a
 ON2 = on2_test.c \
 	./algorithm_on2/bubble_sort.c \
 	./algorithm_on2/bubble_sort_tester.c \
+	./algorithm_on2/cocktail_shaker_sort.c \
+	./algorithm_on2/cocktail_shaker_sort_tester.c \
 	./algorithm_on2/insertion_sort.c \
 	./algorithm_on2/insertion_sort_tester.c \
 	./algorithm_on2/selection_sort.c \

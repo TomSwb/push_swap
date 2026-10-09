@@ -6,13 +6,13 @@
 /*   By: tomswb <tomswb@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/08 13:55:32 by tomswb            #+#    #+#             */
-/*   Updated: 2026/10/08 13:55:35 by tomswb           ###   ########.fr       */
+/*   Updated: 2026/10/09 08:50:40 by tomswb           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../algo_training.h"
 
-void	test_bs_5(int *arr, int len)
+void	test_bs(int *arr, int len)
 {
 	int	i;
 	int	comparisons;
@@ -30,7 +30,7 @@ void	test_bs_5(int *arr, int len)
 		i++;
 	}
 	ft_printf("%d\n", arr[i]);
-	bubble_sort_5(arr, len, &comparisons, &swaps, &moves);
+	bubble_sort(arr, len, &comparisons);
 	i = 0;
 	while (i < len - 1)
 	{

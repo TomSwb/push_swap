@@ -6,7 +6,7 @@
 /*   By: tomswb <tomswb@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/08 13:55:48 by tomswb            #+#    #+#             */
-/*   Updated: 2026/10/08 13:57:05 by tomswb           ###   ########.fr       */
+/*   Updated: 2026/10/09 08:47:35 by tomswb           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,32 +15,32 @@
 // 4th try 3rd optimization
 void bubble_sort(int *arr, int len, int *operations)
 {
-    int i;
-    int temp;
-    int boundary;
-    int last_swap;
-    
-    last_swap = 0;
-    boundary = 0;
-    while (boundary < len - 1 && last_swap >= 0)
-    {
-        last_swap = -1;
-        i = 0;
-        while (i < len - 1 - boundary)
-        {
-            if (arr[i] > arr[i + 1])
-            {
-                temp = arr[i];
-                arr[i] = arr[i + 1];
-                arr[i + 1] = temp;
-                last_swap = i;
-            }
-            i++;
-            (*operations)++;
-        }
-        if (last_swap >= 0)
-            boundary = last_swap;
-    }
+	int	i;
+	int	temp;
+	int	boundary;
+	int	last_swap;
+
+	last_swap = 0;
+	boundary = 0;
+	while (boundary < len - 1 && last_swap >= 0)
+	{
+		last_swap = -1;
+		i = 0;
+		while (i < len - 1 - boundary)
+		{
+			if (arr[i] > arr[i + 1])
+			{
+				temp = arr[i];
+				arr[i] = arr[i + 1];
+				arr[i + 1] = temp;
+				last_swap = i;
+			}
+			i++;
+			(*operations)++;
+		}
+		if (last_swap >= 0)
+			boundary = last_swap;
+	}
 }
 
 /*
@@ -131,13 +131,4 @@ void bubble_sort_1(int *arr, int len, int *operations)
     }
 }
 
-// stack version
-void bubble_sort_stack(t_stack **stack)
-{
-    t_stack *head;
-    
-    head = *stack;
-    while (head->next != *stack->next)
-        head = head->next;
-}
 */

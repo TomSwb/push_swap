@@ -6,13 +6,13 @@
 /*   By: tomswb <tomswb@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/08 13:57:13 by tomswb            #+#    #+#             */
-/*   Updated: 2026/10/08 13:57:16 by tomswb           ###   ########.fr       */
+/*   Updated: 2026/10/09 08:50:45 by tomswb           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../algo_training.h"
 
-void	test_is_4(int *arr, int len)
+void	test_is(int *arr, int len)
 {
 	int	i;
 	int	insertions;
@@ -29,7 +29,7 @@ void	test_is_4(int *arr, int len)
 		i++;
 	}
 	ft_printf("%d\n", arr[i]);
-	insertion_sort_4(arr, len, &insertions, &comparisons, &moves);
+	insertion_sort(arr, len, &insertions, &comparisons, &moves);
 	i = 0;
 	while (i < len - 1)
 	{

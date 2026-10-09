@@ -6,7 +6,7 @@
 /*   By: tomswb <tomswb@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/08 14:18:44 by tomswb            #+#    #+#             */
-/*   Updated: 2026/10/08 14:19:30 by tomswb           ###   ########.fr       */
+/*   Updated: 2026/10/09 08:49:24 by tomswb           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	merge_test(void);
 void	shell_test(void);
 void	slct_test(void);
 void	is_test(void);
+void	css_test(void);
 void	bs_test(void);
 
 //---------- O(nk) ----------------//
@@ -147,6 +148,9 @@ void	test_is(int *arr, int len);
 void	cocktail_shaker_sort(int *arr, int len, int *comparisons, int *swaps, int *moves);
 void	left_right_swap(int *arr, int *i, int *last_swap, int *comparisons, int *swaps, int *moves);
 void	right_left_swap(int *arr, int *i, int *last_swap, int *comparisons, int *swaps, int *moves);
+
+// cocktail_shaker_sort_tester.c
+void	test_css(int *arr, int len);
 
 // Bubble sort compares adjacent values and 
 // swaps them when they are in the wrong order, 

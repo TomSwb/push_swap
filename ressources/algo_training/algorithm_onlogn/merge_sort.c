@@ -6,21 +6,21 @@
 /*   By: tomswb <tomswb@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/08 14:14:39 by tomswb            #+#    #+#             */
-/*   Updated: 2026/10/08 14:14:41 by tomswb           ###   ########.fr       */
+/*   Updated: 2026/10/09 08:52:19 by tomswb           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../algo_training.h"
 
-void	merge_sort_1(int *arr, int len)
+void	merge_sort(int *arr, int len)
 {
 	int	dest;
 	int	*temp;
 
 	if (len <= 1)
 		return ;
-	merge_sort_1(arr, len / 2);
-	merge_sort_1(arr + len / 2, len - len / 2);
+	merge_sort(arr, len / 2);
+	merge_sort(arr + len / 2, len - len / 2);
 	temp = sort_temp(arr, len, 0, len / 2);
 	dest = 0;
 	while (dest < len)

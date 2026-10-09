@@ -6,13 +6,13 @@
 /*   By: tomswb <tomswb@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/08 13:58:32 by tomswb            #+#    #+#             */
-/*   Updated: 2026/10/08 13:58:34 by tomswb           ###   ########.fr       */
+/*   Updated: 2026/10/09 08:50:49 by tomswb           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../algo_training.h"
 
-void	test_slct_1(int *arr, int len)
+void	test_slct(int *arr, int len)
 {
 	int	i;
 	int	selections;
@@ -27,7 +27,7 @@ void	test_slct_1(int *arr, int len)
 		i++;
 	}
 	ft_printf("%d\n", arr[i]);
-	selection_sort_1(arr, len, &selections, &comparisons);
+	selection_sort(arr, len, &selections, &comparisons);
 	i = 0;
 	while (i < len - 1)
 	{

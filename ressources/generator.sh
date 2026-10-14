@@ -1,20 +1,10 @@
 #!/bin/bash
-# ^ "shebang": tells the system to run this file with bash
-
-# ============================================================================ #
-#  push_swap tester                                                            #
-#  Usage: ./tester.sh [size] [runs] [strategy]                                 #
-#    ./tester.sh                 -> 100 numbers, 20 runs, default strategy     #
-#    ./tester.sh 500 50          -> 500 numbers, 50 runs                       #
-#    ./tester.sh 100 20 --simple -> forces a strategy flag                     #
-#  Paths can be overridden:  PUSH_SWAP=../push_swap CHECKER=./checker ./tester.sh
-# ============================================================================ #
 
 # ------------------------------- Settings ----------------------------------- #
 
 SIZE=${1:-100}                       # 100 if missing
 
-# ------------------------------- Functions ---------------------------------- #
+# ------------------------------- Function ---------------------------------- #
 
 # Generates $1 unique random ints across the full int range, on one line
 gen_args() {
@@ -30,6 +20,6 @@ gen_args() {
 
 # ----------------------------- Random tests --------------------------------- #
 
-gen_args "$SIZE"          # fresh random numbers for this run
+gen_args "$SIZE"          # fresh random numbers
 
 # to use run ARG=$(./gen.sh 500); ./push_swap $ARG | ./checker_linux $ARG

@@ -71,7 +71,7 @@ FT_PRINTF = ./ft_printf/ft_printf.c \
 
 SOURCES = ${PART1} ${PART2} ${PART3} ${GNL} ${FT_PRINTF}
 		
-CC = gcc
+CC = cc
 
 CFLAGS = -Wall -Werror -Wextra
 

@@ -3,14 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_managers.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tomswb <tomswb@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/01 22:58:34 by tomswb            #+#    #+#             */
-/*   Updated: 2026/10/01 23:00:59 by tomswb           ###   ########.fr       */
+/*   Created: 2026/10/01 22:58:34 by tschwab           #+#    #+#             */
+/*   Updated: 2026/10/15 16:27:57 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+/**
+* @brief
+Sends a parsed conversion to the right sub-manager.
+Conversions are grouped by need: c/s/%, d/i/u, x/X and p.
+
+* @param t_flags *flags
+* @param va_list *args
+* @param int *count
+* @return void
+*/
 
 void	printer_manager(t_flags *flags, va_list *args, int *count)
 {
@@ -25,6 +36,18 @@ void	printer_manager(t_flags *flags, va_list *args, int *count)
 	else if (flags->converter == 'p')
 		printer_manager_address(flags, args, count);
 }
+
+/**
+* @brief
+Prints a %, c or s conversion with its padding.
+Reads the argument for c (as an int, the promoted type) or s, then prints the
+padding on the left or the right of it depending on '-'.
+
+* @param t_flags *flags
+* @param va_list *args
+* @param int *count
+* @return void
+*/
 
 void	printer_manager_char(t_flags *flags, va_list *args, int *count)
 {
@@ -53,6 +76,20 @@ void	printer_manager_char(t_flags *flags, va_list *args, int *count)
 	}
 }
 
+/**
+* @brief
+Prints a d, i or u conversion.
+Reads the argument as an int or an unsigned int and stores it in a long long,
+so INT_MIN can be made positive without overflow. Handles the value 0 with a
+precision of 0 (no digit), and records a negative sign in neg_sign before
+printing the absolute value.
+
+* @param t_flags *flags
+* @param va_list *args
+* @param int *count
+* @return void
+*/
+
 void	printer_manager_decimal(t_flags *flags, va_list *args, int *count)
 {
 	long long	value;
@@ -77,6 +114,19 @@ void	printer_manager_decimal(t_flags *flags, va_list *args, int *count)
 	*count += print_deci(value, len, flags);
 }
 
+/**
+* @brief
+Prints an x or X conversion.
+Picks the lowercase or uppercase base, turns '#' off for the value 0, prints
+the 0x prefix first when zero padding is used, then the number and the right
+padding.
+
+* @param t_flags *flags
+* @param va_list *args
+* @param int *count
+* @return void
+*/
+
 void	printer_manager_hexa(t_flags *flags, va_list *args, int *count)
 {
 	long long	value;
@@ -85,6 +135,7 @@ void	printer_manager_hexa(t_flags *flags, va_list *args, int *count)
 	char		*base;
 	int			hex_len;
 
+	base = NULL;
 	value = (long long)va_arg(*args, unsigned int);
 	hexa_low = "0123456789abcdef";
 	hexa_up = "0123456789ABCDEF";
@@ -92,6 +143,8 @@ void	printer_manager_hexa(t_flags *flags, va_list *args, int *count)
 		base = hexa_up;
 	else if (flags->converter == 'x')
 		base = hexa_low;
+	if (value == 0)
+		flags->alt_hexa = 0;
 	if ((flags->zero_padding && !flags->precision
 			&& !flags->left_align) && value != 0)
 		*count += print_prefix(flags);
@@ -100,6 +153,17 @@ void	printer_manager_hexa(t_flags *flags, va_list *args, int *count)
 	if (flags->left_align && flags->min_width > 0)
 		*count += print_padding(flags, hex_len + pr_len(hex_len, flags));
 }
+
+/**
+* @brief
+Prints a p conversion with its padding.
+A NULL pointer is printed as "(nil)", like glibc.
+
+* @param t_flags *flags
+* @param va_list *args
+* @param int *count
+* @return void
+*/
 
 void	printer_manager_address(t_flags *flags, va_list *args, int *count)
 {
@@ -113,10 +177,7 @@ void	printer_manager_address(t_flags *flags, va_list *args, int *count)
 	if (!flags->left_align && flags->min_width > 0)
 		*count += print_padding(flags, adrs_len);
 	if (value == 0)
-	{
-		write(1, "(nil)", 5);
-		*count += 5;
-	}
+		*count += print_s("(nil)", flags);
 	else
 		*count += print_address(value);
 	if (flags->left_align && flags->min_width > 0)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tomswb <tomswb@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/25 17:57:24 by tomswb            #+#    #+#             */
-/*   Updated: 2026/10/01 23:54:35 by tomswb           ###   ########.fr       */
+/*   Created: 2026/08/25 17:57:24 by tschwab           #+#    #+#             */
+/*   Updated: 2026/10/15 16:44:28 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ char	*ft_strnstr(char const *big, char const *little, size_t len)
 	size_t	i;
 	size_t	j;
 
-	if (!len)
-		return ((char *)big);
 	if (little[0] == '\0')
 		return ((char *)big);
 	i = 0;

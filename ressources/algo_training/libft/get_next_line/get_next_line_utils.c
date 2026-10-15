@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tomswb <tomswb@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/19 15:56:40 by tomswb            #+#    #+#             */
-/*   Updated: 2026/10/01 23:32:09 by tomswb           ###   ########.fr       */
+/*   Created: 2026/09/19 15:56:40 by tschwab           #+#    #+#             */
+/*   Updated: 2026/10/15 16:41:52 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,17 +43,7 @@ ssize_t	find_c_index(char *s, int c)
 * @brief 
 Returns ssize_t 'reading' indicating eof or not.
 Extract the 'buffer' into 'data', ensuring allocation and calling
-concatenation function if 'data' isn't empty. 
-
-Depends on:
-	cat_buffer_data();
-		find_c_index();
-		malloc();
-		free();
-
-External:
-	malloc();
-	free();
+concatenation function if 'data' isn't empty.
 
 * @param int fd 
 * @param char **data 
@@ -63,45 +53,40 @@ ssize_t	extract_buffer(int fd, char **data)
 {
 	char	*buffer;
 	ssize_t	reading;
-	char	*temp;
+	ssize_t	total;
 
-	if (BUFFER_SIZE <= 0)
-		return (-1);
-	buffer = malloc(BUFFER_SIZE + 1);
-	if (!buffer)
-		return (-1);
-	reading = read(fd, buffer, BUFFER_SIZE);
-	if (reading <= 0)
+	buffer = malloc(PENDING_BUFFER + BUFFER_SIZE + 1);
+	if (!buffer || BUFFER_SIZE <= 0)
+		return (free(buffer), -1);
+	total = 0;
+	while (total < PENDING_BUFFER)
 	{
-		free(buffer);
-		return (reading);
+		reading = read(fd, buffer + total, BUFFER_SIZE);
+		if (reading <= 0)
+			break ;
+		total += reading;
+		buffer[total] = '\0';
+		if (find_c_index(buffer + total - reading, '\n') >= 0)
+			break ;
 	}
-	buffer[reading] = '\0';
-	temp = cat_buffer_data(buffer, data);
-	free(buffer);
-	if (temp == NULL)
-		return (-1);
-	*data = temp;
-	return (reading);
+	if (reading < 0 || total == 0)
+		return (free(buffer), reading);
+	if (!cat_buffer_data(buffer, data))
+		total = -1;
+	return (free(buffer), total);
 }
 
 /**
 * @brief 
-Returns a concatenation of 'buffer' into 'data' if data is not empty
-or simply it's copy if 'data' is empty.
-
-Depends on:
-	find_c_index();
-
-External:
-	malloc();
-	free();
+Returns a boolean that confirms the concatenation
+of 'buffer' into 'data' if data is not empty
+or simply its copy if 'data' is empty.
 
 * @param char *buffer 
 * @param char **data 
-* @return char* 
+* @return int 
 */
-char	*cat_buffer_data(char *buffer, char **data)
+int	cat_buffer_data(char *buffer, char **data)
 {
 	char	*temp;
 	size_t	i;
@@ -109,15 +94,12 @@ char	*cat_buffer_data(char *buffer, char **data)
 
 	temp = malloc(find_c_index(buffer, '\0') + find_c_index(*data, '\0') + 1);
 	if (!temp)
-		return (NULL);
+		return (0);
 	i = 0;
-	if (*data != NULL)
+	while (*data && (*data)[i])
 	{
-		while ((*data)[i])
-		{
-			temp[i] = (*data)[i];
-			i++;
-		}
+		temp[i] = (*data)[i];
+		i++;
 	}
 	j = 0;
 	while (buffer[j])
@@ -127,23 +109,15 @@ char	*cat_buffer_data(char *buffer, char **data)
 	}
 	temp[i + j] = '\0';
 	free(*data);
-	return (temp);
+	*data = temp;
+	return (1);
 }
 
 /**
 * @brief 
 Returns a success boolean.
-Extract the present line in 'data' intp the pointed 'line' 
+Extract the present line in 'data' into the pointed 'line' 
 for printing in GNL.
-
-Depends on:
-	find_c_index();
-	clean_data();
-		find_c_index();
-		free();
-
-External:
-	malloc();
 
 * @param char **line 
 * @param char **data 
@@ -173,6 +147,14 @@ int	extract_line(char **line, char **data)
 	return (0);
 }
 
+/**
+* @brief 
+Frees the **data
+
+* @param char **data 
+* @param ssize_t len
+* @return void
+*/
 void	clean_data(char **data, ssize_t len)
 {
 	ssize_t	i;

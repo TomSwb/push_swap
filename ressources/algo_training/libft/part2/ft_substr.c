@@ -3,17 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tomswb <tomswb@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/02 16:39:18 by tomswb            #+#    #+#             */
-/*   Updated: 2026/10/01 23:54:27 by tomswb           ###   ########.fr       */
+/*   Created: 2026/09/02 16:39:18 by tschwab           #+#    #+#             */
+/*   Updated: 2026/10/15 16:45:59 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /**
 * @brief 
-Returns a malloced char * containing at most 'len' characters from 's', starting 
-at index start. If start is greater than or equal to ft_strlen(s), 
+Returns a malloced char * containing at most 'len' characters from 's', 
+starting at index start. 
+If start is greater than or equal to ft_strlen(s), 
 returns an allocated empty string.
 
 Depends on:

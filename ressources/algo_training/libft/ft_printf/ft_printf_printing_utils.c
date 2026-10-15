@@ -3,14 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_printing_utils.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tomswb <tomswb@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/29 17:51:30 by tomswb            #+#    #+#             */
-/*   Updated: 2026/10/01 23:08:11 by tomswb           ###   ########.fr       */
+/*   Created: 2026/09/29 17:51:30 by tschwab           #+#    #+#             */
+/*   Updated: 2026/10/15 16:27:11 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+/**
+* @brief
+Prints the spaces or zeros needed to reach the minimum width.
+Zeros only for numbers with the '0' flag, without '-' and without a precision;
+spaces otherwise.
+
+* @param t_flags *flags
+* @param int len_value
+* @return int
+*/
 
 int	print_padding(t_flags *flags, int len_value)
 {
@@ -34,6 +45,16 @@ int	print_padding(t_flags *flags, int len_value)
 	return (count);
 }
 
+/**
+* @brief
+Prints what comes before the digits of a number.
+Only one of: '-' for a negative number, '+', a space, or 0x/0X for '#' on a
+hexadecimal number.
+
+* @param t_flags *flags
+* @return int
+*/
+
 int	print_prefix(t_flags *flags)
 {
 	int	count;
@@ -56,6 +77,14 @@ int	print_prefix(t_flags *flags)
 	return (count);
 }
 
+/**
+* @brief
+Prints the zeros added by the precision.
+
+* @param int pr_len
+* @return int
+*/
+
 int	print_precision(int pr_len)
 {
 	int	count;
@@ -68,6 +97,16 @@ int	print_precision(int pr_len)
 	}
 	return (count);
 }
+
+/**
+* @brief
+Prints a number of value 0 with a precision of 0: no digit.
+Only the padding and, for d/i, a '+' or space prefix are printed.
+
+* @param int len
+* @param t_flags *flags
+* @return int
+*/
 
 int	print_nothing(int len, t_flags *flags)
 {
@@ -83,6 +122,17 @@ int	print_nothing(int len, t_flags *flags)
 	return (count);
 }
 
+/**
+* @brief
+Finds the highest power of the base that fits in the value.
+The printers divide by it to print the digits from left to right, then divide
+it by the base after each digit. Base 10 for d/i/u, base 16 for x/X.
+
+* @param long long value
+* @param t_flags *flags
+* @return long long
+*/
+
 long long	def_div(long long value, t_flags *flags)
 {
 	long long	div;
@@ -94,9 +144,6 @@ long long	def_div(long long value, t_flags *flags)
 	else if (flags->converter == 'x' || flags->converter == 'X')
 		base = 16;
 	div = 1;
-	if ((flags->converter == 'x' || flags->converter == 'X')
-		&& value == 0)
-		return (0);
 	while (value / div >= base)
 	{
 		if (div > value / base)

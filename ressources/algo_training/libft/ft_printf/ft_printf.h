@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tomswb <tomswb@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/29 17:53:57 by tomswb            #+#    #+#             */
-/*   Updated: 2026/10/01 23:11:01 by tomswb           ###   ########.fr       */
+/*   Created: 2026/09/29 17:53:57 by tschwab           #+#    #+#             */
+/*   Updated: 2026/10/15 16:25:11 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ typedef struct s_flags
 
 // ft_printf.c
 int			ft_printf(const char *s, ...);
+int			printf_loop(const char **s, int *count, va_list *args);
+int			error_state(int n);
 
 //ft_printf_managers.c
 void		printer_manager(t_flags *flags, va_list *args, int *count);
@@ -58,7 +60,7 @@ void		printer_manager_address(t_flags *flags, va_list *args, int *count);
 t_flags		init_flags(void);
 int			parser(const char **s, t_flags *flags);
 void		parse_min_width_precison(t_flags *flags, const char **s);
-int			parsing_check(t_flags *flags);
+void		parsing_check(t_flags *flags);
 
 // ft_printf_parsing_utils.c
 int			is_converter(char c);
@@ -72,7 +74,7 @@ int			print_deci(long long value, int len, t_flags *flags);
 int			print_hexa(long long value, char *base, t_flags *flags);
 int			print_address(uintptr_t value);
 
-// fr_printf_utils.c
+// ft_printf_printing_utils.c
 int			print_padding(t_flags *flags, int len_value);
 int			print_prefix(t_flags *flags);
 int			print_precision(int len);

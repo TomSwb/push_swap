@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tomswb <tomswb@student.42.fr>              +#+  +:+       +#+         #
+#    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/01 23:23:16 by tomswb            #+#    #+#              #
-#    Updated: 2026/10/01 23:53:22 by tomswb           ###   ########.fr        #
+#    Updated: 2026/10/15 16:47:30 by tschwab          ###   ########.ch        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ PART1 = ./part1/ft_atoi.c \
 		./part1/ft_memmove.c \
 		./part1/ft_memset.c \
 		./part1/ft_strchr.c \
+		./part1/ft_strdup.c \
 		./part1/ft_strlcat.c \
 		./part1/ft_strlcpy.c \
 		./part1/ft_strlen.c \
@@ -41,7 +42,6 @@ PART2 = ./part2/ft_itoa.c \
 		./part2/ft_putnbr_fd.c \
 		./part2/ft_putstr_fd.c \
 		./part2/ft_split.c \
-		./part2/ft_strdup.c \
 		./part2/ft_striteri.c \
 		./part2/ft_strjoin.c \
 		./part2/ft_strmapi.c \

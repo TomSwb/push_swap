@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tomswb <tomswb@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/19 15:56:37 by tomswb            #+#    #+#             */
-/*   Updated: 2026/10/01 23:24:39 by tomswb           ###   ########.fr       */
+/*   Created: 2026/09/19 15:56:37 by tschwab           #+#    #+#             */
+/*   Updated: 2026/10/15 16:40:15 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,32 +15,6 @@
 /**
 * @brief
 Returns a pointer to the next available line from the file pointed out by 'fd'.
-
-Depends on:
-	find_node();
-		create_node();
-			malloc();
-
-	find_c_index();
-			
-	extract_buffer();
-		cat_buffer_data();
-			find_c_index();
-			malloc();
-			free();
-		malloc();
-		free();
-		
-	extract_line();
-		find_c_index();
-		clean_data();
-			find_c_index();
-			free();
-		malloc();
-
-	free_what_node();
-		free_node();
-			free();
 
 * @param int fd 
 * @return char* 
@@ -75,10 +49,6 @@ char	*get_next_line(int fd)
 Returns a pointer to the node corresponding to the given 'fd' and containing the 
 related data.
 
-Depends on:
-	create_node();
-		malloc();
-
 * @param int fd 
 * @param t_node **list 
 * @return t_node* 
@@ -111,9 +81,6 @@ t_node	*find_node(int fd, t_node **list)
 * @brief 
 Returns a pointer to a new node for the related 'fd'.
 
-External:
-	malloc();
-
 * @param int fd 
 * @return t_node* 
 */
@@ -134,10 +101,6 @@ t_node	*create_node(int fd)
 * @brief 
 Finds the node related to the given 'fd', returning the result of 
 freeing said node
-
-Depends on:
-	free_node();
-		free();
 
 * @param int fd 
 * @param t_node **list 
@@ -175,9 +138,6 @@ void	*free_what_node(int fd, t_node **list)
 Frees the 'target' node, ensuring the head is still connected to the list
 depending if 'is_head' or not. If not head, ensure previous node is still
 connected.
-
-External:
-	free();
 
 * @param t_node *target 
 * @param t_node **list 

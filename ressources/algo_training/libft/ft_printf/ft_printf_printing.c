@@ -3,20 +3,44 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_printing.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tomswb <tomswb@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/29 17:54:13 by tomswb            #+#    #+#             */
-/*   Updated: 2026/10/01 23:09:50 by tomswb           ###   ########.fr       */
+/*   Created: 2026/09/29 17:54:13 by tschwab           #+#    #+#             */
+/*   Updated: 2026/10/15 16:26:51 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+/**
+* @brief
+Prints one character. Every output of ft_printf goes through here.
+This is the only place calling write(): if it fails, the failure is reported to
+error_state.
+
+* @param char value
+* @return int
+*/
+
 int	print_char(char value)
 {
-	write(1, &value, 1);
+	int	error;
+
+	error = write(1, &value, 1);
+	error_state(error);
 	return (1);
 }
+
+/**
+* @brief
+Prints a string, cut to the precision if there is one.
+A NULL string is printed as "(null)", or not at all when the precision is under
+6, like glibc.
+
+* @param const char *value
+* @param t_flags *flags
+* @return int
+*/
 
 int	print_s(const char *value, t_flags *flags)
 {
@@ -28,23 +52,29 @@ int	print_s(const char *value, t_flags *flags)
 	if (value == NULL)
 	{
 		if (!flags->precision || flags->precision_len >= 6)
-		{
-			write(1, "(null)", 6);
-			count += 6;
-		}
+			value = "(null)";
 		else
 			return (count);
 	}
-	else
+	while (value[i] && (!flags->precision || i < flags->precision_len))
 	{
-		while (value[i] && (!flags->precision || i < flags->precision_len))
-		{
-			count += print_char(value[i]);
-			i++;
-		}
+		count += print_char(value[i]);
+		i++;
 	}
 	return (count);
 }
+
+/**
+* @brief
+Prints a decimal number with its padding, sign and precision.
+Order: sign first if zero padding, left padding, sign otherwise, precision
+zeros, digits (from the highest power of 10 down), right padding.
+
+* @param long long value
+* @param int len
+* @param t_flags *flags
+* @return int
+*/
 
 int	print_deci(long long value, int len, t_flags *flags)
 {
@@ -73,6 +103,19 @@ int	print_deci(long long value, int len, t_flags *flags)
 	return (count);
 }
 
+/**
+* @brief
+Prints a hexadecimal number with its left padding, prefix and precision.
+Order: left padding, 0x prefix (unless already printed for zero padding),
+precision zeros, digits. Prints no digit for the value 0 with a precision of 0.
+The right padding is printed by the manager.
+
+* @param long long value
+* @param char *base
+* @param t_flags *flags
+* @return int
+*/
+
 int	print_hexa(long long value, char *base, t_flags *flags)
 {
 	int			hex_len;
@@ -89,8 +132,8 @@ int	print_hexa(long long value, char *base, t_flags *flags)
 		count += print_prefix(flags);
 	if (flags->precision && flags->precision_len != 0)
 		count += print_precision(pr_len(hex_len, flags));
-	if (value == 0 && !flags->precision && !flags->zero_padding)
-		count += print_char('0');
+	if (value == 0 && flags->precision && flags->precision_len == 0)
+		return (count);
 	else
 	{
 		while (div > 0)
@@ -101,6 +144,14 @@ int	print_hexa(long long value, char *base, t_flags *flags)
 	}
 	return (count);
 }
+
+/**
+* @brief
+Prints a non-NULL pointer address as 0x followed by lowercase hexadecimal.
+
+* @param uintptr_t value
+* @return int
+*/
 
 int	print_address(uintptr_t value)
 {

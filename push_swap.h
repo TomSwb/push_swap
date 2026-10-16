@@ -9,6 +9,13 @@
 
 // --- Struct --- //
 
+typedef struct s_stack 
+{
+    t_node *top;
+    int     size;
+} t_stack;
+
+
 typedef struct s_node
 {
 

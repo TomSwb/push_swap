@@ -5,7 +5,7 @@
 // --- Libraries --- //
 
 // libft
-# include "libft.h"
+# include "./libft/libft.h"
 
 // --- Struct --- //
 

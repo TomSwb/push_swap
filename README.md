@@ -5,6 +5,7 @@ Todo list:
 [] reception + conversion input + parser
 
 [] complexity calculation
+
 [] all allowed sorts moves
 
 [] --simple algo
@@ -17,3 +18,5 @@ Todo list:
 [] --bench
 [] checker
 
+[] makefile
+[] readme

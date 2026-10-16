@@ -13,11 +13,15 @@ typedef struct s_stack
 {
     t_node *top;
     int     size;
+    // something else?
 } t_stack;
 
 typedef struct s_node
 {
-
+    int value;
+    // int index?
+    // something else?
+    // struct s_node *previous; ???
     struct s_node *next;
 } t_node;
 

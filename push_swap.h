@@ -17,6 +17,26 @@ typedef struct s_node
 
 // --- Functions --- //
 
-void push_swap(t_node *stack_a);
+// main.c
+
+// parsing.c
+
+// parsing_utils.c
+
+// complexity.c
+
+// moves_a.c
+
+// moves_b.c
+
+// simple_algo.c
+
+// medium_algo.c
+
+// complex_algo.c
+
+// bench.c
+
+// utils.c
 
 #endif

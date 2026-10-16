@@ -15,7 +15,6 @@ typedef struct s_stack
     int     size;
 } t_stack;
 
-
 typedef struct s_node
 {
 

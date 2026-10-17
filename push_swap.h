@@ -15,7 +15,7 @@ typedef struct s_value
     int value;
     int id;
     // something else?
-    // struct s_node *previous; ???
+    struct s_node *previous;
     struct s_node *next;
 } t_value;
 

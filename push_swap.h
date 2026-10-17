@@ -24,6 +24,7 @@ typedef struct s_stack
     t_node *top;
     int     size;
     int     fd;
+    int disorder;
     // something else?
 } t_stack;
 

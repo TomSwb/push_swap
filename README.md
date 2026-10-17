@@ -1,3 +1,5 @@
+*This project has been created as part of the 42 curriculum by [atardy](https://profile-v3.intra.42.fr/users/atardy), [tschwab](https://profile-v3.intra.42.fr/users/tschwab)*
+
 Todo list:
 
 [] decide structur type

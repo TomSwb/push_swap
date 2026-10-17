@@ -1,13 +1,22 @@
 
-#ifndef "PUSH_SWAP_H"
-# define "PUSH_SWAP_H"
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
 // --- Libraries --- //
 
-// libft
+// libft, malloc(), free(), read(), write(), exit()
 # include "./libft/libft.h"
 
 // --- Struct --- //
+
+// or reuse the libft one?
+typedef struct s_value {
+    int value;
+    // int index?
+    // something else?
+    // struct s_node *previous; ???
+    struct s_node *next;
+} t_value;
 
 typedef struct s_stack 
 {
@@ -15,15 +24,6 @@ typedef struct s_stack
     int     size;
     // something else?
 } t_stack;
-
-typedef struct s_node
-{
-    int value;
-    // int index?
-    // something else?
-    // struct s_node *previous; ???
-    struct s_node *next;
-} t_node;
 
 // --- Functions --- //
 

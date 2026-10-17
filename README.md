@@ -6,16 +6,26 @@ Todo list:
 
 [] reception + conversion input + parser
 
-[] complexity calculation
+[] disorder calculation
 
 [] all allowed sorts moves
 
-[] --simple algo
-[] --medium algo
+[] --simple algo 
+-- O(n2)
+-- bubble sort: with sa and ra only
+-- insertion sort: pa, then ra until position, then pb
+-- selection sort: ra to bring lowest to top, pa, over and over, b sort reverse, pb until end / depending on disorder
+
+[] --medium algo -- 
+
+
 [] --complex algo
+
+
 [] --adaptive algo
 
-[] output
+[x] output
+When operation happens
 
 [] --bench
 [] checker

@@ -6,6 +6,58 @@ The idea in one sentence: **`main` always works, each of us codes on our own bra
 
 ---
 
+## ⚡ Quick reference: the full workflow
+
+One task = one branch = one PR. Details for every step are in the sections below.
+
+**1. Start a task from the latest `main`**
+```bash
+git switch main                  # go to main
+git pull                         # get the latest main from GitHub
+git switch -c feat/<task>        # create your branch from it and switch to it
+```
+
+**2. First commit, push, open a draft PR**
+```bash
+git add <files>                  # stage your changes
+git commit -m "<what changed>"   # save them as a commit (local)
+git push -u origin feat/<task>   # upload the branch and link it to GitHub
+```
+→ On GitHub: **Create draft pull request**.
+
+**3. Keep working (repeat as often as you like)**
+```bash
+git add <files>
+git commit -m "<what changed>"
+git push                         # new commits appear in the same PR automatically
+```
+
+**4. If `main` changed in the meantime: sync your branch**
+```bash
+git switch main
+git pull
+git switch feat/<task>
+git rebase main                  # replay your commits on top of the new main
+                                 # (conflict? fix files → git add → git rebase --continue)
+git push --force-with-lease      # update your branch on GitHub (never on main!)
+```
+
+**5. Done**
+→ On GitHub: click **Ready for review**. Partner reviews → **Create a merge commit** → branch is deleted on GitHub.
+
+**6. Clean up locally**
+```bash
+git switch main
+git pull                         # bring the merged work into your main
+git branch -d feat/<task>        # delete your local branch
+git fetch --prune                # forget the deleted GitHub branch
+```
+→ Back to step 1 for the next task.
+
+**Before every commit:** `git status` and `git diff --staged` to check what you're saving.
+
+---
+
 ## Key ideas first
 
 Before the commands, four words that everything else builds on:
@@ -46,7 +98,6 @@ Changes how `git pull` behaves in this repo. Normally, pulling creates an extra 
 git config fetch.prune true
 ```
 Makes every `git fetch` / `git pull` also remove your local references to branches that were deleted on GitHub, so your branch list never shows ones that no longer exist.
-
 **Also on day one:** create a `.gitignore` file (see section 6).
 
 ---
@@ -107,7 +158,18 @@ Uploads your branch and its commits to GitHub. `-u` ("upstream") links your loca
 
 ### Open a pull request
 
+A normal PR means "this is finished, please review and merge". So open one **once the task is done**: it works, compiles, and passes norminette.
+
 On GitHub, a banner offers **"Compare & pull request"**. Open the PR, describe what you did, and ask your partner to review.
+
+**Draft pull requests (for work in progress):** if you want feedback before you're done, click the arrow next to **"Create pull request"** and choose **"Create draft pull request"**. A draft can't be merged by accident; it just makes your work visible:
+- Your partner sees what you're doing and can catch problems early ("that's not the interface we agreed on") before you build a whole day on top of it.
+- You can ask questions about specific lines by commenting on them directly in the PR.
+- Every commit you push to the branch shows up in the draft automatically.
+
+When the work is finished, click **"Ready for review"** and it becomes a normal PR.
+
+**Keep PRs small.** A PR touching 3 files gets a real review; one touching 30 gets a "looks good 👍".
 
 The reviewer reads the changes, comments or approves, and then the PR is merged into `main`. We use **"Create a merge commit"** on the merge button (see section 6 for why). After merging, GitHub deletes the branch automatically if you turned that setting on; otherwise click the **"Delete branch"** button that appears.
 

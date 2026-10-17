@@ -41,6 +41,8 @@ typedef struct s_stack
 
 // moves_b.c
 
+// moves_both.c
+
 // simple_algo.c
 
 // medium_algo.c

@@ -10,9 +10,10 @@
 // --- Struct --- //
 
 // or reuse the libft one?
-typedef struct s_value {
+typedef struct s_value 
+{
     int value;
-    // int index?
+    int id;
     // something else?
     // struct s_node *previous; ???
     struct s_node *next;
@@ -22,6 +23,7 @@ typedef struct s_stack
 {
     t_node *top;
     int     size;
+    int     fd;
     // something else?
 } t_stack;
 

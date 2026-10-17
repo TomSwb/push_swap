@@ -2,13 +2,24 @@
 
 Todo list:
 
-[] decide structur type
+[x] decide structur type
+double circular
+s = change 6 ptr
+p = change 4 ptr
+r = change head
 
-[] reception + conversion input + parser
+[x] reception + conversion int* + parsing
+[] AL
+receive char * ou char **
+ac == 2 == char *
+ac autre == char **
 
 [] disorder calculation
+[] Tom
 
 [] all allowed sorts moves
+[] Al - pa, pb, sa, sb, ss
+[] Tom - ra, rb, rr, rra, rrb, rrr
 
 [] --simple algo 
 -- O(n2)

@@ -40,6 +40,13 @@ Changes how `git pull` behaves in this repo. Normally, pulling creates an extra 
 
 **Recommended:** on GitHub, go to **Settings → Branches** and add a protection rule for `main`. This blocks direct pushes to `main`, so everything has to go through a PR and nobody breaks it by accident.
 
+**Also recommended:** in **Settings → General**, turn on **"Automatically delete head branches"**. GitHub then deletes a branch as soon as its PR is merged, so finished branches never pile up (see section 6 for why that's safe).
+
+```bash
+git config fetch.prune true
+```
+Makes every `git fetch` / `git pull` also remove your local references to branches that were deleted on GitHub, so your branch list never shows ones that no longer exist.
+
 **Also on day one:** create a `.gitignore` file (see section 6).
 
 ---
@@ -102,7 +109,7 @@ Uploads your branch and its commits to GitHub. `-u` ("upstream") links your loca
 
 On GitHub, a banner offers **"Compare & pull request"**. Open the PR, describe what you did, and ask your partner to review.
 
-The reviewer reads the changes, comments or approves, and then the PR is merged into `main`. Delete the branch afterwards (GitHub shows a button).
+The reviewer reads the changes, comments or approves, and then the PR is merged into `main`. We use **"Create a merge commit"** on the merge button (see section 6 for why). After merging, GitHub deletes the branch automatically if you turned that setting on; otherwise click the **"Delete branch"** button that appears.
 
 Then clean up locally:
 
@@ -110,8 +117,11 @@ Then clean up locally:
 git switch main
 git pull
 git branch -d feat/parser
+git fetch --prune
 ```
-The last command deletes your local copy of the branch. `-d` refuses if the branch hasn't been merged, which protects you from losing work.
+`git pull` brings the merged work into your local `main`. `git branch -d` deletes your local copy of the branch; `-d` refuses if the branch hasn't been merged, which protects you from losing work. `git fetch --prune` removes your local reference to the GitHub branch that was just deleted (not needed if you set `fetch.prune` in section 1).
+
+> **Order matters for your next task:** always `git switch main` → `git pull` → **then** `git switch -c new-branch`. Creating the branch after pulling means it starts from the latest `main`.
 
 ---
 
@@ -212,9 +222,105 @@ Shows the history compactly: one line per commit, with a drawing of how branches
 
 > ⚠️ Avoid `git reset --hard` on anything shared. It moves your branch backwards and deletes uncommitted work without asking.
 
+```bash
+git reflog
+```
+Lists every place your branches and `HEAD` have pointed recently, including commits that no branch points to anymore. It's the safety net for "I deleted something": find the hash of the lost commit there, then `git switch -c <branch> <hash>` creates a branch on it again.
+
 ---
 
-## 6. `.gitignore`
+## 6. Branch housekeeping
+
+### Why we delete branches after merging
+
+**A branch is just a label:** a name pointing at a commit. The history itself is the *commits*. Once a branch is merged into `main`, all its commits are reachable from `main` and stay in the history forever. Deleting the branch only removes the name tag, not the work.
+
+You can still see where every branch split off and joined back:
+
+```bash
+git log --oneline --graph
+```
+Draws the history with lines showing branches splitting and merging. With merge commits, the message even keeps the branch name, e.g. `Merge pull request #3 from <owner>/feat/parser`.
+
+GitHub also keeps every merged PR in **Pull requests → Closed**: the branch name, every commit, the full diff, and the review discussion. If a deleted branch is ever needed again, the PR page has a **"Restore branch"** button.
+
+So deleting costs nothing, and it keeps `git branch` showing only what's actually in progress, instead of 30 old names where nobody can tell what's finished.
+
+### Merge commit vs. squash
+
+GitHub's merge button offers three options. They matter for history:
+
+- **Create a merge commit** (what we use): keeps every commit of the branch in `main`, plus one merge commit joining them. Full history.
+- **Squash and merge:** combines all the branch's commits into **one** new commit on `main`. Tidier, but the individual commits are no longer in `main` (only in the PR).
+- **Rebase and merge:** replays the branch's commits onto `main` one by one, with no merge commit. Linear, but you lose the visible "this was one branch" grouping.
+
+### Marking milestones: tags
+
+For moments worth remembering ("version that passed evaluation"), use a **tag**, not a leftover branch:
+
+```bash
+git tag v1.0
+```
+Puts a permanent label named `v1.0` on the current commit. Unlike a branch, a tag never moves when new commits are added.
+
+```bash
+git push origin v1.0
+```
+Uploads the tag to GitHub. Tags are not pushed by a normal `git push`, so this step is needed.
+
+### "I deleted my branch locally, but it's still on GitHub"
+
+**If the PR is merged** (the work is done): delete the GitHub copy too.
+
+```bash
+git push origin --delete feat/parser
+```
+Tells GitHub to delete its copy of the branch. (Same as the trash icon on GitHub's *branches* page.)
+
+```bash
+git fetch --prune
+```
+Updates your local list of GitHub's branches and drops entries for branches that no longer exist there. Without it, `git branch -a` can keep showing `remotes/origin/feat/parser`.
+
+**If the PR is not merged yet** (you deleted it by mistake): get it back from GitHub.
+
+```bash
+git fetch
+git switch feat/parser
+```
+`git fetch` downloads GitHub's latest branches without touching your files. `git switch feat/parser` finds no local branch with that name, but sees `origin/feat/parser`, so it creates a local branch from it, links the two (like `-u`), and switches to it.
+
+Commits you never pushed are not on GitHub. Use `git reflog` (section 5) to find them.
+
+### "My new branch is behind `main`"
+
+You created a branch, made no commits on it, and then `main` got updated (you pulled after a merge). The branch still points at the old `main`. Because it has no commits of its own, you can simply move it forward:
+
+```bash
+git switch feat/x
+git merge main
+```
+Since your branch has nothing of its own, Git doesn't create a merge commit; it just slides the branch pointer forward to where `main` is now. This is called a **fast-forward**, and the output says so. (`git rebase main` does the same here.)
+
+Or delete it and create it again from the fresh `main`:
+
+```bash
+git switch main
+git branch -d feat/x
+git switch -c feat/x
+```
+`-d` accepts the deletion because a branch with no commits of its own counts as merged.
+
+Check either way:
+
+```bash
+git log --oneline -3
+```
+Shows the last 3 commits of your current branch. The top one should be the same as `main`'s latest commit.
+
+---
+
+## 7. `.gitignore`
 
 A file named `.gitignore` at the root of the repo lists files Git should never track. Create it on day one:
 
@@ -234,9 +340,11 @@ Build output changes every time either of us compiles, so tracking it would crea
 
 ---
 
-## 7. Our rules
+## 8. Our rules
 
 - **One branch = one task.** Keep branches short-lived: a day or two, not a week.
+- **Pull `main` before creating a branch**, so it starts from the latest code.
+- **Delete branches once merged**, on GitHub and locally. History stays in the commits and the PR.
 - **Pull before you start, push before you stop.** Unpushed work is invisible to your partner.
 - **Small commits, clear messages.** `"lexer: fix off-by-one in token split"`, not `"fix"`.
 - **Check before committing:** `git status` and `git diff --staged`.
@@ -245,7 +353,7 @@ Build output changes every time either of us compiles, so tracking it would crea
 
 ---
 
-## 8. Submitting to 42
+## 9. Submitting to 42
 
 Evaluations read the 42 Git repo from the intra, not GitHub. We collaborate on GitHub and push the finished `main` to the 42 repo as a second remote.
 
@@ -287,6 +395,11 @@ Uploads your up-to-date `main` to the 42 repo. Only do this once `main` is clean
 | `git revert <hash>` | Undo a pushed commit with a new commit |
 | `git log --oneline --graph --all` | View history |
 | `git branch -d <branch>` | Delete a merged local branch |
+| `git push origin --delete <branch>` | Delete a branch on GitHub |
+| `git fetch --prune` | Drop references to branches deleted on GitHub |
+| `git merge main` (on an empty branch) | Fast-forward a stale branch to the latest `main` |
+| `git reflog` | Find recently lost commits |
+| `git tag v1.0` + `git push origin v1.0` | Mark and share a milestone |
 
 ---
 

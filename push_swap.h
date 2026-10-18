@@ -12,20 +12,18 @@
 // or reuse the libft one?
 typedef struct s_value 
 {
-    int value;
-    int id;
-    // something else?
-    struct s_value *previous;
-    struct s_value *next;
+	int				value;
+	int				id;
+	struct s_value	*previous;
+	struct s_value	*next;
 } t_value;
 
 typedef struct s_stack 
 {
-    t_value *top;
-    int     size;
-    int     fd;
-    int disorder;
-    // something else?
+	size_t	size;
+	int		fd;
+	int		disorder;
+	t_value	*top;
 } t_stack;
 
 // --- Functions --- //
@@ -36,7 +34,9 @@ typedef struct s_stack
 
 // parsing_utils.c
 
-// complexity.c
+// disorder.c
+void	disorder(t_stack *stack_a);
+void	disorder_check(t_stack *stack_a, t_stack *temp, long long *mistakes);
 
 // moves_a.c
 

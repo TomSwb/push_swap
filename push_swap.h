@@ -36,7 +36,7 @@ typedef struct s_stack
 
 // disorder.c
 void	disorder(t_stack *stack_a);
-void	disorder_check(t_stack *stack_a, t_stack *temp, long long *mistakes);
+size_t	disorder_check(t_stack *stack_a, t_value *ptr_a, long long *mistakes, size_t i);
 
 // moves_a.c
 

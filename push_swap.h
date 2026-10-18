@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/18 14:37:24 by tschwab           #+#    #+#             */
+/*   Updated: 2026/10/18 14:38:15 by tschwab          ###   ########.ch       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
@@ -10,21 +21,21 @@
 // --- Struct --- //
 
 // or reuse the libft one?
-typedef struct s_value 
+typedef struct s_value
 {
 	int				value;
 	int				id;
 	struct s_value	*previous;
 	struct s_value	*next;
-} t_value;
+}	t_value;
 
-typedef struct s_stack 
+typedef struct s_stack
 {
 	size_t	size;
 	int		fd;
 	int		disorder;
 	t_value	*top;
-} t_stack;
+}	t_stack;
 
 // --- Functions --- //
 
@@ -36,7 +47,8 @@ typedef struct s_stack
 
 // disorder.c
 void	disorder(t_stack *stack_a);
-size_t	disorder_check(t_stack *stack_a, t_value *ptr_a, long long *mistakes, size_t i);
+size_t	disorder_check(t_stack *stack_a, t_value *ptr_a,
+			long long *mistakes, size_t i);
 
 // moves_a.c
 

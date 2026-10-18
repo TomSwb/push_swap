@@ -6,13 +6,11 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/18 12:43:21 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/18 14:30:56 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/18 14:40:10 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "ressources/algo_training/libft/ft_printf/ft_printf.h"
-#include <stddef.h>
 
 void	disorder(t_stack *stack_a)
 {
@@ -21,8 +19,11 @@ void	disorder(t_stack *stack_a)
 	long long	total_pairs;
 	size_t		i;
 
-	if  (stack_a->size < 2)
+	if (stack_a->size < 2)
+	{
+		stack_a->disorder = 0;
 		return ;
+	}
 	ptr_a = stack_a->top;
 	mistakes = 0;
 	total_pairs = 0;
@@ -36,12 +37,13 @@ void	disorder(t_stack *stack_a)
 	stack_a->disorder = mistakes * 10000 / total_pairs;
 }
 
-size_t	disorder_check(t_stack *stack_a, t_value *ptr_a, long long *mistakes, size_t i)
+size_t	disorder_check(t_stack *stack_a, t_value *ptr_a,
+						long long *mistakes, size_t i)
 {
 	t_value		*ptr_b;
-	size_t total_pairs;
-	size_t	j;
-	
+	size_t		total_pairs;
+	size_t		j;
+
 	ptr_b = ptr_a->next;
 	j = i + 1;
 	total_pairs = 0;
@@ -55,7 +57,6 @@ size_t	disorder_check(t_stack *stack_a, t_value *ptr_a, long long *mistakes, siz
 	}
 	return (total_pairs);
 }
-
 
 int	main(void)
 {

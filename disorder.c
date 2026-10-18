@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/18 12:43:21 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/18 14:40:10 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/18 14:43:11 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ size_t	disorder_check(t_stack *stack_a, t_value *ptr_a,
 	return (total_pairs);
 }
 
+/*
 int	main(void)
 {
 	t_stack	stack_a;
@@ -84,3 +85,4 @@ int	main(void)
 	disorder(&stack_a);
 	ft_printf("%d.%02d%%", stack_a.disorder / 100, stack_a.disorder % 100);
 }
+*/

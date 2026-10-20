@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/29 17:51:30 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/15 16:27:11 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/20 17:33:09 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,7 +141,7 @@ long long	def_div(long long value, t_flags *flags)
 	if (flags->converter == 'd' || flags->converter == 'i'
 		|| flags->converter == 'u')
 		base = 10;
-	else
+	else if (flags->converter == 'x' || flags->converter == 'X')
 		base = 16;
 	div = 1;
 	while (value / div >= base)

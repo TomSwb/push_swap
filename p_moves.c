@@ -28,12 +28,9 @@ void	pa(t_stack *stk_A, t_stack *stk_B)
 	if (stk_B->top == NULL)
 		return ;
 	temp_b = stk_B->top->next;
-	if (stk_B->top->next != NULL && temp_b->next == stk_B->top)
-	{
-		temp_b->next = NULL;
-		temp_b->prev = NULL;
-	}
-	else if (stk_B->top->next != NULL && temp_b->next != stk_B->top)
+	if (temp_b->next == stk_B->top)
+		temp_b = NULL;
+	else
 	{
 		temp_b = stk_B->top->prev;
 		temp_b->next = stk_B->top->next;
@@ -52,21 +49,18 @@ Return : void
 void	pa_2(t_stack *stk_A, t_stack *stk_B, t_value *temp_b)
 {
 	t_value	*temp_a;
-	
+
 	temp_a = stk_A->top;
 	stk_A->top = stk_B->top;
 	stk_B->top = temp_b;
 	if (!temp_a)
 	{
-		stk_A->top->next = NULL;
-		stk_A->top->prev = NULL;
+		stk_A->top->next = stk_A->top;
+		stk_A->top->prev = stk_A->top;
 		return ;
 	}
 	stk_A->top->next = temp_a;
-	if (!temp_a->prev)
-		stk_A->top->prev = temp_a;
-	else 
-		stk_A->top->prev = temp_a->prev;
+	stk_A->top->prev = temp_a->prev;
 	temp_a->prev = stk_A->top;
 	temp_a = stk_A->top->prev;
 	temp_a->next = stk_A->top;

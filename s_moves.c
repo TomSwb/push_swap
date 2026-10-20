@@ -24,7 +24,7 @@ void	sa(t_stack *stk_A, t_stack *stk_B, int ss_bool)
 	t_value	*second;
 
 	(void) stk_B;
-	if (!stk_A->top || !stk_A->top->next || !stk_A->top->prev)
+	if (!stk_A->top || stk_A->top->next == stk_A->top)
 		return ;
 	head = stk_A->top;
 	second = head->next;
@@ -58,7 +58,7 @@ void	sb(t_stack *stk_A, t_stack *stk_B, int ss_bool)
 	t_value	*head;
 	t_value	*second;
 
-	if (!stk_B->top || !stk_B->top->next || !stk_B->top->prev)
+	if (!stk_B->top || stk_B->top->next == stk_B->top)
 		return ;
 	head = stk_B->top;
 	second = head->next;

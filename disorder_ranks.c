@@ -6,12 +6,11 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/18 12:43:21 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/20 13:36:33 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/20 15:57:00 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stddef.h>
 
 int	disorder(t_stack *stack_a)
 {

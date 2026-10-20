@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: atardy <atardy@student.42lausanne.ch>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/20 11:14:13 by atardy            #+#    #+#             */
-/*   Updated: 2026/10/20 11:14:13 by atardy           ###   ########.ch       */
+/*   Created: 2026/10/20 16:31:37 by atardy            #+#    #+#             */
+/*   Updated: 2026/10/20 16:31:37 by atardy           ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,13 @@ typedef struct s_stack
 // main.c
 void	print_list(t_stack *stack_a);
 int		write_error(int n);
+void	checking_links(t_stack *stk);
 
 // tests.c
-void	tests(t_stack *stack_a);
-void	print_values(t_stack *stack_a);
+void	tests(t_stack *stack_a, t_stack *stack_b);
+void	print_values(t_stack *stack);
 void	print_ranks(t_stack *stack_a);
+void	checking_links(t_stack *stk);
 
 // parsing.c
 int		flags_parsing(int argc, char **argv, t_stack *s_a);
@@ -69,14 +71,20 @@ int		freeturn(char **int_lst);
 size_t	size_calculator(t_stack *stk);
 
 // disorder.c
-int		disorder(t_stack *stack_a);
+void	disorder(t_stack *stack_a);
 size_t	disorder_check(t_stack *stack_a, t_value *ptr_a,
 			long long *mistakes, size_t i);
 void	rank_parsing(t_stack *stack_a);
 
 // s_moves.c
+void	sa(t_stack *stk_A, t_stack *stk_B);
+void	sb(t_stack *stk_A, t_stack *stk_B);
+void	ss(t_stack *stk_A, t_stack *stk_B);
 
 // p_moves.c
+void	pa(t_stack *stk_A, t_stack *stk_B);
+void	pa_2(t_stack *stk_A, t_stack *stk_B, t_value *temp_b);
+void	pb(t_stack *stk_A, t_stack *stk_B);
 
 // r_moves.c
 int		ra(t_stack *stack_a, t_stack *stack_b, int rr_bool);

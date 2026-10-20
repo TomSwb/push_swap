@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: atardy <atardy@student.42lausanne.ch>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/20 11:00:38 by atardy            #+#    #+#             */
-/*   Updated: 2026/10/20 11:01:20 by atardy           ###   ########.ch       */
+/*   Created: 2026/10/20 16:59:32 by atardy            #+#    #+#             */
+/*   Updated: 2026/10/20 16:59:48 by atardy           ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,22 @@ int	flags_parsing(int argc, char **argv, t_stack *s_a)
 	int	i;
 
 	i = 0;
+	
 	while (++i <= 3 && i < argc)
 	{
-		if (ft_strncmp(argv[i], "--simple", 8) == 0 && s_a->flag == 0)
+		if (ft_isdigit(argv[i][0]) || (argv[i][0] == '-'
+			&& ft_isdigit(argv[i][1])))
+				return (0);
+		else if (ft_memcmp(argv[i], "--simple", 9) == 0 && s_a->flag == 0)
 			s_a->flag = 1;
-		else if (ft_strncmp(argv[i], "--medium", 8) == 0 && s_a->flag == 0)
+		else if (ft_memcmp(argv[i], "--medium", 9) == 0 && s_a->flag == 0)
 			s_a->flag = 2;
-		else if (ft_strncmp(argv[i], "--complex", 9) == 0 && s_a->flag == 0)
+		else if (ft_memcmp(argv[i], "--complex", 10) == 0 && s_a->flag == 0)
 			s_a->flag = 3;
-		else if (ft_strncmp(argv[i], "--adaptive", 10) == 0 && s_a->flag == 0)
+		else if (ft_memcmp(argv[i], "--adaptive", 11) == 0 && s_a->flag == 0)
 			s_a->flag = 4;
-		else if (ft_strncmp(argv[i], "--bench", 8) == 0 && s_a->bench == 0)
+		else if (ft_memcmp(argv[i], "--bench", 8) == 0 && s_a->bench == 0)
 			s_a->bench = 1;
-		else if (ft_isdigit(argv[i][0]))
-			return (0);
 		else
 			return (1);
 	}
@@ -53,10 +55,15 @@ int	parsing(int argc, char **argv, t_stack *stack_a)
 	char	**int_lst;
 
 	argc--;
-	while (**(++argv) == '-')
+	argv++;
+	while (argv[0][0] == '-' && argv[0][1] == '-')
+	{
+		argv++;
 		argc--;
+	}
 	if (argc == 1)
 	{
+		ft_printf("là\n");
 		int_lst = ft_split(*argv, ' ');
 		if (check_int(*int_lst) > 0)
 			return (freeturn (int_lst));

@@ -6,7 +6,7 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/20 11:33:03 by tschwab           #+#    #+#              #
-#    Updated: 2026/10/20 12:55:29 by tschwab          ###   ########.ch        #
+#    Updated: 2026/10/20 18:02:54 by tschwab          ###   ########.ch        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,10 @@ SRCS = main.c \
 		parsing_utils.c \
 		parsing_utils_2.c \
 		disorder_ranks.c \
+		r_moves.c \
+		rr_moves.c \
+		p_moves.c \
+		s_moves.c \
 		tests.c
 
 OBJS = $(SRCS:.c=.o)

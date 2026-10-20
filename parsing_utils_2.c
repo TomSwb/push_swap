@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: atardy <atardy@student.42lausanne.ch>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/20 11:14:25 by atardy            #+#    #+#             */
-/*   Updated: 2026/10/20 11:14:25 by atardy           ###   ########.ch       */
+/*   Created: 2026/10/20 17:16:25 by atardy            #+#    #+#             */
+/*   Updated: 2026/10/20 17:16:29 by atardy           ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	stack_initializer(t_stack *st)
 	st->top = NULL;
 	st->disorder = 0;
 	st->init_size = 0;
+	st->moves = 0;
 }
 
 /*

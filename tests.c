@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: atardy <atardy@student.42lausanne.ch>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/20 16:47:04 by atardy            #+#    #+#             */
-/*   Updated: 2026/10/20 16:47:18 by atardy           ###   ########.ch       */
+/*   Created: 2026/10/20 17:16:49 by atardy            #+#    #+#             */
+/*   Updated: 2026/10/20 17:16:49 by atardy           ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,6 @@ void	tests(t_stack *stack_a, t_stack *stack_b)
 	checking_links(stack_a);
 	ft_printf("\nLinks Stack_B\n");
 	checking_links(stack_b);
-
-	sa(stack_a, stack_b);
 	ft_printf("\nStack A after sa\n");
 	print_values(stack_a);
 	sb(stack_a, stack_b);

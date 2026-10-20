@@ -28,7 +28,7 @@ int	main(int argc, char **argv)
 	if (parsing(argc, argv, &stack_a) || check_double(&stack_a))
 		return (lstclear(&stack_a, 1));
 	size_calculator(&stack_a, stack_a.init_size);
-	stack_a->size = stack_a->init_size;
+	stack_a.size = stack_a.init_size;
 	rank_parsing(&stack_a);
 	disorder(&stack_a);
 	tests(&stack_a, &stack_b);

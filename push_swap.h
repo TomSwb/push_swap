@@ -24,6 +24,7 @@ typedef struct s_value
 {
 	int				value;
 	int				id;
+	int				rank;
 	struct s_value	*prev;
 	struct s_value	*next;
 }	t_value;
@@ -42,6 +43,11 @@ typedef struct s_stack
 // main.c
 void	print_list(t_stack *stack_a);
 int		write_error(int n);
+
+// tests.c
+void	tests(t_stack *stack_a);
+void	print_values(t_stack *stack_a);
+void	print_ranks(t_stack *stack_a);
 
 // parsing.c
 int		flags_parsing(int argc, char **argv, t_stack *s_a);
@@ -62,9 +68,10 @@ int		freeturn(char **int_lst);
 size_t	size_calculator(t_stack *stk);
 
 // disorder.c
-void	disorder(t_stack *stack_a);
+int		disorder(t_stack *stack_a);
 size_t	disorder_check(t_stack *stack_a, t_value *ptr_a,
 			long long *mistakes, size_t i);
+void	rank_parsing(t_stack *stack_a);
 
 // s_moves.c
 

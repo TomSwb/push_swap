@@ -34,8 +34,8 @@ void	pa(t_stack *stk_A, t_stack *stk_B, int pb_bool)
 		temp_b->prev = stk_B->top->prev;
 	}
 	pa_2(stk_A, stk_B, temp_b);
-	stk_A->size--;
-	stk_B->size++;
+	stk_A->size++;
+	stk_B->size--;
 	if (!pb_bool)
 	{
 		ft_putendl_fd("pa", stk_A->fd);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: atardy <atardy@student.42lausanne.ch>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/18 14:37:24 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/18 14:43:04 by tschwab          ###   ########.ch       */
+/*   Created: 2026/10/20 08:19:46 by atardy            #+#    #+#             */
+/*   Updated: 2026/10/20 08:19:53 by atardy           ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,35 +16,48 @@
 // --- Libraries --- //
 
 // libft, malloc(), free(), read(), write(), exit()
-# include "./libft/libft.h"
+# include "libft/libft.h"
+// pour les tests
+# include <stdio.h>
 
 // --- Struct --- //
 
-// or reuse the libft one?
 typedef struct s_value
 {
-	int				value;
-	int				id;
-	struct s_value	*previous;
-	struct s_value	*next;
-}	t_value;
+    int				value;
+    int 			id;
+    struct s_value	*prev;
+    struct s_value	*next;
+} t_value;
 
 typedef struct s_stack
 {
-	size_t	size;
-	int		fd;
+    t_value	*top;
+	int		bench;
+	int		flag;
+    int     size;
 	int		disorder;
-	t_value	*top;
-}	t_stack;
+} t_stack;
 
 // --- Functions --- //
 
 // main.c
 
 // parsing.c
-
+int		flags_parsing(int argc, char **argv, t_stack *s_a);
+int		parsing(int argc, char **argv, t_stack *stack_a);
+int		stack_from_split(char **int_lst, t_stack *stack_a);
+int		pars_from_argv(int nb_int, char **int_lst, t_stack *stack_a);
 // parsing_utils.c
-
+int		check_int(char *content);
+t_value	*lstnew(void *content, int id);
+void	lstadd(t_stack *head,t_value *new);
+int		lstclear(t_stack *head);
+int		check_double(t_stack *head);
+// parsing_utils_2.c
+void	stack_initializer(t_stack *st);
+int		write_error(int n);
+int		freeturn(char **int_lst);
 // disorder.c
 void	disorder(t_stack *stack_a);
 size_t	disorder_check(t_stack *stack_a, t_value *ptr_a,

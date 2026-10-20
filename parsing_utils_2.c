@@ -48,7 +48,7 @@ int	freeturn(char **int_lst)
 GOAL : calculate the "size" of the stack_a => the number of value in the list
 Return : Size
 */
-void	size_calculator(t_stack *st, int *size_var)
+size_t	size_calculator(t_stack *st)
 {
 	int		id_stop;
 	size_t	size;
@@ -63,5 +63,5 @@ void	size_calculator(t_stack *st, int *size_var)
 		size++;
 		current = current->next;
 	}
-	*size_var = size;
+	return (size);
 }

@@ -1,47 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rr_moves.c                                         :+:      :+:    :+:   */
+/*   r_moves.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/20 15:35:59 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/20 16:39:01 by tschwab          ###   ########.ch       */
+/*   Created: 2026/10/17 14:57:15 by tschwab           #+#    #+#             */
+/*   Updated: 2026/10/20 21:08:45 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	rra(t_stack *stack_a, t_stack *stack_b, int rrr_bool)
+void	ra(t_stack *stack_a, t_stack *stack_b, int rr_bool)
 {
 	if (!stack_a->top)
 		return ;
 	(void) stack_b;
-	stack_a->top = stack_a->top->prev;
-	if (rrr_bool)
+	stack_a->top = stack_a->top->next;
+	if (rr_bool)
 		return ;
-	ft_putendl_fd("rra", stack_a->fd);
+	ft_putendl_fd("ra", stack_a->fd);
 	(stack_a->moves)++;
 }
 
-void	rrb(t_stack *stack_a, t_stack *stack_b, int rrr_bool)
+void	rb(t_stack *stack_a, t_stack *stack_b, int rr_bool)
 {
 	if (!stack_b->top)
 		return ;
 	(void) stack_a;
-	stack_b->top = stack_b->top->prev;
-	if (rrr_bool)
+	stack_b->top = stack_b->top->next;
+	if (rr_bool)
 		return ;
-	ft_putendl_fd("rrb", stack_b->fd);
+	ft_putendl_fd("rb", stack_b->fd);
 	(stack_b->moves)++;
 }
 
-void	rrr(t_stack *stack_a, t_stack *stack_b)
+void	rr(t_stack *stack_a, t_stack *stack_b)
 {
 	if (!stack_a->top || !stack_b->top)
 		return ;
-	rra(stack_a, stack_b, 1);
-	rrb(stack_a, stack_b, 1);
-	ft_putendl_fd("rrr", stack_a->fd);
+	ra(stack_a, stack_b, 1);
+	rb(stack_a, stack_b, 1);
+	ft_putendl_fd("rr", stack_a->fd);
 	(stack_a->moves)++;
 }

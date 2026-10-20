@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 /*
 GOAL : initialize stacks with default value (and gain lines)
 Return : void

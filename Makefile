@@ -6,7 +6,7 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/20 11:33:03 by tschwab           #+#    #+#              #
-#    Updated: 2026/10/20 18:02:54 by tschwab          ###   ########.ch        #
+#    Updated: 2026/10/20 21:12:11 by tschwab          ###   ########.ch        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,15 +18,21 @@ CFLAGS = -Wall -Wextra -Werror
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-SRCS = main.c \
-		parsing.c \
-		parsing_utils.c \
-		parsing_utils_2.c \
-		disorder_ranks.c \
-		r_moves.c \
-		rr_moves.c \
-		p_moves.c \
-		s_moves.c \
+PARSING = parsing/parsing.c \
+		parsing/parsing_utils.c \
+		parsing/parsing_utils_2.c \
+		parsing/disorder_ranks.c
+
+MOVES = moves/p_moves.c \
+		moves/r_moves.c \
+		moves/rr_moves.c \
+		moves/s_moves.c
+
+ALGOS =	algos/on2.c \
+		algos/onrootn.c \
+		algos/onlogn.c
+
+SRCS = main.c ${PARSING} ${MOVES} ${ALGOS} \
 		tests.c
 
 OBJS = $(SRCS:.c=.o)

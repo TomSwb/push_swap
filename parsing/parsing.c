@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 /*
 GOAL : Set-up the "flag" and "bench" parameter in stack-a. Also check if 
 	there's at least one of the 3 first args that START with a digit.

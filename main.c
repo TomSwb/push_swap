@@ -55,6 +55,6 @@ int	write_error(int n)
 		ft_printf("disorder fails\n");
 	// Real function below
 	(void) n;
-	ft_putendl("Error\n", 2);
+	ft_putendl_fd("Error", 2);
 	return (1);
 }

@@ -6,14 +6,14 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/18 12:43:21 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/20 17:32:56 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/20 17:57:13 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stddef.h>
 
-void	disorder(t_stack *stack_a)
+int	disorder(t_stack *stack_a)
 {
 	t_value		*ptr_a;
 	long long	mistakes;
@@ -23,7 +23,7 @@ void	disorder(t_stack *stack_a)
 	if (stack_a->init_size < 2)
 	{
 		stack_a->disorder = 0;
-		return ;
+		return (write_error(4));
 	}
 	ptr_a = stack_a->top;
 	mistakes = 0;

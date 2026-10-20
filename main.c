@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: atardy <atardy@student.42lausanne.ch>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/20 11:13:58 by atardy            #+#    #+#             */
-/*   Updated: 2026/10/20 11:14:06 by atardy           ###   ########.ch       */
+/*   Created: 2026/10/20 16:59:01 by atardy            #+#    #+#             */
+/*   Updated: 2026/10/20 16:59:11 by atardy           ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@ int	main(int argc, char **argv)
 {
 	t_stack	stack_a;
 	t_stack	stack_b;
-	// t_value	*checked;
-	// int		id_stop = -1;
+
 	if (argc == 1)
 		return (write_error(1));
 	stack_initializer(&stack_a);
@@ -32,7 +31,7 @@ int	main(int argc, char **argv)
 	rank_parsing(&stack_a);
 	if (disorder(&stack_a))
 		return (lstclear(&stack_a, 1));
-	tests(&stack_a);
+	tests(&stack_a, &stack_b);
 	lstclear(&stack_a, 0);
 	ft_printf("\nall works, lst cleared\n\n");
 	return (0);

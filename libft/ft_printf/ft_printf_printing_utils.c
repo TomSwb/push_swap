@@ -141,7 +141,7 @@ long long	def_div(long long value, t_flags *flags)
 	if (flags->converter == 'd' || flags->converter == 'i'
 		|| flags->converter == 'u')
 		base = 10;
-	else if (flags->converter == 'x' || flags->converter == 'X')
+	else
 		base = 16;
 	div = 1;
 	while (value / div >= base)

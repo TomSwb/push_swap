@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "ressources/algo_training/libft/ft_printf/ft_printf.h"
 
 int	main(int argc, char **argv)
 {
@@ -47,7 +46,7 @@ int	main(int argc, char **argv)
 
 void	print_list(t_stack *stack_a)
 {
-	size_t 	i;
+	size_t	i;
 	t_value	*temp;
 
 	temp = stack_a->top;

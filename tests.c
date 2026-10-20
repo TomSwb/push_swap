@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 12:55:07 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/20 12:56:51 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/20 13:36:51 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 void	tests(t_stack *stack_a)
 {
 	ft_printf("\n=== Tests ===\n");
-	ft_printf("\nDisorder: %d.%02d%%\n", stack_a->disorder / 100, stack_a->disorder % 100);
+	ft_printf("\nDisorder: %d.%02d%%\n", stack_a->disorder / 100,
+		stack_a->disorder % 100);
 	print_values(stack_a);
 	print_ranks(stack_a);
 }

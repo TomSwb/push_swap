@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: atardy <atardy@student.42lausanne.ch>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/20 08:05:22 by atardy            #+#    #+#             */
-/*   Updated: 2026/10/20 08:05:30 by atardy           ###   ########.ch       */
+/*   Created: 2026/10/20 10:59:11 by atardy            #+#    #+#             */
+/*   Updated: 2026/10/20 11:00:10 by atardy           ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,43 +46,43 @@ Return a pointer to the new struct if everything went fine
 */
 t_value *lstnew(void *content, int id)
 {
-	t_value	*new;
+	t_value	*node;
 	
 	if (!content)
 		return (NULL);
-	new = malloc (sizeof(t_value));
-	if (new == NULL)
+	node = malloc (sizeof(t_value));
+	if (node == NULL)
 		return (NULL);
-	new->value = ft_atoi(content);
-	new->next = NULL;
-	new->prev = NULL;
-	new->id = id;
-	return (new);
+	node->value = ft_atoi(content);
+	node->next = NULL;
+	node->prev = NULL;
+	node->id = id;
+	return (node);
 }
 
 /*
 GOAL : add new struct in the circular linked list
 Return : void
 */
-void	lstadd(t_stack *head,t_value *new)
+void	lstadd(t_stack *head,t_value *node)
 {
 	t_value *last;
 
-	if (!new || !head)
+	if (!node || !head)
 		return ;
 	if (!((head->top)->next) || !((head->top)->prev))
 	{
-		(head->top)->next = new;
-		(head->top)->prev = new;
-		new->next = head->top;
-		new->prev = head->top;
+		(head->top)->next = node;
+		(head->top)->prev = node;
+		node->next = head->top;
+		node->prev = head->top;
 		return ;
 	}
 	last = (head->top)->prev;
-	last->next = new;
-	new->prev = last;
-	new->next = head->top;
-	(head->top)->prev = new;
+	last->next = node;
+	node->prev = last;
+	node->next = head->top;
+	(head->top)->prev = node;
 }
 
 /*

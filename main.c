@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: atardy <atardy@student.42lausanne.ch>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/20 08:20:50 by atardy            #+#    #+#             */
-/*   Updated: 2026/10/20 08:21:59 by atardy           ###   ########.ch       */
+/*   Created: 2026/10/20 11:13:58 by atardy            #+#    #+#             */
+/*   Updated: 2026/10/20 11:14:06 by atardy           ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	main (int argc, char **argv)
 {
-						t_value	*checked;
-						int		id_stop = -1;
+	// t_value	*checked;
+	// int		id_stop = -1;
 	t_stack	stack_a;
 	t_stack	stack_b;
 	
@@ -29,7 +29,7 @@ int	main (int argc, char **argv)
 		stack_a.flag = 4;
 	if (parsing(argc, argv, &stack_a) || check_double(&stack_a))
 		return (lstclear(&stack_a));
-
+	stack_a.init_size = size_calculator(&stack_a);
 	
 	// printf ("bench = %d / flag = %d \n", stack_a.bench, stack_a.flag);
 	// printf ("check doublon = %d\n",check_double(&stack_a));

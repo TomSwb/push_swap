@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/18 12:43:21 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/20 13:29:13 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/20 13:36:33 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ int	disorder(t_stack *stack_a)
 		ptr_a = ptr_a->next;
 		i++;
 	}
-	stack_a->disorder = (((mistakes * 10000) + (total_pairs / 2)) / total_pairs);
+	stack_a->disorder = (((mistakes * 10000) + (total_pairs / 2))
+			/ total_pairs);
 	return (0);
 }
 
@@ -62,11 +63,11 @@ size_t	disorder_check(t_stack *stack_a, t_value *ptr_a,
 
 void	rank_parsing(t_stack *stack_a)
 {
-	t_value *temp;
+	t_value	*temp;
 	t_value	*lowest_add;
 	size_t	pass;
 	size_t	i;
-	
+
 	pass = 0;
 	while (pass < stack_a->init_size)
 	{
@@ -76,7 +77,7 @@ void	rank_parsing(t_stack *stack_a)
 		while (i < stack_a->init_size)
 		{
 			if (temp->rank == -1 && (lowest_add == NULL
-				|| lowest_add->value > temp->value))
+					|| lowest_add->value > temp->value))
 				lowest_add = temp;
 			temp = temp->next;
 			i++;

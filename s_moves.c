@@ -88,6 +88,8 @@ Return : void
 */
 void	ss(t_stack *stk_A, t_stack *stk_B)
 {
+	if (!stk_A->top || !stk_B->top)
+		return (0);
 	sa(stk_B, stk_A, 1);
 	sb(stk_B, stk_A, 1);
 	ft_putendl_fd("ss", stk_A->fd);

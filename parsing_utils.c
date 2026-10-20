@@ -88,16 +88,19 @@ int	lstclear(t_stack *head, int error)
 	t_value	*current;
 	t_value	*next_adress;
 
-	current = head->top;
-	((head->top)->prev)->next = NULL;
-	while (current)
+	if (head->top)
 	{
-		next_adress = current->next;
-		current->next = NULL;
-		current->prev = NULL;
-		free (current);
-		current = NULL;
-		current = next_adress;
+		current = head->top;
+		((head->top)->prev)->next = NULL;
+		while (current)
+		{
+			next_adress = current->next;
+			current->next = NULL;
+			current->prev = NULL;
+			free (current);
+			current = next_adress;
+		}
+		head->top = NULL;
 	}
 	if (error == 1)
 		return (write_error(3));

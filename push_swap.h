@@ -70,7 +70,7 @@ int		check_double(t_stack *head);
 // parsing_utils_2.c
 void	stack_initializer(t_stack *st);
 int		freeturn(char **int_lst);
-void	size_calculator(t_stack *stk, size_t size_var);
+void	size_calculator(t_stack *stk);
 
 // disorder.c
 void	disorder(t_stack *stack_a);

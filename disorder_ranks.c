@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   disorder.c                                         :+:      :+:    :+:   */
+/*   disorder_ranks.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/18 12:43:21 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/20 11:34:43 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/20 13:36:33 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stddef.h>
 
-void	disorder(t_stack *stack_a)
+int	disorder(t_stack *stack_a)
 {
 	t_value		*ptr_a;
 	long long	mistakes;
@@ -22,7 +23,7 @@ void	disorder(t_stack *stack_a)
 	if (stack_a->init_size < 2)
 	{
 		stack_a->disorder = 0;
-		return ;
+		return (write_error(4));
 	}
 	ptr_a = stack_a->top;
 	mistakes = 0;
@@ -34,7 +35,9 @@ void	disorder(t_stack *stack_a)
 		ptr_a = ptr_a->next;
 		i++;
 	}
-	stack_a->disorder = mistakes * 10000 / total_pairs;
+	stack_a->disorder = (((mistakes * 10000) + (total_pairs / 2))
+			/ total_pairs);
+	return (0);
 }
 
 size_t	disorder_check(t_stack *stack_a, t_value *ptr_a,
@@ -58,31 +61,28 @@ size_t	disorder_check(t_stack *stack_a, t_value *ptr_a,
 	return (total_pairs);
 }
 
-/*
-int	main(void)
+void	rank_parsing(t_stack *stack_a)
 {
-	t_stack	stack_a;
-	t_value	value1;
-	t_value	value2;
-	t_value	value3;
+	t_value	*temp;
+	t_value	*lowest_add;
+	size_t	pass;
+	size_t	i;
 
-	stack_a.fd = 1;
-	stack_a.size = 3;
-	stack_a.disorder = 0;
-	stack_a.top = &value1;
-	value1.id = 1;
-	value1.value = 17;
-	value1.previous = &value3;
-	value1.next = &value2;
-	value2.id = 2;
-	value2.value = 10;
-	value2.previous = &value1;
-	value2.next = &value3;
-	value3.id = 3;
-	value3.value = 18;
-	value3.previous = &value2;
-	value3.next = &value1;
-	disorder(&stack_a);
-	ft_printf("%d.%02d%%", stack_a.disorder / 100, stack_a.disorder % 100);
+	pass = 0;
+	while (pass < stack_a->init_size)
+	{
+		temp = stack_a->top;
+		lowest_add = NULL;
+		i = 0;
+		while (i < stack_a->init_size)
+		{
+			if (temp->rank == -1 && (lowest_add == NULL
+					|| lowest_add->value > temp->value))
+				lowest_add = temp;
+			temp = temp->next;
+			i++;
+		}
+		lowest_add->rank = pass;
+		pass++;
+	}
 }
-*/

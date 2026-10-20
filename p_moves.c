@@ -73,6 +73,6 @@ Return : void
 void	pb(t_stack *stk_A, t_stack *stk_B)
 {
 	pa (stk_B, stk_A);
-	ft_putendl("pb", stk_a->fd);
+	ft_putendl("pb", stk_b->fd);
 	stk_A->moves++;	
 }

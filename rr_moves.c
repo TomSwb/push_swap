@@ -20,7 +20,7 @@ int	rra(t_stack *stack_a, t_stack *stack_b, int rrr_bool)
 	stack_a->top = stack_a->top->prev;
 	if (rrr_bool)
 		return (1);
-	ft_putendl("rra", stack_a->fd);
+	ft_putendl_fd("rra", stack_a->fd);
 	(stack_a->moves)++;
 	return (1);
 }
@@ -33,7 +33,7 @@ int	rrb(t_stack *stack_a, t_stack *stack_b, int rrr_bool)
 	stack_b->top = stack_b->top->prev;
 	if (rrr_bool)
 		return (1);
-	ft_putendl("rrb", stack_b->fd);
+	ft_putendl_fd("rrb", stack_b->fd);
 	(stack_b->moves)++;
 	return (1);
 }
@@ -44,7 +44,7 @@ int	rrr(t_stack *stack_a, t_stack *stack_b)
 		return (0);
 	rra(stack_a, stack_b, 1);
 	rrb(stack_a, stack_b, 1);
-	ft_putendl("rrr", stack_a->fd);
+	ft_putendl_fd("rrr", stack_a->fd);
 	(stack_a->moves)++;
 	return (1);
 }

@@ -22,7 +22,7 @@ void	pa(t_stack *stk_A, t_stack *stk_B)
 	
 	if (stk_B->init_size == 0)
 	{
-		write (1, "pa\n", 3);
+		ft_putendl("pa", stk_a->fd);
 		stk_A->moves++;	
 	}
 	if (stk_B->top == NULL)
@@ -73,6 +73,6 @@ Return : void
 void	pb(t_stack *stk_A, t_stack *stk_B)
 {
 	pa (stk_B, stk_A);
-	write (1, "pb\n", 3);
+	ft_putendl("pb", stk_a->fd);
 	stk_A->moves++;	
 }

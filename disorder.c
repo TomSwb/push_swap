@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/18 12:43:21 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/18 14:43:11 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/20 11:34:43 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	disorder(t_stack *stack_a)
 	long long	total_pairs;
 	size_t		i;
 
-	if (stack_a->size < 2)
+	if (stack_a->init_size < 2)
 	{
 		stack_a->disorder = 0;
 		return ;
@@ -28,7 +28,7 @@ void	disorder(t_stack *stack_a)
 	mistakes = 0;
 	total_pairs = 0;
 	i = 0;
-	while (i < stack_a->size - 1)
+	while (i < stack_a->init_size - 1)
 	{
 		total_pairs += disorder_check(stack_a, ptr_a, &mistakes, i);
 		ptr_a = ptr_a->next;
@@ -47,7 +47,7 @@ size_t	disorder_check(t_stack *stack_a, t_value *ptr_a,
 	ptr_b = ptr_a->next;
 	j = i + 1;
 	total_pairs = 0;
-	while (j < stack_a->size)
+	while (j < stack_a->init_size)
 	{
 		total_pairs++;
 		if (ptr_a->value > ptr_b->value)

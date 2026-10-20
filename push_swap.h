@@ -17,58 +17,62 @@
 
 // libft, malloc(), free(), read(), write(), exit()
 # include "libft/libft.h"
-// pour les tests
-# include <stdio.h>
 
 // --- Struct --- //
 
 typedef struct s_value
 {
 	int				value;
-	int 			id;
+	int				id;
 	struct s_value	*prev;
 	struct s_value	*next;
-} t_value;
+}	t_value;
 
 typedef struct s_stack
 {
-	t_value	*top;
 	int		bench;
 	int		flag;
 	size_t	init_size;
 	int		disorder;
-} t_stack;
+	t_value	*top;
+}	t_stack;
 
 // --- Functions --- //
 
 // main.c
+void	print_list(t_stack *stack_a);
+int		write_error(int n);
 
 // parsing.c
 int		flags_parsing(int argc, char **argv, t_stack *s_a);
 int		parsing(int argc, char **argv, t_stack *stack_a);
 int		stack_from_split(char **int_lst, t_stack *stack_a);
 int		pars_from_argv(int nb_int, char **int_lst, t_stack *stack_a);
+
 // parsing_utils.c
 int		check_int(char *content);
 t_value	*lstnew(void *content, int id);
-void	lstadd(t_stack *head,t_value *new);
-int		lstclear(t_stack *head);
+void	lstadd(t_stack *head, t_value *node);
+int		lstclear(t_stack *head, int error);
 int		check_double(t_stack *head);
+
 // parsing_utils_2.c
 void	stack_initializer(t_stack *st);
-int		write_error(int n);
 int		freeturn(char **int_lst);
 size_t	size_calculator(t_stack *stk);
+
 // disorder.c
 void	disorder(t_stack *stack_a);
 size_t	disorder_check(t_stack *stack_a, t_value *ptr_a,
 			long long *mistakes, size_t i);
 
-// moves_a.c
+// s_moves.c
 
-// moves_b.c
+// p_moves.c
 
-// moves_both.c
+// r_moves.c
+
+// rr_moves.c
 
 // simple_algo.c
 

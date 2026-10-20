@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2026/10/20 11:33:03 by tschwab           #+#    #+#              #
+#    Updated: 2026/10/20 11:33:04 by tschwab          ###   ########.ch        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = push_swap
 
 CC = cc
@@ -6,7 +18,11 @@ CFLAGS = -Wall -Wextra -Werror
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-SRCS = main.c
+SRCS = main.c \
+		parsing.c \
+		parsing_utils.c \
+		parsing_utils_2.c \
+		disorder.c
 
 OBJS = $(SRCS:.c=.o)
 

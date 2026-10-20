@@ -15,12 +15,12 @@
 GOAL : Set-up the "flag" and "bench" parameter in stack-a. Also check if 
 	there's at least one of the 3 first args that START with a digit.
 Return 0 - success: It finds only valid flags then an arg that START with a nb
-Return 1 - failure: The 3 (or less if argc <3) first args are not only valid flags
-	or an arg that starts with a number.
-*/ 
+Return 1 - failure: The 3 (or less if argc <3) first args are not only 
+valid flags or an arg that starts with a number.
+*/
 int	flags_parsing(int argc, char **argv, t_stack *s_a)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (++i <= 3 && i < argc)
@@ -37,7 +37,7 @@ int	flags_parsing(int argc, char **argv, t_stack *s_a)
 			s_a->bench = 1;
 		else if (ft_isdigit(argv[i][0]))
 			return (0);
-		else		
+		else
 			return (1);
 	}
 	return (1);
@@ -65,10 +65,10 @@ int	parsing(int argc, char **argv, t_stack *stack_a)
 			return (freeturn(int_lst));
 		if (stack_from_split (int_lst, stack_a))
 			return (freeturn(int_lst));
-		return(0);
+		return (0);
 	}
 	else
-		return(pars_from_argv(argc, argv, stack_a));
+		return (pars_from_argv(argc, argv, stack_a));
 }
 
 /*
@@ -82,17 +82,17 @@ int	stack_from_split(char **int_lst, t_stack *stack_a)
 {
 	int		i;
 	t_value	*node;
-	
+
 	i = 0;
 	while (int_lst[++i])
-		{
-			if (check_int(int_lst[i]) > 0)
-				return (1);
-			node = lstnew(int_lst[i], i + 1);
-			if (!node)
-				return (1);
-			lstadd(stack_a, node);
-		}
+	{
+		if (check_int(int_lst[i]) > 0)
+			return (1);
+		node = lstnew(int_lst[i], i + 1);
+		if (!node)
+			return (1);
+		lstadd(stack_a, node);
+	}
 	i = -1;
 	while (int_lst[++i])
 	{
@@ -113,9 +113,9 @@ Return 0 : if everything went fine.
 */
 int	pars_from_argv(int nb_int, char **int_lst, t_stack *stack_a)
 {
-	int 	i;
+	int		i;
 	t_value	*node;
-	
+
 	i = 0;
 	if (check_int(int_lst[0]) > 0)
 		return (1);
@@ -127,7 +127,7 @@ int	pars_from_argv(int nb_int, char **int_lst, t_stack *stack_a)
 	{
 		if (check_int(int_lst[i]) > 0)
 			return (1);
-		node= lstnew(int_lst[i], i);
+		node = lstnew(int_lst[i], i);
 		if (!node)
 			return (1);
 		lstadd(stack_a, node);

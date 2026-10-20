@@ -22,4 +22,5 @@ gen_args() {
 
 gen_args "$SIZE"          # fresh random numbers
 
-# to use run ARG=$(./gen.sh 500); ./push_swap $ARG | ./checker_linux $ARG
+# to use run: ARG=$(ressources/generator.sh 500) ./push_swap $ARG
+# with checker: ARG=$(ressources/generator.sh 500) ./push_swap $ARG | ./checker_linux $ARG

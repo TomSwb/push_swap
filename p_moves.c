@@ -28,7 +28,7 @@ void	pa(t_stack *stk_A, t_stack *stk_B)
 	if (stk_B->top == NULL)
 		return ;
 	temp_b = stk_B->top->next;
-	if (temp_b->next == stk_B->top)
+	if (temp_b == stk_B->top)
 		temp_b = NULL;
 	else
 	{

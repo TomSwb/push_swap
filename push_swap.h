@@ -34,7 +34,6 @@ typedef struct s_stack
 	int		bench;
 	int		flag;
 	size_t	init_size;
-	int		moves;
 	int		disorder;
 	int		moves;
 	t_value	*top;
@@ -52,11 +51,6 @@ void	tests(t_stack *stack_a, t_stack *stack_b);
 void	print_values(t_stack *stack);
 void	print_ranks(t_stack *stack_a);
 void	checking_links(t_stack *stk);
-
-// tests.c
-void	tests(t_stack *stack_a);
-void	print_values(t_stack *stack_a);
-void	print_ranks(t_stack *stack_a);
 
 // parsing.c
 int		flags_parsing(int argc, char **argv, t_stack *s_a);
@@ -77,7 +71,7 @@ int		freeturn(char **int_lst);
 size_t	size_calculator(t_stack *stk);
 
 // disorder.c
-int		disorder(t_stack *stack_a);
+void	disorder(t_stack *stack_a);
 size_t	disorder_check(t_stack *stack_a, t_value *ptr_a,
 			long long *mistakes, size_t i);
 void	rank_parsing(t_stack *stack_a);

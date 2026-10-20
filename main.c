@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 16:59:01 by atardy            #+#    #+#             */
-/*   Updated: 2026/10/20 18:03:12 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/20 18:15:31 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,7 @@ int	main(int argc, char **argv)
 		return (lstclear(&stack_a, 1));
 	stack_a.init_size = size_calculator(&stack_a);
 	rank_parsing(&stack_a);
-	if (disorder(&stack_a))
-		return (lstclear(&stack_a, 1));
+	disorder(&stack_a);
 	tests(&stack_a, &stack_b);
 	lstclear(&stack_a, 0);
 	ft_printf("\nall works, lst cleared\n\n");

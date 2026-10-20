@@ -35,6 +35,7 @@ typedef struct s_stack
 	int		flag;
 	size_t	init_size;
 	int		disorder;
+	int		moves;
 	t_value	*top;
 }	t_stack;
 
@@ -78,8 +79,14 @@ void	rank_parsing(t_stack *stack_a);
 // p_moves.c
 
 // r_moves.c
+void	ra(t_stack *stack_a, t_stack *stack_b);
+void	rb(t_stack *stack_a, t_stack *stack_b);
+void	rr(t_stack *stack_a, t_stack *stack_b);
 
 // rr_moves.c
+void	rra(t_stack *stack_a, t_stack *stack_b);
+void	rrb(t_stack *stack_a, t_stack *stack_b);
+void	rrr(t_stack *stack_a, t_stack *stack_b);
 
 // simple_algo.c
 

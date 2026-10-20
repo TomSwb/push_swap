@@ -33,7 +33,7 @@ int	rrb(t_stack *stack_a, t_stack *stack_b, int rrr_bool)
 	stack_b->top = stack_b->top->prev;
 	if (rrr_bool)
 		return (1);
-	ft_putendl("rrb", stack_a->fd);
+	ft_putendl("rrb", stack_b->fd);
 	(stack_b->moves)++;
 	return (1);
 }

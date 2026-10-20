@@ -88,14 +88,14 @@ void	pa_2(t_stack *stk_A, t_stack *stk_B, t_value *temp_b);
 void	pb(t_stack *stk_A, t_stack *stk_B);
 
 // r_moves.c
-int		ra(t_stack *stack_a, t_stack *stack_b, int rr_bool);
-int		rb(t_stack *stack_a, t_stack *stack_b, int rr_bool);
-int		rr(t_stack *stack_a, t_stack *stack_b);
+void	ra(t_stack *stack_a, t_stack *stack_b, int rr_bool);
+void	rb(t_stack *stack_a, t_stack *stack_b, int rr_bool);
+void	rr(t_stack *stack_a, t_stack *stack_b);
 
 // rr_moves.c
-int		rra(t_stack *stack_a, t_stack *stack_b, int rrr_bool);
-int		rrb(t_stack *stack_a, t_stack *stack_b, int rrr_bool);
-int		rrr(t_stack *stack_a, t_stack *stack_b);
+void	rra(t_stack *stack_a, t_stack *stack_b, int rrr_bool);
+void	rrb(t_stack *stack_a, t_stack *stack_b, int rrr_bool);
+void	rrr(t_stack *stack_a, t_stack *stack_b);
 
 // simple_algo.c
 

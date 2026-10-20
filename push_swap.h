@@ -34,6 +34,7 @@ typedef struct s_stack
 	int		bench;
 	int		flag;
 	size_t	init_size;
+	size_t	size;
 	int		disorder;
 	int		moves;
 	int		fd;

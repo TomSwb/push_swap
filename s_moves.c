@@ -25,7 +25,7 @@ void	sa(t_stack *stk_A, t_stack *stk_B)
 	
 	if (stk_B->init_size == 0)
 	{
-		write (1, "sa\n", 3);
+		ft_putendl("sa", stk_A->fd);
 		stk_A->moves++;
 	}
 	if (!stk_A->top || !stk_A->top->next || !stk_A->top->prev)
@@ -59,7 +59,7 @@ void	sb(t_stack *stk_A, t_stack *stk_B)
 	
 	if (stk_B->init_size == 0)
 	{
-		write (1, "sb\n", 3);
+		ft_putendl("sb", stk_B->fd);
 		stk_A->moves++;	
 	}
 	if (!stk_B->top || !stk_B->top->next || !stk_B->top->prev)
@@ -89,6 +89,6 @@ void	ss(t_stack *stk_A, t_stack *stk_B)
 {
 	sa (stk_B, stk_A);
 	sb (stk_B, stk_A);
-	write (1, "ss\n", 3);
+	ft_putendl("ss", stk_A->fd);
 	stk_A->moves++;
 }

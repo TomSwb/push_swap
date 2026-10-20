@@ -32,15 +32,6 @@ int	main(int argc, char **argv)
 	rank_parsing(&stack_a);
 	if (disorder(&stack_a))
 		return (lstclear(&stack_a, 1));
-	// printf ("bench = %d / flag = %d \n", stack_a.bench, stack_a.flag);
-	// printf ("check doublon = %d\n",check_double(&stack_a));
-	// checked = stack_a.top;
-	// while(checked->id != id_stop)
-	// {
-	// 	id_stop = stack_a.top->id;
-	// 	printf ("id %d, value %d\n", checked->id, checked->value);
-	// 	checked = checked->next;
-	// }
 	tests(&stack_a);
 	lstclear(&stack_a, 0);
 	ft_printf("\nall works, lst cleared\n\n");

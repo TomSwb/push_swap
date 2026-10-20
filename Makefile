@@ -6,7 +6,7 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/20 11:33:03 by tschwab           #+#    #+#              #
-#    Updated: 2026/10/20 11:33:04 by tschwab          ###   ########.ch        #
+#    Updated: 2026/10/20 12:55:29 by tschwab          ###   ########.ch        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ SRCS = main.c \
 		parsing.c \
 		parsing_utils.c \
 		parsing_utils_2.c \
-		disorder.c
+		disorder_ranks.c \
+		tests.c
 
 OBJS = $(SRCS:.c=.o)
 

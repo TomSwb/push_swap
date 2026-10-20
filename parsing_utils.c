@@ -57,6 +57,7 @@ t_value	*lstnew(void *content, int id)
 	node->next = NULL;
 	node->prev = NULL;
 	node->id = id;
+	node->rank = -1;
 	return (node);
 }
 

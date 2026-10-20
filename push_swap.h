@@ -78,13 +78,13 @@ size_t	disorder_check(t_stack *stack_a, t_value *ptr_a,
 void	rank_parsing(t_stack *stack_a);
 
 // s_moves.c
-void	sa(t_stack *stk_A, t_stack *stk_B);
-void	sb(t_stack *stk_A, t_stack *stk_B);
+void	sa(t_stack *stk_A, t_stack *stk_B, int ss_bool);
+void	sb(t_stack *stk_A, t_stack *stk_B, int ss_bool);
 void	ss(t_stack *stk_A, t_stack *stk_B);
 
 // p_moves.c
-void	pa(t_stack *stk_A, t_stack *stk_B);
-void	pa_2(t_stack *stk_A, t_stack *stk_B, t_value *temp_b);
+void	pa(t_stack *stk_A, t_stack *stk_B, int pb_bool);
+void	pa_2(t_stack *stk_A, t_stack *stk_B, t_value *temp_b, int pb_bool);
 void	pb(t_stack *stk_A, t_stack *stk_B);
 
 // r_moves.c

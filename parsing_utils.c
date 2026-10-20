@@ -24,17 +24,17 @@ int	check_int(char *content)
 	i = -1;
 	while (content[++i])
 		if (!(ft_isdigit(content[i]) || (i == 0 && content[i] == '-')))
-			return(1);
+			return (1);
 	if ((content[0] == '-' && ft_strlen(content) > 11)
 		|| (content[0] != '-' && ft_strlen(content) > 10))
-			return (1);
+		return (1);
 	else if ((content[0] == '-' && ft_strlen(content) < 11)
 		|| (content[0] != '-' && ft_strlen(content) < 10))
-			return (0);
+		return (0);
 	if (content[0] == '-')
 		return (ft_strncmp(content, "-2147483648", 11));
 	else if (content[0] != '-')
-		return(ft_strncmp(content, "2147483647", 10));
+		return (ft_strncmp(content, "2147483647", 10));
 	return (1);
 }
 
@@ -44,10 +44,10 @@ GOAL : create a new t_value struct with the content (transformed by atoi) and
 Return NULL : if a malloc failed
 Return a pointer to the new struct if everything went fine
 */
-t_value *lstnew(void *content, int id)
+t_value	*lstnew(void *content, int id)
 {
 	t_value	*node;
-	
+
 	if (!content)
 		return (NULL);
 	node = malloc (sizeof(t_value));
@@ -64,9 +64,9 @@ t_value *lstnew(void *content, int id)
 GOAL : add new struct in the circular linked list
 Return : void
 */
-void	lstadd(t_stack *head,t_value *node)
+void	lstadd(t_stack *head, t_value *node)
 {
-	t_value *last;
+	t_value	*last;
 
 	if (!node || !head)
 		return ;
@@ -88,11 +88,12 @@ void	lstadd(t_stack *head,t_value *node)
 /*
 GOAL : Suppress all the structs created and write error on stderror
 Return 1 : always
+In error to indicate if needing an error code or not.
 */
-int	lstclear(t_stack *head)
+int	lstclear(t_stack *head, int error)
 {
-	t_value *current;
-	t_value *next_adress;
+	t_value	*current;
+	t_value	*next_adress;
 
 	current = head->top;
 	((head->top)->prev)->next = NULL;
@@ -105,7 +106,10 @@ int	lstclear(t_stack *head)
 		current = NULL;
 		current = next_adress;
 	}
-	return (write_error(3));
+	if (error == 1)
+		return (write_error(3));
+	else
+		return (1);
 }
 
 /*
@@ -118,14 +122,14 @@ int	check_double(t_stack *head)
 	t_value	*checked;
 	t_value	*read;
 	int		id_stop;
-	
+
 	checked = head->top;
 	id_stop = -1;
-	while(checked->id != id_stop)
+	while (checked->id != id_stop)
 	{
 		id_stop = head->top->id;
 		read = checked->next;
-		while(read != checked)
+		while (read != checked)
 		{
 			if (checked->value == read->value)
 				return (1);
@@ -135,4 +139,3 @@ int	check_double(t_stack *head)
 	}
 	return (0);
 }
-

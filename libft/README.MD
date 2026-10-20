@@ -1,6 +1,6 @@
-*This project has been created as part of the 42 curriculum by \<tschwab>*
+*This project has been created as part of the 42 curriculum by \<atardy>*
 
-# Libft - a library by TomSwb
+# Libft - a library by ATardy
 
 ## Description
 	
@@ -81,49 +81,18 @@ make fclean
 
 ## Resources
 
-#### Editor:
-- `VSCodium` : Used to avoid Microsoft telemetry, and to avoid AI integrated temptations.
-
 #### 42:
 - `libft.pdf` version: 19.3
 
 #### System:
 - `Linux man` for the libc related functions
 
-### Github:
-
-##### Before beginning of cursus: 
-- https://github.com/mrochedy/42-Libft/tree/main
-
 ##### Other:
 - [Markdown List Syntax](https://www.markdownlang.com/basic/lists.html) - To learn MD syntax
 
 ### AI:
 
-#### Before beginning of cursus
-
-⚠️ Disclaimer: I only ask for actual answer/solutions when I realise that I am missing theoretical knowledge.
-
-e.g. : a new syntax or a new concept I had not explored previously. 
-
-I always write my code to the best of my abilities first.
-
-My AI agents are set to guide me with questions as per 42 pedagogical philosophy.
-
-I use VSCodium on purpose to not have AI integration, this means except my copy-paste into chats for some reviews, AI does not see my code, and AI will never write my code - I do not copy-paste from AI into my code.
-
-- `Perplexity:` 
-	1. A quick search to understand how to actually use the libft library in future projects.
-	2. Confirm what certain Markdown syntax I found in repos do.
-	3. Back and forth conversation to ensure my understanding of more complex functions.
-
-- `ChatGPT:`
-	1. Back and forth conversation to ensure my understanding of more complex functions.
-	2. Help in learning to figure out by myself edge cases and ensure functions are safe and complete.
-	3. Help in theory of pointers and many different syntaxes for them and their related uses.
-	4. Help in learning clean architecture.
-	5. Help in learning the theory behind linked list.
-	6. Final documentation checks.
+Apart from the present readme and some occasionnal questions for ensuring my understanding of theoretical concepts, i didn't use AI.
 
 ## Detailed description
 
@@ -189,3 +158,5 @@ I use VSCodium on purpose to not have AI integration, this means except my copy-
 
 - `ft_lstiter` : Iterates through each node's content in 'lst', applying the changes from the given function 'f'.
 - `ft_lstmap` : Returns a new list created by applying the given function f to the content of each node of the original list. If an allocation fails, clears the whole new list using the given del function and returns NULL.
+
+*This present READ ME is a courtesy of \<tschwab> from which i shamelessly copied (with his consent)*

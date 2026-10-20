@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 16:59:01 by atardy            #+#    #+#             */
-/*   Updated: 2026/10/20 18:15:31 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/20 19:06:08 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int	main(int argc, char **argv)
 	disorder(&stack_a);
 	tests(&stack_a, &stack_b);
 	lstclear(&stack_a, 0);
+	lstclear(&stack_b, 0);
 	ft_printf("\nall works, lst cleared\n\n");
 	return (0);
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: atardy <atardy@student.42lausanne.ch>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/20 08:17:01 by atardy            #+#    #+#             */
-/*   Updated: 2026/10/20 08:18:24 by atardy           ###   ########.ch       */
+/*   Created: 2026/10/20 11:00:38 by atardy            #+#    #+#             */
+/*   Updated: 2026/10/20 11:01:20 by atardy           ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,17 +81,17 @@ Return 0 : if everything went fine.
 int	stack_from_split(char **int_lst, t_stack *stack_a)
 {
 	int		i;
-	t_value	*new;
+	t_value	*node;
 	
 	i = 0;
 	while (int_lst[++i])
 		{
 			if (check_int(int_lst[i]) > 0)
 				return (1);
-			new = lstnew(int_lst[i], i + 1);
-			if (!new)
+			node = lstnew(int_lst[i], i + 1);
+			if (!node)
 				return (1);
-			lstadd(stack_a, new);
+			lstadd(stack_a, node);
 		}
 	i = -1;
 	while (int_lst[++i])
@@ -114,23 +114,23 @@ Return 0 : if everything went fine.
 int	pars_from_argv(int nb_int, char **int_lst, t_stack *stack_a)
 {
 	int 	i;
-	t_value	*new;
+	t_value	*node;
 	
 	i = 0;
 	if (check_int(int_lst[0]) > 0)
 		return (1);
-	new = lstnew(int_lst[i], i);
-	if (!new)
+	node = lstnew(int_lst[i], i);
+	if (!node)
 		return (1);
-	stack_a->top = new;
+	stack_a->top = node;
 	while (++i < nb_int)
 	{
 		if (check_int(int_lst[i]) > 0)
 			return (1);
-		new = lstnew(int_lst[i], i);
-		if (!new)
+		node= lstnew(int_lst[i], i);
+		if (!node)
 			return (1);
-		lstadd(stack_a, new);
+		lstadd(stack_a, node);
 	}
 	return (0);
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: atardy <atardy@student.42lausanne.ch>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/20 10:52:59 by atardy            #+#    #+#             */
-/*   Updated: 2026/10/20 10:53:47 by atardy           ###   ########.ch       */
+/*   Created: 2026/10/20 11:14:13 by atardy            #+#    #+#             */
+/*   Updated: 2026/10/20 11:14:13 by atardy           ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ typedef struct s_value
 
 typedef struct s_stack
 {
-    t_value	*top;
+	t_value	*top;
 	int		bench;
 	int		flag;
-	size_t	size;
+	size_t	init_size;
 	int		disorder;
 } t_stack;
 
@@ -58,6 +58,7 @@ int		check_double(t_stack *head);
 void	stack_initializer(t_stack *st);
 int		write_error(int n);
 int		freeturn(char **int_lst);
+size_t	size_calculator(t_stack *stk);
 // disorder.c
 void	disorder(t_stack *stack_a);
 size_t	disorder_check(t_stack *stack_a, t_value *ptr_a,

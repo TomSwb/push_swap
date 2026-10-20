@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: atardy <atardy@student.42lausanne.ch>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/20 08:20:34 by atardy            #+#    #+#             */
-/*   Updated: 2026/10/20 08:20:34 by atardy           ###   ########.ch       */
+/*   Created: 2026/10/20 11:14:25 by atardy            #+#    #+#             */
+/*   Updated: 2026/10/20 11:14:25 by atardy           ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	stack_initializer(t_stack *st)
 	st->flag = 0;
 	st->top = NULL;
 	st->disorder = 0;
+	st->init_size = 0;
 }
 
 /*
@@ -34,7 +35,7 @@ int	write_error(int n)
 	if (n == 1)
 		printf ("argc == 1\n");
 	if (n == 2)
-		printf ("flag parsing error\n");
+		printf ("flag parsing error or no int\n");
 	if (n ==3)
 		printf ("going through lstclear\n");
 	// Real function below
@@ -60,4 +61,26 @@ int	freeturn(char **int_lst)
 	free (int_lst);
 	int_lst = NULL;
 	return (1);
+}
+
+/*
+GOAL : calculate the "size" of the stack_a => the number of value in the list
+Return : Size
+*/
+size_t	size_calculator(t_stack *st)
+{
+	int		id_stop;
+	size_t	size;
+	t_value	*current;
+
+	size = 0;
+	id_stop = -1;
+	current = st->top;
+	while (current->id != id_stop)
+	{
+		id_stop = st->top->id;
+		size++;
+		current = current->next;
+	}
+	return (size);
 }

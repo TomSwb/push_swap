@@ -72,6 +72,8 @@ Return : void
 */
 void	pb(t_stack *stk_A, t_stack *stk_B)
 {
+	if (!stack_a->top || !stack_b->top)
+		return (0);
 	pa(stk_B, stk_A, 1);
 	ft_putendl_fd("pb", stk_B->fd);
 	stk_A->moves++;

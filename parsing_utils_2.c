@@ -23,6 +23,7 @@ void	stack_initializer(t_stack *st)
 	st->disorder = 0;
 	st->init_size = 0;
 	st->moves = 0;
+	st->fd = 1;
 }
 
 /*

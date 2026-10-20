@@ -36,6 +36,7 @@ typedef struct s_stack
 	size_t	init_size;
 	int		disorder;
 	int		moves;
+	int fd;
 	t_value	*top;
 }	t_stack;
 

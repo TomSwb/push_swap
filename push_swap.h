@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: atardy <atardy@student.42lausanne.ch>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/20 08:19:46 by atardy            #+#    #+#             */
-/*   Updated: 2026/10/20 08:19:53 by atardy           ###   ########.ch       */
+/*   Created: 2026/10/20 10:52:59 by atardy            #+#    #+#             */
+/*   Updated: 2026/10/20 10:53:47 by atardy           ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@
 
 typedef struct s_value
 {
-    int				value;
-    int 			id;
-    struct s_value	*prev;
-    struct s_value	*next;
+	int				value;
+	int 			id;
+	struct s_value	*prev;
+	struct s_value	*next;
 } t_value;
 
 typedef struct s_stack
@@ -35,7 +35,7 @@ typedef struct s_stack
     t_value	*top;
 	int		bench;
 	int		flag;
-    int     size;
+	size_t	size;
 	int		disorder;
 } t_stack;
 

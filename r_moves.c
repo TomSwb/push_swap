@@ -6,33 +6,45 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/17 14:57:15 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/20 16:01:40 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/20 16:28:38 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ra(t_stack *stack_a, t_stack *stack_b)
+int	ra(t_stack *stack_a, t_stack *stack_b, int rr_bool)
 {
-	
-	
+	if (!stack_a->top)
+		return (0);
 	(void) stack_b;
+	stack_a->top = stack_a->top->next;
+	if (rr_bool)
+		return (1);
 	ft_printf("ra\n");
 	(stack_a->moves)++;
+	return (1);
 }
 
-void	rb(t_stack *stack_a, t_stack *stack_b)
+int	rb(t_stack *stack_a, t_stack *stack_b, int rr_bool)
 {
-	
-	
+	if (!stack_b->top)
+		return (0);
 	(void) stack_a;
-	ft_printf("rb\n");	
+	stack_b->top = stack_b->top->next;
+	if (rr_bool)
+		return (1);
+	ft_printf("rb\n");
 	(stack_b->moves)++;
+	return (1);
 }
 
-void	rr(t_stack *stack_a, t_stack *stack_b)
+int	rr(t_stack *stack_a, t_stack *stack_b)
 {
-	
+	if (!stack_a->top || !stack_b->top)
+		return (0);
+	ra(stack_a, stack_b, 1);
+	rb(stack_a, stack_b, 1);
 	ft_printf("rr\n");
 	(stack_a->moves)++;
+	return (1);
 }

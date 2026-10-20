@@ -79,14 +79,14 @@ void	rank_parsing(t_stack *stack_a);
 // p_moves.c
 
 // r_moves.c
-void	ra(t_stack *stack_a, t_stack *stack_b);
-void	rb(t_stack *stack_a, t_stack *stack_b);
-void	rr(t_stack *stack_a, t_stack *stack_b);
+int		ra(t_stack *stack_a, t_stack *stack_b, int rr_bool);
+int		rb(t_stack *stack_a, t_stack *stack_b, int rr_bool);
+int		rr(t_stack *stack_a, t_stack *stack_b);
 
 // rr_moves.c
-void	rra(t_stack *stack_a, t_stack *stack_b);
-void	rrb(t_stack *stack_a, t_stack *stack_b);
-void	rrr(t_stack *stack_a, t_stack *stack_b);
+int		rra(t_stack *stack_a, t_stack *stack_b, int rrr_bool);
+int		rrb(t_stack *stack_a, t_stack *stack_b, int rrr_bool);
+int		rrr(t_stack *stack_a, t_stack *stack_b);
 
 // simple_algo.c
 

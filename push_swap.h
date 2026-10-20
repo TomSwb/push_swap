@@ -84,7 +84,7 @@ void	ss(t_stack *stk_A, t_stack *stk_B);
 
 // p_moves.c
 void	pa(t_stack *stk_A, t_stack *stk_B, int pb_bool);
-void	pa_2(t_stack *stk_A, t_stack *stk_B, t_value *temp_b, int pb_bool);
+void	pa_2(t_stack *stk_A, t_stack *stk_B, t_value *temp_b);
 void	pb(t_stack *stk_A, t_stack *stk_B);
 
 // r_moves.c

@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 16:59:01 by atardy            #+#    #+#             */
-/*   Updated: 2026/10/20 18:15:31 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/20 19:06:08 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,13 @@ int	main(int argc, char **argv)
 		stack_a.flag = 4;
 	if (parsing(argc, argv, &stack_a) || check_double(&stack_a))
 		return (lstclear(&stack_a, 1));
-	stack_a.init_size = size_calculator(&stack_a);
+	size_calculator(&stack_a);
+	stack_a.size = stack_a.init_size;
 	rank_parsing(&stack_a);
 	disorder(&stack_a);
 	tests(&stack_a, &stack_b);
 	lstclear(&stack_a, 0);
+	lstclear(&stack_b, 0);
 	ft_printf("\nall works, lst cleared\n\n");
 	return (0);
 }
@@ -54,6 +56,6 @@ int	write_error(int n)
 		ft_printf("disorder fails\n");
 	// Real function below
 	(void) n;
-	ft_printf("Error\n");
+	ft_putendl_fd("Error", 2);
 	return (1);
 }

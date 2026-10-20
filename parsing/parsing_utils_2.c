@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 /*
 GOAL : initialize stacks with default value (and gain lines)
 Return : void
@@ -22,7 +22,9 @@ void	stack_initializer(t_stack *st)
 	st->top = NULL;
 	st->disorder = 0;
 	st->init_size = 0;
+	st->size = 0;
 	st->moves = 0;
+	st->fd = 1;
 }
 
 /*
@@ -46,9 +48,9 @@ int	freeturn(char **int_lst)
 
 /*
 GOAL : calculate the "size" of the stack_a => the number of value in the list
-Return : Size
+Return : void
 */
-size_t	size_calculator(t_stack *st)
+void	size_calculator(t_stack *st)
 {
 	int		id_stop;
 	size_t	size;
@@ -63,5 +65,5 @@ size_t	size_calculator(t_stack *st)
 		size++;
 		current = current->next;
 	}
-	return (size);
+	st->init_size = size;
 }

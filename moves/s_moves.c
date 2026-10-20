@@ -10,25 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 /*
 GOAL : Swap the first two elements at the top of stack A.
 	Do nothing if there is only one or no elements.
-	write and increase count only if called with stkA & B in correct order
+	write and increase count only if ss_bool is 0 (not called from ss)
 Return : void
 */
-void	sa(t_stack *stk_A, t_stack *stk_B)
+void	sa(t_stack *stk_A, t_stack *stk_B, int ss_bool)
 {
 	t_value	*head;
 	t_value	*second;
-	
-	if (stk_B->init_size == 0)
-	{
-		write (1, "sa\n", 3);
-		stk_A->moves++;
-	}
-	if (!stk_A->top || !stk_A->top->next || !stk_A->top->prev)
+
+	(void) stk_B;
+	if (!stk_A->top || stk_A->top->next == stk_A->top)
 		return ;
 	head = stk_A->top;
 	second = head->next;
@@ -44,25 +40,25 @@ void	sa(t_stack *stk_A, t_stack *stk_B)
 		head->prev = second;
 		stk_A->top = second;
 	}
+	if (!ss_bool)
+	{
+		ft_putendl_fd("sa", stk_A->fd);
+		stk_A->moves++;
+	}
 }
 
 /*
 GOAL : Swap the first two elements at the top of stack B.
 	Do nothing if there is only one or no elements.
-	write and increase count only if called with stkA & B in correct order
+	write and increase count only if ss_bool is 0 (not called from ss)
 Return : void
 */
-void	sb(t_stack *stk_A, t_stack *stk_B)
+void	sb(t_stack *stk_A, t_stack *stk_B, int ss_bool)
 {
 	t_value	*head;
 	t_value	*second;
-	
-	if (stk_B->init_size == 0)
-	{
-		write (1, "sb\n", 3);
-		stk_A->moves++;	
-	}
-	if (!stk_B->top || !stk_B->top->next || !stk_B->top->prev)
+
+	if (!stk_B->top || stk_B->top->next == stk_B->top)
 		return ;
 	head = stk_B->top;
 	second = head->next;
@@ -78,17 +74,24 @@ void	sb(t_stack *stk_A, t_stack *stk_B)
 		head->prev = second;
 		stk_B->top = second;
 	}
+	if (!ss_bool)
+	{
+		ft_putendl_fd("sb", stk_B->fd);
+		stk_A->moves++;
+	}
 }
 
 /*
-GOAL : sa and sb at the same time. Calls them with arguments in reversed
-	order so none of them prints or increase count
+GOAL : sa and sb at the same time. Calls them silently with arguments in
+	reversed order so none of them prints or increase count
 Return : void
 */
 void	ss(t_stack *stk_A, t_stack *stk_B)
 {
-	sa (stk_B, stk_A);
-	sb (stk_B, stk_A);
-	write (1, "ss\n", 3);
+	if (!stk_A->top || !stk_B->top)
+		return ;
+	sa(stk_B, stk_A, 1);
+	sb(stk_B, stk_A, 1);
+	ft_putendl_fd("ss", stk_A->fd);
 	stk_A->moves++;
 }

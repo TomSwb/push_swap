@@ -34,8 +34,10 @@ typedef struct s_stack
 	int		bench;
 	int		flag;
 	size_t	init_size;
+	size_t	size;
 	int		disorder;
 	int		moves;
+	int		fd;
 	t_value	*top;
 }	t_stack;
 
@@ -68,7 +70,7 @@ int		check_double(t_stack *head);
 // parsing_utils_2.c
 void	stack_initializer(t_stack *st);
 int		freeturn(char **int_lst);
-size_t	size_calculator(t_stack *stk);
+void	size_calculator(t_stack *stk);
 
 // disorder.c
 void	disorder(t_stack *stack_a);
@@ -77,24 +79,24 @@ size_t	disorder_check(t_stack *stack_a, t_value *ptr_a,
 void	rank_parsing(t_stack *stack_a);
 
 // s_moves.c
-void	sa(t_stack *stk_A, t_stack *stk_B);
-void	sb(t_stack *stk_A, t_stack *stk_B);
+void	sa(t_stack *stk_A, t_stack *stk_B, int ss_bool);
+void	sb(t_stack *stk_A, t_stack *stk_B, int ss_bool);
 void	ss(t_stack *stk_A, t_stack *stk_B);
 
 // p_moves.c
-void	pa(t_stack *stk_A, t_stack *stk_B);
+void	pa(t_stack *stk_A, t_stack *stk_B, int pb_bool);
 void	pa_2(t_stack *stk_A, t_stack *stk_B, t_value *temp_b);
 void	pb(t_stack *stk_A, t_stack *stk_B);
 
 // r_moves.c
-int		ra(t_stack *stack_a, t_stack *stack_b, int rr_bool);
-int		rb(t_stack *stack_a, t_stack *stack_b, int rr_bool);
-int		rr(t_stack *stack_a, t_stack *stack_b);
+void	ra(t_stack *stack_a, t_stack *stack_b, int rr_bool);
+void	rb(t_stack *stack_a, t_stack *stack_b, int rr_bool);
+void	rr(t_stack *stack_a, t_stack *stack_b);
 
 // rr_moves.c
-int		rra(t_stack *stack_a, t_stack *stack_b, int rrr_bool);
-int		rrb(t_stack *stack_a, t_stack *stack_b, int rrr_bool);
-int		rrr(t_stack *stack_a, t_stack *stack_b);
+void	rra(t_stack *stack_a, t_stack *stack_b, int rrr_bool);
+void	rrb(t_stack *stack_a, t_stack *stack_b, int rrr_bool);
+void	rrr(t_stack *stack_a, t_stack *stack_b);
 
 // simple_algo.c
 

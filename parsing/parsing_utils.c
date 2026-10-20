@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 /*
 GOAL : Check if this int is a valid one (in int range && only digit)
@@ -54,8 +54,8 @@ t_value	*lstnew(void *content, int id)
 	if (node == NULL)
 		return (NULL);
 	node->value = ft_atoi(content);
-	node->next = NULL;
-	node->prev = NULL;
+	node->next = node;
+	node->prev = node;
 	node->id = id;
 	node->rank = -1;
 	return (node);
@@ -71,14 +71,6 @@ void	lstadd(t_stack *head, t_value *node)
 
 	if (!node || !head)
 		return ;
-	if (!((head->top)->next) || !((head->top)->prev))
-	{
-		(head->top)->next = node;
-		(head->top)->prev = node;
-		node->next = head->top;
-		node->prev = head->top;
-		return ;
-	}
 	last = (head->top)->prev;
 	last->next = node;
 	node->prev = last;
@@ -96,16 +88,19 @@ int	lstclear(t_stack *head, int error)
 	t_value	*current;
 	t_value	*next_adress;
 
-	current = head->top;
-	((head->top)->prev)->next = NULL;
-	while (current)
+	if (head->top)
 	{
-		next_adress = current->next;
-		current->next = NULL;
-		current->prev = NULL;
-		free (current);
-		current = NULL;
-		current = next_adress;
+		current = head->top;
+		((head->top)->prev)->next = NULL;
+		while (current)
+		{
+			next_adress = current->next;
+			current->next = NULL;
+			current->prev = NULL;
+			free (current);
+			current = next_adress;
+		}
+		head->top = NULL;
 	}
 	if (error == 1)
 		return (write_error(3));

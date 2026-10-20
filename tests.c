@@ -35,7 +35,7 @@ void	tests(t_stack *stack_a, t_stack *stack_b)
 	checking_links(stack_b);
 	ft_printf("\nStack A after sa\n");
 	print_values(stack_a);
-	sb(stack_a, stack_b);
+	sb(stack_a, stack_b, 0);
 	ft_printf("\nStack B after sb\n");
 	print_values(stack_b);
 	ss(stack_a, stack_b);

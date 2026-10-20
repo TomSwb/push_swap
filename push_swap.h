@@ -71,7 +71,7 @@ int		freeturn(char **int_lst);
 size_t	size_calculator(t_stack *stk);
 
 // disorder.c
-int		disorder(t_stack *stack_a);
+void	disorder(t_stack *stack_a);
 size_t	disorder_check(t_stack *stack_a, t_value *ptr_a,
 			long long *mistakes, size_t i);
 void	rank_parsing(t_stack *stack_a);

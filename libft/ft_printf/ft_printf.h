@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/29 17:53:57 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/15 16:25:11 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/21 10:55:35 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ typedef struct s_flags
 // *** Functions *** //
 
 // ft_printf.c
-int			ft_printf(const char *s, ...);
+int			ft_printf(const char *format, ...);
 int			printf_loop(const char **s, int *count, va_list *args);
 int			error_state(int n);
 

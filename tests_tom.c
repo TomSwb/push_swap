@@ -6,13 +6,11 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 14:04:23 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/22 16:01:21 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/22 16:15:38 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "algos/on2/on2.h"
-#include "ressources/algo_training/libft/ft_printf/ft_printf.h"
 
 void	tests(t_stack *stack_a, t_stack *stack_b)
 {

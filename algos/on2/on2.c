@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 13:28:41 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/22 15:12:46 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/22 15:24:42 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,6 @@
 
 void	cost_based_insertion(t_stack *stack_a, t_stack *stack_b)
 {
-	if (stack_a->size < 3)
-	{
-		two_elements_sort(stack_a, stack_b);
-		return ;
-	}
 	while (3 < stack_a->size)
 		pb(stack_a, stack_b);
 	sort_first_three(stack_a, stack_b);

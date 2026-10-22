@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/29 17:51:26 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/21 10:55:51 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/22 13:24:08 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Prints a formatted string to the standard output, like printf.
 Resets the write error state, then walks through the format string one step at
 a time with printf_loop, until the end of the string or until a write fails.
 
-* @param const char *s
+* @param const char *format
 * @param ...
 * @return int
 */

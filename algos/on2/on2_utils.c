@@ -6,18 +6,11 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 15:12:30 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/22 15:14:33 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/22 15:25:02 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "on2.h"
-
-void	two_elements_sort(t_stack *stack_a, t_stack *stack_b)
-{
-	if (stack_a->top->value > stack_a->top->next->value)
-		sa(stack_a, stack_b, 0);
-	return ;
-}
 
 t_value	*find_max_node(t_stack *stack)
 {

@@ -45,14 +45,12 @@ typedef struct s_stack
 
 // main.c
 void	print_list(t_stack *stack_a);
+void	push_swap(t_stack *stack_a, t_stack *stack_b);
 int		write_error(int n);
-void	checking_links(t_stack *stk);
 
-// tests.c
+// tests_tom.c
 void	tests(t_stack *stack_a, t_stack *stack_b);
 void	print_values(t_stack *stack, int nb_to_print);
-void	print_ranks(t_stack *stack_a);
-void	checking_links(t_stack *stk);
 
 // parsing.c
 int		flags_parsing(int argc, char **argv, t_stack *s_a);

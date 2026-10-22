@@ -6,11 +6,15 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 16:59:01 by atardy            #+#    #+#             */
-/*   Updated: 2026/10/20 19:06:08 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/22 16:00:07 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+// algos related libraries
+# include "algos/on2/on2.h"
+# include "algos/onlogn/onlogn.h"
 
 int	main(int argc, char **argv)
 {
@@ -36,6 +40,24 @@ int	main(int argc, char **argv)
 	lstclear(&stack_b, 0);
 	ft_printf("\nall works, lst cleared\n\n");
 	return (0);
+}
+
+void	push_swap(t_stack *stack_a, t_stack *stack_b)
+{
+	if (stack_a->disorder == 0)
+		return ;
+	else if (stack_a->disorder < 2000)
+	{
+		ft_printf("cost based insertion sort:\n");
+		cost_based_insertion(stack_a, stack_b);
+	}
+	else if (stack_a->disorder >= 2000 && stack_a->disorder <= 5000)
+		{}
+	else
+	{
+		ft_printf("quick sort partioning sort:\n");
+		quick_sort_partitioning(stack_a, stack_b);
+	}
 }
 
 /*

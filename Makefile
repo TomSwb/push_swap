@@ -6,7 +6,7 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/20 11:33:03 by tschwab           #+#    #+#              #
-#    Updated: 2026/10/20 21:12:11 by tschwab          ###   ########.ch        #
+#    Updated: 2026/10/22 15:44:50 by tschwab          ###   ########.ch        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,12 +28,16 @@ MOVES = moves/p_moves.c \
 		moves/rr_moves.c \
 		moves/s_moves.c
 
-ALGOS =	algos/on2.c \
-		algos/onrootn.c \
-		algos/onlogn.c
+ON2 =	algos/on2/on2.c \
+		algos/on2/on2_utils.c \
+		
+ONROOTN =	algos/onrootn.c \
+		
+ONLOGN =	algos/onlogn/onlogn.c \
+			algos/onlogn/onlogn_utils.c \
 
-SRCS = main.c ${PARSING} ${MOVES} ${ALGOS} \
-		tests.c
+SRCS = main.c ${PARSING} ${MOVES} ${ON2} ${ONLOGN}\
+		tests_tom.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -45,7 +49,7 @@ $(NAME): $(LIBFT) $(OBJS)
 $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)
 
-%.o: %.c
+%.o: %.c push_swap.h on2.h libft.h
 	$(CC) $(CFLAGS) -I$(LIBFT_DIR) -c $< -o $@
 
 clean:

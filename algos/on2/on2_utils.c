@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 15:12:30 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/22 15:25:02 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/23 15:57:04 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 t_value	*find_max_node(t_stack *stack)
 {
 	size_t	i;
-	t_value *temp;
+	t_value	*temp;
 	int		max;
 	t_value	*max_node;
 
@@ -42,7 +42,7 @@ t_value	*find_max_node(t_stack *stack)
 int	is_sort(t_stack *stack)
 {
 	size_t	i;
-	t_value *temp;
+	t_value	*temp;
 
 	i = 0;
 	temp = stack->top;

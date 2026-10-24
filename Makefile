@@ -6,7 +6,7 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/20 11:33:03 by tschwab           #+#    #+#              #
-#    Updated: 2026/10/24 15:08:01 by tschwab          ###   ########.ch        #
+#    Updated: 2026/10/24 15:13:51 by tschwab          ###   ########.ch        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,12 +32,12 @@ ON2 =	algos/on2/on2.c \
 		algos/on2/on2_find_node.c \
 		algos/on2/on2_cost.c \
 		algos/on2/on2_moves.c \
-		algos/on2/on2_utils.c \
+		algos/on2/on2_utils.c
 		
-ONROOTN =	algos/onrootn.c \
+ONROOTN =	algos/onrootn.c
 		
 ONLOGN =	algos/onlogn/onlogn.c \
-			algos/onlogn/onlogn_utils.c \
+			algos/onlogn/onlogn_utils.c
 
 SRCS = main.c ${PARSING} ${MOVES} ${ON2} ${ONLOGN}\
 		tests_tom.c
@@ -52,7 +52,7 @@ $(NAME): $(LIBFT) $(OBJS)
 $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)
 
-%.o: %.c push_swap.h on2.h libft.h
+%.o: %.c push_swap.h algos/on2/on2.h libft/libft.h
 	$(CC) $(CFLAGS) -I$(LIBFT_DIR) -c $< -o $@
 
 clean:

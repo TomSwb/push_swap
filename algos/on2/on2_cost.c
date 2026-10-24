@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 13:46:46 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/24 14:24:44 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/24 14:32:53 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,13 @@ void	find_cheapest(t_stack *stack_a, t_stack *stack_b, t_cheapest *cheapest)
 }
 
 void	element_cost(t_stack *stack_a, t_stack *stack_b, t_cheapest *current,
-	t_value *temp)
+	t_value *b_node)
 {
-	find_target_node(stack_a, temp);
+	t_value	*target_node;
+	int		a_up;
+	int		b_up;
+	
+	target_node = find_target_node(stack_a, b_node);
+	a_up = count_hops(stack_a, target_node);
+	b_up = count_hops(stack_b, b_node);
 }

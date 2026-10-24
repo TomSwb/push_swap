@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 14:16:00 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/24 14:24:54 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/24 14:30:49 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,8 @@ t_value	*find_target_node(t_stack *stack_a, t_value *b_node)
 	target_node = NULL;
 	while (i < stack_a->size)
 	{
-		if (temp->rank > b_node->rank &&
-			(target_node == NULL || temp->rank < target_node->rank))
+		if (temp->rank > b_node->rank
+			&& (target_node == NULL || temp->rank < target_node->rank))
 			target_node = temp;
 		i++;
 		temp = temp->next;

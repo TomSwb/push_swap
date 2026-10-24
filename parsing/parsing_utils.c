@@ -22,6 +22,8 @@ int	check_int(char *content)
 	int	i;
 
 	i = -1;
+	if (content[0] == '\0' || (content[0] == '-' && !ft_isdigit(content[1])))
+		return (1);
 	while (content[++i])
 		if (!(ft_isdigit(content[i]) || (i == 0 && content[i] == '-')))
 			return (1);

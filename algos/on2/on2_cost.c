@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 13:46:46 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/24 14:49:37 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/24 14:50:35 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,7 @@ void	element_cost(t_stack *stack_a, t_stack *stack_b, t_cheapest *current,
 	set_if_cheapest(current, a_up, b_up, max_int(a_up, b_up));
 	set_if_cheapest(current, a_down, b_down, max_int(-a_down, -b_down));
 	set_if_cheapest(current, a_up, b_down, a_up - b_down);
-	set_if_cheapest(current, a_down, b_up, b_up -a_down);
-
+	set_if_cheapest(current, a_down, b_up, b_up - a_down);
 }
 
 void	set_if_cheapest(t_cheapest *current, int a_moves, int b_moves, int cost)
@@ -68,5 +67,5 @@ int	max_int(int a, int b)
 {
 	if (a > b)
 		return (a);
-	return (b);	
+	return (b);
 }

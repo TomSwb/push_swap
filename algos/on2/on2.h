@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 14:24:37 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/24 14:58:17 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/24 15:50:25 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ void	move_a(t_stack *stack_a, t_stack *stack_b, t_cheapest *cheapest);
 void	move_b(t_stack *stack_a, t_stack *stack_b, t_cheapest *cheapest);
 
 // on2_utils.c
-int		is_sort(t_stack *stack);
 void	init_cheapest(t_cheapest *cheapest);
 int		count_hops(t_stack *stack, t_value *node);
 

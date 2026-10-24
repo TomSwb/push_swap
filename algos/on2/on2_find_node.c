@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 14:16:00 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/24 14:44:00 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/24 15:48:53 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ t_value	*find_max_node(t_stack *stack)
 	i = 0;
 	temp = stack->top;
 	max_node = temp;
-	max = temp->value;
+	max = temp->rank;
 	temp = temp->next;
 	while (i < stack->size - 1)
 	{
-		if (max < temp->value)
+		if (max < temp->rank)
 		{
 			max_node = temp;
-			max = temp->value;
+			max = temp->rank;
 		}
 		i++;
 		temp = temp->next;
@@ -51,14 +51,14 @@ t_value	*find_min_node(t_stack *stack)
 	i = 0;
 	temp = stack->top;
 	min_node = temp;
-	min = temp->value;
+	min = temp->rank;
 	temp = temp->next;
 	while (i < stack->size - 1)
 	{
-		if (min > temp->value)
+		if (min > temp->rank)
 		{
 			min_node = temp;
-			min = temp->value;
+			min = temp->rank;
 		}
 		i++;
 		temp = temp->next;

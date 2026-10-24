@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 13:28:41 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/24 15:22:16 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/24 15:49:08 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	sort_first_three(t_stack *stack_a, t_stack *stack_b)
 		ra(stack_a, stack_b, 0);
 	else if (stack_a->top->next == max)
 		rra(stack_a, stack_b, 0);
-	if (stack_a->top->value > stack_a->top->next->value)
+	if (stack_a->top->rank > stack_a->top->next->rank)
 		sa(stack_a, stack_b, 0);
 }
 

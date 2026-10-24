@@ -16,17 +16,17 @@ void	find_cheapest(t_stack *stack_a, t_stack *stack_b, t_cheapest *cheapest)
 {
 	t_cheapest	current;
 	size_t		i;
-	t_value		*temp;
+	t_value		*b_node;
 
 	i = 0;
-	temp = stack_b->top;
+	b_node = stack_b->top;
 	init_cheapest(cheapest);
 	while (i < stack_b->size)
 	{
-		element_cost(stack_a, stack_b, &current, temp);
+		element_cost(stack_a, stack_b, &current, b_node);
 		if (current.cost < cheapest->cost)
 			*cheapest = current;
-		temp = temp->next;
+		b_node = b_node->next;
 		i++;
 	}
 }

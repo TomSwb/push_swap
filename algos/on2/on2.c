@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 13:28:41 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/24 13:59:52 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/24 15:06:23 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	cost_based_insertion(t_stack *stack_a, t_stack *stack_b)
 		move_cheapest_node(stack_a, stack_b, &cheapest);
 		pa(stack_a, stack_b, 0);
 	}
+	while (stack_a->top->rank != 0)
+		ra(stack_a, stack_b, 0);
 }
 
 void	sort_first_three(t_stack *stack_a, t_stack *stack_b)
@@ -40,8 +42,3 @@ void	sort_first_three(t_stack *stack_a, t_stack *stack_b)
 		sa(stack_a, stack_b, 0);
 }
 
-void	move_cheapest_node(t_stack *stack_a, t_stack *stack_b,
-		t_cheapest *cheapest)
-{
-
-}

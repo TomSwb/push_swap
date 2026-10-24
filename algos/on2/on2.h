@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 14:24:37 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/24 13:48:31 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/24 13:53:56 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ void	move_cheapest_node(t_stack *stack_a, t_stack *stack_b,
 // on2_cost.c
 void	find_cheapest(t_stack *stack_a, t_stack *stack_b,
 			t_cheapest *cheapest);
-int	element_cost(t_stack *stack, t_cheapest *cheapest, t_value *value);
+int	element_cost(t_stack *stack_a, t_stack *stack_b, t_cheapest *cheapest,
+			t_value *value);
 
 // on2_utils.c
 t_value	*find_max_node(t_stack *stack);

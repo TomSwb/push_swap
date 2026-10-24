@@ -6,7 +6,7 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/20 11:33:03 by tschwab           #+#    #+#              #
-#    Updated: 2026/10/22 15:44:50 by tschwab          ###   ########.ch        #
+#    Updated: 2026/10/24 15:08:01 by tschwab          ###   ########.ch        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,9 @@ MOVES = moves/p_moves.c \
 		moves/s_moves.c
 
 ON2 =	algos/on2/on2.c \
+		algos/on2/on2_find_node.c \
+		algos/on2/on2_cost.c \
+		algos/on2/on2_moves.c \
 		algos/on2/on2_utils.c \
 		
 ONROOTN =	algos/onrootn.c \

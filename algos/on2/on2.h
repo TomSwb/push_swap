@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 14:24:37 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/24 14:46:27 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/24 14:58:17 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,6 @@ typedef struct s_cheapest
 // on2.c
 void	cost_based_insertion(t_stack *stack_a, t_stack *stack_b);
 void	sort_first_three(t_stack *stack_a, t_stack *stack_b);
-void	move_cheapest_node(t_stack *stack_a, t_stack *stack_b,
-			t_cheapest *cheapest);
 
 // on2_cost.c
 void	find_cheapest(t_stack *stack_a, t_stack *stack_b,
@@ -49,6 +47,14 @@ int		max_int(int a, int b);
 t_value	*find_max_node(t_stack *stack);
 t_value	*find_min_node(t_stack *stack);
 t_value	*find_target_node(t_stack *stack_a, t_value *b_node);
+
+// on2_moves.c
+void	move_cheapest_node(t_stack *stack_a, t_stack *stack_b,
+			t_cheapest *cheapest);
+void	move_together(t_stack *stack_a, t_stack *stack_b,
+			t_cheapest *cheapest);
+void	move_a(t_stack *stack_a, t_stack *stack_b, t_cheapest *cheapest);
+void	move_b(t_stack *stack_a, t_stack *stack_b, t_cheapest *cheapest);
 
 // on2_utils.c
 int		is_sort(t_stack *stack);

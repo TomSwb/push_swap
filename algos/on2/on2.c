@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 13:28:41 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/24 13:52:22 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/24 13:59:52 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	cost_based_insertion(t_stack *stack_a, t_stack *stack_b)
 	while (3 < stack_a->size)
 		pb(stack_a, stack_b);
 	sort_first_three(stack_a, stack_b);
-	init_cheapest(&cheapest);
 	while (stack_b->top != NULL)
 	{
 		find_cheapest(stack_a, stack_b, &cheapest);

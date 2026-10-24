@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 13:46:46 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/24 13:54:03 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/24 14:24:44 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,26 @@
 
 void	find_cheapest(t_stack *stack_a, t_stack *stack_b, t_cheapest *cheapest)
 {
-	size_t	i;
-	t_value	*temp;
-	int		cost;
+	t_cheapest	current;
+	size_t		i;
+	t_value		*temp;
 
-	cost = -1;
 	i = 0;
 	temp = stack_b->top;
+	init_cheapest(&current);
+	init_cheapest(cheapest);
 	while (i < stack_b->size)
 	{
-		cost = element_cost(stack_a, stack_b, cheapest, temp);
-		if (cheapest->cost > cost)
-			cheapest->element = temp;
+		element_cost(stack_a, stack_b, &current, temp);
+		if (current.cost < cheapest->cost)
+			*cheapest = current;
 		temp = temp->next;
 		i++;
 	}
 }
 
-int	element_cost(t_stack *stack_a, t_stack *stack_b, t_cheapest *cheapest, t_value *value)
+void	element_cost(t_stack *stack_a, t_stack *stack_b, t_cheapest *current,
+	t_value *temp)
 {
-	int		cost;
-	t_value	*temp;
-
-	cost = -1;
-	temp = stack_b->top;
-	return (cost);
+	find_target_node(stack_a, temp);
 }

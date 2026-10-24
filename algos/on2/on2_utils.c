@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 15:12:30 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/24 14:27:35 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/24 14:30:26 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	init_cheapest(t_cheapest *cheapest)
 
 int	count_hops(t_stack *stack, t_value *node)
 {
-	size_t	i;
+	int		i;
 	t_value	*temp;
 
 	i = 0;

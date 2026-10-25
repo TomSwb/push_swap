@@ -6,22 +6,22 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/25 13:29:32 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/25 13:35:22 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/25 13:45:21 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "onlogn.h"
 
-void	split_chunk(t_stack *stack_a, t_stack *stack_b, t_chunk chunk)
+void	split_chunk(t_stack *stack_a, t_stack *stack_b, t_chunk *chunk)
 {
-	if (chunk.loc == TOP_A)
-		split_top_a(stack_a, stack_b, chunk);
-	else if (chunk.loc == BOT_A)
-		split_bot_a(stack_a, stack_b, chunk);
-	else if (chunk.loc == TOP_B)
-		split_top_b(stack_a, stack_b, chunk);
-	else if (chunk.loc == BOT_B)
-		split_bot_b(stack_a, stack_b, chunk);
+	if (chunk->loc == TOP_A)
+		split_top_a(stack_a, stack_b, *chunk);
+	else if (chunk->loc == BOT_A)
+		split_bot_a(stack_a, stack_b, *chunk);
+	else if (chunk->loc == TOP_B)
+		split_top_b(stack_a, stack_b, *chunk);
+	else if (chunk->loc == BOT_B)
+		split_bot_b(stack_a, stack_b, *chunk);
 }
 
 void	split_top_a(t_stack *stack_a, t_stack *stack_b, t_chunk chunk)

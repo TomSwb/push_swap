@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 15:41:47 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/25 13:32:25 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/25 13:44:46 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	sort_chunk(t_stack *stack_a, t_stack *stack_b, t_chunk chunk)
 	}
 	chunk.pivot_low = chunk.min + chunk.size / 3;
 	chunk.pivot_high = chunk.min + chunk.size * 2 / 3;
-	split_chunk(stack_a, stack_b, chunk);
+	split_chunk(stack_a, stack_b, &chunk);
 	sort_chunk(stack_a, stack_b, new_chunk(BOT_A,
 			chunk.pivot_high, chunk.max));
 	sort_chunk(stack_a, stack_b, new_chunk(TOP_B,

@@ -18,8 +18,7 @@ Sorts stack_a in ascending order with a cost-based insertion:
 all but 3 nodes go to stack_b, then each one is inserted back
 into stack_a choosing the cheapest move each time,
 and the min is rotated to the top at the end.
-
-Requires ranks normalized to 0..n-1 and at least 2 nodes in stack_a.
+Requires ranks normalized to 0..n-1.
 
 * @param t_stack *stack_a
 * @param t_stack *stack_b

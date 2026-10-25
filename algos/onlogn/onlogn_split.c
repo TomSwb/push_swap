@@ -26,3 +26,24 @@ void split_top_a(t_stack *stack_a, t_stack *stack_b, t_chunk chunk)
         i++;
     }
 }
+
+void split_top_b(t_stack *stack_a, t_stack *stack_b, t_chunk chunk)
+{
+    int i;
+    
+    i = 0;
+    while (i < chunk.size)
+    {
+        if (stack_b->top->rank < chunk.pivot_low)
+            rb(stack_a, stack_b, 0);
+        else if (stack_b->top->rank < chunk.pivot_high)
+        {
+            pa(stack_a, stack_b, 0);
+            ra(stack_a, stack_b, 0);
+        }
+        else
+            pa(stack_a, stack_b, 0);
+        i++;
+    }
+}
+

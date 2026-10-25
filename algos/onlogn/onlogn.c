@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 15:41:47 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/25 17:19:36 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/25 17:28:41 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,17 @@ void	sort_small_chunk(t_stack *stack_a, t_stack *stack_b, t_chunk chunk)
 	int	i;
 
 	i = 0;
+	if (chunk.size == 3 && (chunk.loc == TOP_B || chunk.loc == BOT_B))
+	{
+		if (chunk.loc == BOT_B)
+		{
+			rrb(stack_a, stack_b, 0);
+			rrb(stack_a, stack_b, 0);
+			rrb(stack_a, stack_b, 0);
+		}
+		sort_three_b(stack_a, stack_b);
+		return ;
+	}
 	while (i < chunk.size)
 	{
 		move_to_top_a(stack_a, stack_b, chunk.loc);
@@ -56,4 +67,9 @@ void	sort_small_chunk(t_stack *stack_a, t_stack *stack_b, t_chunk chunk)
 		two_elements_sort(stack_a, stack_b);
 	else if (chunk.size == 3)
 		sort_top_three(stack_a, stack_b);
+}
+
+void	sort_three_b(t_stack *stack_a, t_stack *stack_b)
+{
+	
 }

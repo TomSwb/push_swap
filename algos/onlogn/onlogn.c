@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 15:41:47 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/25 14:17:05 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/25 17:19:36 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@ void	quick_sort_partitioning(t_stack *stack_a, t_stack *stack_b)
 
 void	sort_chunk(t_stack *stack_a, t_stack *stack_b, t_chunk chunk)
 {
+	if (chunk.loc == BOT_A && (int)stack_a->size == chunk.size)
+		chunk.loc = TOP_A;
+	if (chunk.loc == BOT_B && (int)stack_b->size == chunk.size)
+		chunk.loc = TOP_B;
 	if (chunk.size <= 3)
 	{
 		sort_small_chunk(stack_a, stack_b, chunk);

@@ -6,23 +6,23 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 15:38:44 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/22 15:40:22 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/25 13:35:00 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "onlogn.h"
 
-t_chunk new_chunk(t_loc loc, int min, int max)
+t_chunk	new_chunk(t_loc loc, int min, int max)
 {
-    t_chunk chunk;
-    
-    chunk.loc = loc;
-    chunk.min = min;
-    chunk.max = max;
-    chunk.pivot_low = -1;
-    chunk.pivot_high = -1;
-    chunk.size = chunk.max - chunk.min + 1;
-    return (chunk);
+	t_chunk	chunk;
+
+	chunk.loc = loc;
+	chunk.min = min;
+	chunk.max = max;
+	chunk.pivot_low = -1;
+	chunk.pivot_high = -1;
+	chunk.size = chunk.max - chunk.min + 1;
+	return (chunk);
 }
 
 void	two_elements_sort(t_stack *stack_a, t_stack *stack_b)

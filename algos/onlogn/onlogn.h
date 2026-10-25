@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 15:37:58 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/22 15:54:52 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/25 13:35:48 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,44 +16,44 @@
 // === Library === //
 
 // push_swap.h
-#include "../../push_swap.h"
+# include "../../push_swap.h"
 
 // === Structs === //
 
 typedef enum e_loc
 {
-    TOP_A,
-    BOT_A,
-    TOP_B,
-    BOT_B,
-} t_loc;
+	TOP_A,
+	BOT_A,
+	TOP_B,
+	BOT_B,
+}	t_loc;
 
 typedef struct s_chunk
 {
-    t_loc loc;
-    int min;
-    int max;
-    int pivot_low;
-    int pivot_high;
-    int size;
-} t_chunk;
+	t_loc	loc;
+	int		min;
+	int		max;
+	int		pivot_low;
+	int		pivot_high;
+	int		size;
+}	t_chunk;
 
 // === Functions === //
 
 // onlogn.c
 void	quick_sort_partitioning(t_stack *stack_a, t_stack *stack_b);
 void	sort_chunk(t_stack *stack_a, t_stack *stack_b, t_chunk chunk);
-void sort_small_chunk(t_stack *stack_a, t_stack *stack_b, t_chunk chunk);
+void	sort_small_chunk(t_stack *stack_a, t_stack *stack_b, t_chunk chunk);
 
 // onlogn_split.c
 void	split_chunk(t_stack *stack_a, t_stack *stack_b, t_chunk chunk);
-void split_top_a(t_stack *stack_a, t_stack *stack_b, t_chunk chunk);
-void split_bot_a(t_stack *stack_a, t_stack *stack_b, t_chunk chunk);
-void split_top_b(t_stack *stack_a, t_stack *stack_b, t_chunk chunk);
-void split_bot_b(t_stack *stack_a, t_stack *stack_b, t_chunk chunk);
+void	split_top_a(t_stack *stack_a, t_stack *stack_b, t_chunk chunk);
+void	split_bot_a(t_stack *stack_a, t_stack *stack_b, t_chunk chunk);
+void	split_top_b(t_stack *stack_a, t_stack *stack_b, t_chunk chunk);
+void	split_bot_b(t_stack *stack_a, t_stack *stack_b, t_chunk chunk);
 
 // onlogn_utils.c
-t_chunk new_chunk(t_loc loc, int min, int max);
+t_chunk	new_chunk(t_loc loc, int min, int max);
 void	two_elements_sort(t_stack *stack_a, t_stack *stack_b);
 
 #endif

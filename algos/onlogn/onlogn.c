@@ -14,9 +14,8 @@
 
 void	quick_sort_partitioning(t_stack *stack_a, t_stack *stack_b)
 {
-	if (stack_a->size < 3)
-	{
-		ft_printf("two elements sort:\n");
-		two_elements_sort(stack_a, stack_b);
-	}
+	t_chunck first;
+	
+	first = new_chunck(TOP_A, 0, (int)stack_a->size - 1);
+	
 }

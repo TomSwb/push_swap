@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 15:37:58 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/25 13:47:14 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/25 14:03:04 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ typedef struct s_chunk
 void	quick_sort_partitioning(t_stack *stack_a, t_stack *stack_b);
 void	sort_chunk(t_stack *stack_a, t_stack *stack_b, t_chunk chunk);
 void	sort_small_chunk(t_stack *stack_a, t_stack *stack_b, t_chunk chunk);
+void	move_to_top_a(t_stack *stack_a, t_stack *stack_b, t_loc loc);
 
 // onlogn_split.c
 void	split_chunk(t_stack *stack_a, t_stack *stack_b, t_chunk *chunk);

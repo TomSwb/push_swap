@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 15:41:47 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/25 13:56:06 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/25 14:02:52 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,16 @@ void	sort_chunk(t_stack *stack_a, t_stack *stack_b, t_chunk chunk)
 
 void	sort_small_chunk(t_stack *stack_a, t_stack *stack_b, t_chunk chunk)
 {
+	if ()
+}
 
+void	move_to_top_a(t_stack *stack_a, t_stack *stack_b, t_loc loc)
+{
+	if (loc == BOT_A)
+		rra(stack_a, stack_b, 0);
+	else if (loc == BOT_B)
+		rrb(stack_a, stack_b, 0);
+	if (loc == TOP_B || loc == BOT_B)
+		pa(stack_a, stack_b, 0);
+		
 }

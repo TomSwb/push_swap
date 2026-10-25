@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/25 13:29:32 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/25 13:48:03 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/25 13:52:50 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,9 @@ void	split_top_a(t_stack *stack_a, t_stack *stack_b, t_chunk *chunk)
 			ra(stack_a, stack_b, 0);
 		i++;
 	}
+	chunk->loc_small = BOT_B;
+	chunk->loc_medium = TOP_B;
+	chunk->loc_big = BOT_A;
 }
 
 void	split_bot_a(t_stack *stack_a, t_stack *stack_b, t_chunk *chunk)
@@ -61,6 +64,9 @@ void	split_bot_a(t_stack *stack_a, t_stack *stack_b, t_chunk *chunk)
 			pb(stack_a, stack_b);
 		i++;
 	}
+	chunk->loc_small = BOT_B;
+	chunk->loc_medium = TOP_B;
+	chunk->loc_big = TOP_A;
 }
 
 void	split_top_b(t_stack *stack_a, t_stack *stack_b, t_chunk *chunk)
@@ -81,6 +87,9 @@ void	split_top_b(t_stack *stack_a, t_stack *stack_b, t_chunk *chunk)
 			pa(stack_a, stack_b, 0);
 		i++;
 	}
+	chunk->loc_small = BOT_B;
+	chunk->loc_medium = BOT_A;
+	chunk->loc_big = TOP_A;
 }
 
 void	split_bot_b(t_stack *stack_a, t_stack *stack_b, t_chunk *chunk)
@@ -100,4 +109,7 @@ void	split_bot_b(t_stack *stack_a, t_stack *stack_b, t_chunk *chunk)
 		}
 		i++;
 	}
+	chunk->loc_small = TOP_B;
+	chunk->loc_medium = BOT_A;
+	chunk->loc_big = TOP_A;
 }

@@ -18,7 +18,7 @@
 // push_swap.h
 #include "../../push_swap.h"
 
-// === Struct === //
+// === Structs === //
 
 typedef enum e_loc
 {
@@ -27,6 +27,13 @@ typedef enum e_loc
     TOP_B,
     BOT_B,
 } t_loc;
+
+typedef struct s_chunck
+{
+    t_loc loc;
+    int min;
+    int max;
+} t_chunck;
 
 // === Functions === //
 

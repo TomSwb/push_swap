@@ -18,6 +18,16 @@
 // push_swap.h
 #include "../../push_swap.h"
 
+// === Struct === //
+
+typedef enum e_chuncks
+{
+    TOP_A;
+    BOT_A;
+    TOP_B;
+    BOT_B;
+} t_chunck;
+
 // === Functions === //
 
 // onlogn.c

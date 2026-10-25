@@ -31,6 +31,8 @@ void	sort_chunk(t_stack *stack_a, t_stack *stack_b, t_chunk chunk)
     chunk.pivot_high = chunk.min + chunk.size * 2 / 3;
     split_chunk(stack_a, stack_b, chunk);
     sort_chunk(stack_a, stack_b, new_chunk(BOT_A, chunk.pivot_high, chunk.max));
+    sort_chunk(stack_a, stack_b, new_chunk(TOP_B, chunk.pivot_low, chunk.pivot_high - 1));
+    sort_chunk(stack_a, stack_b, new_chunk(BOT_B, chunk.min, chunk.pivot_low - 1));
 }
 
 void sort_small_chunk(t_stack *stack_a, t_stack *stack_b, t_chunk chunk)

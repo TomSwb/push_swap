@@ -47,6 +47,7 @@ void sort_small_chunk(t_stack *stack_a, t_stack *stack_b, t_chunk chunk);
 
 // onlogn_split.c
 void	split_chunk(t_stack *stack_a, t_stack *stack_b, t_chunk chunk);
+void split_top_a(t_stack *stack_a, t_stack *stack_b, t_chunk chunk);
 
 // onlogn_utils.c
 t_chunk new_chunk(t_loc loc, int min, int max);

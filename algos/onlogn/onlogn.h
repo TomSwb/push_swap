@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 15:37:58 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/25 17:28:50 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/25 17:33:47 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,6 @@ typedef struct s_chunk
 // onlogn.c
 void	quick_sort_partitioning(t_stack *stack_a, t_stack *stack_b);
 void	sort_chunk(t_stack *stack_a, t_stack *stack_b, t_chunk chunk);
-void	sort_small_chunk(t_stack *stack_a, t_stack *stack_b, t_chunk chunk);
-void	sort_three_b(t_stack *stack_a, t_stack *stack_b);
 
 // onlogn_split.c
 void	split_chunk(t_stack *stack_a, t_stack *stack_b, t_chunk *chunk);
@@ -57,10 +55,14 @@ void	split_bot_a(t_stack *stack_a, t_stack *stack_b, t_chunk *chunk);
 void	split_top_b(t_stack *stack_a, t_stack *stack_b, t_chunk *chunk);
 void	split_bot_b(t_stack *stack_a, t_stack *stack_b, t_chunk *chunk);
 
+// onlogn_small.c
+void	sort_small_chunk(t_stack *stack_a, t_stack *stack_b, t_chunk chunk);
+void	sort_three_b(t_stack *stack_a, t_stack *stack_b);
+void	sort_three_a(t_stack *stack_a, t_stack *stack_b);
+void	two_elements_sort(t_stack *stack_a, t_stack *stack_b);
+void	move_to_top_a(t_stack *stack_a, t_stack *stack_b, t_loc loc);
+
 // onlogn_utils.c
 t_chunk	new_chunk(t_loc loc, int min, int max);
-void	move_to_top_a(t_stack *stack_a, t_stack *stack_b, t_loc loc);
-void	two_elements_sort(t_stack *stack_a, t_stack *stack_b);
-void	sort_top_three(t_stack *stack_a, t_stack *stack_b);
 
 #endif

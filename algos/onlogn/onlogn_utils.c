@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 15:38:44 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/25 13:35:00 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/25 13:43:38 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@ t_chunk	new_chunk(t_loc loc, int min, int max)
 	t_chunk	chunk;
 
 	chunk.loc = loc;
+	chunk.loc_small = NO_LOC;
+	chunk.loc_medium = NO_LOC;
+	chunk.loc_big = NO_LOC;
 	chunk.min = min;
 	chunk.max = max;
 	chunk.pivot_low = -1;

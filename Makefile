@@ -42,7 +42,7 @@ ONLOGN = algos/onlogn/onlogn.c \
 			algos/onlogn/onlogn_utils.c
 
 SRCS = main.c ${PARSING} ${MOVES} ${ALGOS} ${ON2} ${ONLOGN} \
-		tests_tom.c
+		tests.c
 
 OBJS = $(SRCS:.c=.o)
 

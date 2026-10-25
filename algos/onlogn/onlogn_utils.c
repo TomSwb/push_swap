@@ -14,7 +14,12 @@
 
 t_chunk new_chunk(t_loc loc, int min, int max)
 {
+    t_chunk chunk;
     
+    chunk.loc = loc;
+    chunk.min = min;
+    chunk.max = max;
+    return (chunk);
 }
 
 void	two_elements_sort(t_stack *stack_a, t_stack *stack_b)

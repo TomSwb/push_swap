@@ -26,7 +26,7 @@ void	sort_chunk(t_stack *stack_a, t_stack *stack_b, t_chunk chunk)
     int pivot_low;
     int pivot_high;
     
-    size = (chunk.max - chunk.min) + 1;
+    size = chunk.max - chunk.min + 1;
 	if (size <= 3)
     {
         sort_small_chunk(stack_a, stack_b, chunk);

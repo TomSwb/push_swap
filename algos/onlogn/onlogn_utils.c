@@ -19,6 +19,9 @@ t_chunk new_chunk(t_loc loc, int min, int max)
     chunk.loc = loc;
     chunk.min = min;
     chunk.max = max;
+    chunk.pivot_low = -1;
+    chunk.pivot_high = -1;
+    chunk.size = chunk.max - chunk.min + 1;
     return (chunk);
 }
 

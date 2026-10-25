@@ -14,9 +14,9 @@
 
 void	quick_sort_partitioning(t_stack *stack_a, t_stack *stack_b)
 {
-	t_chunck first;
+	t_chunk first;
 	
-	first = new_chunck(TOP_A, 0, (int)stack_a->size - 1);
+	first = new_chunk(TOP_A, 0, (int)stack_a->size - 1);
 }
 
 void	sort_chunk(t_stack *stack_a, t_stack *stack_b, t_chunk chunk)

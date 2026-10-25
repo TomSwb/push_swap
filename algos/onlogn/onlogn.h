@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 15:37:58 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/25 13:35:48 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/25 13:40:35 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,15 @@ typedef enum e_loc
 	BOT_A,
 	TOP_B,
 	BOT_B,
+	NO_LOC,
 }	t_loc;
 
 typedef struct s_chunk
 {
 	t_loc	loc;
+	t_loc	loc_small;
+	t_loc	loc_medium;
+	t_loc	loc_big;
 	int		min;
 	int		max;
 	int		pivot_low;

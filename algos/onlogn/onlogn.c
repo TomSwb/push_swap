@@ -12,6 +12,18 @@
 
 #include "onlogn.h"
 
+/**
+* @brief
+Sorts stack_a in ascending order with a three-way quicksort:
+builds the first chunk covering the whole of stack_a
+(ranks 0 to size - 1, on top of A) and hands it to sort_chunk,
+which recurses.
+Requires ranks normalized to 0..n-1 and stack_b empty.
+
+* @param t_stack *stack_a
+* @param t_stack *stack_b
+* @return void
+*/
 void	quick_sort_partitioning(t_stack *stack_a, t_stack *stack_b)
 {
 	t_chunk	first;
@@ -20,6 +32,24 @@ void	quick_sort_partitioning(t_stack *stack_a, t_stack *stack_b)
 	sort_chunk(stack_a, stack_b, first);
 }
 
+/**
+* @brief
+Recursively sorts a chunk with a three-way partition.
+
+If the chunk is alone in its stack, relabels BOT_A/BOT_B as
+TOP_A/TOP_B (bottom and top are then the same nodes).
+
+Chunks of 3 nodes or less go to sort_small_chunk. 
+
+Otherwise sets the pivots at one and two thirds of the chunk's rank
+range, splits it with split_chunk, then recurses on the big, middle
+and small parts, in that order.
+
+* @param t_stack *stack_a
+* @param t_stack *stack_b
+* @param t_chunk chunk
+* @return void
+*/
 void	sort_chunk(t_stack *stack_a, t_stack *stack_b, t_chunk chunk)
 {
 	if (chunk.loc == BOT_A && (int)stack_a->size == chunk.size)

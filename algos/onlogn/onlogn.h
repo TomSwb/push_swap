@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 15:37:58 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/25 14:03:43 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/25 14:13:46 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,8 @@ void	split_bot_b(t_stack *stack_a, t_stack *stack_b, t_chunk *chunk);
 
 // onlogn_utils.c
 t_chunk	new_chunk(t_loc loc, int min, int max);
-void	two_elements_sort(t_stack *stack_a, t_stack *stack_b);
 void	move_to_top_a(t_stack *stack_a, t_stack *stack_b, t_loc loc);
+void	two_elements_sort(t_stack *stack_a, t_stack *stack_b);
+void	sort_top_three(t_stack *stack_a, t_stack *stack_b);
 
 #endif

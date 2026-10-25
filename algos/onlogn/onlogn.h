@@ -28,12 +28,12 @@ typedef enum e_loc
     BOT_B,
 } t_loc;
 
-typedef struct s_chunck
+typedef struct s_chunk
 {
     t_loc loc;
     int min;
     int max;
-} t_chunck;
+} t_chunk;
 
 // === Functions === //
 
@@ -42,7 +42,7 @@ void	quick_sort_partitioning(t_stack *stack_a, t_stack *stack_b);
 void	sort_chunk(t_stack *stack_a, t_stack *stack_b, t_chunk chunk);
 
 // onlogn_utils.c
-t_chunck new_chunck(t_loc loc, int min, int max);
+t_chunk new_chunk(t_loc loc, int min, int max);
 void	two_elements_sort(t_stack *stack_a, t_stack *stack_b);
 
 #endif

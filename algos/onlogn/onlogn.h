@@ -43,6 +43,7 @@ typedef struct s_chunk
 // onlogn.c
 void	quick_sort_partitioning(t_stack *stack_a, t_stack *stack_b);
 void	sort_chunk(t_stack *stack_a, t_stack *stack_b, t_chunk chunk);
+void	split_chunk(t_stack *stack_a, t_stack *stack_b, t_chunk chunk);
 void sort_small_chunk(t_stack *stack_a, t_stack *stack_b, t_chunk chunk);
 
 // onlogn_utils.c

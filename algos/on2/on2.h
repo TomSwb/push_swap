@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 14:24:37 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/24 15:50:25 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/25 18:09:59 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_cheapest
 
 // on2.c
 void	cost_based_insertion(t_stack *stack_a, t_stack *stack_b);
+void	push_halves_to_b(t_stack *stack_a, t_stack *stack_b);
 void	sort_first_three(t_stack *stack_a, t_stack *stack_b);
 
 // on2_cost.c

@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 13:28:41 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/24 16:12:39 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/25 18:10:40 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@ void	cost_based_insertion(t_stack *stack_a, t_stack *stack_b)
 	t_cheapest	cheapest;
 	int			min_hops;
 
-	while (3 < stack_a->size)
-		pb(stack_a, stack_b);
+	push_halves_to_b(stack_a, stack_b);
 	sort_first_three(stack_a, stack_b);
 	while (stack_b->top != NULL)
 	{
@@ -33,6 +32,19 @@ void	cost_based_insertion(t_stack *stack_a, t_stack *stack_b)
 			ra(stack_a, stack_b, 0);
 		else
 			rra(stack_a, stack_b, 0);
+	}
+}
+
+void	push_halves_to_b(t_stack *stack_a, t_stack *stack_b)
+{
+	int			middle_rank;
+
+	middle_rank = stack_a->size / 2;
+	while (3 < stack_a->size)
+	{
+		pb(stack_a, stack_b);
+		if (stack_b->top->rank < middle_rank)
+			rb(stack_a, stack_b, 0);
 	}
 }
 

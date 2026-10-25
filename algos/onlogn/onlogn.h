@@ -41,6 +41,7 @@ typedef struct s_chunck
 void	quick_sort_partitioning(t_stack *stack_a, t_stack *stack_b);
 
 // onlogn_utils.c
+t_chunck new_chunck(t_loc loc, int min, int max);
 void	two_elements_sort(t_stack *stack_a, t_stack *stack_b);
 
 #endif

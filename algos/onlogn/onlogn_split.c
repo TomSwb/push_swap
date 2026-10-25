@@ -80,13 +80,13 @@ void split_bot_b(t_stack *stack_a, t_stack *stack_b, t_chunk chunk)
     while (i < chunk.size)
     {
         rrb(stack_a, stack_b, 0);
-        if (stack_b->top->rank < chunk.pivot_high)
+        if (stack_b->top->rank >= chunk.pivot_high)
+            pa(stack_a, stack_b, 0);
+        else if (stack_b->top->rank >= chunk.pivot_low)
         {
             pa(stack_a, stack_b, 0);
             ra(stack_a, stack_b, 0);
         }
-        else if (stack_b->top->rank >= chunk.pivot_high)
-            pa(stack_a, stack_b, 0);
         i++;
     }
 }

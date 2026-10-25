@@ -12,9 +12,4 @@
 
 #include "onlogn.h"
 
-void	two_elements_sort(t_stack *stack_a, t_stack *stack_b)
-{
-	if (stack_a->top->value > stack_a->top->next->value)
-		sa(stack_a, stack_b, 0);
-	return ;
-}
+

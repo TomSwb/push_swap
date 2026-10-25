@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 15:37:58 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/25 13:45:27 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/25 13:47:14 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,10 @@ void	sort_small_chunk(t_stack *stack_a, t_stack *stack_b, t_chunk chunk);
 
 // onlogn_split.c
 void	split_chunk(t_stack *stack_a, t_stack *stack_b, t_chunk *chunk);
-void	split_top_a(t_stack *stack_a, t_stack *stack_b, t_chunk chunk);
-void	split_bot_a(t_stack *stack_a, t_stack *stack_b, t_chunk chunk);
-void	split_top_b(t_stack *stack_a, t_stack *stack_b, t_chunk chunk);
-void	split_bot_b(t_stack *stack_a, t_stack *stack_b, t_chunk chunk);
+void	split_top_a(t_stack *stack_a, t_stack *stack_b, t_chunk *chunk);
+void	split_bot_a(t_stack *stack_a, t_stack *stack_b, t_chunk *chunk);
+void	split_top_b(t_stack *stack_a, t_stack *stack_b, t_chunk *chunk);
+void	split_bot_b(t_stack *stack_a, t_stack *stack_b, t_chunk *chunk);
 
 // onlogn_utils.c
 t_chunk	new_chunk(t_loc loc, int min, int max);

@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 15:38:44 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/25 13:43:38 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/25 14:04:33 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,14 @@ void	two_elements_sort(t_stack *stack_a, t_stack *stack_b)
 	if (stack_a->top->rank > stack_a->top->next->rank)
 		sa(stack_a, stack_b, 0);
 	return ;
+}
+
+void	move_to_top_a(t_stack *stack_a, t_stack *stack_b, t_loc loc)
+{
+	if (loc == BOT_A)
+		rra(stack_a, stack_b, 0);
+	else if (loc == BOT_B)
+		rrb(stack_a, stack_b, 0);
+	if (loc == TOP_B || loc == BOT_B)
+		pa(stack_a, stack_b, 0);
 }

@@ -22,7 +22,7 @@ void	quick_sort_partitioning(t_stack *stack_a, t_stack *stack_b)
 
 void	sort_chunk(t_stack *stack_a, t_stack *stack_b, t_chunk chunk)
 {
-	if ((max - min) + 1 <= 3)
+	if ((chunk.max - chunk.min) + 1 <= 3)
     {
         sort_small_chunk(stack_a, stack_b, chunk);
         return ;

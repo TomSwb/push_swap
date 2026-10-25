@@ -12,6 +12,18 @@
 
 #include "on2.h"
 
+/**
+* @brief
+Rotates both stacks so cheapest->element is on top of stack_b and
+its target on top of stack_a, ready for pa (the push isn't done here).
+Shared moves first (rr / rrr), then what's left on each stack.
+Consumes cheapest's a_moves and b_moves (both end at 0).
+
+* @param t_stack *stack_a
+* @param t_stack *stack_b
+* @param t_cheapest *cheapest
+* @return void
+*/
 void	move_cheapest_node(t_stack *stack_a, t_stack *stack_b,
 		t_cheapest *cheapest)
 {

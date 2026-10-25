@@ -12,6 +12,18 @@
 
 #include "onlogn.h"
 
+/**
+* @brief
+Returns a new chunk covering ranks min to max at location loc,
+with its size computed (max - min + 1). 
+The pivots (-1) and the three part locations (NO_LOC) are left unset,
+for sort_chunk and split_chunk to fill.
+
+* @param t_loc loc
+* @param int min
+* @param int max
+* @return t_chunk
+*/
 t_chunk	new_chunk(t_loc loc, int min, int max)
 {
 	t_chunk	chunk;

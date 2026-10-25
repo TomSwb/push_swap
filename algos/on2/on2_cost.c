@@ -12,6 +12,18 @@
 
 #include "on2.h"
 
+/**
+* @brief
+Goes through every node of stack_b and stores in cheapest the one
+needing the fewest moves to be pushed back into stack_a at its
+right place, along with its a_moves, b_moves and total cost.
+Requires stack_b not to be empty.
+
+* @param t_stack *stack_a
+* @param t_stack *stack_b
+* @param t_cheapest *cheapest
+* @return void
+*/
 void	find_cheapest(t_stack *stack_a, t_stack *stack_b, t_cheapest *cheapest)
 {
 	t_cheapest	current;
@@ -31,6 +43,19 @@ void	find_cheapest(t_stack *stack_a, t_stack *stack_b, t_cheapest *cheapest)
 	}
 }
 
+/**
+* @brief
+Computes the cheapest way to bring b_node and its target in stack_a
+to the top, comparing the 4 rotation combos (both up, both down,
+a up b down, a down b up), and stores it in current.
+Positive moves mean rotate, negative mean reverse rotate.
+
+* @param t_stack *stack_a
+* @param t_stack *stack_b
+* @param t_cheapest *current
+* @param t_value *b_node
+* @return void
+*/
 void	element_cost(t_stack *stack_a, t_stack *stack_b, t_cheapest *current,
 	t_value *b_node)
 {
@@ -53,6 +78,18 @@ void	element_cost(t_stack *stack_a, t_stack *stack_b, t_cheapest *current,
 	set_if_cheapest(current, a_down, b_up, b_up - a_down);
 }
 
+/**
+* @brief
+Overwrites current's a_moves, b_moves and cost with the incoming
+values if cost is strictly lower than current->cost.
+current->element is left untouched.
+
+* @param t_cheapest *current
+* @param int a_moves
+* @param int b_moves
+* @param int cost
+* @return void
+*/
 void	set_if_cheapest(t_cheapest *current, int a_moves, int b_moves, int cost)
 {
 	if (cost < current->cost)
@@ -63,6 +100,14 @@ void	set_if_cheapest(t_cheapest *current, int a_moves, int b_moves, int cost)
 	}
 }
 
+/**
+* @brief
+Return the higher int between a and b.
+
+* @param int a
+* @param int b
+* @return int
+*/
 int	max_int(int a, int b)
 {
 	if (a > b)

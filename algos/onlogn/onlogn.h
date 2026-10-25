@@ -20,13 +20,13 @@
 
 // === Struct === //
 
-typedef enum e_chuncks
+typedef enum e_loc
 {
-    TOP_A;
-    BOT_A;
-    TOP_B;
-    BOT_B;
-} t_chunck;
+    TOP_A,
+    BOT_A,
+    TOP_B,
+    BOT_B,
+} t_loc;
 
 // === Functions === //
 

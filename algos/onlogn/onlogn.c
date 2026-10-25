@@ -22,18 +22,13 @@ void	quick_sort_partitioning(t_stack *stack_a, t_stack *stack_b)
 
 void	sort_chunk(t_stack *stack_a, t_stack *stack_b, t_chunk chunk)
 {
-    int size;
-    int pivot_low;
-    int pivot_high;
-    
-    size = chunk.max - chunk.min + 1;
-	if (size <= 3)
+	if (chunk.size <= 3)
     {
         sort_small_chunk(stack_a, stack_b, chunk);
         return ;
     }
-    pivot_low = chunk.min + size / 3;
-    pivot_high = chunk.min + size * 2 / 3;
+    chunk.pivot_low = chunk.min + chunk.size / 3;
+    chunk.pivot_high = chunk.min + chunk.size * 2 / 3;
 }
 
 void sort_small_chunk(t_stack *stack_a, t_stack *stack_b, t_chunk chunk)

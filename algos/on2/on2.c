@@ -36,7 +36,6 @@ void	cost_based_insertion(t_stack *stack_a, t_stack *stack_b)
 	{
 		find_cheapest(stack_a, stack_b, &cheapest);
 		move_cheapest_node(stack_a, stack_b, &cheapest);
-		pa(stack_a, stack_b, 0);
 	}
 	min_hops = count_hops(stack_a, find_min_node(stack_a));
 	while (stack_a->top->rank != 0)

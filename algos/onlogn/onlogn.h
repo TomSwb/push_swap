@@ -33,6 +33,9 @@ typedef struct s_chunk
     t_loc loc;
     int min;
     int max;
+    int pivot_low;
+    int pivot_high;
+    int size;
 } t_chunk;
 
 // === Functions === //

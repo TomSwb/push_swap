@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/25 17:31:48 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/25 17:34:03 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/25 17:39:34 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,17 @@ void	sort_three_a(t_stack *stack_a, t_stack *stack_b)
 
 void	sort_three_b(t_stack *stack_a, t_stack *stack_b)
 {
-	
+	int	left;
+
+	left = 3;
+	while (left != 0)
+	{
+		if (left >= 2 && stack_b->top->rank < stack_b->top->next->rank)
+			sb(stack_a, stack_b, 0);
+		pa(stack_a, stack_b, 0);
+		two_elements_sort(stack_a, stack_b);
+		left--;
+	}
 }
 
 void	two_elements_sort(t_stack *stack_a, t_stack *stack_b)

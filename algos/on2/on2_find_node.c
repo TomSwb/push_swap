@@ -12,6 +12,14 @@
 
 #include "on2.h"
 
+/**
+* @brief
+Returns the node currently holding the highest rank in the stack,
+or NULL if the stack is empty.
+
+* @param t_stack *stack
+* @return t_value *
+*/
 t_value	*find_max_node(t_stack *stack)
 {
 	size_t	i;
@@ -39,6 +47,14 @@ t_value	*find_max_node(t_stack *stack)
 	return (max_node);
 }
 
+/**
+* @brief
+Returns the node currently holding the lowest rank in the stack,
+or NULL if the stack is empty.
+
+* @param t_stack *stack
+* @return t_value *
+*/
 t_value	*find_min_node(t_stack *stack)
 {
 	size_t	i;
@@ -66,6 +82,18 @@ t_value	*find_min_node(t_stack *stack)
 	return (min_node);
 }
 
+/**
+* @brief
+Returns the node of stack_a holding the closest rank above b_node's,
+i.e. the node b_node must sit on top of once pushed.
+If b_node's rank is higher than all of stack_a, returns stack_a's min
+(b_node then goes between the max and the min).
+Returns NULL if stack_a is empty.
+
+* @param t_stack *stack_a
+* @param t_value *b_node
+* @return t_value *
+*/
 t_value	*find_target_node(t_stack *stack_a, t_value *b_node)
 {
 	size_t	i;

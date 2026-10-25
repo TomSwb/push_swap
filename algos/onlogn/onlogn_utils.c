@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 15:38:44 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/25 14:17:09 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/25 17:02:44 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,12 @@ void	two_elements_sort(t_stack *stack_a, t_stack *stack_b)
 
 void	sort_top_three(t_stack *stack_a, t_stack *stack_b)
 {
-	int	rank_1;
-	int	rank_2;
-	int	rank_3;
-
-	rank_1 = stack_a->top->rank;
-	rank_2 = stack_a->top->next->rank;
-	rank_3 = stack_a->top->next->next->rank;
+	two_elements_sort(stack_a, stack_b);
+	if (stack_a->top->next->rank > stack_a->top->next->next->rank)
+	{
+		ra(stack_a, stack_b, 0);
+		sa(stack_a, stack_b, 0);
+		rra(stack_a, stack_b, 0);
+	}
+	two_elements_sort(stack_a, stack_b);
 }

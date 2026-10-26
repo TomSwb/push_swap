@@ -6,7 +6,7 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/20 11:33:03 by tschwab           #+#    #+#              #
-#    Updated: 2026/10/24 16:03:16 by tschwab          ###   ########.ch        #
+#    Updated: 2026/10/25 17:36:21 by tschwab          ###   ########.ch        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,8 @@ ON2	= algos/on2/on2.c \
 		algos/on2/on2_utils.c
 
 ONLOGN = algos/onlogn/onlogn.c \
+			algos/onlogn/onlogn_split.c \
+			algos/onlogn/onlogn_small.c \
 			algos/onlogn/onlogn_utils.c
 
 SRCS = main.c ${PARSING} ${MOVES} ${ALGOS} ${ON2} ${ONLOGN} \

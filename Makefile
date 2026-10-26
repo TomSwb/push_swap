@@ -6,7 +6,7 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/20 11:33:03 by tschwab           #+#    #+#              #
-#    Updated: 2026/10/26 15:55:02 by tschwab          ###   ########.ch        #
+#    Updated: 2026/10/26 18:02:29 by tschwab          ###   ########.ch        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,8 +30,7 @@ PARSING = parsing/parsing.c \
 MOVES = moves/p_moves.c \
 		moves/r_moves.c \
 		moves/rr_moves.c \
-		moves/s_moves.c \
-		moves/moves_utils.c
+		moves/s_moves.c
 
 ON2	= algos/on2/on2.c \
 		algos/on2/on2_find_node.c \

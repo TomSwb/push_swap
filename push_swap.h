@@ -75,7 +75,7 @@ void	print_values(t_stack *stack, int nb_to_print);
 void	print_disorder(t_stack *stack_a);
 void	print_strategy(t_stack *stack_a);
 void	print_ops(t_stack *stack_a);
-void	print_rot(t_stack *stack_a);
+int		moves_count(t_stack *stack_a);
 void	print_count(char *label, int count);
 
 // parsing/
@@ -126,8 +126,5 @@ void	rr(t_stack *stack_a, t_stack *stack_b);
 void	rra(t_stack *stack_a, t_stack *stack_b, int rrr_bool);
 void	rrb(t_stack *stack_a, t_stack *stack_b, int rrr_bool);
 void	rrr(t_stack *stack_a, t_stack *stack_b);
-
-// moves_utils.c
-int		moves_count(t_stack *stack_a);
 
 #endif

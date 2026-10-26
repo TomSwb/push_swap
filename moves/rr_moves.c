@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 15:35:59 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/26 14:35:08 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/26 18:01:06 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	rra(t_stack *stack_a, t_stack *stack_b, int rrr_bool)
 	stack_a->top = stack_a->top->prev;
 	if (rrr_bool)
 		return ;
-	ft_putendl_fd("rra", 1);
+	ft_printf("rra\n");
 	(stack_a->moves.rra_moves)++;
 }
 
@@ -44,7 +44,7 @@ void	rrb(t_stack *stack_a, t_stack *stack_b, int rrr_bool)
 	stack_b->top = stack_b->top->prev;
 	if (rrr_bool)
 		return ;
-	ft_putendl_fd("rrb", 1);
+	ft_printf("rrb\n");
 	(stack_a->moves.rrb_moves)++;
 }
 
@@ -59,6 +59,6 @@ void	rrr(t_stack *stack_a, t_stack *stack_b)
 	}
 	rra(stack_a, stack_b, 1);
 	rrb(stack_a, stack_b, 1);
-	ft_putendl_fd("rrr", 1);
+	ft_printf("rrr\n");
 	(stack_a->moves.rrr_moves)++;
 }

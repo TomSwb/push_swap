@@ -224,20 +224,21 @@ Small inputs: 3 numbers in at most 2 operations, 5 numbers in 8–11.
 ## Contributions
 
 **atardy**
-- **Argument parsing and error handling:** flags, numbers as one string or as separate arguments, integer validation and overflow, duplicates, building and freeing the stacks.
+- **Argument parsing:** flags, numbers as one string or as separate arguments, integer validation and overflow, duplicates, building and freeing the stacks.
 - **Operations:** `sa` `sb` `ss` `pa` `pb`.
 - **Medium algorithm**, O(n√n).
-- **Checker** (bonus).
+- **Error handling**.
 
 **tschwab**
 - **Operations:** `ra` `rb` `rr` `rra` `rrb` `rrr`.
-- **Disorder and ranks.**
+- **Disorder, ranks and adaptive dispatch**
 - **Simple and Complex algorithms**, O(n²) and O(n log n).
-- **Adaptive dispatch and `--bench`.**
+- **`--bench`.**
+- **Checker** (bonus).
 
 **Both**
 - Data structure design, Makefile, README.
-- Code reviews through pull requests: both learners can explain every part.
+- Code reviews through pull requests.
 
 > [!NOTE]
 > 🟩 **TODO (both):** check every line; add anything missing (tests, specific fixes…)

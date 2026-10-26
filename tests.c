@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tests_tom.c                                        :+:      :+:    :+:   */
+/*   tests.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 14:04:23 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/25 17:09:53 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/26 14:40:44 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	tests(t_stack *stack_a, t_stack *stack_b)
 	ft_printf("\n== checking new state ==\n");
 	ft_printf("\nA\n");
 	print_values(stack_a, 0);
-	ft_printf("moves count = %d\n", stack_a->moves + stack_b->moves);
 	ft_printf("\nB\n");
 	print_values(stack_b, 0);
 }

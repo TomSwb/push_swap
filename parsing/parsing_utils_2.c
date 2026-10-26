@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: atardy <atardy@student.42lausanne.ch>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/20 17:16:25 by atardy            #+#    #+#             */
-/*   Updated: 2026/10/20 17:16:29 by atardy           ###   ########.ch       */
+/*   Created: 2026/10/26 20:10:49 by atardy            #+#    #+#             */
+/*   Updated: 2026/10/26 20:10:49 by atardy           ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,26 +44,4 @@ int	freeturn(char **int_lst)
 	free (int_lst);
 	int_lst = NULL;
 	return (1);
-}
-
-/*
-GOAL : calculate the "size" of the stack_a => the number of value in the list
-Return : void
-*/
-void	size_calculator(t_stack *st)
-{
-	int		id_stop;
-	size_t	size;
-	t_value	*current;
-
-	size = 0;
-	id_stop = -1;
-	current = st->top;
-	while (current->id != id_stop)
-	{
-		id_stop = st->top->id;
-		size++;
-		current = current->next;
-	}
-	st->init_size = size;
 }

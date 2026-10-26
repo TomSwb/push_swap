@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: atardy <atardy@student.42lausanne.ch>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/20 16:59:32 by atardy            #+#    #+#             */
-/*   Updated: 2026/10/20 16:59:48 by atardy           ###   ########.ch       */
+/*   Created: 2026/10/26 20:07:52 by atardy            #+#    #+#             */
+/*   Updated: 2026/10/26 20:09:27 by atardy           ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ int	stack_from_split(char **int_lst, t_stack *stack_a)
 			return (1);
 		lstadd(stack_a, node);
 	}
+	stack_a->init_size = i;
 	i = -1;
 	while (int_lst[++i])
 	{
@@ -137,5 +138,6 @@ int	pars_from_argv(int nb_int, char **int_lst, t_stack *stack_a)
 			return (1);
 		lstadd(stack_a, node);
 	}
+	stack_a->init_size = nb_int;
 	return (0);
 }

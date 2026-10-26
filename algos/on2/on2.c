@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 13:28:41 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/25 18:10:40 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/26 14:57:20 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,10 @@ void	push_halves_to_b(t_stack *stack_a, t_stack *stack_b)
 /**
 * @brief
 Sorts stack_a in ascending order (smallest on top) when it holds
-only 2 or 3 nodes, the ones left after push_halves_to_b.
+only 3 nodes: the ones left after push_halves_to_b, or a chunk of
+3 alone in stack_a in quick_sort_partitioning.
+Also works on 2 nodes only if they are unsorted (a sorted pair
+would get a useless rra + sa).
 stack_b is unused, only passed through to the moves.
 
 * @param t_stack *stack_a

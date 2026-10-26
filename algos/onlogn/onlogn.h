@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 15:37:58 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/25 17:33:47 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/26 14:47:28 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,11 @@
 
 // === Library === //
 
-// push_swap.h
+// push_swap.h -> for the structs
 # include "../../push_swap.h"
+
+// on2.h -> for the sort_first_three function
+# include "../on2/on2.h"
 
 // === Structs === //
 

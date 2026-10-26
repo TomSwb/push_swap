@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 15:41:47 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/25 17:32:11 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/26 14:57:11 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,9 @@ Recursively sorts a chunk with a three-way partition.
 If the chunk is alone in its stack, relabels BOT_A/BOT_B as
 TOP_A/TOP_B (bottom and top are then the same nodes).
 
-Chunks of 3 nodes or less go to sort_small_chunk. 
+Chunks of 3 nodes or less are sorted directly: with
+sort_first_three if exactly 3 nodes are alone in stack_a
+(rotations are then free to use), otherwise with sort_small_chunk.
 
 Otherwise sets the pivots at one and two thirds of the chunk's rank
 range, splits it with split_chunk, then recurses on the big, middle
@@ -58,7 +60,11 @@ void	sort_chunk(t_stack *stack_a, t_stack *stack_b, t_chunk chunk)
 		chunk.loc = TOP_B;
 	if (chunk.size <= 3)
 	{
-		sort_small_chunk(stack_a, stack_b, chunk);
+		if (chunk.loc == TOP_A && (int)stack_a->size == chunk.size
+			&& chunk.size == 3)
+			sort_first_three(stack_a, stack_b);
+		else
+			sort_small_chunk(stack_a, stack_b, chunk);
 		return ;
 	}
 	chunk.pivot_low = chunk.min + chunk.size / 3;

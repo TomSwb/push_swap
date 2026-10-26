@@ -50,8 +50,8 @@ void	sa(t_stack *stk_A, t_stack *stk_B, int ss_bool)
 	}
 	if (!ss_bool)
 	{
-		ft_putendl_fd("sa", stk_A->fd);
-		stk_A->moves++;
+		ft_putendl_fd("sa", 1);
+		stk_A->moves.sa_moves++;
 	}
 }
 
@@ -90,8 +90,8 @@ void	sb(t_stack *stk_A, t_stack *stk_B, int ss_bool)
 	}
 	if (!ss_bool)
 	{
-		ft_putendl_fd("sb", stk_B->fd);
-		stk_A->moves++;
+		ft_putendl_fd("sb", 1);
+		stk_A->moves.sb_moves++;
 	}
 }
 
@@ -106,6 +106,6 @@ void	ss(t_stack *stk_A, t_stack *stk_B)
 		return ;
 	sa(stk_B, stk_A, 1);
 	sb(stk_B, stk_A, 1);
-	ft_putendl_fd("ss", stk_A->fd);
-	stk_A->moves++;
+	ft_putendl_fd("ss", 1);
+	stk_A->moves.ss_moves++;
 }

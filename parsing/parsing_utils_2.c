@@ -19,12 +19,12 @@ void	stack_initializer(t_stack *st)
 {
 	st->bench = 0;
 	st->flag = 0;
-	st->top = NULL;
-	st->disorder = 0;
 	st->init_size = 0;
 	st->size = 0;
-	st->moves = 0;
-	st->fd = 1;
+	st->disorder = 0;
+	st->strategy = NULL;
+	ft_bzero(&st->moves, sizeof(t_moves));
+	st->top = NULL;
 }
 
 /*

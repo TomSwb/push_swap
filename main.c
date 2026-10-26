@@ -6,11 +6,13 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 16:59:01 by atardy            #+#    #+#             */
-/*   Updated: 2026/10/20 19:06:08 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/26 13:45:54 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "algos/on2/on2.h"
+#include "algos/onlogn/onlogn.h"
 
 int	main(int argc, char **argv)
 {
@@ -31,11 +33,56 @@ int	main(int argc, char **argv)
 	stack_a.size = stack_a.init_size;
 	rank_parsing(&stack_a);
 	disorder(&stack_a);
-	tests(&stack_a, &stack_b);
+	// tests(&stack_a, &stack_b);
+	push_swap(&stack_a, &stack_b);
 	lstclear(&stack_a, 0);
 	lstclear(&stack_b, 0);
-	ft_printf("\nall works, lst cleared\n\n");
+	// ft_printf("\nall works, lst cleared\n\n");
 	return (0);
+}
+
+// remove ft_printf lines before shipping !!!
+void	push_swap(t_stack *stack_a, t_stack *stack_b)
+{
+	if (stack_a->disorder == 0)
+		return ;
+	else if (stack_a->flag == 1)
+	{
+		ft_printf("simple:\n");
+		cost_based_insertion(stack_a, stack_b);
+	}
+	else if (stack_a->flag == 2)
+	{
+		ft_printf("medium not implemented\n");
+	}
+	else if (stack_a->flag == 3)
+	{
+		ft_printf("complex:\n");
+		quick_sort_partitioning(stack_a, stack_b);
+	}
+	else if (stack_a->flag == 4)
+	{
+		ft_printf("adaptive:\n");
+		adaptive(stack_a, stack_b);
+	}
+}
+
+void	adaptive(t_stack *stack_a, t_stack *stack_b)
+{
+	if (stack_a->disorder < 2000)
+	{
+		ft_printf("cost based insertion sort:\n");
+		cost_based_insertion(stack_a, stack_b);
+	}
+	else if (stack_a->disorder < 5000)
+	{
+		ft_printf("medium not implemented\n");
+	}
+	else
+	{
+		ft_printf("quick sort partioning sort:\n");
+		quick_sort_partitioning(stack_a, stack_b);
+	}
 }
 
 /*

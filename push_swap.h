@@ -29,6 +29,21 @@ typedef struct s_value
 	struct s_value	*next;
 }	t_value;
 
+typedef struct s_moves
+{
+	int	pa_moves;
+	int	pb_moves;
+	int	sa_moves;
+	int	sb_moves;
+	int	ss_moves;
+	int	ra_moves;
+	int	rb_moves;
+	int	rr_moves;
+	int	rra_moves;
+	int	rrb_moves;
+	int	rrr_moves;
+}	t_moves;
+
 typedef struct s_stack
 {
 	int		bench;
@@ -36,8 +51,8 @@ typedef struct s_stack
 	size_t	init_size;
 	size_t	size;
 	int		disorder;
-	int		moves;
-	int		fd;
+	char	*strategy;
+	t_moves	moves;
 	t_value	*top;
 }	t_stack;
 
@@ -45,14 +60,13 @@ typedef struct s_stack
 
 // main.c
 void	print_list(t_stack *stack_a);
+void	push_swap(t_stack *stack_a, t_stack *stack_b);
+void	adaptive(t_stack *stack_a, t_stack *stack_b);
 int		write_error(int n);
-void	checking_links(t_stack *stk);
 
-// tests.c
+// tests_tom.c
 void	tests(t_stack *stack_a, t_stack *stack_b);
 void	print_values(t_stack *stack, int nb_to_print);
-void	print_ranks(t_stack *stack_a);
-void	checking_links(t_stack *stk);
 
 // parsing.c
 int		flags_parsing(int argc, char **argv, t_stack *s_a);
@@ -71,6 +85,7 @@ int		check_double(t_stack *head);
 void	stack_initializer(t_stack *st);
 int		freeturn(char **int_lst);
 void	size_calculator(t_stack *stk);
+t_moves	*init_moves(void);
 
 // disorder.c
 void	disorder(t_stack *stack_a);

@@ -38,6 +38,19 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
+/**
+* @brief
+Sorts stack_a with the strategy chosen by flag:
+1 simple, 2 medium, 3 complex, 4 adaptive.
+strat is set to flag first (adaptive overwrites it with
+the algorithm it picks). Already sorted input returns
+right away for the forced strategies; adaptive handles
+it itself so it can still set strat for --bench.
+
+* @param t_stack *stack_a
+* @param t_stack *stack_b
+* @return void
+*/
 void	push_swap(t_stack *stack_a, t_stack *stack_b)
 {
 	stack_a->strat = stack_a->flag;
@@ -53,6 +66,20 @@ void	push_swap(t_stack *stack_a, t_stack *stack_b)
 		adaptive(stack_a, stack_b);
 }
 
+/**
+* @brief
+Picks the algorithm from the disorder (stored x100) and
+sets strat to match it for --bench:
+under 20% -> cost_based_insertion, O(n²) (strat 1),
+under 50% -> chunk sort, O(n√n) (strat 2),
+otherwise -> quick_sort_partitioning, O(n log n) (strat 3).
+Already sorted input (disorder 0) keeps strat 1 but
+skips the sort, so nothing is printed.
+
+* @param t_stack *stack_a
+* @param t_stack *stack_b
+* @return void
+*/
 void	adaptive(t_stack *stack_a, t_stack *stack_b)
 {
 	stack_a->strat = 1;
@@ -72,6 +99,15 @@ void	adaptive(t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
+/**
+* @brief
+Prints the --bench report to stderr: disorder, strategy,
+total and per-type move counts. Called by main after
+push_swap, only when the --bench flag is set.
+
+* @param t_stack *stack_a
+* @return void
+*/
 void	bench(t_stack *stack_a)
 {
 	print_disorder(stack_a);

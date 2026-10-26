@@ -6,7 +6,7 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/20 11:33:03 by tschwab           #+#    #+#              #
-#    Updated: 2026/10/26 11:41:23 by tschwab          ###   ########.ch        #
+#    Updated: 2026/10/26 15:44:15 by tschwab          ###   ########.ch        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ PARSING = parsing/parsing.c \
 MOVES = moves/p_moves.c \
 		moves/r_moves.c \
 		moves/rr_moves.c \
-		moves/s_moves.c
+		moves/s_moves.c \
+		moves/moves_utils.c
 
 ON2	= algos/on2/on2.c \
 		algos/on2/on2_find_node.c \
@@ -41,7 +42,8 @@ ONLOGN = algos/onlogn/onlogn.c \
 			algos/onlogn/onlogn_small.c \
 			algos/onlogn/onlogn_utils.c
 
-SRCS = main.c ${PARSING} ${MOVES} ${ALGOS} ${ON2} ${ONLOGN} \
+SRCS = main.c bench_utils.c \
+		${PARSING} ${MOVES} ${ALGOS} ${ON2} ${ONLOGN} \
 		tests.c
 
 OBJS = $(SRCS:.c=.o)

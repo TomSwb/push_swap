@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 16:59:01 by atardy            #+#    #+#             */
-/*   Updated: 2026/10/26 13:45:54 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/26 15:43:28 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,48 +41,45 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
-// remove ft_printf lines before shipping !!!
 void	push_swap(t_stack *stack_a, t_stack *stack_b)
 {
-	if (stack_a->disorder == 0)
+	stack_a->strat = stack_a->flag;
+	if (stack_a->disorder == 0 && stack_a->flag != 4)
 		return ;
 	else if (stack_a->flag == 1)
-	{
-		ft_printf("simple:\n");
 		cost_based_insertion(stack_a, stack_b);
-	}
 	else if (stack_a->flag == 2)
-	{
 		ft_printf("medium not implemented\n");
-	}
 	else if (stack_a->flag == 3)
-	{
-		ft_printf("complex:\n");
 		quick_sort_partitioning(stack_a, stack_b);
-	}
 	else if (stack_a->flag == 4)
-	{
-		ft_printf("adaptive:\n");
 		adaptive(stack_a, stack_b);
-	}
 }
 
 void	adaptive(t_stack *stack_a, t_stack *stack_b)
 {
+	stack_a->strat = 1;
 	if (stack_a->disorder < 2000)
 	{
-		ft_printf("cost based insertion sort:\n");
-		cost_based_insertion(stack_a, stack_b);
+		if (stack_a->disorder != 0)
+			cost_based_insertion(stack_a, stack_b);
 	}
 	else if (stack_a->disorder < 5000)
 	{
-		ft_printf("medium not implemented\n");
+		stack_a->strat = 2;
 	}
 	else
 	{
-		ft_printf("quick sort partioning sort:\n");
+		stack_a->strat = 3;
 		quick_sort_partitioning(stack_a, stack_b);
 	}
+}
+
+void	bench(t_stack *stack_a)
+{
+	print_disorder(stack_a);
+	print_strategy(stack_a);
+	print_ops(stack_a);
 }
 
 /*

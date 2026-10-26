@@ -51,22 +51,34 @@ typedef struct s_stack
 	size_t	init_size;
 	size_t	size;
 	int		disorder;
-	char	*strategy;
+	int		strat;
 	t_moves	moves;
 	t_value	*top;
 }	t_stack;
 
 // --- Functions --- //
 
+// root/
+
 // main.c
 void	print_list(t_stack *stack_a);
 void	push_swap(t_stack *stack_a, t_stack *stack_b);
 void	adaptive(t_stack *stack_a, t_stack *stack_b);
+void	bench(t_stack *stack_a);
 int		write_error(int n);
 
 // tests_tom.c
 void	tests(t_stack *stack_a, t_stack *stack_b);
 void	print_values(t_stack *stack, int nb_to_print);
+
+// bench_utils.c
+void	print_disorder(t_stack *stack_a);
+void	print_strategy(t_stack *stack_a);
+void	print_ops(t_stack *stack_a);
+void	print_rot(t_stack *stack_a);
+void	print_count(char *label, int count);
+
+// parsing/
 
 // parsing.c
 int		flags_parsing(int argc, char **argv, t_stack *s_a);
@@ -93,6 +105,8 @@ size_t	disorder_check(t_stack *stack_a, t_value *ptr_a,
 			long long *mistakes, size_t i);
 void	rank_parsing(t_stack *stack_a);
 
+// moves/
+
 // s_moves.c
 void	sa(t_stack *stk_A, t_stack *stk_B, int ss_bool);
 void	sb(t_stack *stk_A, t_stack *stk_B, int ss_bool);
@@ -113,14 +127,7 @@ void	rra(t_stack *stack_a, t_stack *stack_b, int rrr_bool);
 void	rrb(t_stack *stack_a, t_stack *stack_b, int rrr_bool);
 void	rrr(t_stack *stack_a, t_stack *stack_b);
 
-// simple_algo.c
-
-// medium_algo.c
-
-// complex_algo.c
-
-// bench.c
-
-// utils.c
+// moves_utils.c
+int		moves_count(t_stack *stack_a);
 
 #endif

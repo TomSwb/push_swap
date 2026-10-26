@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: atardy <atardy@student.42lausanne.ch>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/20 16:59:01 by atardy            #+#    #+#             */
-/*   Updated: 2026/10/26 13:45:54 by tschwab          ###   ########.ch       */
+/*   Created: 2026/10/26 20:11:18 by atardy            #+#    #+#             */
+/*   Updated: 2026/10/26 20:11:18 by atardy           ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int	main(int argc, char **argv)
 		stack_a.flag = 4;
 	if (parsing(argc, argv, &stack_a) || check_double(&stack_a))
 		return (lstclear(&stack_a, 1));
-	size_calculator(&stack_a);
 	stack_a.size = stack_a.init_size;
 	rank_parsing(&stack_a);
 	disorder(&stack_a);

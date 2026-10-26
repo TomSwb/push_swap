@@ -6,7 +6,7 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/20 11:33:03 by tschwab           #+#    #+#              #
-#    Updated: 2026/10/26 15:44:15 by tschwab          ###   ########.ch        #
+#    Updated: 2026/10/26 15:55:02 by tschwab          ###   ########.ch        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,10 @@ CFLAGS = -Wall -Wextra -Werror
 
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
+
+ROOT_SRCS = main.c \
+		bench_utils.c \
+		tests.c
 
 PARSING = parsing/parsing.c \
 		parsing/parsing_utils.c \
@@ -42,9 +46,7 @@ ONLOGN = algos/onlogn/onlogn.c \
 			algos/onlogn/onlogn_small.c \
 			algos/onlogn/onlogn_utils.c
 
-SRCS = main.c bench_utils.c \
-		${PARSING} ${MOVES} ${ALGOS} ${ON2} ${ONLOGN} \
-		tests.c
+SRCS = ${ROOT_SRCS} ${PARSING} ${MOVES} ${ALGOS} ${ON2} ${ONLOGN}
 
 OBJS = $(SRCS:.c=.o)
 

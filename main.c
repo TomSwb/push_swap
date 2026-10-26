@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 16:59:01 by atardy            #+#    #+#             */
-/*   Updated: 2026/10/26 18:16:23 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/26 18:46:46 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(int argc, char **argv)
 	t_stack	stack_b;
 
 	if (argc == 1)
-		return (write_error());
+		return (0);
 	stack_initializer(&stack_a);
 	stack_initializer(&stack_b);
 	if (flags_parsing(argc, argv, &stack_a))

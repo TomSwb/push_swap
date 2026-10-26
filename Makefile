@@ -51,6 +51,13 @@ OBJS = $(SRCS:.c=.o)
 
 INCLUDES = -Iincludes -I$(LIBFT_DIR)
 
+HEADERS = includes/push_swap.h \
+		includes/structs.h \
+		includes/on2.h \
+		includes/onlogn.h \
+		includes/onrootn.h \
+		$(LIBFT_DIR)/libft.h
+
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJS)
@@ -59,7 +66,7 @@ $(NAME): $(LIBFT) $(OBJS)
 $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)
 
-%.o: %.c
+%.o: %.c $(HEADERS)
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:

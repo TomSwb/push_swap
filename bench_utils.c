@@ -12,6 +12,18 @@
 
 #include "push_swap.h"
 
+/**
+* @brief
+Prints the disorder line of --bench to stderr, as a
+percentage with two decimals ("[bench] disorder:  40.00%").
+disorder is stored as an int x100 (40.00% = 4000), so the
+integer part is disorder / 100 and the decimals disorder % 100.
+An extra '0' is printed when the decimals are under 10,
+so 507 prints as 5.07% and not 5.7%.
+
+* @param t_stack *stack_a
+* @return void
+*/
 void	print_disorder(t_stack *stack_a)
 {
 	ft_putstr_fd("[bench] disorder:  ", 2);
@@ -23,6 +35,18 @@ void	print_disorder(t_stack *stack_a)
 	ft_putstr_fd("%\n", 2);
 }
 
+/**
+* @brief
+Prints the strategy line of --bench to stderr
+("[bench] strategy:  Adaptive / O(n√n)").
+The name comes from flag (the mode asked for), the
+complexity class from strat (the algorithm that ran).
+In adaptive mode, it prints the class of the algorithm
+the disorder selected.
+
+* @param t_stack *stack_a
+* @return void
+*/
 void	print_strategy(t_stack *stack_a)
 {
 	ft_putstr_fd("[bench] strategy:  ", 2);
@@ -44,6 +68,16 @@ void	print_strategy(t_stack *stack_a)
 	ft_putchar_fd('\n', 2);
 }
 
+/**
+* @brief
+Prints the last three lines of --bench to stderr: the
+total number of operations (from moves_count), then the
+count of each operation type, sa to pb on one line and
+ra to rrr on the next, using print_count.
+
+* @param t_stack *stack_a
+* @return void
+*/
 void	print_ops(t_stack *stack_a)
 {
 	int	total_moves;
@@ -69,6 +103,14 @@ void	print_ops(t_stack *stack_a)
 	ft_putchar_fd('\n', 2);
 }
 
+/**
+* @brief
+Adds up the 11 per-type move counters stored in
+stack_a->moves to get the total number of operations.
+
+* @param t_stack *stack_a
+* @return int
+*/
 int	moves_count(t_stack *stack_a)
 {
 	int	total_moves;
@@ -82,6 +124,17 @@ int	moves_count(t_stack *stack_a)
 	return (total_moves);
 }
 
+/**
+* @brief
+Prints a label followed by its count to stderr, with no
+trailing space. The separator between two counts is put
+at the start of the next label ("  sb:  "), so a line
+never ends with spaces.
+
+* @param char *label
+* @param int count
+* @return void
+*/
 void	print_count(char *label, int count)
 {
 	ft_putstr_fd(label, 2);

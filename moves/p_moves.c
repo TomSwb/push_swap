@@ -44,8 +44,8 @@ void	pa(t_stack *stk_A, t_stack *stk_B, int pb_bool)
 	stk_B->size--;
 	if (!pb_bool)
 	{
-		ft_putendl_fd("pa", stk_A->fd);
-		stk_A->moves++;
+		ft_putendl_fd("pa", 1);
+		stk_A->moves.pa_moves++;
 	}
 }
 
@@ -88,6 +88,6 @@ void	pb(t_stack *stk_A, t_stack *stk_B)
 		return ;
 	}
 	pa(stk_B, stk_A, 1);
-	ft_putendl_fd("pb", stk_B->fd);
-	stk_A->moves++;
+	ft_putendl_fd("pb", 1);
+	stk_A->moves.pb_moves++;
 }

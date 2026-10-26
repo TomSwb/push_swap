@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rr_moves.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atardy <atardy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 15:35:59 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/21 10:51:21 by atardy           ###   ########.fr       */
+/*   Updated: 2026/10/26 14:35:08 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void	rra(t_stack *stack_a, t_stack *stack_b, int rrr_bool)
 	stack_a->top = stack_a->top->prev;
 	if (rrr_bool)
 		return ;
-	ft_putendl_fd("rra", stack_a->fd);
-	(stack_a->moves)++;
+	ft_putendl_fd("rra", 1);
+	(stack_a->moves.rra_moves)++;
 }
 
 void	rrb(t_stack *stack_a, t_stack *stack_b, int rrr_bool)
@@ -44,8 +44,8 @@ void	rrb(t_stack *stack_a, t_stack *stack_b, int rrr_bool)
 	stack_b->top = stack_b->top->prev;
 	if (rrr_bool)
 		return ;
-	ft_putendl_fd("rrb", stack_b->fd);
-	(stack_b->moves)++;
+	ft_putendl_fd("rrb", 1);
+	(stack_a->moves.rrb_moves)++;
 }
 
 void	rrr(t_stack *stack_a, t_stack *stack_b)
@@ -59,6 +59,6 @@ void	rrr(t_stack *stack_a, t_stack *stack_b)
 	}
 	rra(stack_a, stack_b, 1);
 	rrb(stack_a, stack_b, 1);
-	ft_putendl_fd("rrr", stack_a->fd);
-	(stack_a->moves)++;
+	ft_putendl_fd("rrr", 1);
+	(stack_a->moves.rrr_moves)++;
 }

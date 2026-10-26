@@ -52,7 +52,7 @@ typedef struct s_stack
 	size_t	size;
 	int		disorder;
 	char	*strategy;
-	t_moves	*moves;
+	t_moves	moves;
 	t_value	*top;
 }	t_stack;
 

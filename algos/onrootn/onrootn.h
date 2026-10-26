@@ -16,7 +16,7 @@
 // === Library === //
 
 // push_swap.h
-# include "structs.h"
+#include "../../push_swap.h"
 
 // === Functions === //
 

@@ -6,11 +6,11 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 15:35:59 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/26 18:14:44 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/26 21:25:58 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 void	rra(t_stack *stack_a, t_stack *stack_b, int rrr_bool)
 {

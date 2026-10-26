@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 /*
 GOAL : Disconnect the first node of stack B, repair the chain 
 	(or set it to NULL) if there's only one node left then ...

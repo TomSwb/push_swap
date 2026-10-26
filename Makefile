@@ -6,7 +6,7 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/20 11:33:03 by tschwab           #+#    #+#              #
-#    Updated: 2026/10/26 21:19:11 by tschwab          ###   ########.ch        #
+#    Updated: 2026/10/26 21:24:01 by tschwab          ###   ########.ch        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,11 +45,11 @@ ONLOGN = algos/onlogn/onlogn.c \
 			algos/onlogn/onlogn_small.c \
 			algos/onlogn/onlogn_utils.c
 
-SRCS = ${ROOT_SRCS} ${PARSING} ${MOVES} ${ALGOS} ${ON2} ${ONLOGN}
+SRCS = ${ROOT_SRCS} ${PARSING} ${MOVES} ${ON2} ${ONROOTN} ${ONLOGN}
 
 OBJS = $(SRCS:.c=.o)
 
-INCLUDES = -I. -Ialgos/onrootn -I$(LIBFT_DIR)
+INCLUDES = -I. -Ialgos/on2 -Ialgos/onlogn -Ialgos/onrootn -I$(LIBFT_DIR)
 
 all: $(NAME)
 

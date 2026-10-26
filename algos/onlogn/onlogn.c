@@ -6,12 +6,11 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 15:41:47 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/26 14:57:11 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/26 21:25:01 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "onlogn.h"
-
+#include "push_swap.h"
 /**
 * @brief
 Sorts stack_a in ascending order with a three-way quicksort:

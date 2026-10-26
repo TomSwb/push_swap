@@ -44,15 +44,15 @@ void	push_swap(t_stack *stack_a, t_stack *stack_b)
 {
 	stack_a->strat = stack_a->flag;
 	if (stack_a->disorder == 0 && stack_a->flag != 4)
-			return ;
+		return ;
 	else if (stack_a->flag == 1)
-			cost_based_insertion(stack_a, stack_b);
+		cost_based_insertion(stack_a, stack_b);
 	else if (stack_a->flag == 2)
-			ft_printf("medium not implemented\n");
+		ft_printf("medium not implemented\n");
 	else if (stack_a->flag == 3)
-			quick_sort_partitioning(stack_a, stack_b);
+		quick_sort_partitioning(stack_a, stack_b);
 	else if (stack_a->flag == 4)
-			adaptive(stack_a, stack_b);
+		adaptive(stack_a, stack_b);
 }
 
 void	adaptive(t_stack *stack_a, t_stack *stack_b)
@@ -60,17 +60,17 @@ void	adaptive(t_stack *stack_a, t_stack *stack_b)
 	stack_a->strat = 1;
 	if (stack_a->disorder < 2000)
 	{
-			if (stack_a->disorder != 0)
-					cost_based_insertion(stack_a, stack_b);
+		if (stack_a->disorder != 0)
+			cost_based_insertion(stack_a, stack_b);
 	}
 	else if (stack_a->disorder < 5000)
 	{
-			stack_a->strat = 2;
+		stack_a->strat = 2;
 	}
 	else
 	{
-			stack_a->strat = 3;
-			quick_sort_partitioning(stack_a, stack_b);
+		stack_a->strat = 3;
+		quick_sort_partitioning(stack_a, stack_b);
 	}
 }
 

@@ -63,7 +63,6 @@ int	parsing(int argc, char **argv, t_stack *stack_a)
 	}
 	if (argc == 1)
 	{
-		ft_printf("là\n");
 		int_lst = ft_split(*argv, ' ');
 		if (check_int(*int_lst) > 0)
 			return (freeturn (int_lst));

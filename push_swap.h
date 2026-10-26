@@ -65,7 +65,7 @@ void	print_list(t_stack *stack_a);
 void	push_swap(t_stack *stack_a, t_stack *stack_b);
 void	adaptive(t_stack *stack_a, t_stack *stack_b);
 void	bench(t_stack *stack_a);
-int		write_error(int n);
+int		write_error(void);
 
 // tests_tom.c
 void	tests(t_stack *stack_a, t_stack *stack_b);

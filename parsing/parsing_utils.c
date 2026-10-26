@@ -105,7 +105,7 @@ int	lstclear(t_stack *head, int error)
 		head->top = NULL;
 	}
 	if (error == 1)
-		return (write_error(3));
+		return (write_error());
 	else
 		return (1);
 }

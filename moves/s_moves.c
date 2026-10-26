@@ -25,15 +25,7 @@ void	sa(t_stack *stk_A, t_stack *stk_B, int ss_bool)
 
 	(void) stk_B;
 	if (!stk_A->top || stk_A->top->next == stk_A->top)
-	{
-		// TO SUPPRESS BEFORE FINAL PUSH
-		if (!ss_bool)
-			ft_printf("useless sa move\n");
-		if (!stk_B->top || stk_B->top->next == stk_B->top)
-			ft_printf("useless ss move\n");
-		// TO SUPPRESS BEFORE FINAL PUSH
 		return ;
-	}
 	head = stk_A->top;
 	second = head->next;
 	if (second->next == head)
@@ -67,13 +59,7 @@ void	sb(t_stack *stk_A, t_stack *stk_B, int ss_bool)
 	t_value	*second;
 
 	if (!stk_B->top || stk_B->top->next == stk_B->top)
-	{
-		// TO SUPPRESS BEFORE FINAL PUSH
-		if (!ss_bool)
-			ft_printf("useless sb move\n");
-		// TO SUPPRESS BEFORE FINAL PUSH
 		return ;
-	}
 	head = stk_B->top;
 	second = head->next;
 	if (second->next == head)

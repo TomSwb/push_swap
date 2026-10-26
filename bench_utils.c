@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/26 15:23:58 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/26 18:02:41 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/26 18:10:50 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,34 @@
 
 void	print_disorder(t_stack *stack_a)
 {
-	ft_putstr_fd("[bench] ", 2);
+	ft_putstr_fd("[bench] disorder:  ", 2);
+	ft_putnbr_fd(stack_a->disorder / 100, 2);
+	ft_putchar_fd('.', 2);
+	if (stack_a->disorder % 100 < 10)
+		ft_putchar_fd('0', 2);
+	ft_putnbr_fd(stack_a->disorder % 100, 2);
+	ft_putstr_fd("%\n", 2);
 }
 
 void	print_strategy(t_stack *stack_a)
 {
-	ft_putstr_fd("[bench] ", 2);
+	ft_putstr_fd("[bench] strategy:  ", 2);
+	if (stack_a->flag == 1)
+		ft_putstr_fd("Simple", 2);
+	else if (stack_a->flag == 2)
+		ft_putstr_fd("Medium", 2);
+	else if (stack_a->flag == 3)
+		ft_putstr_fd("Complex", 2);
+	else if (stack_a->flag == 4)
+		ft_putstr_fd("Adaptive", 2);
+	ft_putstr_fd(" / ", 2);
+	if (stack_a->strat == 1)
+		ft_putstr_fd("O(n²)", 2);
+	else if (stack_a->strat == 2)
+		ft_putstr_fd("O(n√n)", 2);
+	else if (stack_a->strat == 3)
+		ft_putstr_fd("O(n log n)", 2);
+	ft_putchar_fd('\n', 2);
 }
 
 void	print_ops(t_stack *stack_a)

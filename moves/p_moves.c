@@ -22,13 +22,7 @@ void	pa(t_stack *stk_A, t_stack *stk_B, int pb_bool)
 	t_value	*temp_b;
 
 	if (stk_B->top == NULL)
-	{
-		// TO SUPPRESS BEFORE FINAL PUSH
-		if (!pb_bool)
-			ft_printf("useless pa move\n");
-		// TO SUPPRESS BEFORE FINAL PUSH
 		return ;
-	}
 	temp_b = stk_B->top->next;
 	if (temp_b == stk_B->top)
 		temp_b = NULL;
@@ -81,12 +75,7 @@ Return : void
 void	pb(t_stack *stk_A, t_stack *stk_B)
 {
 	if (!stk_A->top)
-	{
-		// TO SUPPRESS BEFORE FINAL PUSH
-		ft_printf("useless pb move\n");
-		// TO SUPPRESS BEFORE FINAL PUSH
 		return ;
-	}
 	pa(stk_B, stk_A, 1);
 	ft_printf("pb\n");
 	stk_A->moves.pb_moves++;

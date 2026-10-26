@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "algos/on2/on2.h"
-#include "algos/onlogn/onlogn.h"
 
 int	main(int argc, char **argv)
 {

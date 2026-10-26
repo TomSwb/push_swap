@@ -6,11 +6,10 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/26 15:23:58 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/26 18:10:50 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/26 21:06:04 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
 #include "push_swap.h"
 
 void	print_disorder(t_stack *stack_a)

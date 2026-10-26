@@ -6,7 +6,7 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/20 11:33:03 by tschwab           #+#    #+#              #
-#    Updated: 2026/10/26 18:02:29 by tschwab          ###   ########.ch        #
+#    Updated: 2026/10/26 21:19:11 by tschwab          ###   ########.ch        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,6 +49,8 @@ SRCS = ${ROOT_SRCS} ${PARSING} ${MOVES} ${ALGOS} ${ON2} ${ONLOGN}
 
 OBJS = $(SRCS:.c=.o)
 
+INCLUDES = -I. -Ialgos/onrootn -I$(LIBFT_DIR)
+
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJS)
@@ -58,7 +60,7 @@ $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -I$(LIBFT_DIR) -c $< -o $@
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
 	rm -f $(OBJS)

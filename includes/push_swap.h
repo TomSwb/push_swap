@@ -16,7 +16,7 @@
 // --- Libraries --- //
 
 // libft, malloc(), free(), read(), write(), exit()
-# include "libft/libft.h"
+# include "libft.h"
 // Others:
 # include "structs.h"
 # include "on2.h"

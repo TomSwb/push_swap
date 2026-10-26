@@ -6,7 +6,7 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/20 11:33:03 by tschwab           #+#    #+#              #
-#    Updated: 2026/10/25 17:52:57 by tschwab          ###   ########.ch        #
+#    Updated: 2026/10/26 11:35:04 by tschwab          ###   ########.ch        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ ONLOGN = algos/onlogn/onlogn.c \
 			algos/onlogn/onlogn_utils.c
 
 SRCS = main.c ${PARSING} ${MOVES} ${ALGOS} ${ON2} ${ONLOGN} \
-		tests_tom.c
+		tests.c
 
 OBJS = $(SRCS:.c=.o)
 

@@ -14,6 +14,9 @@ Caveats to hit excellent:
 - Always insert the cheapest element first, not the next one in line.
 - Finish by rotating the minimum to the top, the shorter way.
 - Complexity claim: worst case O(n) rotations per element → O(n²) is a valid upper bound.
+
+----------------------------------------------------------
+
 ## O(n√n) — `--medium`
 **Algorithm: chunk sort with √n chunks**
  
@@ -24,6 +27,9 @@ Caveats to hit excellent:
 - Pull-back phase: bring back the max, or the second max if it's closer, then fix order with one `sa`.
 - Complexity argument must show each pull-back costs at most ~√n (the `rb` trick keeps the current chunk near an end of b). Otherwise the worst case becomes n².
 - 500 < 5500 is the hardest part of this one: measure, then tune k.
+
+----------------------------------------------------------
+
 ## O(n log n) — `--complex`
 **Algorithm: quicksort with three-way stack partitioning**
  

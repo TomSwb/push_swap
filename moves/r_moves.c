@@ -56,7 +56,6 @@ void	rb(t_stack *stack_a, t_stack *stack_b, int rr_bool)
 {
 	if (!stack_b->top)
 		return ;
-	(void) stack_a;
 	stack_b->top = stack_b->top->next;
 	if (rr_bool)
 		return ;

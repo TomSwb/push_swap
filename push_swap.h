@@ -29,6 +29,21 @@ typedef struct s_value
 	struct s_value	*next;
 }	t_value;
 
+typedef struct s_moves
+{
+	int	pa_moves;
+	int	pb_moves;
+	int	sa_moves;
+	int	sb_moves;
+	int	ss_moves;
+	int	ra_moves;
+	int	rb_moves;
+	int	rr_moves;
+	int	rra_moves;
+	int	rrb_moves;
+	int	rrr_moves;
+}	t_moves;
+
 typedef struct s_stack
 {
 	int		bench;
@@ -36,8 +51,8 @@ typedef struct s_stack
 	size_t	init_size;
 	size_t	size;
 	int		disorder;
-	int		moves;
-	int		fd;
+	char	*strategy;
+	t_moves	*moves;
 	t_value	*top;
 }	t_stack;
 
@@ -70,6 +85,7 @@ int		check_double(t_stack *head);
 void	stack_initializer(t_stack *st);
 int		freeturn(char **int_lst);
 void	size_calculator(t_stack *stk);
+t_moves	*init_moves(void);
 
 // disorder.c
 void	disorder(t_stack *stack_a);

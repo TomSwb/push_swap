@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 16:59:01 by atardy            #+#    #+#             */
-/*   Updated: 2026/10/24 16:26:51 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/26 13:45:54 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,11 @@ int	main(int argc, char **argv)
 	stack_a.size = stack_a.init_size;
 	rank_parsing(&stack_a);
 	disorder(&stack_a);
-	tests(&stack_a, &stack_b);
+	// tests(&stack_a, &stack_b);
+	push_swap(&stack_a, &stack_b);
 	lstclear(&stack_a, 0);
 	lstclear(&stack_b, 0);
-	ft_printf("\nall works, lst cleared\n\n");
+	// ft_printf("\nall works, lst cleared\n\n");
 	return (0);
 }
 

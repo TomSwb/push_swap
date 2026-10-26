@@ -19,12 +19,12 @@ void	stack_initializer(t_stack *st)
 {
 	st->bench = 0;
 	st->flag = 0;
-	st->top = NULL;
-	st->disorder = 0;
 	st->init_size = 0;
 	st->size = 0;
-	st->moves = 0;
-	st->fd = 1;
+	st->disorder = 0;
+	st->strategy = NULL;
+	st->moves = init_moves();
+	st->top = NULL;
 }
 
 /*
@@ -66,4 +66,21 @@ void	size_calculator(t_stack *st)
 		current = current->next;
 	}
 	st->init_size = size;
+}
+
+t_moves	*init_moves(void)
+{
+	t_moves	moves;
+
+	moves.pa_moves = 0;
+	moves.pb_moves = 0;
+	moves.sa_moves = 0;
+	moves.sb_moves = 0;
+	moves.ss_moves = 0;
+	moves.ra_moves = 0;
+	moves.rb_moves = 0;
+	moves.rr_moves = 0;
+	moves.rra_moves = 0;
+	moves.rrb_moves = 0;
+	moves.rrr_moves = 0;
 }

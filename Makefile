@@ -6,7 +6,7 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/20 11:33:03 by tschwab           #+#    #+#              #
-#    Updated: 2026/10/26 21:24:01 by tschwab          ###   ########.ch        #
+#    Updated: 2026/10/26 22:45:38 by tschwab          ###   ########.ch        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,7 @@ SRCS = ${ROOT_SRCS} ${PARSING} ${MOVES} ${ON2} ${ONROOTN} ${ONLOGN}
 
 OBJS = $(SRCS:.c=.o)
 
-INCLUDES = -I. -Ialgos/on2 -Ialgos/onlogn -Ialgos/onrootn -I$(LIBFT_DIR)
+INCLUDES = -Iincludes -I$(LIBFT_DIR)
 
 all: $(NAME)
 

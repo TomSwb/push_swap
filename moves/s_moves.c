@@ -91,7 +91,7 @@ void	sb(t_stack *stk_A, t_stack *stk_B, int ss_bool)
 	if (!ss_bool)
 	{
 		ft_putendl_fd("sb", 1);
-		stk_B->moves.sb_moves++;
+		stk_A->moves.sb_moves++;
 	}
 }
 

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: atardy <atardy@student.42lausanne.ch>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/27 11:19:21 by atardy            #+#    #+#             */
-/*   Updated: 2026/10/27 11:19:21 by atardy           ###   ########.ch       */
+/*   Created: 2026/10/27 20:47:00 by atardy            #+#    #+#             */
+/*   Updated: 2026/10/27 20:47:10 by atardy           ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,19 @@ BUCKET SORT with root(n) buckets. Push_swap-style!
 DONE
 */
 
-
 void	bucket_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	t_sensor	sensor[5];
 	int			i;
-	
+
 	i = -1;
 	while (++i < 5)
 	{
 		sensor[i].n_buc = find_nxt_root(stack_a->init_size);
-		sensor[i].position = i - 2;
 		sensor[i].buck_max = sensor[i].n_buc - 1;
+		sensor[i].pos_malus = pos_mal(i);
+		sensor[i].new = 0;
+		
 	}
 	dispatch(stack_a, stack_b, &sensor);
 	

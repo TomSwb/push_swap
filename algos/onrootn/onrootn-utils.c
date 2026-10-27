@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: atardy <atardy@student.42lausanne.ch>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/26 19:06:29 by atardy            #+#    #+#             */
-/*   Updated: 2026/10/26 19:06:33 by atardy           ###   ########.ch       */
+/*   Created: 2026/10/27 20:50:03 by atardy            #+#    #+#             */
+/*   Updated: 2026/10/27 20:50:03 by atardy           ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,23 @@ int	find_nxt_root(int size)
     while (i * i <= size)
         i++;
     return (i);
+}
+
+int	pos_mal(int i)
+{
+	if (i == 0)
+		return(4);
+	if (i == 1)
+		return (2);
+	if (i == 2)
+		return (0);
+	if (i == 3)
+		return (2);
+	if (i == 4)
+		return (4);
+}
+
+int rk_to_buc(t_value *val, t_sensor *snr)
+{
+	return (val->rank / snr->n_buc);
 }

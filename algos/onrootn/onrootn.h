@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: atardy <atardy@student.42lausanne.ch>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/27 20:50:22 by atardy            #+#    #+#             */
-/*   Updated: 2026/10/27 20:50:22 by atardy           ###   ########.ch       */
+/*   Created: 2026/10/27 21:55:05 by atardy            #+#    #+#             */
+/*   Updated: 2026/10/27 21:55:05 by atardy           ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 // === Library === //
 
 // push_swap.h
-#include "../../push_swap.h"
-#include "../onlogn/onlogn.h"
+# include "../../push_swap.h"
+# include "../onlogn/onlogn.h"
 
 // === Struct === //
 
@@ -38,7 +38,7 @@ typedef struct	s_sensor
 // === Functions === //
 
 // onrootn.c
-
+void	bucket_sort(t_stack *stack_a, t_stack *stack_b);
 
 // onrootn_utils.c
 int		find_nxt_root(int size);

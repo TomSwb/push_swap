@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: atardy <atardy@student.42lausanne.ch>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/27 20:47:00 by atardy            #+#    #+#             */
-/*   Updated: 2026/10/27 20:47:10 by atardy           ###   ########.ch       */
+/*   Created: 2026/10/27 22:00:57 by atardy            #+#    #+#             */
+/*   Updated: 2026/10/27 22:36:04 by atardy           ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,18 +34,31 @@ DONE
 
 void	bucket_sort(t_stack *stack_a, t_stack *stack_b)
 {
-	t_sensor	sensor[5];
+	t_sensor	**sensor;
 	int			i;
 
+	sensor = malloc (sizeof(t_sensor *) * 5);
+	if (!sensor)
+		return ;
 	i = -1;
 	while (++i < 5)
 	{
-		sensor[i].n_buc = find_nxt_root(stack_a->init_size);
-		sensor[i].buck_max = sensor[i].n_buc - 1;
-		sensor[i].pos_malus = pos_mal(i);
-		sensor[i].new = 0;
-		
+		sensor[i] = malloc (sizeof (t_sensor));
+		if (!sensor[i])
+			break ;
+		sensor[i]->n_buc = find_nxt_root(stack_a->init_size);
+		sensor[i]->buck_max = sensor[i]->n_buc - 1;
+		sensor[i]->pos_malus = pos_mal(i);
+		sensor[i]->new = 0;
 	}
-	dispatch(stack_a, stack_b, &sensor);
-	
+	if (i != 5)
+		while (i >= 0)
+		{
+			free (sensor[i]);
+			i--;
+		}
+	dispatch(stack_a, stack_b, sensor);
+	// sort_bucket
+	// regroup
+	// freeing sensor
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: atardy <atardy@student.42lausanne.ch>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/27 22:00:57 by atardy            #+#    #+#             */
-/*   Updated: 2026/10/27 22:36:04 by atardy           ###   ########.ch       */
+/*   Created: 2026/10/28 13:50:40 by atardy            #+#    #+#             */
+/*   Updated: 2026/10/28 13:50:40 by atardy           ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,7 @@ void	bucket_sort(t_stack *stack_a, t_stack *stack_b)
 		if (!sensor[i])
 			break ;
 		sensor[i]->n_buc = find_nxt_root(stack_a->init_size);
-		sensor[i]->buck_max = sensor[i]->n_buc - 1;
 		sensor[i]->pos_malus = pos_mal(i);
-		sensor[i]->new = 0;
 	}
 	if (i != 5)
 		while (i >= 0)
@@ -61,4 +59,27 @@ void	bucket_sort(t_stack *stack_a, t_stack *stack_b)
 	// sort_bucket
 	// regroup
 	// freeing sensor
+}
+
+void	print_buckets(t_stack *stack, t_sensor *snr, int nb_to_print)
+{
+	t_value	*temp;
+	int		rank_stop;
+	int		i;
+
+	i = 0;
+	if (nb_to_print == 0)
+		nb_to_print = stack->size;
+	if (!stack->top)
+		ft_printf ("empty stack\n");
+	temp = stack->top;
+	rank_stop = -1;
+	ft_printf("size = %d\n", stack->size);
+	while (temp && temp->rank != rank_stop && i < nb_to_print)
+	{
+		rank_stop = stack->top->rank;
+		ft_printf ("buck : %-5d || rank : %-5d\n", rk_to_buc(temp, snr), temp->rank);
+		temp = temp->next;
+		i++;
+	}
 }

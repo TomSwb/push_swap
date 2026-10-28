@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: atardy <atardy@student.42lausanne.ch>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/27 20:50:03 by atardy            #+#    #+#             */
-/*   Updated: 2026/10/27 20:50:03 by atardy           ###   ########.ch       */
+/*   Created: 2026/10/28 13:20:35 by atardy            #+#    #+#             */
+/*   Updated: 2026/10/28 13:32:06 by atardy           ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int	pos_mal(int i)
 		return (2);
 	if (i == 4)
 		return (4);
+	return (-1);
 }
 
 int rk_to_buc(t_value *val, t_sensor *snr)

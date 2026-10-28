@@ -1,29 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   onrootn.h                                          :+:      :+:    :+:   */
+/*   main__bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atardy <atardy@student.42lausanne.ch>     +#+  +:+       +#+        */
+/*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/26 17:44:09 by atardy            #+#    #+#             */
-/*   Updated: 2026/10/26 17:44:19 by atardy           ###   ########.ch       */
+/*   Created: 2026/10/28 12:08:15 by tschwab           #+#    #+#             */
+/*   Updated: 2026/10/28 12:08:16 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ONROOTN_H
-# define ONROOTN_H
-
-// === Library === //
-
-// push_swap.h
-#include "../../push_swap.h"
-
-// === Functions === //
-
-// onrootn.c
-
-
-// onrootn_utils.c
-
-
-#endif

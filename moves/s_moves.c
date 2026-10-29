@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 /*
 GOAL : Swap the first two elements at the top of stack A.
@@ -25,15 +25,7 @@ void	sa(t_stack *stk_A, t_stack *stk_B, int ss_bool)
 
 	(void) stk_B;
 	if (!stk_A->top || stk_A->top->next == stk_A->top)
-	{
-		// TO SUPPRESS BEFORE FINAL PUSH
-		if (!ss_bool)
-			ft_printf("useless sa move\n");
-		if (!stk_B->top || stk_B->top->next == stk_B->top)
-			ft_printf("useless ss move\n");
-		// TO SUPPRESS BEFORE FINAL PUSH
 		return ;
-	}
 	head = stk_A->top;
 	second = head->next;
 	if (second->next == head)
@@ -50,7 +42,7 @@ void	sa(t_stack *stk_A, t_stack *stk_B, int ss_bool)
 	}
 	if (!ss_bool)
 	{
-		ft_putendl_fd("sa", 1);
+		ft_printf("sa\n");
 		stk_A->moves.sa_moves++;
 	}
 }
@@ -67,13 +59,7 @@ void	sb(t_stack *stk_A, t_stack *stk_B, int ss_bool)
 	t_value	*second;
 
 	if (!stk_B->top || stk_B->top->next == stk_B->top)
-	{
-		// TO SUPPRESS BEFORE FINAL PUSH
-		if (!ss_bool)
-			ft_printf("useless sb move\n");
-		// TO SUPPRESS BEFORE FINAL PUSH
 		return ;
-	}
 	head = stk_B->top;
 	second = head->next;
 	if (second->next == head)
@@ -90,7 +76,7 @@ void	sb(t_stack *stk_A, t_stack *stk_B, int ss_bool)
 	}
 	if (!ss_bool)
 	{
-		ft_putendl_fd("sb", 1);
+		ft_printf("sb\n");
 		stk_A->moves.sb_moves++;
 	}
 }
@@ -106,6 +92,6 @@ void	ss(t_stack *stk_A, t_stack *stk_B)
 		return ;
 	sa(stk_B, stk_A, 1);
 	sb(stk_B, stk_A, 1);
-	ft_putendl_fd("ss", 1);
+	ft_printf("ss\n");
 	stk_A->moves.ss_moves++;
 }

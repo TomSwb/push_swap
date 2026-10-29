@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 /*
 GOAL : Set-up the "flag" and "bench" parameter in stack-a. Also check if 
 	there's at least one of the 3 first args that START with a digit.
@@ -23,12 +23,11 @@ int	flags_parsing(int argc, char **argv, t_stack *s_a)
 	int	i;
 
 	i = 0;
-	
 	while (++i <= 3 && i < argc)
 	{
 		if (ft_isdigit(argv[i][0]) || (argv[i][0] == '-'
 			&& ft_isdigit(argv[i][1])))
-				return (0);
+			return (0);
 		else if (ft_memcmp(argv[i], "--simple", 9) == 0 && s_a->flag == 0)
 			s_a->flag = 1;
 		else if (ft_memcmp(argv[i], "--medium", 9) == 0 && s_a->flag == 0)
@@ -63,7 +62,6 @@ int	parsing(int argc, char **argv, t_stack *stack_a)
 	}
 	if (argc == 1)
 	{
-		ft_printf("là\n");
 		int_lst = ft_split(*argv, ' ');
 		if (check_int(*int_lst) > 0)
 			return (freeturn (int_lst));

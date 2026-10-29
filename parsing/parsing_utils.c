@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 /*
 GOAL : Check if this int is a valid one (in int range && only digit)
@@ -105,7 +105,7 @@ int	lstclear(t_stack *head, int error)
 		head->top = NULL;
 	}
 	if (error == 1)
-		return (write_error(3));
+		return (write_error());
 	else
 		return (1);
 }

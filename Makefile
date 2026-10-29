@@ -6,7 +6,7 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/20 11:33:03 by tschwab           #+#    #+#              #
-#    Updated: 2026/10/26 11:41:23 by tschwab          ###   ########.ch        #
+#    Updated: 2026/10/26 22:45:38 by tschwab          ###   ########.ch        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,10 @@ CFLAGS = -Wall -Wextra -Werror
 
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
+
+ROOT_SRCS = main.c \
+		bench_utils.c \
+		tests.c
 
 PARSING = parsing/parsing.c \
 		parsing/parsing_utils.c \
@@ -41,10 +45,18 @@ ONLOGN = algos/onlogn/onlogn.c \
 			algos/onlogn/onlogn_small.c \
 			algos/onlogn/onlogn_utils.c
 
-SRCS = main.c ${PARSING} ${MOVES} ${ALGOS} ${ON2} ${ONLOGN} \
-		tests.c
+SRCS = ${ROOT_SRCS} ${PARSING} ${MOVES} ${ON2} ${ONROOTN} ${ONLOGN}
 
 OBJS = $(SRCS:.c=.o)
+
+INCLUDES = -Iincludes -I$(LIBFT_DIR)
+
+HEADERS = includes/push_swap.h \
+		includes/structs.h \
+		includes/on2.h \
+		includes/onlogn.h \
+		includes/onrootn.h \
+		$(LIBFT_DIR)/libft.h
 
 all: $(NAME)
 
@@ -54,8 +66,8 @@ $(NAME): $(LIBFT) $(OBJS)
 $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)
 
-%.o: %.c
-	$(CC) $(CFLAGS) -I$(LIBFT_DIR) -c $< -o $@
+%.o: %.c $(HEADERS)
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
 	rm -f $(OBJS)

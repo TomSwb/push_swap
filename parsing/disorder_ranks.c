@@ -6,12 +6,27 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/18 12:43:21 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/20 21:08:11 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/26 21:26:11 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
+/**
+* @brief
+Computes the disorder of stack_a before sorting: the share
+of pairs (i < j) where the value at i is bigger than the
+value at j, over all pairs. 0 = sorted, 100% = reversed.
+Stored as an int x100 (0 to 10000) so --bench can print it
+with two decimals without floats:
+(mistakes * 10000 + total_pairs / 2) / total_pairs.
+Integer division rounds down, so adding half of total_pairs
+first rounds to the nearest value instead.
+A stack of 0 or 1 node has a disorder of 0.
+
+* @param t_stack *stack_a
+* @return void
+*/
 void	disorder(t_stack *stack_a)
 {
 	t_value		*ptr_a;
@@ -38,6 +53,19 @@ void	disorder(t_stack *stack_a)
 			/ total_pairs);
 }
 
+/**
+* @brief
+Helper of disorder: compares the node ptr_a (at position i)
+with every node after it in stack_a. Each pair where ptr_a's
+value is bigger is a mistake, added to *mistakes.
+Returns the number of pairs checked (init_size - i - 1).
+
+* @param t_stack *stack_a
+* @param t_value *ptr_a
+* @param long long *mistakes
+* @param size_t i
+* @return size_t
+*/
 size_t	disorder_check(t_stack *stack_a, t_value *ptr_a,
 						long long *mistakes, size_t i)
 {
@@ -59,6 +87,18 @@ size_t	disorder_check(t_stack *stack_a, t_value *ptr_a,
 	return (total_pairs);
 }
 
+/**
+* @brief
+Gives every node a rank from 0 (smallest value) to n - 1
+(biggest), so the algorithms work on consecutive positive
+ranks instead of raw values (negatives, gaps).
+Each pass finds the smallest value not ranked yet
+(rank == -1) and gives it the pass number. n passes over n
+nodes: O(n²). Requires every rank set to -1 beforehand.
+
+* @param t_stack *stack_a
+* @return void
+*/
 void	rank_parsing(t_stack *stack_a)
 {
 	t_value	*temp;

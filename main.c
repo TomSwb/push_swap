@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "algos/on2/on2.h"
-#include "algos/onlogn/onlogn.h"
 
 int	main(int argc, char **argv)
 {
@@ -20,11 +18,11 @@ int	main(int argc, char **argv)
 	t_stack	stack_b;
 
 	if (argc == 1)
-		return (write_error(1));
+		return (0);
 	stack_initializer(&stack_a);
 	stack_initializer(&stack_b);
 	if (flags_parsing(argc, argv, &stack_a))
-		return (write_error(2));
+		return (write_error());
 	if (stack_a.flag == 0)
 		stack_a.flag = 4;
 	if (parsing(argc, argv, &stack_a) || check_double(&stack_a))
@@ -32,56 +30,89 @@ int	main(int argc, char **argv)
 	stack_a.size = stack_a.init_size;
 	rank_parsing(&stack_a);
 	disorder(&stack_a);
-	// tests(&stack_a, &stack_b);
 	push_swap(&stack_a, &stack_b);
+	if (stack_a.bench)
+		bench(&stack_a);
 	lstclear(&stack_a, 0);
 	lstclear(&stack_b, 0);
-	// ft_printf("\nall works, lst cleared\n\n");
 	return (0);
 }
 
-// remove ft_printf lines before shipping !!!
+/**
+* @brief
+Sorts stack_a with the strategy chosen by flag:
+1 simple, 2 medium, 3 complex, 4 adaptive.
+strat is set to flag first (adaptive overwrites it with
+the algorithm it picks). Already sorted input returns
+right away for the forced strategies; adaptive handles
+it itself so it can still set strat for --bench.
+
+* @param t_stack *stack_a
+* @param t_stack *stack_b
+* @return void
+*/
 void	push_swap(t_stack *stack_a, t_stack *stack_b)
 {
-	if (stack_a->disorder == 0)
+	stack_a->strat = stack_a->flag;
+	if (stack_a->disorder == 0 && stack_a->flag != 4)
 		return ;
 	else if (stack_a->flag == 1)
-	{
-		ft_printf("simple:\n");
 		cost_based_insertion(stack_a, stack_b);
-	}
 	else if (stack_a->flag == 2)
-	{
 		ft_printf("medium not implemented\n");
-	}
 	else if (stack_a->flag == 3)
-	{
-		ft_printf("complex:\n");
 		quick_sort_partitioning(stack_a, stack_b);
-	}
 	else if (stack_a->flag == 4)
-	{
-		ft_printf("adaptive:\n");
 		adaptive(stack_a, stack_b);
-	}
 }
 
+/**
+* @brief
+Picks the algorithm from the disorder (stored x100) and
+sets strat to match it for --bench:
+under 20% -> cost_based_insertion, O(n²) (strat 1),
+under 50% -> chunk sort, O(n√n) (strat 2),
+otherwise -> quick_sort_partitioning, O(n log n) (strat 3).
+Already sorted input (disorder 0) keeps strat 1 but
+skips the sort, so nothing is printed.
+
+* @param t_stack *stack_a
+* @param t_stack *stack_b
+* @return void
+*/
 void	adaptive(t_stack *stack_a, t_stack *stack_b)
 {
+	stack_a->strat = 1;
 	if (stack_a->disorder < 2000)
 	{
-		ft_printf("cost based insertion sort:\n");
-		cost_based_insertion(stack_a, stack_b);
+		if (stack_a->disorder != 0)
+			cost_based_insertion(stack_a, stack_b);
 	}
 	else if (stack_a->disorder < 5000)
 	{
-		ft_printf("medium not implemented\n");
+		stack_a->strat = 2;
 	}
 	else
 	{
-		ft_printf("quick sort partioning sort:\n");
+		stack_a->strat = 3;
 		quick_sort_partitioning(stack_a, stack_b);
 	}
+}
+
+/**
+* @brief
+Prints the --bench report to stderr: disorder, strategy,
+total and per-type move counts. Called by main after
+push_swap, only when the --bench flag is set.
+
+* @param t_stack *stack_a
+* @return void
+*/
+void	bench(t_stack *stack_a)
+{
+	print_disorder(stack_a);
+	print_strategy(stack_a);
+	print_ops(stack_a);
 }
 
 /*
@@ -89,19 +120,8 @@ GOAL : Write Error on std error. TEST ONLY : Can print where the error come from
 	(also here to gain lines)
 Return : always 1
 */
-int	write_error(int n)
+int	write_error(void)
 {
-	// For test purpose
-	if (n == 1)
-		ft_printf("argc == 1\n");
-	if (n == 2)
-		ft_printf("flag parsing error or no int\n");
-	if (n == 3)
-		ft_printf("going through lstclear\n");
-	if (n == 4)
-		ft_printf("disorder fails\n");
-	// Real function below
-	(void) n;
 	ft_putendl_fd("Error", 2);
 	return (1);
 }

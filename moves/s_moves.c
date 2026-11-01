@@ -88,8 +88,6 @@ Return : void
 */
 void	ss(t_stack *stk_A, t_stack *stk_B, int print_bool)
 {
-	if (!stk_A->top || !stk_B->top)
-		return ;
 	sa(stk_B, stk_A, 1);
 	sb(stk_B, stk_A, 1);
 	if (!print_bool)

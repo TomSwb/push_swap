@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/01 10:46:10 by tschwab           #+#    #+#             */
-/*   Updated: 2026/11/01 12:38:01 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/11/01 12:47:07 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	digit_check(int argc, char **argv)
 			&& ft_isdigit(argv[i][1])))
 			i++;
 		else
-		 	return (1);
+			return (1);
 	}
 	return (0);
 }
@@ -35,10 +35,10 @@ int	digit_check(int argc, char **argv)
 t_move	check_what_move(char *s)
 {
 	static const char	*moves[11] = {"pa", "pb", "sa", "sb", "ss",
-	"ra", "rb", "rr", "rra", "rrb", "rrr"};
+		"ra", "rb", "rr", "rra", "rrb", "rrr"};
 	int					i;
 	size_t				len;
-	
+
 	len = ft_strlen(s);
 	if (len > 0 && s[len - 1] == '\n')
 		s[len - 1] = '\0';

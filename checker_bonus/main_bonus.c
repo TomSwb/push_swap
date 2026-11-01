@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 12:08:15 by tschwab           #+#    #+#             */
-/*   Updated: 2026/11/01 12:38:51 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/11/01 12:46:25 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	checker(t_stack *stack_a, t_stack *stack_b)
 {
 	char	*line;
 	t_move	move;
-	
+
 	line = get_next_line(0);
 	while (line != NULL)
 	{

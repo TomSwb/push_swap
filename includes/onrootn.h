@@ -17,13 +17,10 @@
 
 // push_swap.h
 
-
 // === Functions === //
 
 // onrootn.c
 
-
 // onrootn_utils.c
-
 
 #endif

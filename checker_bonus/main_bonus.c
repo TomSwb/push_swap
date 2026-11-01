@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 12:08:15 by tschwab           #+#    #+#             */
-/*   Updated: 2026/11/01 13:28:44 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/11/01 15:09:08 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int argc, char **argv)
 	stack_initializer(&stack_b);
 	if (digit_check(argc, argv))
 		return (write_error());
-	if (parsing(argc, argv, &stack_a) || check_double(&stack_a))
+	if (parsing(argv, &stack_a) || check_double(&stack_a))
 		return (lstclear(&stack_a, 1));
 	stack_a.size = stack_a.init_size;
 	result = checker(&stack_a, &stack_b);

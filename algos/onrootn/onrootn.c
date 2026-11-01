@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/01 21:48:19 by atardy            #+#    #+#             */
-/*   Updated: 2026/11/02 00:18:15 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/11/02 00:20:06 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@ void	bring_back(t_stack *s_a, t_stack *s_b)
 	t_value	*temp;
 	size_t	pos;
 
-	temp = s_b->top;
-	while (s_b != NULL)
+	while (s_b->top != NULL)
 	{
+		temp = s_b->top;
 		highest = s_b->size - 1;
 		pos = 0;
 		while(temp->rank != highest)

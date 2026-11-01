@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "structs.h"
 /*
 GOAL : Set-up the "flag" and "bench" parameter in stack-a. Also check if 
 	there's at least one of the 3 first args that START with a digit.
@@ -51,29 +52,55 @@ Return 0 : if everything went fine.
 */
 int	parsing(int argc, char **argv, t_stack *stack_a)
 {
-	char	**int_lst;
-
 	argc--;
 	argv++;
-	while (argv[0][0] == '-' && argv[0][1] == '-')
+	while (*argv && argv[0][0] == '-' && argv[0][1] == '-')
 	{
 		argv++;
 		argc--;
 	}
-	if (argc == 1)
+	while (argv)
 	{
-		int_lst = ft_split(*argv, ' ');
-		if (check_int(*int_lst) > 0)
-			return (freeturn (int_lst));
-		stack_a->top = lstnew(int_lst[0], 1);
-		if (stack_a->top == NULL)
-			return (freeturn(int_lst));
-		if (stack_from_split (int_lst, stack_a))
-			return (freeturn(int_lst));
-		return (0);
+		if (stack_from_arg(*argv, stack_a))
+			return (1);
+		argv++;
 	}
-	else
-		return (pars_from_argv(argc, argv, stack_a));
+	return (0);
+}
+
+/**
+* @brief
+
+* @param char *arg
+* @param t_stack *stack_a
+* @return int
+*/
+int	stack_from_arg(char *arg, t_stack *stack_a)
+{
+	char	**int_lst;
+	int		i;
+	t_value	*node;
+
+	i = 0;
+	int_lst = ft_split(arg, ' ');
+	if (!int_lst)
+		return (1);
+	while (int_lst[i])
+	{
+		if (check_int(int_lst[i]))
+			return (freeturn (int_lst));
+		stack_a->init_size++;
+		node = lstnew(int_lst[i], stack_a->init_size);
+		if (!node)
+			return (freeturn (int_lst));
+		if (stack_a->top == NULL)
+			stack_a->top = node;
+		else
+			lstadd(stack_a, node);
+		i++;
+	}
+	freeturn (int_lst);
+	return (0);
 }
 
 /*
@@ -109,6 +136,9 @@ int	stack_from_split(char **int_lst, t_stack *stack_a)
 	int_lst = NULL;
 	return (0);
 }
+
+
+
 
 /*
 GOAL : Creating one node per value in the int_list (from args) by using

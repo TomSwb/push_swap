@@ -38,7 +38,7 @@ int	check_int(char *content)
 		return (i > 10);
 	if (neg)
 		return (ft_strncmp(content, "2147483648", 10) > 0);
-	return (ft_strncmp(content, "2147483647", 10));
+	return (ft_strncmp(content, "2147483647", 10) > 0);
 }
 
 /*

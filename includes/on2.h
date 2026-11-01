@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 14:24:37 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/25 18:09:59 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/10/26 21:19:20 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 // === Library === //
 
 // push_swap.h
-# include "../../push_swap.h"
+# include "structs.h"
 
 // === Struct === //
 

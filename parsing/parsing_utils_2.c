@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 /*
 GOAL : initialize stacks with default value (and gain lines)
 Return : void
@@ -22,7 +22,7 @@ void	stack_initializer(t_stack *st)
 	st->init_size = 0;
 	st->size = 0;
 	st->disorder = 0;
-	st->strategy = NULL;
+	st->strat = 0;
 	ft_bzero(&st->moves, sizeof(t_moves));
 	st->top = NULL;
 }

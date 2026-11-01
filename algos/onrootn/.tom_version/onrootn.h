@@ -26,6 +26,8 @@ typedef struct s_sensor
 	int	limit;
 	int	pushed;
 	int	half;
+	int	top_pos;
+	int	bottom_pos;
 }	t_sensor;
 
 // === Functions === //
@@ -34,9 +36,14 @@ typedef struct s_sensor
 void	bucket_sort(t_stack *stack_a, t_stack *stack_b);
 
 // onrootn_utils.c
+void	init_data(t_stack *stack_a, t_sensor *data);
 int		find_nxt_root(int size);
 
-// onrootn_sensor.c
-void	dispatch(t_stack *s_a, t_stack *s_b, t_sensor data);
+// onrootn_dispatch.c
+void	dispatch(t_stack *s_a, t_stack *s_b, t_sensor *data);
+t_value	*find_closest(t_stack *stack_a, t_sensor *data);
+
+// onrootn_bring_back.c
+void	bring_back(t_stack *s_a, t_stack *s_b);
 
 #endif

@@ -11,6 +11,17 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "onrootn.h"
+
+void	init_data(t_stack *stack_a, t_sensor *data)
+{
+	data->chunk_size = find_nxt_root(stack_a->init_size);
+	data->limit = data->chunk_size;
+	data->pushed = 0;
+	data->half = data->limit - data->chunk_size / 2;
+	data->top_pos = 0;
+	data->bottom_pos = 0;
+}
 
 /*
 GOAL : find i so that i * i is bigger or equal to the "size" parameter.

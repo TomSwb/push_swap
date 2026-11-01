@@ -6,7 +6,7 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/20 11:33:03 by tschwab           #+#    #+#              #
-#    Updated: 2026/11/01 10:26:49 by tschwab          ###   ########.ch        #
+#    Updated: 2026/11/01 10:29:56 by tschwab          ###   ########.ch        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,12 +45,12 @@ ONLOGN = algos/onlogn/onlogn.c \
 
 SHARED = errors.c ${PARSING} ${MOVES}
 
-OBJS = $(SHARED:.c=.o) $(SRCS:.c=.o)
-
 INCLUDES = -Iincludes -I$(LIBFT_DIR)
 
 SRCS = main.c bench_utils.c tests.c \
 		${ON2} ${ONROOTN} ${ONLOGN}
+
+OBJS = $(SHARED:.c=.o) $(SRCS:.c=.o)
 
 CHECKER = checker_bonus/main_bonus.c
 

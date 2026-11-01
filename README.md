@@ -131,6 +131,10 @@ make bonus    # builds ./checker
 ./checker <numbers>
 ```
 
+```bash
+ARG="87 4 67 3 23"; ./push_swap $ARG | ./checker $ARG
+```
+
 The checker takes the same numbers as push_swap, reads a list of moves from stdin (one per line, usually push_swap's output), applies them to its own copy of the stacks and prints:
 
 | Output | Stream | When |
@@ -144,17 +148,14 @@ Unlike the provided reference binary, our checker rejects duplicate numbers (`Er
 Without arguments, `./checker` prints nothing and doesn't read stdin.
 
 ```bash
-$> ARG="4 67 3 87 23"; ./push_swap $ARG | ./checker $ARG
-OK
-```
-
-```bash
 $> printf 'sa\n' | ./checker 2 1 3
 OK
 $> printf 'ra\n' | ./checker 2 1 3
 KO
 $> printf 'sa \n' | ./checker 2 1 3
 Error
+$> ./checker
+$>
 ```
 
 ## Algorithms

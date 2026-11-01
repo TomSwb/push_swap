@@ -35,7 +35,7 @@ typedef struct s_sensor
 	int		min_buck;
 	int		max_rank;
 	int		min_rank;
-}				t_sensor;
+}	t_sensor;
 
 // === Functions === //
 

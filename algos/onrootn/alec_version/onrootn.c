@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/01 21:48:19 by atardy            #+#    #+#             */
-/*   Updated: 2026/11/01 22:22:19 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/11/01 22:54:39 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,13 @@ void	bucket_sort(t_stack *stack_a, t_stack *stack_b)
 	t_sensor	**sensor;
 	int			i;
 
-	if (stack_a ->size >= 6)
-	{
-	sensor = malloc (sizeof(t_sensor *) * 5);
+	if (stack_a->size >= 6)
+		sensor = malloc (sizeof(t_sensor *) * 5);
+	else
+		sensor = malloc (sizeof(t_sensor *) * 5);
 	if (!sensor)
 		return ;
-	i = sensor_alloc (sensor, stack_a);
+	i = sensor_alloc(sensor, stack_a);
 	if (i != 5)
 		freeing_snr(sensor, i);
 	dispatch(stack_a, stack_b, sensor);
@@ -42,8 +43,8 @@ void	bucket_sort(t_stack *stack_a, t_stack *stack_b)
 // ft_printf ("=== Post dispatch Stack B ===\n");
 // print_buckets(stack_b, sensor[0], stack_b->size);
 	sort_bucket (stack_a, stack_b, sensor[0]);
-ft_printf ("=== Post sort Stack A ===\n");
-print_buckets(stack_a, sensor[0], stack_a->size);
+	ft_printf ("=== Post sort Stack A ===\n");
+	print_buckets(stack_a, sensor[0], stack_a->size);
 // ft_printf ("=== Post sort Stack B ===\n");
 // print_buckets(stack_b, sensor[0], stack_b->size);
 	freeing_snr(sensor, i);

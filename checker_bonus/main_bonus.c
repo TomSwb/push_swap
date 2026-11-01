@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 12:08:15 by tschwab           #+#    #+#             */
-/*   Updated: 2026/11/01 10:46:23 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/11/01 10:48:05 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,3 @@ int	main(int argc, char **argv)
 	if (digit_check(argc, argv))
 		return (write_error());
 }
-

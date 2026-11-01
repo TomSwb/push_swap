@@ -6,7 +6,7 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/20 11:33:03 by tschwab           #+#    #+#              #
-#    Updated: 2026/11/01 10:29:56 by tschwab          ###   ########.ch        #
+#    Updated: 2026/11/01 10:48:52 by tschwab          ###   ########.ch        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,8 @@ SRCS = main.c bench_utils.c tests.c \
 
 OBJS = $(SHARED:.c=.o) $(SRCS:.c=.o)
 
-CHECKER = checker_bonus/main_bonus.c
+CHECKER = checker_bonus/main_bonus.c \
+		checker_bonus/utils_bonus.c \
 
 BONUS_OBJS = $(SHARED:.c=.o) $(CHECKER:.c=.o)
 

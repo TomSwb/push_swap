@@ -6,15 +6,11 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/01 10:46:10 by tschwab           #+#    #+#             */
-/*   Updated: 2026/11/01 12:47:07 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/11/01 12:50:19 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker_bonus.h"
-#include "get_next_line/get_next_line.h"
-#include "libft.h"
 #include "push_swap.h"
-#include <stddef.h>
 
 int	digit_check(int argc, char **argv)
 {

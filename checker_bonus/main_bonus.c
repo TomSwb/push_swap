@@ -6,15 +6,11 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 12:08:15 by tschwab           #+#    #+#             */
-/*   Updated: 2026/11/01 12:46:25 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/11/01 12:50:28 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker_bonus.h"
-#include "ft_printf/ft_printf.h"
-#include "get_next_line/get_next_line.h"
 #include "push_swap.h"
-#include "structs.h"
 
 int	main(int argc, char **argv)
 {

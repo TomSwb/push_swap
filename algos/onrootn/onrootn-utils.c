@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "onrootn.h"
 
 void	init_data(t_stack *stack_a, t_sensor *data)
 {
@@ -35,4 +34,28 @@ int	find_nxt_root(int size)
 	while (i * i <= size)
 		i++;
 	return (i - 1);
+}
+
+t_value	*find_closest(t_stack *stack_a, t_sensor *data)
+{
+	t_value	*top;
+	t_value	*bottom;
+
+	data->top_pos = 0;
+	top = stack_a->top;
+	while (top->rank >= data->limit)
+	{
+		data->top_pos++;
+		top = top->next;
+	}
+	bottom = stack_a->top;
+	data->bottom_pos = 0;
+	while (bottom->rank >= data->limit)
+	{
+		data->bottom_pos++;
+		bottom = bottom->prev;
+	}
+	if (data->top_pos < data->bottom_pos)
+		return (top);
+	return (bottom);
 }

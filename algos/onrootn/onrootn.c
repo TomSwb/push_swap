@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   onrootn_sensor.c                                   :+:      :+:    :+:   */
+/*   onrootn.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atardy <atardy@student.42lausanne.ch>     +#+  +:+       +#+        */
+/*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/01 19:55:39 by atardy            #+#    #+#             */
-/*   Updated: 2026/11/01 20:43:12 by atardy           ###   ########.ch       */
+/*   Created: 2026/11/01 21:48:19 by atardy            #+#    #+#             */
+/*   Updated: 2026/11/02 00:18:15 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "onrootn.h"
-#include "structs.h"
+
+/*
+
+*/
+void	bucket_sort(t_stack *stack_a, t_stack *stack_b)
+{
+	t_sensor	data;
+
+	init_data(stack_a, &data);
+	dispatch(stack_a, stack_b, &data);
+	bring_back(stack_a, stack_b);
+}
 
 /*
 GOAL : Sends all elements to s_b by chuncks, closest element of
@@ -42,30 +52,33 @@ void	dispatch(t_stack *s_a, t_stack *s_b, t_sensor *data)
 		{
 			data->limit += data->chunk_size;
 			data->half += data->chunk_size;
-		}	
+		}
 	}
 }
 
-t_value	*find_closest(t_stack *stack_a, t_sensor *data)
+void	bring_back(t_stack *s_a, t_stack *s_b)
 {
-	t_value	*top;
-	t_value	*bottom;
+	int		highest;
+	t_value	*temp;
+	size_t	pos;
 
-	data->top_pos = 0;
-	top = stack_a->top;
-	while (top->rank >= data->limit)
+	temp = s_b->top;
+	while (s_b != NULL)
 	{
-		data->top_pos++;
-		top = top->next;
+		highest = s_b->size - 1;
+		pos = 0;
+		while(temp->rank != highest)
+		{
+			temp = temp->next;
+			pos++;
+		}
+		while (s_b->top != temp)
+		{
+			if (pos < s_b->size / 2)
+				rb(s_a, s_b, 0);
+			else
+			 	rrb(s_a, s_b, 0);
+		}
+		pa(s_a, s_b, 0);
 	}
-	bottom = stack_a->top;
-	data->bottom_pos = 0;
-	while (bottom->rank >= data->limit)
-	{
-		data->bottom_pos++;
-		bottom = bottom->prev;
-	}
-	if (data->top_pos < data->bottom_pos)
-		return (top);
-	return (bottom);
 }

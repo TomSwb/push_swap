@@ -17,6 +17,7 @@
 
 // libft, malloc(), free(), read(), write(), exit()
 # include "libft.h"
+
 // Others:
 # include "structs.h"
 # include "on2.h"
@@ -28,15 +29,12 @@
 // root/
 
 // main.c
-void	print_list(t_stack *stack_a);
 void	push_swap(t_stack *stack_a, t_stack *stack_b);
 void	adaptive(t_stack *stack_a, t_stack *stack_b);
 void	bench(t_stack *stack_a);
-int		write_error(void);
 
-// tests_tom.c
-void	tests(t_stack *stack_a, t_stack *stack_b);
-void	print_values(t_stack *stack, int nb_to_print);
+// errors.c
+int		write_error(void);
 
 // bench_utils.c
 void	print_disorder(t_stack *stack_a);
@@ -49,9 +47,8 @@ void	print_count(char *label, int count);
 
 // parsing.c
 int		flags_parsing(int argc, char **argv, t_stack *s_a);
-int		parsing(int argc, char **argv, t_stack *stack_a);
-int		stack_from_split(char **int_lst, t_stack *stack_a);
-int		pars_from_argv(int nb_int, char **int_lst, t_stack *stack_a);
+int		parsing(int start, char **argv, t_stack *stack_a);
+int		stack_from_arg(char *arg, t_stack *stack_a);
 
 // parsing_utils.c
 int		check_int(char *content);
@@ -63,8 +60,6 @@ int		check_double(t_stack *head);
 // parsing_utils_2.c
 void	stack_initializer(t_stack *st);
 int		freeturn(char **int_lst);
-void	size_calculator(t_stack *stk);
-t_moves	*init_moves(void);
 
 // disorder.c
 void	disorder(t_stack *stack_a);
@@ -77,21 +72,21 @@ void	rank_parsing(t_stack *stack_a);
 // s_moves.c
 void	sa(t_stack *stk_A, t_stack *stk_B, int ss_bool);
 void	sb(t_stack *stk_A, t_stack *stk_B, int ss_bool);
-void	ss(t_stack *stk_A, t_stack *stk_B);
+void	ss(t_stack *stk_A, t_stack *stk_B, int print_bool);
 
 // p_moves.c
 void	pa(t_stack *stk_A, t_stack *stk_B, int pb_bool);
 void	pa_2(t_stack *stk_A, t_stack *stk_B, t_value *temp_b);
-void	pb(t_stack *stk_A, t_stack *stk_B);
+void	pb(t_stack *stk_A, t_stack *stk_B, int print_bool);
 
 // r_moves.c
 void	ra(t_stack *stack_a, t_stack *stack_b, int rr_bool);
 void	rb(t_stack *stack_a, t_stack *stack_b, int rr_bool);
-void	rr(t_stack *stack_a, t_stack *stack_b);
+void	rr(t_stack *stack_a, t_stack *stack_b, int print_bool);
 
 // rr_moves.c
 void	rra(t_stack *stack_a, t_stack *stack_b, int rrr_bool);
 void	rrb(t_stack *stack_a, t_stack *stack_b, int rrr_bool);
-void	rrr(t_stack *stack_a, t_stack *stack_b);
+void	rrr(t_stack *stack_a, t_stack *stack_b, int print_bool);
 
 #endif

@@ -55,15 +55,13 @@ make re       # fclean + make
 - Non-integer arguments, numbers outside the `int` range or duplicates print `Error` on stderr.
 - Already sorted input prints no operations.
 - Flags can be given in any order; only one strategy flag is allowed.
-
-> [!NOTE]
-> 🟩 **TODO (both):** double-check every line above against the final behaviour (mixed formats? "" ?)
+- Mixed formats (`./push_swap 3 2 1 "5 7 9"`) and containing uneven spacing (`./push_swap 3  2  1 "5 7  9 "`) parse as per the reference (fedora_checker).
 
 ### Examples
 
 ```bash
 $> ./push_swap 2 1 3 6 5 8
-$> ARG="4 67 3 87 23"; ./push_swap --complex $ARG | ./checker_linux $ARG
+$> ARG="4 67 3 87 23"; ./push_swap --complex $ARG | ./checker $ARG
 OK
 $> ARG="4 67 3 87 23"; ./push_swap $ARG | wc -l
 ```
@@ -118,11 +116,45 @@ ARG=$(shuf -i 0-9999 -n 500 | tr '\n' ' '); ./push_swap --bench --complex $ARG >
 Verify with the checker while saving the metrics to a file:
 
 ```bash
-ARG=$(shuf -i 0-9999 -n 500 | tr '\n' ' '); ./push_swap --bench $ARG 2> bench.txt | ./checker_linux $ARG; cat bench.txt
+ARG=$(shuf -i 0-9999 -n 500 | tr '\n' ' '); ./push_swap --bench $ARG 2> bench.txt | ./checker $ARG; cat bench.txt
 ```
 
-> [!NOTE]
-> 🟩 **TODO (both):** if the checker bonus is done, add a "Checker (bonus)" subsection: usage, OK / KO / Error, example
+### Checker (bonus)
+
+```bash
+make bonus    # builds ./checker
+```
+
+```bash
+./checker <numbers>
+```
+
+```bash
+ARG="87 4 67 3 23"; ./push_swap $ARG | ./checker $ARG
+```
+
+The checker takes the same numbers as push_swap, reads a list of moves from stdin (one per line, usually push_swap's output), applies them to its own copy of the stacks and prints:
+
+| Output | Stream | When |
+|---|---|---|
+| `OK` | stdout | every move was valid, stack a is sorted and stack b is empty |
+| `KO` | stdout | every move was valid, but a is not sorted or b is not empty |
+| `Error` | stderr | something is invalid: a bad argument (same rules as push_swap), an unknown move, a wrong case, extra spaces, an empty line… |
+
+Unlike the provided reference binary, our checker rejects duplicate numbers (`Error`) and does nothing without arguments, as the subject requires. Everywhere else, the two give the same result.
+
+Without arguments, `./checker` prints nothing and doesn't read stdin.
+
+```bash
+$> printf 'sa\n' | ./checker 2 1 3
+OK
+$> printf 'ra\n' | ./checker 2 1 3
+KO
+$> printf 'sa \n' | ./checker 2 1 3
+Error
+$> ./checker
+$>
+```
 
 ## Algorithms
 
@@ -230,11 +262,12 @@ Small inputs: 3 numbers in at most 2 operations, 5 numbers in 8–11.
 - **Error handling**.
 
 **tschwab**
-- **Operations:** `ra` `rb` `rr` `rra` `rrb` `rrr`.
 - **Disorder, ranks and adaptive dispatch**
+- **Operations:** `ra` `rb` `rr` `rra` `rrb` `rrr`.
 - **Simple and Complex algorithms**, O(n²) and O(n log n).
 - **`--bench`.**
 - **Checker** (bonus).
+- **Parsing:** Corrections to handle '+', leading '0', and trailing spaces. 
 
 **Both**
 - Data structure design, Makefile, README.

@@ -86,12 +86,13 @@ GOAL : sa and sb at the same time. Calls them silently with arguments in
 	reversed order so none of them prints or increase count
 Return : void
 */
-void	ss(t_stack *stk_A, t_stack *stk_B)
+void	ss(t_stack *stk_A, t_stack *stk_B, int print_bool)
 {
-	if (!stk_A->top || !stk_B->top)
-		return ;
 	sa(stk_B, stk_A, 1);
 	sb(stk_B, stk_A, 1);
-	ft_printf("ss\n");
-	stk_A->moves.ss_moves++;
+	if (!print_bool)
+	{
+		ft_printf("ss\n");
+		stk_A->moves.ss_moves++;
+	}
 }

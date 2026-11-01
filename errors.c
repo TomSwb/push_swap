@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   onrootn.h                                          :+:      :+:    :+:   */
+/*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atardy <atardy@student.42lausanne.ch>     +#+  +:+       +#+        */
+/*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/26 17:44:09 by atardy            #+#    #+#             */
-/*   Updated: 2026/10/26 17:44:19 by atardy           ###   ########.ch       */
+/*   Created: 2026/11/01 10:05:06 by tschwab           #+#    #+#             */
+/*   Updated: 2026/11/01 13:24:32 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ONROOTN_H
-# define ONROOTN_H
+#include "push_swap.h"
 
-// === Library === //
-
-// push_swap.h
-#include "../../push_swap.h"
-
-// === Functions === //
-
-// onrootn.c
-
-
-// onrootn_utils.c
-
-
-#endif
+/*
+GOAL : Write Error on std error. TEST ONLY : Can print where the error come from
+	(also here to gain lines)
+Return : always 1
+*/
+int	write_error(void)
+{
+	ft_putendl_fd("Error", 2);
+	return (1);
+}

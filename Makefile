@@ -6,21 +6,19 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/20 11:33:03 by tschwab           #+#    #+#              #
-#    Updated: 2026/10/26 22:45:38 by tschwab          ###   ########.ch        #
+#    Updated: 2026/11/01 22:14:36 by tschwab          ###   ########.ch        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
+
+BONUS_NAME = checker
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
-
-ROOT_SRCS = main.c \
-		bench_utils.c \
-		tests.c
 
 PARSING = parsing/parsing.c \
 		parsing/parsing_utils.c \
@@ -45,18 +43,27 @@ ONLOGN = algos/onlogn/onlogn.c \
 			algos/onlogn/onlogn_small.c \
 			algos/onlogn/onlogn_utils.c
 
-SRCS = ${ROOT_SRCS} ${PARSING} ${MOVES} ${ON2} ${ONROOTN} ${ONLOGN}
-
-OBJS = $(SRCS:.c=.o)
+SHARED = errors.c ${PARSING} ${MOVES}
 
 INCLUDES = -Iincludes -I$(LIBFT_DIR)
 
 HEADERS = includes/push_swap.h \
 		includes/structs.h \
 		includes/on2.h \
-		includes/onlogn.h \
 		includes/onrootn.h \
+		includes/onlogn.h \
+		includes/checker_bonus.h \
 		$(LIBFT_DIR)/libft.h
+
+SRCS = main.c bench_utils.c \
+		${ON2} ${ONROOTN} ${ONLOGN}
+
+OBJS = $(SHARED:.c=.o) $(SRCS:.c=.o)
+
+CHECKER = checker_bonus/main_bonus.c \
+		checker_bonus/utils_bonus.c \
+
+BONUS_OBJS = $(SHARED:.c=.o) $(CHECKER:.c=.o)
 
 all: $(NAME)
 
@@ -71,12 +78,19 @@ $(LIBFT):
 
 clean:
 	rm -f $(OBJS)
+	rm -f $(BONUS_OBJS)
 	$(MAKE) -C $(LIBFT_DIR) clean
 
 fclean: clean
 	rm -f $(NAME)
+	rm -f $(BONUS_NAME)
 	$(MAKE) -C $(LIBFT_DIR) fclean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+bonus: ${BONUS_NAME}
+
+$(BONUS_NAME): $(LIBFT) $(BONUS_OBJS)
+	$(CC) $(CFLAGS) $(BONUS_OBJS) $(LIBFT) -o $(BONUS_NAME)
+
+.PHONY: all clean fclean re bonus

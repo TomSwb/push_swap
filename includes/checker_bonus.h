@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/01 10:44:03 by tschwab           #+#    #+#             */
-/*   Updated: 2026/11/01 10:46:47 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/11/01 11:24:16 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,29 @@
 
 // === Struct === //
 
+typedef enum e_move
+{
+	PA,
+	PB,
+	SA,
+	SB,
+	SS,
+	RA,
+	RB,
+	RR,
+	RRA,
+	RRB,
+	RRR,
+	ERROR,
+}	t_move;
 
 // === Functions === //
 
 // main_bonus.c
-
+int		checker(t_stack *stack_a, t_stack *stack_b);
 
 // utils_bonus.c
-int	digit_check(int argc, char **argv);
+int		digit_check(int argc, char **argv);
+t_move	check_what_move(char *s);
 
 #endif

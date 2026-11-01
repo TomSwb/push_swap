@@ -6,10 +6,12 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/01 10:46:10 by tschwab           #+#    #+#             */
-/*   Updated: 2026/11/01 10:52:53 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/11/01 11:26:02 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "checker_bonus.h"
+#include "libft.h"
 #include "push_swap.h"
 
 int	digit_check(int argc, char **argv)
@@ -26,4 +28,12 @@ int	digit_check(int argc, char **argv)
 		 	return (1);
 	}
 	return (0);
+}
+
+t_move	check_what_move(char *s)
+{
+	t_move	move;
+	
+	if (ft_memcmp("sa\n", s, 3))
+		move = SA;
 }

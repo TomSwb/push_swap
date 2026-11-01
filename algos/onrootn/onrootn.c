@@ -6,14 +6,17 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/01 21:48:19 by atardy            #+#    #+#             */
-/*   Updated: 2026/11/02 00:20:06 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/11/02 00:24:01 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /*
+GOAL : Init the chunck data, then calls dispatch and bring_back to
+sort the stack.
 
+No return value
 */
 void	bucket_sort(t_stack *stack_a, t_stack *stack_b)
 {
@@ -56,6 +59,12 @@ void	dispatch(t_stack *s_a, t_stack *s_b, t_sensor *data)
 	}
 }
 
+/*
+GOAL : Bring everything back to s_a, highest to lowest, faster
+rotation sense way.
+
+No return value
+*/
 void	bring_back(t_stack *s_a, t_stack *s_b)
 {
 	int		highest;

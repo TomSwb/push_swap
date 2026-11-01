@@ -139,6 +139,8 @@ The checker takes the same numbers as push_swap, reads a list of moves from stdi
 | `KO` | stdout | every move was valid, but a is not sorted or b is not empty |
 | `Error` | stderr | something is invalid: a bad argument (same rules as push_swap), an unknown move, a wrong case, extra spaces, an empty line… |
 
+Unlike the provided reference binary, our checker rejects duplicate numbers (`Error`) and does nothing without arguments, as the subject requires. Everywhere else, the two give the same result.
+
 Without arguments, `./checker` prints nothing and doesn't read stdin.
 
 ```bash

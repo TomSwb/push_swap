@@ -72,11 +72,14 @@ void	pa_2(t_stack *stk_A, t_stack *stk_B, t_value *temp_b)
 GOAL : Same as pa but for pb. calls pa silently with stacks in reverse order
 Return : void
 */
-void	pb(t_stack *stk_A, t_stack *stk_B)
+void	pb(t_stack *stk_A, t_stack *stk_B, int print_bool)
 {
 	if (!stk_A->top)
 		return ;
 	pa(stk_B, stk_A, 1);
-	ft_printf("pb\n");
-	stk_A->moves.pb_moves++;
+	if (!print_bool)
+	{
+		ft_printf("pb\n");
+		stk_A->moves.pb_moves++;
+	}
 }

@@ -6,13 +6,14 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/01 10:46:10 by tschwab           #+#    #+#             */
-/*   Updated: 2026/11/01 11:41:21 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/11/01 12:13:45 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
 #include "libft.h"
 #include "push_swap.h"
+#include <stddef.h>
 
 int	digit_check(int argc, char **argv)
 {
@@ -34,12 +35,16 @@ t_move	check_what_move(char *s)
 {
 	static const char	*moves[11] = {"pa", "pb", "sa", "sb", "ss",
 	"ra", "rb", "rr", "rra", "rrb", "rrr"};
-	int	i;
+	int					i;
+	size_t				len;
 	
+	len = ft_strlen(s);
+	if (len > 0 && s[len - 1] == '\n')
+		s[len - 1] = '\0';
 	i = 0;
-	while (moves[i])
+	while (i < ERROR)
 	{
-		if (ft_strncmp(s, moves[i], ft_strlen(s)))
+		if (!ft_strncmp(s, moves[i], ft_strlen(moves[i]) + 1))
 			return ((t_move)i);
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 12:08:15 by tschwab           #+#    #+#             */
-/*   Updated: 2026/11/01 12:00:27 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/11/01 12:25:30 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,25 +63,25 @@ int	checker(t_stack *stack_a, t_stack *stack_b)
 void	apply_move(t_stack *stack_a, t_stack *stack_b, t_move move)
 {
 	if (move == PA)
-		pa(stack_a, stack_b, 0);
+		pa(stack_a, stack_b, 1);
 	else if (move == PB)
-		pb(stack_a, stack_b);
+		pb(stack_a, stack_b, 1);
 	else if (move == SA)
-		sa(stack_a, stack_b, 0);
+		sa(stack_a, stack_b, 1);
 	else if (move == SB)
-		sb(stack_a, stack_b, 0);
+		sb(stack_a, stack_b, 1);
 	else if (move == SS)
 		ss(stack_a, stack_b);
 	else if (move == RA)
-		ra(stack_a, stack_b, 0);
+		ra(stack_a, stack_b, 1);
 	else if (move == RB)
-		rb(stack_a, stack_b, 0);
+		rb(stack_a, stack_b, 1);
 	else if (move == RR)
 		rr(stack_a, stack_b);
 	else if (move == RRA)
-		rra(stack_a, stack_b, 0);
+		rra(stack_a, stack_b, 1);
 	else if (move == RRB)
-		rrb(stack_a, stack_b, 0);
+		rrb(stack_a, stack_b, 1);
 	else if (move == RRR)
 		rrr(stack_a, stack_b);
 }
@@ -92,7 +92,7 @@ int	is_sort(t_stack *stack_a, t_stack *stack_b)
 
 	temp = stack_a->top;
 	stack_a->top = stack_a->top->prev;
-	while (temp != stack_a->top)
+	while (stack_a->top != NULL && temp != stack_a->top)
 	{
 		if (temp->value > temp->next->value)
 			return (-1);

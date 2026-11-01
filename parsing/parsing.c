@@ -22,13 +22,10 @@ int	flags_parsing(int argc, char **argv, t_stack *s_a)
 {
 	int	i;
 
-	i = 0;
-	while (++i <= 3 && i < argc)
+	i = 1;
+	while (i < argc)
 	{
-		if (ft_isdigit(argv[i][0]) || ((argv[i][0] == '-' || argv[i][0] == '+')
-		&& ft_isdigit(argv[i][1])))
-			return (0);
-		else if (ft_memcmp(argv[i], "--simple", 9) == 0 && s_a->flag == 0)
+		if (ft_memcmp(argv[i], "--simple", 9) == 0 && s_a->flag == 0)
 			s_a->flag = 1;
 		else if (ft_memcmp(argv[i], "--medium", 9) == 0 && s_a->flag == 0)
 			s_a->flag = 2;
@@ -39,9 +36,10 @@ int	flags_parsing(int argc, char **argv, t_stack *s_a)
 		else if (ft_memcmp(argv[i], "--bench", 8) == 0 && s_a->bench == 0)
 			s_a->bench = 1;
 		else
-			return (1);
+			return (i);
+		i++;
 	}
-	return (1);
+	return (0);
 }
 
 /*
@@ -49,11 +47,9 @@ GOAL : take all the ints in arguments and allocate a t_value struct per int
 Return 1 : if an error occured during parsing
 Return 0 : if everything went fine. 
 */
-int	parsing(char **argv, t_stack *stack_a)
+int	parsing(int start, char **argv, t_stack *stack_a)
 {
-	argv++;
-	while (*argv && argv[0][0] == '-' && argv[0][1] == '-')
-		argv++;
+	argv += start;
 	while (*argv)
 	{
 		if (stack_from_arg(*argv, stack_a))
@@ -65,6 +61,8 @@ int	parsing(char **argv, t_stack *stack_a)
 
 /**
 * @brief
+Splits the arguments into nodes no matter if they are given as one string,
+multiple strings or simple numbers.
 
 * @param char *arg
 * @param t_stack *stack_a

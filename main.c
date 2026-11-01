@@ -16,16 +16,18 @@ int	main(int argc, char **argv)
 {
 	t_stack	stack_a;
 	t_stack	stack_b;
+	int 	start;
 
 	if (argc == 1)
 		return (0);
 	stack_initializer(&stack_a);
 	stack_initializer(&stack_b);
-	if (flags_parsing(argc, argv, &stack_a))
+	start = flags_parsing(argc, argv, &stack_a);
+	if (start == 0)
 		return (write_error());
 	if (stack_a.flag == 0)
 		stack_a.flag = 4;
-	if (parsing(argv, &stack_a) || check_double(&stack_a))
+	if (parsing(start, argv, &stack_a) || check_double(&stack_a))
 		return (lstclear(&stack_a, 1));
 	stack_a.size = stack_a.init_size;
 	rank_parsing(&stack_a);

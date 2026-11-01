@@ -6,11 +6,12 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/01 10:46:10 by tschwab           #+#    #+#             */
-/*   Updated: 2026/11/01 12:13:45 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/11/01 12:38:01 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
+#include "get_next_line/get_next_line.h"
 #include "libft.h"
 #include "push_swap.h"
 #include <stddef.h>
@@ -49,4 +50,13 @@ t_move	check_what_move(char *s)
 		i++;
 	}
 	return (ERROR);
+}
+
+void	free_line(char *line)
+{
+	while (line)
+	{
+		free(line);
+		line = get_next_line(0);
+	}
 }

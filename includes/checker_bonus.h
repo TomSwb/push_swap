@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/01 10:44:03 by tschwab           #+#    #+#             */
-/*   Updated: 2026/11/01 11:57:40 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/11/01 12:38:09 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,6 @@ int		is_sort(t_stack *stack_a, t_stack *stack_b);
 // utils_bonus.c
 int		digit_check(int argc, char **argv);
 t_move	check_what_move(char *s);
+void	free_line(char *line);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 12:08:15 by tschwab           #+#    #+#             */
-/*   Updated: 2026/11/01 12:34:19 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/11/01 12:38:51 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	checker(t_stack *stack_a, t_stack *stack_b)
 	{
 		move = check_what_move(line);
 		if (move == ERROR)
-			return (free(line), 0);
+			return (free_line(line), 0);
 		else
 			apply_move(stack_a, stack_b, move);
 		free(line);

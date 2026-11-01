@@ -6,7 +6,7 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/20 11:33:03 by tschwab           #+#    #+#              #
-#    Updated: 2026/10/26 22:45:38 by tschwab          ###   ########.ch        #
+#    Updated: 2026/11/01 10:05:59 by tschwab          ###   ########.ch        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ LIBFT = $(LIBFT_DIR)/libft.a
 
 ROOT_SRCS = main.c \
 		bench_utils.c \
+		errors.c \
 		tests.c
 
 PARSING = parsing/parsing.c \

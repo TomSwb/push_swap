@@ -28,15 +28,12 @@
 // root/
 
 // main.c
-void	print_list(t_stack *stack_a);
 void	push_swap(t_stack *stack_a, t_stack *stack_b);
 void	adaptive(t_stack *stack_a, t_stack *stack_b);
 void	bench(t_stack *stack_a);
-int		write_error(void);
 
-// tests_tom.c
-void	tests(t_stack *stack_a, t_stack *stack_b);
-void	print_values(t_stack *stack, int nb_to_print);
+// errors.c
+int		write_error(void);
 
 // bench_utils.c
 void	print_disorder(t_stack *stack_a);
@@ -44,6 +41,10 @@ void	print_strategy(t_stack *stack_a);
 void	print_ops(t_stack *stack_a);
 int		moves_count(t_stack *stack_a);
 void	print_count(char *label, int count);
+
+// tests.c
+void	tests(t_stack *stack_a, t_stack *stack_b);
+void	print_values(t_stack *stack, int nb_to_print);
 
 // parsing/
 
@@ -63,8 +64,6 @@ int		check_double(t_stack *head);
 // parsing_utils_2.c
 void	stack_initializer(t_stack *st);
 int		freeturn(char **int_lst);
-void	size_calculator(t_stack *stk);
-t_moves	*init_moves(void);
 
 // disorder.c
 void	disorder(t_stack *stack_a);

@@ -114,14 +114,3 @@ void	bench(t_stack *stack_a)
 	print_strategy(stack_a);
 	print_ops(stack_a);
 }
-
-/*
-GOAL : Write Error on std error. TEST ONLY : Can print where the error come from
-	(also here to gain lines)
-Return : always 1
-*/
-int	write_error(void)
-{
-	ft_putendl_fd("Error", 2);
-	return (1);
-}

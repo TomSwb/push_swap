@@ -6,22 +6,19 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/20 11:33:03 by tschwab           #+#    #+#              #
-#    Updated: 2026/11/01 10:05:59 by tschwab          ###   ########.ch        #
+#    Updated: 2026/11/01 10:26:49 by tschwab          ###   ########.ch        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
+
+BONUS_NAME = checker
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
-
-ROOT_SRCS = main.c \
-		bench_utils.c \
-		errors.c \
-		tests.c
 
 PARSING = parsing/parsing.c \
 		parsing/parsing_utils.c \
@@ -46,11 +43,18 @@ ONLOGN = algos/onlogn/onlogn.c \
 			algos/onlogn/onlogn_small.c \
 			algos/onlogn/onlogn_utils.c
 
-SRCS = ${ROOT_SRCS} ${PARSING} ${MOVES} ${ON2} ${ONROOTN} ${ONLOGN}
+SHARED = errors.c ${PARSING} ${MOVES}
 
-OBJS = $(SRCS:.c=.o)
+OBJS = $(SHARED:.c=.o) $(SRCS:.c=.o)
 
 INCLUDES = -Iincludes -I$(LIBFT_DIR)
+
+SRCS = main.c bench_utils.c tests.c \
+		${ON2} ${ONROOTN} ${ONLOGN}
+
+CHECKER = checker_bonus/main_bonus.c
+
+BONUS_OBJS = $(SHARED:.c=.o) $(CHECKER:.c=.o)
 
 all: $(NAME)
 
@@ -65,12 +69,19 @@ $(LIBFT):
 
 clean:
 	rm -f $(OBJS)
+	rm -f $(BONUS_OBJS)
 	$(MAKE) -C $(LIBFT_DIR) clean
 
 fclean: clean
 	rm -f $(NAME)
+	rm -f $(BONUS_NAME)
 	$(MAKE) -C $(LIBFT_DIR) fclean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+bonus: ${BONUS_NAME}
+
+$(BONUS_NAME): $(LIBFT) $(BONUS_OBJS)
+	$(CC) $(CFLAGS) $(BONUS_OBJS) $(LIBFT) -o $(BONUS_NAME)
+
+.PHONY: all clean fclean re bonus

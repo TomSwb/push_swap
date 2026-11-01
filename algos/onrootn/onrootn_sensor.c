@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "onrootn.h"
+#include "push_swap.h"
 
 /*
 GOAL : keeps elements of bucket 0 in stack A, sends the other in stack B

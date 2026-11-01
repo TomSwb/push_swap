@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "onrootn.h"
+#include "push_swap.h"
 /*
 GOAL : Rotates stack A to bring the "winner" sensor to the top and tries
 	to do double move when possible

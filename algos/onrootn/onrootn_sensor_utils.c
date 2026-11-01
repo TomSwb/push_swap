@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "onrootn.h"
+#include "push_swap.h"
 
 /*
 GOAL : Go through the stack to know if there's only value of the bucket 0

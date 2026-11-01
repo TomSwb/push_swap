@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "onrootn.h"
+#include "push_swap.h"
 
 /*
 GOAL : Testes if the top of stack B is set to the 

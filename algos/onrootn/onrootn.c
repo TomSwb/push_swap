@@ -6,10 +6,11 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/01 21:48:19 by atardy            #+#    #+#             */
-/*   Updated: 2026/11/02 00:24:01 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/11/02 00:31:43 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "on2.h"
 #include "push_swap.h"
 
 /*
@@ -24,6 +25,7 @@ void	bucket_sort(t_stack *stack_a, t_stack *stack_b)
 
 	init_data(stack_a, &data);
 	dispatch(stack_a, stack_b, &data);
+	sort_first_three(stack_a, stack_b);
 	bring_back(stack_a, stack_b);
 }
 
@@ -37,7 +39,7 @@ void	dispatch(t_stack *s_a, t_stack *s_b, t_sensor *data)
 {
 	t_value	*closest;
 
-	while (s_a->top != NULL)
+	while (s_a->size <= 3)
 	{
 		closest = find_closest(s_a, data);
 		while (s_a->top != closest)

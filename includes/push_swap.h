@@ -17,11 +17,15 @@
 
 // libft, malloc(), free(), read(), write(), exit()
 # include "libft.h"
+
 // Others:
 # include "structs.h"
 # include "on2.h"
 # include "onrootn.h"
 # include "onlogn.h"
+
+// Bonus:
+# include "checker_bonus.h"
 
 // --- Functions --- //
 

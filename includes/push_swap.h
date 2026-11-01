@@ -1,0 +1,92 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: atardy <atardy@student.42lausanne.ch>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/20 16:31:37 by atardy            #+#    #+#             */
+/*   Updated: 2026/10/20 16:31:37 by atardy           ###   ########.ch       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
+
+// --- Libraries --- //
+
+// libft, malloc(), free(), read(), write(), exit()
+# include "libft.h"
+
+// Others:
+# include "structs.h"
+# include "on2.h"
+# include "onrootn.h"
+# include "onlogn.h"
+
+// --- Functions --- //
+
+// root/
+
+// main.c
+void	push_swap(t_stack *stack_a, t_stack *stack_b);
+void	adaptive(t_stack *stack_a, t_stack *stack_b);
+void	bench(t_stack *stack_a);
+
+// errors.c
+int		write_error(void);
+
+// bench_utils.c
+void	print_disorder(t_stack *stack_a);
+void	print_strategy(t_stack *stack_a);
+void	print_ops(t_stack *stack_a);
+int		moves_count(t_stack *stack_a);
+void	print_count(char *label, int count);
+
+// parsing/
+
+// parsing.c
+int		flags_parsing(int argc, char **argv, t_stack *s_a);
+int		parsing(int start, char **argv, t_stack *stack_a);
+int		stack_from_arg(char *arg, t_stack *stack_a);
+
+// parsing_utils.c
+int		check_int(char *content);
+t_value	*lstnew(void *content, int id);
+void	lstadd(t_stack *head, t_value *node);
+int		lstclear(t_stack *head, int error);
+int		check_double(t_stack *head);
+
+// parsing_utils_2.c
+void	stack_initializer(t_stack *st);
+int		freeturn(char **int_lst);
+
+// disorder.c
+void	disorder(t_stack *stack_a);
+size_t	disorder_check(t_stack *stack_a, t_value *ptr_a,
+			long long *mistakes, size_t i);
+void	rank_parsing(t_stack *stack_a);
+
+// moves/
+
+// s_moves.c
+void	sa(t_stack *stk_A, t_stack *stk_B, int ss_bool);
+void	sb(t_stack *stk_A, t_stack *stk_B, int ss_bool);
+void	ss(t_stack *stk_A, t_stack *stk_B, int print_bool);
+
+// p_moves.c
+void	pa(t_stack *stk_A, t_stack *stk_B, int pb_bool);
+void	pa_2(t_stack *stk_A, t_stack *stk_B, t_value *temp_b);
+void	pb(t_stack *stk_A, t_stack *stk_B, int print_bool);
+
+// r_moves.c
+void	ra(t_stack *stack_a, t_stack *stack_b, int rr_bool);
+void	rb(t_stack *stack_a, t_stack *stack_b, int rr_bool);
+void	rr(t_stack *stack_a, t_stack *stack_b, int print_bool);
+
+// rr_moves.c
+void	rra(t_stack *stack_a, t_stack *stack_b, int rrr_bool);
+void	rrb(t_stack *stack_a, t_stack *stack_b, int rrr_bool);
+void	rrr(t_stack *stack_a, t_stack *stack_b, int print_bool);
+
+#endif

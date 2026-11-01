@@ -6,11 +6,11 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/25 13:29:32 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/25 13:52:50 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/11/01 12:21:34 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "onlogn.h"
+#include "push_swap.h"
 
 /**
 * @brief
@@ -62,11 +62,11 @@ void	split_top_a(t_stack *stack_a, t_stack *stack_b, t_chunk *chunk)
 	{
 		if (stack_a->top->rank < chunk->pivot_low)
 		{
-			pb(stack_a, stack_b);
+			pb(stack_a, stack_b, 0);
 			rb(stack_a, stack_b, 0);
 		}
 		else if (stack_a->top->rank < chunk->pivot_high)
-			pb(stack_a, stack_b);
+			pb(stack_a, stack_b, 0);
 		else
 			ra(stack_a, stack_b, 0);
 		i++;
@@ -100,11 +100,11 @@ void	split_bot_a(t_stack *stack_a, t_stack *stack_b, t_chunk *chunk)
 		rra(stack_a, stack_b, 0);
 		if (stack_a->top->rank < chunk->pivot_low)
 		{
-			pb(stack_a, stack_b);
+			pb(stack_a, stack_b, 0);
 			rb(stack_a, stack_b, 0);
 		}
 		else if (stack_a->top->rank < chunk->pivot_high)
-			pb(stack_a, stack_b);
+			pb(stack_a, stack_b, 0);
 		i++;
 	}
 	chunk->loc_small = BOT_B;

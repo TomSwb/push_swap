@@ -6,11 +6,11 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 13:28:41 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/26 14:57:20 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/11/01 12:20:20 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "on2.h"
+#include "push_swap.h"
 
 /**
 * @brief
@@ -65,7 +65,7 @@ void	push_halves_to_b(t_stack *stack_a, t_stack *stack_b)
 	middle_rank = stack_a->size / 2;
 	while (3 < stack_a->size)
 	{
-		pb(stack_a, stack_b);
+		pb(stack_a, stack_b, 0);
 		if (stack_b->top->rank < middle_rank)
 			rb(stack_a, stack_b, 0);
 	}

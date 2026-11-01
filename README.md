@@ -63,7 +63,7 @@ make re       # fclean + make
 
 ```bash
 $> ./push_swap 2 1 3 6 5 8
-$> ARG="4 67 3 87 23"; ./push_swap --complex $ARG | ./checker_linux $ARG
+$> ARG="4 67 3 87 23"; ./push_swap --complex $ARG | ./checker $ARG
 OK
 $> ARG="4 67 3 87 23"; ./push_swap $ARG | wc -l
 ```
@@ -118,11 +118,42 @@ ARG=$(shuf -i 0-9999 -n 500 | tr '\n' ' '); ./push_swap --bench --complex $ARG >
 Verify with the checker while saving the metrics to a file:
 
 ```bash
-ARG=$(shuf -i 0-9999 -n 500 | tr '\n' ' '); ./push_swap --bench $ARG 2> bench.txt | ./checker_linux $ARG; cat bench.txt
+ARG=$(shuf -i 0-9999 -n 500 | tr '\n' ' '); ./push_swap --bench $ARG 2> bench.txt | ./checker $ARG; cat bench.txt
 ```
 
-> [!NOTE]
-> 🟩 **TODO (both):** if the checker bonus is done, add a "Checker (bonus)" subsection: usage, OK / KO / Error, example
+### Checker (bonus)
+
+```bash
+make bonus    # builds ./checker
+```
+
+```bash
+./checker <numbers>
+```
+
+The checker takes the same numbers as push_swap, reads a list of moves from stdin (one per line, usually push_swap's output), applies them to its own copy of the stacks and prints:
+
+| Output | Stream | When |
+|---|---|---|
+| `OK` | stdout | every move was valid, stack a is sorted and stack b is empty |
+| `KO` | stdout | every move was valid, but a is not sorted or b is not empty |
+| `Error` | stderr | something is invalid: a bad argument (same rules as push_swap), an unknown move, a wrong case, extra spaces, an empty line… |
+
+Without arguments, `./checker` prints nothing and doesn't read stdin.
+
+```bash
+$> ARG="4 67 3 87 23"; ./push_swap $ARG | ./checker $ARG
+OK
+```
+
+```bash
+$> printf 'sa\n' | ./checker 2 1 3
+OK
+$> printf 'ra\n' | ./checker 2 1 3
+KO
+$> printf 'sa \n' | ./checker 2 1 3
+Error
+```
 
 ## Algorithms
 

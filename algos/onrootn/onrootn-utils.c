@@ -14,7 +14,10 @@
 
 void	init_data(t_stack *stack_a, t_sensor *data)
 {
-	data->chunk_size = find_nxt_root(stack_a->init_size);
+	int	tweaker;
+
+	tweaker = find_nxt_root(stack_a->init_size) * 5 / 2;
+	data->chunk_size = tweaker;
 	data->limit = data->chunk_size;
 	data->pushed = 0;
 	data->half = data->chunk_size / 2;
@@ -43,7 +46,8 @@ t_value	*find_closest(t_stack *stack_a, t_sensor *data)
 
 	data->top_pos = 0;
 	top = stack_a->top;
-	while (top->rank >= data->limit || top->rank >= (int)stack_a->init_size - 3)
+	while (top->rank >= data->limit
+			|| top->rank >= (int)stack_a->init_size - 3)
 	{
 		data->top_pos++;
 		top = top->next;

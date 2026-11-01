@@ -18,7 +18,7 @@ void	init_data(t_stack *stack_a, t_sensor *data)
 	data->chunk_size = find_nxt_root(stack_a->init_size);
 	data->limit = data->chunk_size;
 	data->pushed = 0;
-	data->half = data->limit - data->chunk_size / 2;
+	data->half = data->chunk_size / 2;
 	data->top_pos = 0;
 	data->bottom_pos = 0;
 }

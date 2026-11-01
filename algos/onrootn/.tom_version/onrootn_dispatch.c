@@ -15,8 +15,9 @@
 #include "structs.h"
 
 /*
-GOAL : keeps elements of bucket 0 in stack A, sends the other in stack B
-	grouped by buckets!
+GOAL : Sends all elements to s_b by chuncks, closest element of
+the current chunck first.
+
 No return value
 */
 void	dispatch(t_stack *s_a, t_stack *s_b, t_sensor *data)

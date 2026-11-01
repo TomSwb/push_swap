@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "structs.h"
 /*
 GOAL : Set-up the "flag" and "bench" parameter in stack-a. Also check if 
 	there's at least one of the 3 first args that START with a digit.
@@ -50,16 +49,12 @@ GOAL : take all the ints in arguments and allocate a t_value struct per int
 Return 1 : if an error occured during parsing
 Return 0 : if everything went fine. 
 */
-int	parsing(int argc, char **argv, t_stack *stack_a)
+int	parsing(char **argv, t_stack *stack_a)
 {
-	argc--;
 	argv++;
 	while (*argv && argv[0][0] == '-' && argv[0][1] == '-')
-	{
 		argv++;
-		argc--;
-	}
-	while (argv)
+	while (*argv)
 	{
 		if (stack_from_arg(*argv, stack_a))
 			return (1);
@@ -100,74 +95,5 @@ int	stack_from_arg(char *arg, t_stack *stack_a)
 		i++;
 	}
 	freeturn (int_lst);
-	return (0);
-}
-
-/*
-GOAL : Creating one node per value in the int_list (from split) by using
-		lstnew and lstadd.
-Return 1 : if a value doesn't pass the check_int value OR
-		if a lstnew had a problem to create the structs.
-Return 0 : if everything went fine. 
-*/
-int	stack_from_split(char **int_lst, t_stack *stack_a)
-{
-	int		i;
-	t_value	*node;
-
-	i = 0;
-	while (int_lst[++i])
-	{
-		if (check_int(int_lst[i]) > 0)
-			return (1);
-		node = lstnew(int_lst[i], i + 1);
-		if (!node)
-			return (1);
-		lstadd(stack_a, node);
-	}
-	stack_a->init_size = i;
-	i = -1;
-	while (int_lst[++i])
-	{
-		free (int_lst[i]);
-		int_lst[i] = NULL;
-	}
-	free (int_lst);
-	int_lst = NULL;
-	return (0);
-}
-
-
-
-
-/*
-GOAL : Creating one node per value in the int_list (from args) by using
-		lstnew and lstadd.
-Return 1 : if a value doesn't pass the check_int value OR
-		if a lstnew had a problem to create a struct.
-Return 0 : if everything went fine. 
-*/
-int	pars_from_argv(int nb_int, char **int_lst, t_stack *stack_a)
-{
-	int		i;
-	t_value	*node;
-
-	i = 0;
-	if (check_int(int_lst[0]) > 0)
-		return (1);
-	node = lstnew(int_lst[i], i);
-	if (!node)
-		return (1);
-	stack_a->top = node;
-	while (++i < nb_int)
-	{
-		if (check_int(int_lst[i]) > 0)
-			return (1);
-		node = lstnew(int_lst[i], i);
-		if (!node)
-			return (1);
-		lstadd(stack_a, node);
-	}
-	stack_a->init_size = nb_int;
 	return (0);
 }

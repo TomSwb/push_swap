@@ -25,7 +25,7 @@ int	main(int argc, char **argv)
 		return (write_error());
 	if (stack_a.flag == 0)
 		stack_a.flag = 4;
-	if (parsing(argc, argv, &stack_a) || check_double(&stack_a))
+	if (parsing(argv, &stack_a) || check_double(&stack_a))
 		return (lstclear(&stack_a, 1));
 	stack_a.size = stack_a.init_size;
 	rank_parsing(&stack_a);

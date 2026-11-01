@@ -47,9 +47,8 @@ void	print_count(char *label, int count);
 
 // parsing.c
 int		flags_parsing(int argc, char **argv, t_stack *s_a);
-int		parsing(int argc, char **argv, t_stack *stack_a);
-int		stack_from_split(char **int_lst, t_stack *stack_a);
-int		pars_from_argv(int nb_int, char **int_lst, t_stack *stack_a);
+int		parsing(char **argv, t_stack *stack_a);
+int		stack_from_arg(char *arg, t_stack *stack_a);
 
 // parsing_utils.c
 int		check_int(char *content);

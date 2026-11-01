@@ -25,8 +25,8 @@ int	flags_parsing(int argc, char **argv, t_stack *s_a)
 	i = 0;
 	while (++i <= 3 && i < argc)
 	{
-		if (ft_isdigit(argv[i][0]) || (argv[i][0] == '-'
-			&& ft_isdigit(argv[i][1])))
+		if (ft_isdigit(argv[i][0]) || ((argv[i][0] == '-' || argv[i][0] == '+')
+		&& ft_isdigit(argv[i][1])))
 			return (0);
 		else if (ft_memcmp(argv[i], "--simple", 9) == 0 && s_a->flag == 0)
 			s_a->flag = 1;

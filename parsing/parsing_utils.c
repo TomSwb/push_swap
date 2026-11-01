@@ -14,30 +14,31 @@
 
 /*
 GOAL : Check if this int is a valid one (in int range && only digit)
-Return 1 or more : if int is not valid
-Return 0 or less : if int is valid
+Return 1 : if int is not valid
+Return 0 : if int is valid
 */
 int	check_int(char *content)
 {
-	int	i;
+	int		neg;
+	size_t	i;
 
-	i = -1;
-	if (content[0] == '\0' || (content[0] == '-' && !ft_isdigit(content[1])))
+	if (content[0] == '\0' || ((content[0] == '-' || content[0] == '+')
+		&& !ft_isdigit(content[1])))
 		return (1);
-	while (content[++i])
-		if (!(ft_isdigit(content[i]) || (i == 0 && content[i] == '-')))
+	neg = (content[0] == '-');
+	if (content[0] == '-' || content[0] == '+')
+		content++;
+	while (content[0] == '0' && content[1] != '\0')
+		content++;
+	i = 0;
+	while (content[i])
+		if (!ft_isdigit(content[i++]))
 			return (1);
-	if ((content[0] == '-' && ft_strlen(content) > 11)
-		|| (content[0] != '-' && ft_strlen(content) > 10))
-		return (1);
-	else if ((content[0] == '-' && ft_strlen(content) < 11)
-		|| (content[0] != '-' && ft_strlen(content) < 10))
-		return (0);
-	if (content[0] == '-')
-		return (ft_strncmp(content, "-2147483648", 11));
-	else if (content[0] != '-')
-		return (ft_strncmp(content, "2147483647", 10));
-	return (1);
+	if (i != 10)
+		return (i > 10);
+	if (neg)
+		return (ft_strncmp(content, "2147483648", 10) > 0);
+	return (ft_strncmp(content, "2147483647", 10));
 }
 
 /*

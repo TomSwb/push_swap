@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/01 10:46:10 by tschwab           #+#    #+#             */
-/*   Updated: 2026/11/01 13:29:19 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/11/01 14:05:54 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int	digit_check(int argc, char **argv)
 	i = 1;
 	while (i < argc)
 	{
-		if (ft_isdigit(argv[i][0]) || (argv[i][0] == '-'
-			&& ft_isdigit(argv[i][1])))
+		if (ft_isdigit(argv[i][0]) || ((argv[i][0] == '-'
+			|| argv[i][0] == '+') && ft_isdigit(argv[i][1])))
 			i++;
 		else
 			return (1);

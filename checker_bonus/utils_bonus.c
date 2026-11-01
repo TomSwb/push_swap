@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/01 10:46:10 by tschwab           #+#    #+#             */
-/*   Updated: 2026/11/01 11:26:02 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/11/01 11:41:21 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,16 @@ int	digit_check(int argc, char **argv)
 
 t_move	check_what_move(char *s)
 {
-	t_move	move;
+	static const char	*moves[11] = {"pa", "pb", "sa", "sb", "ss",
+	"ra", "rb", "rr", "rra", "rrb", "rrr"};
+	int	i;
 	
-	if (ft_memcmp("sa\n", s, 3))
-		move = SA;
+	i = 0;
+	while (moves[i])
+	{
+		if (ft_strncmp(s, moves[i], ft_strlen(s)))
+			return ((t_move)i);
+		i++;
+	}
+	return (ERROR);
 }

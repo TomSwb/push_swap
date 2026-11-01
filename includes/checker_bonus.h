@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/01 10:44:03 by tschwab           #+#    #+#             */
-/*   Updated: 2026/11/01 11:24:16 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/11/01 11:57:40 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ typedef enum e_move
 
 // main_bonus.c
 int		checker(t_stack *stack_a, t_stack *stack_b);
+void	apply_move(t_stack *stack_a, t_stack *stack_b, t_move move);
+int		is_sort(t_stack *stack_a, t_stack *stack_b);
 
 // utils_bonus.c
 int		digit_check(int argc, char **argv);

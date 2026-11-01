@@ -5,17 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: atardy <atardy@student.42lausanne.ch>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/28 13:47:23 by atardy            #+#    #+#             */
-/*   Updated: 2026/10/28 13:47:23 by atardy           ###   ########.ch       */
+/*   Created: 2026/11/01 17:25:12 by atardy            #+#    #+#             */
+/*   Updated: 2026/11/01 17:30:28 by atardy           ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "onrootn.h"
-
+/*
+GOAL : Rotates stack A to bring the "winner" sensor to the top and tries
+	to do double move when possible
+Return : void
+*/
 void	win_to_top(t_stack *s_a, t_stack *s_b, t_sensor **snr)
 {
 	int	win;
-	
+
 	win = snr[0]->winner;
 	if (win == 0 && snr[win]->rr <= snr[win]->r && snr[win]->rr >= 2)
 	{
@@ -39,6 +43,11 @@ void	win_to_top(t_stack *s_a, t_stack *s_b, t_sensor **snr)
 		win_to_top_2(s_a, s_b, snr);
 }
 
+/*
+GOAL : Same but with sensor [3] and [4] :Rotates stack A to bring the "winner"
+	sensor to the top and tries to do double move when possible
+Return : void
+*/
 void	win_to_top_2(t_stack *s_a, t_stack *s_b, t_sensor **snr)
 {
 	int	win;
@@ -64,6 +73,10 @@ void	win_to_top_2(t_stack *s_a, t_stack *s_b, t_sensor **snr)
 	}
 }
 
+/*
+GOAL : Moves back the top of stack A after the "winner" was moved to stack B
+Return : void
+*/
 void	moving_back(t_stack *s_a, t_stack *s_b, t_sensor **snr)
 {
 	int	win;
@@ -85,26 +98,22 @@ void	moving_back(t_stack *s_a, t_stack *s_b, t_sensor **snr)
 	}
 }
 
+/*
+GOAL : Rotates stack B so that, when the top value of A is pushed,
+	it ends next to the corresponding bucket
+Return : void
+*/
 void	rotating_b (t_stack *s_a, t_stack *s_b, t_sensor *snr)
 {
-// int rank_next;
-// int	bucket_top;
-// int	rank_prev;
 	int	rota;
-	// ft_printf ("snr->r = %d || snr->rr = %d\n", snr->r, snr->rr);
 	if (!snr->r || !snr->rr)
 	{
 		pb(s_a, s_b);
-// rank_next = rk_to_buc(s_b->top->next, snr);
-// bucket_top = rk_to_buc(s_b->top, snr);
-// rank_prev = rk_to_buc(s_b->top->prev, snr);
-// ft_printf ("prev buck = %2d || top->buck = %2d || next->buck = %2d\n\n", rank_prev, bucket_top, rank_next);
 		return ;
 	}
 	if (snr->r < snr->rr)
 	{
 		rota = snr->r;
-		// ft_printf ("rota = %d", rota);
 		while (rota-- != 0)
 			rb(s_a, s_b, 0);
 	}
@@ -115,8 +124,4 @@ void	rotating_b (t_stack *s_a, t_stack *s_b, t_sensor *snr)
 			rrb(s_a, s_b, 0);
 	}
 	pb(s_a, s_b);
-// rank_next = rk_to_buc(s_b->top->next, snr);
-// bucket_top = rk_to_buc(s_b->top, snr);
-// rank_prev = rk_to_buc(s_b->top->prev, snr);
-// ft_printf ("prev buck = %2d || top->buck = %2d || next->buck = %2d\n\n", rank_prev, bucket_top, rank_next);
 }

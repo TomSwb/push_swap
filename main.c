@@ -16,7 +16,7 @@ int	main(int argc, char **argv)
 {
 	t_stack	stack_a;
 	t_stack	stack_b;
-	int 	start;
+	int		start;
 
 	if (argc == 1)
 		return (0);

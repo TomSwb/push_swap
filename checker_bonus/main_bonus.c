@@ -6,11 +6,12 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 12:08:15 by tschwab           #+#    #+#             */
-/*   Updated: 2026/11/01 15:20:07 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/11/01 15:29:58 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
+#include "structs.h"
 
 int	main(int argc, char **argv)
 {
@@ -85,18 +86,19 @@ void	apply_move(t_stack *stack_a, t_stack *stack_b, t_move move)
 int	is_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	t_value	*temp;
+	t_value	*last;
 
-	if (stack_a->top == NULL)
+	if (stack_b->top != NULL)
 		return (-1);
+	if (stack_a->top == NULL)
+		return (1);
 	temp = stack_a->top;
-	stack_a->top = stack_a->top->prev;
-	while (stack_a->top != NULL && temp != stack_a->top)
+	last = stack_a->top->prev;
+	while (temp != last)
 	{
 		if (temp->value > temp->next->value)
 			return (-1);
 		temp = temp->next;
 	}
-	if (stack_b->top != NULL)
-		return (-1);
 	return (1);
 }

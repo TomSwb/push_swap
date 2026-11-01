@@ -23,7 +23,7 @@ int	check_int(char *content)
 	size_t	i;
 
 	if (content[0] == '\0' || ((content[0] == '-' || content[0] == '+')
-		&& !ft_isdigit(content[1])))
+			&& !ft_isdigit(content[1])))
 		return (1);
 	neg = (content[0] == '-');
 	if (content[0] == '-' || content[0] == '+')
@@ -122,6 +122,8 @@ int	check_double(t_stack *head)
 	t_value	*read;
 	int		id_stop;
 
+	if (head->top == NULL)
+		return (0);
 	checked = head->top;
 	id_stop = -1;
 	while (checked->id != id_stop)

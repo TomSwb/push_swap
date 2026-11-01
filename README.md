@@ -55,9 +55,7 @@ make re       # fclean + make
 - Non-integer arguments, numbers outside the `int` range or duplicates print `Error` on stderr.
 - Already sorted input prints no operations.
 - Flags can be given in any order; only one strategy flag is allowed.
-
-> [!NOTE]
-> 🟩 **TODO (both):** double-check every line above against the final behaviour (mixed formats? "" ?)
+- Mixed formats (`./push_swap 3 2 1 "5 7 9"`) and containing uneven spacing (`./push_swap 3  2  1 "5 7  9 "`) parse as per the reference (fedora_checker).
 
 ### Examples
 
@@ -264,11 +262,12 @@ Small inputs: 3 numbers in at most 2 operations, 5 numbers in 8–11.
 - **Error handling**.
 
 **tschwab**
-- **Operations:** `ra` `rb` `rr` `rra` `rrb` `rrr`.
 - **Disorder, ranks and adaptive dispatch**
+- **Operations:** `ra` `rb` `rr` `rra` `rrb` `rrr`.
 - **Simple and Complex algorithms**, O(n²) and O(n log n).
 - **`--bench`.**
 - **Checker** (bonus).
+- **Parsing:** Corrections to handle '+', leading '0', and trailing spaces. 
 
 **Both**
 - Data structure design, Makefile, README.

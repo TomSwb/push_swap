@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/01 21:48:19 by atardy            #+#    #+#             */
-/*   Updated: 2026/11/02 00:31:43 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/11/02 00:32:42 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	dispatch(t_stack *s_a, t_stack *s_b, t_sensor *data)
 {
 	t_value	*closest;
 
-	while (s_a->size <= 3)
+	while (s_a->size > 3)
 	{
 		closest = find_closest(s_a, data);
 		while (s_a->top != closest)

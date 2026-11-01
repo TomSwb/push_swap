@@ -13,11 +13,12 @@
 #include "push_swap.h"
 
 /*
-GOAL : Set-up the "flag" and "bench" parameter in stack-a. Also check if 
-	there's at least one of the 3 first args that START with a digit.
-Return 0 - success: It finds only valid flags then an arg that START with a nb
-Return 1 - failure: The 3 (or less if argc <3) first args are not only 
-valid flags or an arg that starts with a number.
+GOAL : Set up the "flag" and "bench" parameters in stack_a from the leading
+	flags, and find where the numbers start.
+Return i - success: index of the first argument that is not a valid flag
+	(numbers start there; parsing() checks them).
+Return 0 - failure: a strategy flag or --bench appears twice, or there are
+	only flags and no numbers.
 */
 int	flags_parsing(int argc, char **argv, t_stack *s_a)
 {
@@ -60,14 +61,11 @@ int	parsing(int start, char **argv, t_stack *stack_a)
 	return (0);
 }
 
-/**
-* @brief
-Splits the arguments into nodes no matter if they are given as one string,
-multiple strings or simple numbers.
-
-* @param char *arg
-* @param t_stack *stack_a
-* @return int
+/*
+GOAL : Split one argument on spaces and add one node per number to stack_a
+	(works for a single number, a string of numbers or an empty string).
+Return 1 : if a value is not a valid int or a malloc failed.
+Return 0 : if everything went fine.
 */
 int	stack_from_arg(char *arg, t_stack *stack_a)
 {

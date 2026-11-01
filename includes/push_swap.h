@@ -24,9 +24,6 @@
 # include "onrootn.h"
 # include "onlogn.h"
 
-// Bonus:
-# include "checker_bonus.h"
-
 // --- Functions --- //
 
 // root/
@@ -45,10 +42,6 @@ void	print_strategy(t_stack *stack_a);
 void	print_ops(t_stack *stack_a);
 int		moves_count(t_stack *stack_a);
 void	print_count(char *label, int count);
-
-// tests.c
-void	tests(t_stack *stack_a, t_stack *stack_b);
-void	print_values(t_stack *stack, int nb_to_print);
 
 // parsing/
 

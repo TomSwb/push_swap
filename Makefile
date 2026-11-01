@@ -6,7 +6,7 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/20 11:33:03 by tschwab           #+#    #+#              #
-#    Updated: 2026/11/01 10:48:52 by tschwab          ###   ########.ch        #
+#    Updated: 2026/11/01 13:24:45 by tschwab          ###   ########.ch        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,7 @@ SHARED = errors.c ${PARSING} ${MOVES}
 
 INCLUDES = -Iincludes -I$(LIBFT_DIR)
 
-SRCS = main.c bench_utils.c tests.c \
+SRCS = main.c bench_utils.c \
 		${ON2} ${ONROOTN} ${ONLOGN}
 
 OBJS = $(SHARED:.c=.o) $(SRCS:.c=.o)

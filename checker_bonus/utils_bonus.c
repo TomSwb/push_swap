@@ -6,11 +6,11 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/01 10:46:10 by tschwab           #+#    #+#             */
-/*   Updated: 2026/11/01 12:50:19 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/11/01 13:29:19 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker_bonus.h"
 
 int	digit_check(int argc, char **argv)
 {

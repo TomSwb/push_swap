@@ -6,11 +6,11 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 12:08:15 by tschwab           #+#    #+#             */
-/*   Updated: 2026/11/01 12:50:28 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/11/01 13:28:44 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker_bonus.h"
 
 int	main(int argc, char **argv)
 {

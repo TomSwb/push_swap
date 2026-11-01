@@ -80,7 +80,7 @@ void	rank_parsing(t_stack *stack_a);
 // s_moves.c
 void	sa(t_stack *stk_A, t_stack *stk_B, int ss_bool);
 void	sb(t_stack *stk_A, t_stack *stk_B, int ss_bool);
-void	ss(t_stack *stk_A, t_stack *stk_B);
+void	ss(t_stack *stk_A, t_stack *stk_B, int print_bool);
 
 // p_moves.c
 void	pa(t_stack *stk_A, t_stack *stk_B, int pb_bool);
@@ -90,11 +90,11 @@ void	pb(t_stack *stk_A, t_stack *stk_B, int print_bool);
 // r_moves.c
 void	ra(t_stack *stack_a, t_stack *stack_b, int rr_bool);
 void	rb(t_stack *stack_a, t_stack *stack_b, int rr_bool);
-void	rr(t_stack *stack_a, t_stack *stack_b);
+void	rr(t_stack *stack_a, t_stack *stack_b, int print_bool);
 
 // rr_moves.c
 void	rra(t_stack *stack_a, t_stack *stack_b, int rrr_bool);
 void	rrb(t_stack *stack_a, t_stack *stack_b, int rrr_bool);
-void	rrr(t_stack *stack_a, t_stack *stack_b);
+void	rrr(t_stack *stack_a, t_stack *stack_b, int print_bool);
 
 #endif

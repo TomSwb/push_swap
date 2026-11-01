@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 12:08:15 by tschwab           #+#    #+#             */
-/*   Updated: 2026/11/01 12:25:30 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/11/01 12:34:19 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,10 @@ int	checker(t_stack *stack_a, t_stack *stack_b)
 			return (free(line), 0);
 		else
 			apply_move(stack_a, stack_b, move);
+		free(line);
 		line = get_next_line(0);
 	}
+	free(line);
 	return (is_sort(stack_a, stack_b));
 }
 
@@ -71,25 +73,27 @@ void	apply_move(t_stack *stack_a, t_stack *stack_b, t_move move)
 	else if (move == SB)
 		sb(stack_a, stack_b, 1);
 	else if (move == SS)
-		ss(stack_a, stack_b);
+		ss(stack_a, stack_b, 1);
 	else if (move == RA)
 		ra(stack_a, stack_b, 1);
 	else if (move == RB)
 		rb(stack_a, stack_b, 1);
 	else if (move == RR)
-		rr(stack_a, stack_b);
+		rr(stack_a, stack_b, 1);
 	else if (move == RRA)
 		rra(stack_a, stack_b, 1);
 	else if (move == RRB)
 		rrb(stack_a, stack_b, 1);
 	else if (move == RRR)
-		rrr(stack_a, stack_b);
+		rrr(stack_a, stack_b, 1);
 }
 
 int	is_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	t_value	*temp;
 
+	if (stack_a->top == NULL)
+		return (-1);
 	temp = stack_a->top;
 	stack_a->top = stack_a->top->prev;
 	while (stack_a->top != NULL && temp != stack_a->top)

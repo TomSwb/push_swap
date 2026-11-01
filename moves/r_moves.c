@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/17 14:57:15 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/26 21:25:54 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/11/01 12:30:20 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,12 +73,15 @@ Does nothing if either stack is empty.
 * @param t_stack *stack_b
 * @return void
 */
-void	rr(t_stack *stack_a, t_stack *stack_b)
+void	rr(t_stack *stack_a, t_stack *stack_b, int print_bool)
 {
 	if (!stack_a->top || !stack_b->top)
 		return ;
 	ra(stack_a, stack_b, 1);
 	rb(stack_a, stack_b, 1);
-	ft_printf("rr\n");
-	(stack_a->moves.rr_moves)++;
+	if (!print_bool)
+	{
+		ft_printf("rr\n");
+		(stack_a->moves.rr_moves)++;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 14:58:30 by tschwab           #+#    #+#             */
-/*   Updated: 2026/10/26 21:24:43 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/11/01 12:32:33 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,13 @@ void	move_together(t_stack *stack_a, t_stack *stack_b, t_cheapest *cheapest)
 {
 	while (cheapest->a_moves > 0 && cheapest->b_moves > 0)
 	{
-		rr(stack_a, stack_b);
+		rr(stack_a, stack_b, 0);
 		cheapest->a_moves--;
 		cheapest->b_moves--;
 	}
 	while (cheapest->a_moves < 0 && cheapest->b_moves < 0)
 	{
-		rrr(stack_a, stack_b);
+		rrr(stack_a, stack_b, 0);
 		cheapest->a_moves++;
 		cheapest->b_moves++;
 	}

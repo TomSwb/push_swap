@@ -62,16 +62,16 @@ void	sort_a (t_stack *s_a, t_stack *s_b, t_sensor *snr, int rvrs)
 			&& s_a->top->next->rank == snr->min_rank)
 			&& rk_to_buc(s_b->top, snr) == rk_to_buc(s_b->top->next, snr)
 			&& s_b->top->rank < s_b->top->next->rank)
-			ss (s_a, s_b);
+			ss (s_a, s_b, 0);
 		else if (s_a->top->rank > s_a->top->next->rank
 			&& !(s_a->top->rank == snr->max_rank && s_a->top->next->rank == snr->min_rank))
 			sa (s_a, s_b, 0);
 		if (!rvrs && !buck_max_to_top(s_b, snr))
-			rr (s_a, s_b);
+			rr (s_a, s_b, 0);
 		else if (!rvrs)
 			ra (s_a, s_b, 0);	
 		if (rvrs && !buck_max_to_top(s_b, snr))
-			rrr (s_a, s_b);
+			rrr (s_a, s_b, 0);
 		else if (rvrs)
 			rra (s_a, s_b, 0);
 	}

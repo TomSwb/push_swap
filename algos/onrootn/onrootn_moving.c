@@ -23,8 +23,8 @@ void	win_to_top(t_stack *s_a, t_stack *s_b, t_sensor **snr)
 	win = snr[0]->winner;
 	if (win == 0 && snr[win]->rr <= snr[win]->r && snr[win]->rr >= 2)
 	{
-		rrr (s_a, s_b);
-		rrr (s_a, s_b);
+		rrr (s_a, s_b, 0);
+		rrr (s_a, s_b, 0);
 		snr[0]->rr -= 2;
 	}
 	else if (win == 0)
@@ -34,7 +34,7 @@ void	win_to_top(t_stack *s_a, t_stack *s_b, t_sensor **snr)
 	}
 	if (win == 1 && snr[win]->rr <= snr[win]->r && snr[win]->rr >= 1)
 	{
-		rrr (s_a, s_b);
+		rrr (s_a, s_b, 0);
 		snr[1]->rr -= 1;
 	}
 	else if (win == 1)
@@ -55,15 +55,15 @@ void	win_to_top_2(t_stack *s_a, t_stack *s_b, t_sensor **snr)
 	win = snr[0]->winner;
 	if (win == 3 && snr[win]->r <= snr[win]->rr && snr[win]->r >= 1)
 	{
-		rr (s_a, s_b);
+		rr (s_a, s_b, 0);
 		snr[3]->r -= 1;
 	}
 	else if (win == 3)
 		ra (s_a, s_b, 0);
 	if (win == 4 && snr[win]->r <= snr[win]->rr && snr[win]->r >= 2)
 	{
-		rr (s_a, s_b);
-		rr (s_a, s_b);
+		rr (s_a, s_b, 0);
+		rr (s_a, s_b, 0);
 		snr[4]->r -= 2;
 	}
 	else if (win == 4)
@@ -108,7 +108,7 @@ void	rotating_b (t_stack *s_a, t_stack *s_b, t_sensor *snr)
 	int	rota;
 	if (!snr->r || !snr->rr)
 	{
-		pb(s_a, s_b);
+		pb(s_a, s_b, 0);
 		return ;
 	}
 	if (snr->r < snr->rr)
@@ -123,5 +123,5 @@ void	rotating_b (t_stack *s_a, t_stack *s_b, t_sensor *snr)
 		while (rota-- != 0)
 			rrb(s_a, s_b, 0);
 	}
-	pb(s_a, s_b);
+	pb(s_a, s_b, 0);
 }

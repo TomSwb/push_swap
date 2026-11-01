@@ -45,7 +45,7 @@ void	edge_cases(t_stack *s_a, t_stack *s_b, t_sensor **snr)
 	if (snr[0]->bucket == 0)
 	{
 		if (snr[snr[0]->winner]->r > snr[snr[0]->winner]->rr)
-			rr (s_a, s_b);
+			rr (s_a, s_b, 0);
 		else 
 			ra (s_a, s_b, 0);
 		return ;

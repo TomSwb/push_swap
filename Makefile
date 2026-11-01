@@ -6,7 +6,7 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/20 11:33:03 by tschwab           #+#    #+#              #
-#    Updated: 2026/11/01 22:14:36 by tschwab          ###   ########.ch        #
+#    Updated: 2026/11/01 22:24:40 by tschwab          ###   ########.ch        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,13 @@ ON2	= algos/on2/on2.c \
 		algos/on2/on2_moves.c \
 		algos/on2/on2_utils.c
 
-ONROOTN =	algos/onrootn/onrootn.c
+ONROOTN =	algos/onrootn/onrootn.c \
+			algos/onrootn/onrootn-utils.c \
+			algos/onrootn/onrootn_bubble_sort.c \
+			algos/onrootn/onrootn_bubble_sort_utils.c \
+			algos/onrootn/onrootn_moving.c \
+			algos/onrootn/onrootn_sensor.c \
+			algos/onrootn/onrootn_sensor_utils.c
 
 ONLOGN = algos/onlogn/onlogn.c \
 			algos/onlogn/onlogn_split.c \

@@ -24,7 +24,7 @@ void	dispatch(t_stack *s_a, t_stack *s_b, t_sensor **snr)
 		if (rk_to_buc(s_a->top, snr[0]) == 0)
 			ra(s_a, s_b, 0);
 		else
-			pb(s_a, s_b);
+			pb(s_a, s_b, 0);
 	}
 	while (!is_only_0(s_a, snr[0]) && s_a->size > 3)
 	{

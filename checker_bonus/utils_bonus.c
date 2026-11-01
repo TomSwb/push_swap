@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/01 10:46:10 by tschwab           #+#    #+#             */
-/*   Updated: 2026/11/01 10:51:40 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/11/01 10:52:53 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	digit_check(int argc, char **argv)
 			&& ft_isdigit(argv[i][1])))
 			i++;
 		else
-		 	return (0);
+		 	return (1);
 	}
-	return (1);
+	return (0);
 }

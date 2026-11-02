@@ -28,6 +28,7 @@ typedef struct s_sensor
 	int	half;
 	int	top_pos;
 	int	bottom_pos;
+	int	rb_pending;
 }	t_sensor;
 
 // === Functions === //
@@ -40,6 +41,7 @@ void	bring_back(t_stack *s_a, t_stack *s_b);
 // onrootn_utils.c
 void	init_data(t_stack *stack_a, t_sensor *data);
 int		find_nxt_root(int size);
+void	handle_rot(t_stack *stack_a, t_stack *stack_b, t_sensor *data);
 t_value	*find_closest(t_stack *stack_a, t_sensor *data);
 
 // onrootn_bring_back_utils.c

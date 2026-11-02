@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/01 21:48:19 by atardy            #+#    #+#             */
-/*   Updated: 2026/11/02 01:36:43 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/11/02 01:46:14 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,22 +45,19 @@ void	dispatch(t_stack *s_a, t_stack *s_b, t_sensor *data)
 	{
 		closest = find_closest(s_a, data);
 		while (s_a->top != closest)
-		{
-			if (data->top_pos < data->bottom_pos)
-				ra(s_a, s_b, 0);
-			else
-				rra(s_a, s_b, 0);
-		}
+			handle_rot(s_a, s_b, data);
 		pb(s_a, s_b, 0);
 		data->pushed++;
 		if (closest->rank < data->half)
-			rb(s_a, s_b, 0);
+			data->rb_pending = 1;
 		if (data->pushed == data->limit)
 		{
 			data->limit += data->chunk_size;
 			data->half += data->chunk_size;
 		}
 	}
+	if (data->rb_pending)
+		rb(s_a, s_b, 0);
 }
 
 /*

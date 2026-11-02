@@ -16,7 +16,7 @@ void	init_data(t_stack *stack_a, t_sensor *data)
 {
 	int	tweaker;
 
-	tweaker = find_nxt_root(stack_a->init_size) * 5 / 2;
+	tweaker = find_nxt_root(stack_a->init_size) * 11 / 4;
 	data->chunk_size = tweaker;
 	data->limit = data->chunk_size;
 	data->pushed = 0;

@@ -65,28 +65,3 @@ t_value	*find_closest(t_stack *stack_a, t_sensor *data)
 		return (top);
 	return (bottom);
 }
-
-t_value	*node_to_move(t_stack *stack_b, size_t *pos)
-{
-	size_t	sec_pos;
-	t_value	*highest;
-	t_value	*second_high;
-	
-	highest = stack_b->top;
-	while(highest->rank != (int)stack_b->size - 1)
-	{
-		highest = highest->next;
-		(*pos)++;
-	}
-	sec_pos = 0;
-	second_high = stack_b->top;
-	while(second_high->rank != (int)stack_b->size - 2)
-	{
-		second_high = second_high->next;
-		sec_pos++;
-	}
-	if (*pos < sec_pos && )
-		return (highest);
-	*pos = sec_pos;
-	return (second_high);
-}

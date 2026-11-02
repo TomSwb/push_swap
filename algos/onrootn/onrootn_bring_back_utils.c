@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/02 01:10:17 by tschwab           #+#    #+#             */
-/*   Updated: 2026/11/02 01:21:09 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/11/02 01:31:18 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,30 +59,12 @@ void	bring_to_top(t_stack *s_a, t_stack *s_b, size_t pos)
 
 void	second_first(t_stack *s_a, t_stack *s_b)
 {
-	
-}
+	int	max;
 
-t_value	*node_to_move(t_stack *stack_b, size_t *pos)
-{
-	size_t	sec_pos;
-	t_value	*highest;
-	t_value	*second_high;
-	
-	highest = stack_b->top;
-	while(highest->rank != (int)stack_b->size - 1)
-	{
-		highest = highest->next;
-		(*pos)++;
-	}
-	sec_pos = 0;
-	second_high = stack_b->top;
-	while(second_high->rank != (int)stack_b->size - 2)
-	{
-		second_high = second_high->next;
-		sec_pos++;
-	}
-	if (*pos < sec_pos && )
-		return (highest);
-	*pos = sec_pos;
-	return (second_high);
+	max = s_b->size - 1;
+	bring_to_top(s_a, s_b, find_pos(s_b, max - 1));
+	pa(s_a, s_b, 0);
+	bring_to_top(s_a, s_b, find_pos(s_b, max));
+	pa(s_a, s_b, 0);
+	sa(s_a, s_b, 0);
 }

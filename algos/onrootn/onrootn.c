@@ -6,10 +6,11 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/01 21:48:19 by atardy            #+#    #+#             */
-/*   Updated: 2026/11/02 01:07:06 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/11/02 01:31:40 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "onrootn.h"
 #include "on2.h"
 #include "push_swap.h"
 #include "structs.h"
@@ -70,20 +71,19 @@ No return value
 */
 void	bring_back(t_stack *s_a, t_stack *s_b)
 {
-	t_value	*temp;
-	size_t	pos;
+	int		max;
+	size_t	pos_max;
+	size_t	pos_sec;
 
 	while (s_b->top != NULL)
 	{
-		pos = 0;
-		temp = node_to_move(s_b, &pos);
-		while (s_b->top != temp)
-		{
-			if (pos < s_b->size / 2)
-				rb(s_a, s_b, 0);
-			else
-			 	rrb(s_a, s_b, 0);
-		}
+		max = s_b->size - 1;
+		pos_max = find_pos(s_b, max);
+		pos_sec = find_pos(s_b, max - 1);
+		if (rot_cost(pos_sec, s_b->size) < rot_cost(pos_max, s_b->size))
+			second_first(s_a, s_b);
+		else
+		 	bring_to_top(s_a, s_b, pos_max);
 		pa(s_a, s_b, 0);
 	}
 }

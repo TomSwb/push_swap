@@ -6,12 +6,13 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/01 21:48:19 by atardy            #+#    #+#             */
-/*   Updated: 2026/11/02 00:32:42 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/11/02 01:04:08 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "on2.h"
 #include "push_swap.h"
+#include "structs.h"
 
 /*
 GOAL : Init the chunck data, then calls dispatch and bring_back to
@@ -69,20 +70,12 @@ No return value
 */
 void	bring_back(t_stack *s_a, t_stack *s_b)
 {
-	int		highest;
 	t_value	*temp;
 	size_t	pos;
 
 	while (s_b->top != NULL)
 	{
-		temp = s_b->top;
-		highest = s_b->size - 1;
-		pos = 0;
-		while(temp->rank != highest)
-		{
-			temp = temp->next;
-			pos++;
-		}
+		temp = node_to_move(s_a, s_b, &pos);
 		while (s_b->top != temp)
 		{
 			if (pos < s_b->size / 2)

@@ -41,5 +41,6 @@ void	bring_back(t_stack *s_a, t_stack *s_b);
 void	init_data(t_stack *stack_a, t_sensor *data);
 int		find_nxt_root(int size);
 t_value	*find_closest(t_stack *stack_a, t_sensor *data);
+t_value	*node_to_move(t_stack *stack_a, t_stack *stack_b, size_t *pos);
 
 #endif

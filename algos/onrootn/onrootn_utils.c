@@ -72,7 +72,10 @@ void	handle_rot(t_stack *stack_a, t_stack *stack_b, t_sensor *data)
 	if (data->top_pos < data->bottom_pos)
 	{
 		if (data->rb_pending)
+		{
 			rr(stack_a, stack_b, 0);
+			data->rb_pending = 0;
+		}
 		else
 			ra(stack_a, stack_b, 0);
 	}

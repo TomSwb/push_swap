@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/01 21:48:19 by atardy            #+#    #+#             */
-/*   Updated: 2026/11/02 01:04:08 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/11/02 01:07:06 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,8 @@ void	bring_back(t_stack *s_a, t_stack *s_b)
 
 	while (s_b->top != NULL)
 	{
-		temp = node_to_move(s_a, s_b, &pos);
+		pos = 0;
+		temp = node_to_move(s_b, &pos);
 		while (s_b->top != temp)
 		{
 			if (pos < s_b->size / 2)

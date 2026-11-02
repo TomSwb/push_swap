@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/02 01:10:17 by tschwab           #+#    #+#             */
-/*   Updated: 2026/11/02 01:31:18 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/11/02 01:37:55 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 size_t	find_pos(t_stack *stack, int rank)
 {
 	size_t	pos;
-	t_value *temp;
+	t_value	*temp;
 
 	pos = 0;
 	temp = stack->top;
@@ -46,10 +46,10 @@ void	bring_to_top(t_stack *s_a, t_stack *s_b, size_t pos)
 			pos--;
 		}
 	}
-	else 
+	else
 	{
 		i = s_b->size - pos;
-		while (i > 0 )
+		while (i > 0)
 		{
 			rrb(s_a, s_b, 0);
 			i--;

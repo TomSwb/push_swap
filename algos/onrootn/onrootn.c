@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/01 21:48:19 by atardy            #+#    #+#             */
-/*   Updated: 2026/11/02 01:35:51 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/11/02 01:36:43 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	dispatch(t_stack *s_a, t_stack *s_b, t_sensor *data)
 			if (data->top_pos < data->bottom_pos)
 				ra(s_a, s_b, 0);
 			else
-			 	rra(s_a, s_b, 0);
+				rra(s_a, s_b, 0);
 		}
 		pb(s_a, s_b, 0);
 		data->pushed++;
@@ -84,7 +84,8 @@ void	bring_back(t_stack *s_a, t_stack *s_b)
 			max = s_b->size - 1;
 			pos_max = find_pos(s_b, max);
 			pos_sec = find_pos(s_b, max - 1);
-			if (rot_cost(pos_sec, s_b->size) < rot_cost(pos_max, s_b->size))
+			if (rot_cost(pos_sec, s_b->size)
+				< rot_cost(pos_max, s_b->size))
 				second_first(s_a, s_b);
 			else
 			{

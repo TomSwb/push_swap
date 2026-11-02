@@ -48,15 +48,15 @@ t_value	*find_closest(t_stack *stack_a, t_sensor *data)
 	data->top_pos = 0;
 	top = stack_a->top;
 	while (top->rank >= data->limit
-			|| top->rank >= (int)stack_a->init_size - 3)
+		|| top->rank >= (int)stack_a->init_size - 3)
 	{
 		data->top_pos++;
 		top = top->next;
 	}
 	bottom = stack_a->top;
 	data->bottom_pos = 0;
-	while (bottom->rank >= data->limit 
-			|| bottom->rank >= (int)stack_a->init_size - 3)
+	while (bottom->rank >= data->limit
+		|| bottom->rank >= (int)stack_a->init_size - 3)
 	{
 		data->bottom_pos++;
 		bottom = bottom->prev;

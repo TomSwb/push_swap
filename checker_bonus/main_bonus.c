@@ -6,12 +6,11 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 12:08:15 by tschwab           #+#    #+#             */
-/*   Updated: 2026/11/01 15:29:58 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/11/03 15:46:34 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
-#include "structs.h"
 
 int	main(int argc, char **argv)
 {

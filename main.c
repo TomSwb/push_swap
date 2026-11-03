@@ -61,7 +61,7 @@ void	push_swap(t_stack *stack_a, t_stack *stack_b)
 	else if (stack_a->flag == 1)
 		cost_based_insertion(stack_a, stack_b);
 	else if (stack_a->flag == 2)
-		bucket_sort(stack_a, stack_b);
+		chunck_sort(stack_a, stack_b);
 	else if (stack_a->flag == 3)
 		quick_sort_partitioning(stack_a, stack_b);
 	else if (stack_a->flag == 4)

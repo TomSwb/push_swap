@@ -93,6 +93,7 @@ void	adaptive(t_stack *stack_a, t_stack *stack_b)
 	else if (stack_a->disorder < 5000)
 	{
 		stack_a->strat = 2;
+		chunck_sort(stack_a, stack_b);
 	}
 	else
 	{

@@ -3,21 +3,94 @@
 /*                                                        :::      ::::::::   */
 /*   onrootn.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atardy <atardy@student.42lausanne.ch>     +#+  +:+       +#+        */
+/*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/26 18:01:07 by atardy            #+#    #+#             */
-/*   Updated: 2026/10/26 18:01:46 by atardy           ###   ########.ch       */
+/*   Created: 2026/11/01 21:48:19 by atardy            #+#    #+#             */
+/*   Updated: 2026/11/03 15:09:38 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "onrootn.h"
+#include "push_swap.h"
 
 /*
-BUCKET SORT with root(n) buckets. (normal, not push_swap-style)
-1. Calculate root(n)
-2. Dispatch values in n bucket. Each value is in bucket[rank / root(n)]
-3. Sorting each bucket with a On2 algorithm
-4. Merging them back together => all values of bucket 1, then bucket 2, ...
-DONE
-*/
+GOAL : Init the chunck data, then calls dispatch and bring_back to
+sort the stack.
 
+No return value
+*/
+void	bucket_sort(t_stack *stack_a, t_stack *stack_b)
+{
+	t_sensor	data;
+
+	init_data(stack_a, &data);
+	dispatch(stack_a, stack_b, &data);
+	sort_first_three(stack_a, stack_b);
+	bring_back(stack_a, stack_b);
+}
+
+/*
+GOAL : Sends all elements to s_b by chuncks, closest element of
+the current chunck first.
+
+No return value
+*/
+void	dispatch(t_stack *s_a, t_stack *s_b, t_sensor *data)
+{
+	t_value	*closest;
+
+	while (s_a->size > 3)
+	{
+		closest = find_closest(s_a, data);
+		while (s_a->top != closest)
+			handle_rot(s_a, s_b, data);
+		if (data->rb_pending)
+		{
+			rb(s_a, s_b, 0);
+			data->rb_pending = 0;
+		}
+		pb(s_a, s_b, 0);
+		data->pushed++;
+		if (closest->rank < data->half)
+			data->rb_pending = 1;
+		if (data->pushed == data->limit)
+		{
+			data->limit += data->chunk_size;
+			data->half += data->chunk_size;
+		}
+	}
+	if (data->rb_pending)
+		rb(s_a, s_b, 0);
+}
+
+/*
+GOAL : Bring everything back to s_a, highest to lowest, faster
+rotation sense way.
+
+No return value
+*/
+void	bring_back(t_stack *s_a, t_stack *s_b)
+{
+	int		max;
+	size_t	pos_max;
+	size_t	pos_sec;
+
+	while (s_b->top != NULL)
+	{
+		if (s_b->size == 1)
+			pa(s_a, s_b, 0);
+		else
+		{
+			max = s_b->size - 1;
+			pos_max = find_pos(s_b, max);
+			pos_sec = find_pos(s_b, max - 1);
+			if (rot_cost(pos_sec, s_b->size)
+				< rot_cost(pos_max, s_b->size))
+				second_first(s_a, s_b);
+			else
+			{
+				bring_to_top(s_a, s_b, pos_max);
+				pa(s_a, s_b, 0);
+			}
+		}
+	}
+}

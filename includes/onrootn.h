@@ -34,7 +34,7 @@ typedef struct s_sensor
 // === Functions === //
 
 // onrootn.c
-void	bucket_sort(t_stack *stack_a, t_stack *stack_b);
+void	chunck_sort(t_stack *stack_a, t_stack *stack_b);
 void	dispatch(t_stack *s_a, t_stack *s_b, t_sensor *data);
 void	bring_back(t_stack *s_a, t_stack *s_b);
 

@@ -6,7 +6,7 @@
 /*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/01 21:48:19 by atardy            #+#    #+#             */
-/*   Updated: 2026/11/03 15:09:38 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/11/03 15:18:51 by tschwab          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ sort the stack.
 
 No return value
 */
-void	bucket_sort(t_stack *stack_a, t_stack *stack_b)
+void	chunck_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	t_sensor	data;
 

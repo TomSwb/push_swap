@@ -182,9 +182,6 @@ $>
 
 **Complexity.** n insertions, each costing at most O(n) rotations, and finding the cheapest one scans b: **O(n²) time**. Space: O(1) besides the stacks.
 
-> [!NOTE]
-> 🟦 **TODO (Tom):** reword in your own words; add why cheapest-first beats plain insertion
-
 ### Medium — O(n√n) 🟧 TODO (Alak)
 
 > [!IMPORTANT]
@@ -199,9 +196,6 @@ $>
 5. A chunk at the bottom of a stack it is alone in is treated as being at the top (same nodes), which saves the moves to bring it up.
 
 **Complexity.** Pivots by rank always split into exact thirds, so there are about log₃(n) levels, and each level moves every number a constant number of times: **O(n log n) time, worst case included**. Space: O(log n) for the recursion depth.
-
-> [!NOTE]
-> 🟦 **TODO (Tom):** reword; optionally a small diagram of where small / middle / big go
 
 ### Adaptive
 

@@ -32,6 +32,10 @@ An optional `--bench` mode prints metrics (disorder, strategy, operation counts)
 > [!NOTE]
 > 🟩 **TODO (both):** one or two sentences on what the project taught you / its interest (optional but nice for recruiters)
 
+- alak ...
+
+- tschwab: Before starting this project, I had done very little with sorting algorithms; I basically didn't know any of them. So I started by learning several: bubble, insertion, selection, merge, quick, radix and shell sort. It was very interesting to discover the range of possible approaches and their strengths and weaknesses. I also found it interesting that some "less efficient" algorithms can actually beat the "better" ones in certain cases. That's why I really enjoyed writing the disorder function, which measures how unsorted an array is, and implementing the principle of an adaptive algorithm. Finally, I really enjoyed learning the most efficient way to implement each algorithm.
+
 ## Instructions
 
 ### Compilation

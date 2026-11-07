@@ -226,14 +226,8 @@ Only the four stack ends are cheap to reach. Anything that needs random access, 
 | Selection / min extraction | rotates to the minimum every time | ~2,700 / ~63,500 |
 | Plain insertion (not cheapest-first) | ignores the cost of each insertion | ~2,500+ / — |
 | Bubble sort | only adjacent swaps | up to ~10,000 / — |
-| Binary radix (LSD) | fixed full passes, never adapts | ~1,050 / ~6,750 |
 | Merge sort on two stacks | merging needs many rotations | ~1,000–1,400 / ~7,000–9,000 |
-| Heap sort | needs random access, degenerates into min extraction | ~2,700 / — |
 | Two-way quicksort | log₂ instead of log₃ levels, uses fewer stack ends | more than three-way |
-| Bucket sort with √n buckets | can't keep √n buckets apart with 4 ends → becomes chunk sort | — |
-
-> [!NOTE]
-> 🟩 **TODO (both):** keep only what you can explain at the defense; add MSD radix / Fenwick tree if useful
 
 ## Performance
 
@@ -271,9 +265,6 @@ Small inputs: 3 numbers in at most 2 operations, 5 numbers in 8–11.
 - Data structure design, Makefile, README.
 - Code reviews through pull requests.
 
-> [!NOTE]
-> 🟩 **TODO (both):** check every line; add anything missing (tests, specific fixes…)
-
 ## Resources
 
 ### References
@@ -281,16 +272,20 @@ Small inputs: 3 numbers in at most 2 operations, 5 numbers in 8–11.
 > [!NOTE]
 > 🟩 **TODO (both):** list what you actually used — e.g. the subject PDF, Big-O notation, quicksort / three-way partitioning (CLRS or Sedgewick), articles or tutorials on push_swap strategies, the 42 checker. Real links only.
 
-- 🟩 TODO
+####tschwab:
+- Youtube:
+	1. [15 algo in 6 minutes](https://youtu.be/kPRA0W1kECg?is=gyUgX_jdO5FwnP0U)
+	2. [Radix Sort Explain](https://youtu.be/UyFH-KayvM4?is=hnHo3rKhdnE2hqAN)
+
+- TikTok: different algo videos (sorry no links)
+
+- This module PDF.
 
 ### AI
 
 Each learner describes their own use of AI below.
 
 #### tschwab
-
-> [!NOTE]
-> 🟦 **TODO (Tom):** add `--bench` to the scope if relevant.
 
 ⚠️ Disclaimer: I only ask for actual answers when I realise I am missing theoretical knowledge, e.g. a new syntax or a concept I had not explored before.
 

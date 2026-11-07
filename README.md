@@ -272,7 +272,7 @@ Small inputs: 3 numbers in at most 2 operations, 5 numbers in 8–11.
 > [!NOTE]
 > 🟩 **TODO (both):** list what you actually used — e.g. the subject PDF, Big-O notation, quicksort / three-way partitioning (CLRS or Sedgewick), articles or tutorials on push_swap strategies, the 42 checker. Real links only.
 
-####tschwab:
+#### tschwab:
 - Youtube:
 	1. [15 algo in 6 minutes](https://youtu.be/kPRA0W1kECg?is=gyUgX_jdO5FwnP0U)
 	2. [Radix Sort Explain](https://youtu.be/UyFH-KayvM4?is=hnHo3rKhdnE2hqAN)

@@ -23,16 +23,13 @@ The binary embeds four strategies, selectable with a flag:
 | Flag | Strategy | Complexity class |
 |---|---|---|
 | `--simple` | cost-based insertion | O(n²) |
-| `--medium` | **🟧 TODO (Alak)** | O(n√n) |
+| `--medium` | chunk-sort adaptation | O(n√n) |
 | `--complex` | three-way quicksort | O(n log n) |
 | `--adaptive` (default) | picks one of the three from the measured disorder | depends on the regime |
 
 An optional `--bench` mode prints metrics (disorder, strategy, operation counts) to stderr.
 
-> [!NOTE]
-> 🟩 **TODO (both):** one or two sentences on what the project taught you / its interest (optional but nice for recruiters)
-
-- alak ...
+- atardy : This project was the first group project of my cursus so i learned a lot about the use of GitHub to collaborate with my teammate. Then on the project itself, it was interessting to learn about the algorithmic complexity of the sorting algorithms. It was also really challenging to start with a simple comprehending of the sorting algortithms and to adapt it to the rules of push_swap and its pre-set moves. The efficency of the algorithm was something i struggled to understand at the start and i'm grateful to Thomas for his help and explanations !
 
 - tschwab: Before starting this project, I had done very little with sorting algorithms; I basically didn't know any of them. So I started by learning several: bubble, insertion, selection, merge, quick, radix and shell sort. It was very interesting to discover the range of possible approaches and their strengths and weaknesses. I also found it interesting that some "less efficient" algorithms can actually beat the "better" ones in certain cases. That's why I really enjoyed writing the disorder function, which measures how unsorted an array is, and implementing the principle of an adaptive algorithm. Finally, I really enjoyed learning the most efficient way to implement each algorithm.
 
@@ -164,14 +161,18 @@ $>
 
 ### Shared groundwork
 
+**Flags.** The arguments that are not valid integers are compared to the list of valid flags such as "strategy selector" and the "--bench" flag. The values "flag" and "bench" of the struct "stack_a" are set accordingly. Time O(argc), space O(1).
+
+**Data structure.** Each stack is a circular doubly linked list with a wrapper struct (`top`, `size`, counters), so every operation is O(1): a swap changes 6 pointers, a push 4, a rotation only moves `top`.
+
+**Duplicate check.** The integers are checked one after the other against the whole list to ensure there's no duplicate. Time O(n²), space 0(1).
+
 **Disorder.** The share of pairs `(i, j)` with `i < j` that are in the wrong order (`a[i] > a[j]`), over all pairs. 0 % = sorted, 100 % = reverse sorted. Stored as an integer ×100 (rounded) so it can be printed with two decimals without floats. Time O(n²) (every pair once), space O(1).
 
 **Ranks.** Before sorting, each number is replaced by its rank `0 … n-1` (`rank_parsing`). All algorithms then work on ranks, so pivots and targets never depend on the actual values. Time O(n²), space O(1) (the rank is stored in each node).
 
-**Data structure.** Each stack is a circular doubly linked list with a wrapper struct (`top`, `size`, counters), so every operation is O(1): a swap changes 6 pointers, a push 4, a rotation only moves `top`.
-
 > [!IMPORTANT]
-> 🟧 **TODO (Alak):** add a short explanation of the parsing (string vs arguments, validation, duplicates). 🟩 Both: reread this section.
+> 🟩 Both: reread this section.
 
 ### Simple — O(n²): cost-based insertion
 
@@ -182,10 +183,17 @@ $>
 
 **Complexity.** n insertions, each costing at most O(n) rotations, and finding the cheapest one scans b: **O(n²) time**. Space: O(1) besides the stacks.
 
-### Medium — O(n√n) 🟧 TODO (Alak)
+### Medium — O(n√n): chunk-sort
 
-> [!IMPORTANT]
-> 🟧 **TODO (Alak):** technique, steps, complexity argument (time + space), why this one
+All values are divided into *√n chunks*. The n / √n smallest values are in chunk 0, and so on.
+1. Push everything except 3 numbers to b. Numbers are pushed chunk by chunk. It's a kind of "pre-sort".
+2. Sort the 3 numbers left in a directly (at most 2 moves).
+3. Push the biggest (or the 2nd biggest) value from stack b into stack a :
+	- Calculates the cost of bringing the biggest value still in stack b and the second biggest. Then depending of what is cheapest : 
+		- Brings the biggest value to the top of stack b and push it in stack a OR
+		- Brings the the second biggest in stack a, then the biggest one and switch both values in stack a.
+
+**Complexity.** The numbers are split into √n chunks of about √n numbers each. Pushing everything to b takes one pass over a per chunk, which is O(n√n) moves. Because b is then roughly sorted by chunk, the biggest numbers are never more than about √n positions from an end of b, so each push back costs O(√n), which is also O(n√n) in total: O(n√n) time. Space: O(1) besides the stacks.
 
 ### Complex — O(n log n): three-way quicksort
 
@@ -202,7 +210,7 @@ $>
 | Measured disorder | Regime | Method | Class |
 |---|---|---|---|
 | < 20 % | low | cost-based insertion (Simple) | O(n²) |
-| 20 % – 50 % | medium | **🟧 TODO (Alak)** (Medium) | O(n√n) |
+| 20 % – 50 % | medium | chunk-sort (Medium) | O(n√n) |
 | ≥ 50 % | high | three-way quicksort (Complex) | O(n log n) |
 
 Disorder is computed once before sorting. Already-sorted input (0 %) prints nothing.
@@ -236,7 +244,7 @@ Targets for the best tier: **< 700** operations for 100 numbers, **< 5500** for 
 | Strategy | 100 avg / worst | 500 avg / worst |
 |---|---|---|
 | `--simple` | 568 / 608 | 4572 / 4867 |
-| `--medium` | **🟧 TODO (Alak)** | **🟧 TODO (Alak)** |
+| `--medium` | 600 / 650 | 5295 / 5616 |
 | `--complex` | 664 / 669 | 4410 / 4427 |
 | `--adaptive` (random input) | **🟩 TODO** | **🟩 TODO** |
 
@@ -269,8 +277,12 @@ Small inputs: 3 numbers in at most 2 operations, 5 numbers in 8–11.
 
 ### References
 
+- The subject of "Push_Swap" by 42 school : https://github.com/TomSwb/push_swap/blob/59fca7d7f299e73b4a2c01b5ab2b4e4872bc324d/ressources/en.subject.pdf
 > [!NOTE]
 > 🟩 **TODO (both):** list what you actually used — e.g. the subject PDF, Big-O notation, quicksort / three-way partitioning (CLRS or Sedgewick), articles or tutorials on push_swap strategies, the 42 checker. Real links only.
+#### atardy:
+
+- Geeks for geeks : All the sorting algortighms that we used : https://www.geeksforgeeks.org/dsa/sorting-algorithms/
 
 #### tschwab:
 - Youtube:
@@ -302,9 +314,11 @@ Everything AI suggested was checked: tested with the checker and the generator, 
 	6. Shell commands to automate tests (random inputs, move counts, checker).
 	7. Reviewing the function briefs and README parts I wrote first, for wording and completeness.
 
-#### atardy  🟧
+#### atardy
 
-> [!IMPORTANT]
-> 🟧 **TODO (Alak):** your own disclaimer — which AI tools, for which tasks, on which parts of the project.
+I never asked for code review or generation to any IA but used it to understand some concepts, especially the bucket-sort algorithm. 
 
-- 🟧 TODO
+- `ChatGPT & Claude:`
+	1. Confirming my understanding of the (unused) bucket-sort and checking it's a viable choice (regarding the efficency benchmark) before coding it myself.
+	2. Helping with git for specific cases not covered by the document that Thomas provided.
+	3. Helping me to find the good-way to explain things in some of my parts of the present readme.

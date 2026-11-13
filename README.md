@@ -171,7 +171,6 @@ $>
 
 **Ranks.** Before sorting, each number is replaced by its rank `0 … n-1` (`rank_parsing`). All algorithms then work on ranks, so pivots and targets never depend on the actual values. Time O(n²), space O(1) (the rank is stored in each node).
 
-
 > [!IMPORTANT]
 > 🟩 Both: reread this section.
 
@@ -211,7 +210,7 @@ All values are divided into *√n chunks*. The n / √n smallest values are in c
 | Measured disorder | Regime | Method | Class |
 |---|---|---|---|
 | < 20 % | low | cost-based insertion (Simple) | O(n²) |
-| 20 % – 50 % | medium | **🟧 TODO (Alak)** (Medium) | O(n√n) |
+| 20 % – 50 % | medium | chunk-sort (Medium) | O(n√n) |
 | ≥ 50 % | high | three-way quicksort (Complex) | O(n log n) |
 
 Disorder is computed once before sorting. Already-sorted input (0 %) prints nothing.
@@ -245,7 +244,7 @@ Targets for the best tier: **< 700** operations for 100 numbers, **< 5500** for 
 | Strategy | 100 avg / worst | 500 avg / worst |
 |---|---|---|
 | `--simple` | 568 / 608 | 4572 / 4867 |
-| `--medium` | **🟧 TODO (Alak)** | **🟧 TODO (Alak)** |
+| `--medium` | 600 / 650 | 5295 / 5616 |
 | `--complex` | 664 / 669 | 4410 / 4427 |
 | `--adaptive` (random input) | **🟩 TODO** | **🟩 TODO** |
 
@@ -278,8 +277,12 @@ Small inputs: 3 numbers in at most 2 operations, 5 numbers in 8–11.
 
 ### References
 
+- The subject of "Push_Swap" by 42 school : https://github.com/TomSwb/push_swap/blob/59fca7d7f299e73b4a2c01b5ab2b4e4872bc324d/ressources/en.subject.pdf
 > [!NOTE]
 > 🟩 **TODO (both):** list what you actually used — e.g. the subject PDF, Big-O notation, quicksort / three-way partitioning (CLRS or Sedgewick), articles or tutorials on push_swap strategies, the 42 checker. Real links only.
+#### atardy:
+
+- Geeks for geeks : All the sorting algortighms that we used : https://www.geeksforgeeks.org/dsa/sorting-algorithms/
 
 #### tschwab:
 - Youtube:
@@ -311,9 +314,11 @@ Everything AI suggested was checked: tested with the checker and the generator, 
 	6. Shell commands to automate tests (random inputs, move counts, checker).
 	7. Reviewing the function briefs and README parts I wrote first, for wording and completeness.
 
-#### atardy  🟧
+#### atardy
 
-> [!IMPORTANT]
-> 🟧 **TODO (Alak):** your own disclaimer — which AI tools, for which tasks, on which parts of the project.
+I never asked for code review or generation to any IA but used it to understand some concepts, especially the bucket-sort algorithm. 
 
-- 🟧 TODO
+- `ChatGPT & Claude:`
+	1. Confirming my understanding of the (unused) bucket-sort and checking it's a viable choice (regarding the efficency benchmark) before coding it myself.
+	2. Helping with git for specific cases not covered by the document that Thomas provided.
+	3. Helping me to find the good-way to explain things in some of my parts of the present readme.

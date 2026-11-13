@@ -24,7 +24,7 @@ The binary embeds four strategies, selectable with a flag:
 
 An optional `--bench` mode prints metrics (disorder, strategy, operation counts) to stderr.
 
-- atardy : This project was the first group project of my cursus so i learned a lot about the use of GitHub to collaborate with my teammate. Then on the project itself, it was interessting to learn about the algorithmic complexity of the sorting algorithms. It was also really challenging to start with a simple comprehending of the sorting algortithms and to adapt it to the rules of push_swap and its pre-set moves. The efficency of the algorithm was something i struggled to understand at the start and i'm grateful to Thomas for his help and explanations !
+- atardy: This project was the first group project of my cursus, so I learned a lot about using GitHub to collaborate with my teammate. On the project itself, it was interesting to learn about the algorithmic complexity of sorting algorithms. It was also really challenging to start from a simple understanding of the sorting algorithms and adapt them to the rules of push_swap and its pre-set moves. The efficiency of the algorithms was something I struggled to understand at the start, and I'm grateful to Thomas for his help and explanations!
 
 - tschwab: Before starting this project, I had done very little with sorting algorithms; I basically didn't know any of them. So I started by learning several: bubble, insertion, selection, merge, quick, radix and shell sort. It was very interesting to discover the range of possible approaches and their strengths and weaknesses. I also found it interesting that some "less efficient" algorithms can actually beat the "better" ones in certain cases. That's why I really enjoyed writing the disorder function, which measures how unsorted an array is, and implementing the principle of an adaptive algorithm. Finally, I really enjoyed learning the most efficient way to implement each algorithm.
 
@@ -46,20 +46,36 @@ make re       # fclean + make
 ./push_swap [--simple | --medium | --complex | --adaptive] [--bench] <numbers>
 ```
 
-- Numbers can be given as separate arguments (`./push_swap 3 2 1`) or as one string (`./push_swap "3 2 1"`). The first number is the top of stack a.
-- Without arguments the program displays nothing.
-- Non-integer arguments, numbers outside the `int` range or duplicates print `Error` on stderr.
+- Numbers can be given as separate arguments (`./push_swap 3 2 1`), as one string (`./push_swap "3 2 1"`) or mixed (`./push_swap 3 2 1 "5 7 9"`). Extra spaces inside a string are ignored (`./push_swap "3  2 " 1`). The first number is the top of stack a.
+- Whitespace before a number (tab, newline, `\v`, `\f`, `\r`) is accepted (`./push_swap $'\t3' 2 1`); anything after the digits is not.
+- Without arguments the program displays nothing. Flags with no numbers (`./push_swap --simple`) mean there is nothing to sort, so nothing is displayed either.
+- Flags come before the numbers, in any order (`--bench --simple` or `--simple --bench`). Only one strategy flag is allowed, and each flag can appear only once.
+- `Error` is printed on stderr for: non-integer arguments, numbers outside the `int` range, duplicates (`1 1`, `0 -0`, `1 +1`), empty or blank arguments (`""`, `" "`), an unknown flag, a repeated flag or a flag placed after the numbers.
 - Already sorted input prints no operations.
-- Flags can be given in any order; only one strategy flag is allowed.
-- Mixed formats (`./push_swap 3 2 1 "5 7 9"`) and containing uneven spacing (`./push_swap 3  2  1 "5 7  9 "`) parse as per the reference (fedora_checker).
+- Parsing follows the subject first. Where the subject says nothing (spacing, signs, leading zeros, whitespace before a number), it behaves like the reference checker (`fedora_checker`).
 
 ### Examples
 
 ```bash
 $> ./push_swap 2 1 3 6 5 8
+pb
+rb
+pb
+rb
+pb
+rb
+sa
+pa
+pa
+ra
+ra
+pa
+rra
+rra
 $> ARG="4 67 3 87 23"; ./push_swap --complex $ARG | ./checker $ARG
 OK
 $> ARG="4 67 3 87 23"; ./push_swap $ARG | wc -l
+7
 ```
 
 ### Benchmark mode (`--bench`)
@@ -67,14 +83,15 @@ $> ARG="4 67 3 87 23"; ./push_swap $ARG | wc -l
 After sorting, `--bench` prints 5 lines to **stderr**; the operations stay on **stdout**:
 
 ```
+$> ./push_swap --bench 4 67 3 87 23 > /dev/null
 [bench] disorder:  40.00%
 [bench] strategy:  Adaptive / O(n√n)
-[bench] total_ops:  13
-[bench] sa:  0  sb:  0  ss:  0  pa:  5  pb:  5
-[bench] ra:  2  rb:  1  rr:  0  rra:  0  rrb:  0  rrr:  0
+[bench] total_ops:  7
+[bench] sa:  0  sb:  0  ss:  0  pa:  2  pb:  2
+[bench] ra:  1  rb:  1  rr:  1  rra:  0  rrb:  0  rrr:  0
 ```
 
-Use `> /dev/null` to hide the operations and see only the metrics (`2> /dev/null` does the opposite). Each command draws a new random list, so the numbers vary a little between runs.
+Use `> /dev/null` to hide the operations and see only the metrics (`2> /dev/null` does the opposite). Each command below draws a new random list, so the numbers vary a little between runs.
 
 Simple, 100 numbers:
 ```bash
@@ -126,17 +143,27 @@ make bonus    # builds ./checker
 ARG="87 4 67 3 23"; ./push_swap $ARG | ./checker $ARG
 ```
 
-The checker takes the same numbers as push_swap, reads a list of moves from stdin (one per line, usually push_swap's output), applies them to its own copy of the stacks and prints:
+The checker takes the same numbers as push_swap (same parsing rules), builds its own stacks from them, reads a list of moves from stdin (one per line, usually push_swap's output), applies them and prints:
 
 | Output | Stream | When |
 |---|---|---|
 | `OK` | stdout | every move was valid, stack a is sorted and stack b is empty |
 | `KO` | stdout | every move was valid, but a is not sorted or b is not empty |
-| `Error` | stderr | something is invalid: a bad argument (same rules as push_swap), an unknown move, a wrong case, extra spaces, an empty line… |
-
-Unlike the provided reference binary, our checker rejects duplicate numbers (`Error`) and does nothing without arguments, as the subject requires. Everywhere else, the two give the same result.
+| `Error` | stderr | something is invalid: a bad argument (same rules as push_swap, including empty or blank arguments), an unknown move, a wrong case, extra spaces, an empty line, a last move without its final newline… |
 
 Without arguments, `./checker` prints nothing and doesn't read stdin.
+
+Where the subject is explicit, our checker follows it rather than the provided reference binary (`fedora_checker`):
+
+| Case | Subject / our checker | Reference binary |
+|---|---|---|
+| Duplicate numbers (`1 1`) | `Error` | accepted |
+| No arguments | nothing | `OK` |
+| Empty argument (`"" 1`) | `Error` | accepted |
+| Last move without `\n` (`printf 'sa'`) | `Error` | accepted |
+| Move followed by `\r` (`sa\r`) | `Error` | accepted |
+
+Everywhere else, the two give the same result.
 
 ```bash
 $> printf 'sa\n' | ./checker 2 1 3
@@ -153,11 +180,11 @@ $>
 
 ### Shared groundwork
 
-**Flags.** The arguments that are not valid integers are compared to the list of valid flags such as "strategy selector" and the "--bench" flag. The values "flag" and "bench" of the struct "stack_a" are set accordingly. Time O(argc), space O(1).
+**Flags.** The flags are read from the start of the arguments, in any order, until the first argument that isn't a valid flag; everything after that is parsed as numbers. Each strategy selector or `--bench` sets the `flag` or `bench` value of `stack_a`. If no strategy is given, adaptive is used. A flag given twice, or placed after the numbers, ends up being parsed as a number and gives `Error`. Flags with no numbers mean there is nothing to sort, so nothing is printed. Time O(argc), space O(1).
 
 **Data structure.** Each stack is a circular doubly linked list with a wrapper struct (`top`, `size`, counters), so every operation is O(1): a swap changes 6 pointers, a push 4, a rotation only moves `top`.
 
-**Duplicate check.** The integers are checked one after the other against the whole list to ensure there's no duplicate. Time O(n²), space 0(1).
+**Duplicate check.** Each integer is checked against the whole list to make sure there's no duplicate. Time O(n²), space O(1).
 
 **Disorder.** The share of pairs `(i, j)` with `i < j` that are in the wrong order (`a[i] > a[j]`), over all pairs. 0 % = sorted, 100 % = reverse sorted. Stored as an integer ×100 (rounded) so it can be printed with two decimals without floats. Time O(n²) (every pair once), space O(1).
 
@@ -172,17 +199,18 @@ $>
 
 **Complexity.** n insertions, each costing at most O(n) rotations, and finding the cheapest one scans b: **O(n²) time**. Space: O(1) besides the stacks.
 
-### Medium — O(n√n): chunk-sort
+### Medium — O(n√n): chunk sort
 
-All values are divided into *√n chunks*. The n / √n smallest values are in chunk 0, and so on.
-1. Push everything except 3 numbers to b. Numbers are pushed chunk by chunk. It's a kind of "pre-sort".
+The ranks are divided into chunks of consecutive values. The chunk size is ⌊√n⌋ × 11/4: the factor 11/4 (the `tweaker`) was tuned by measuring operation counts, and the size stays proportional to √n, so the complexity class doesn't change.
+
+1. Push everything except the 3 largest numbers to b, chunk by chunk: each time, the closest number of the current chunk (from the top or the bottom of a) is brought to the top and pushed. Numbers in the lower half of the chunk are rotated down in b (`rb`, combined with `ra` as `rr` when possible). It's a kind of "pre-sort".
 2. Sort the 3 numbers left in a directly (at most 2 moves).
-3. Push the biggest (or the 2nd biggest) value from stack b into stack a :
-	- Calculates the cost of bringing the biggest value still in stack b and the second biggest. Then depending of what is cheapest : 
-		- Brings the biggest value to the top of stack b and push it in stack a OR
-		- Brings the the second biggest in stack a, then the biggest one and switch both values in stack a.
+3. Push the numbers back from b to a, biggest first:
+	- Compute the cost of bringing the biggest value still in b to the top, and the cost of bringing the second biggest.
+	- If the biggest is cheaper: bring it to the top of b and push it to a.
+	- If the second biggest is cheaper: bring it to the top and push it to a, then do the same with the biggest, and swap them with `sa` so they end in the right order.
 
-**Complexity.** The numbers are split into √n chunks of about √n numbers each. Pushing everything to b takes one pass over a per chunk, which is O(n√n) moves. Because b is then roughly sorted by chunk, the biggest numbers are never more than about √n positions from an end of b, so each push back costs O(√n), which is also O(n√n) in total: O(n√n) time. Space: O(1) besides the stacks.
+**Complexity.** The numbers are split into about √n chunks of about √n numbers each (up to the constant factor). Pushing everything to b takes one pass over a per chunk, which is O(n√n) moves. Because b is then roughly sorted by chunk, the biggest numbers are never more than about √n positions from an end of b, so each push back costs O(√n), which is also O(n√n) in total: **O(n√n) time**. Space: O(1) besides the stacks.
 
 ### Complex — O(n log n): three-way quicksort
 
@@ -199,7 +227,7 @@ All values are divided into *√n chunks*. The n / √n smallest values are in c
 | Measured disorder | Regime | Method | Class |
 |---|---|---|---|
 | < 20 % | low | cost-based insertion (Simple) | O(n²) |
-| 20 % – 50 % | medium | chunk-sort (Medium) | O(n√n) |
+| 20 % – 50 % | medium | chunk sort (Medium) | O(n√n) |
 | ≥ 50 % | high | three-way quicksort (Complex) | O(n log n) |
 
 Disorder is computed once before sorting. Already-sorted input (0 %) prints nothing.
@@ -219,7 +247,7 @@ Disorder is computed once before sorting. Already-sorted input (0 %) prints noth
 *Average number of operations (20 inputs per row for 100 numbers, 6 for 500).*
 
 - **Low disorder (< 20 %): cost-based insertion.** On nearly sorted input most numbers are already close to their final place, so the cheapest insertion only needs a few rotations each time. It is by far the cheapest method here (about half the operations of quicksort).
-- **Medium disorder (20 % – 50 %): chunk sort.** The subject requires an O(n√n) method in this range. Chunk sort pushes √n-sized ranges of ranks to b, so its cost depends on how scattered each range is, which is why it grows with the disorder.
+- **Medium disorder (20 % – 50 %): chunk sort.** The subject requires an O(n√n) method in this range. Chunk sort pushes ranges of ranks of size proportional to √n to b, so its cost depends on how scattered each range is, which is why it grows with the disorder.
 - **High disorder (≥ 50 %): three-way quicksort.** Its pivots are chosen by rank, so every split is exactly in thirds whatever the input looks like: the cost is the same at 50 % or 100 % disorder (about 667 for 100 numbers, 4412 for 500). That guaranteed O(n log n), worst case included, makes it the safe choice when the input is the most chaotic.
 
 The measurements also show that our cost-based insertion often beats the other two even on random input. This does not contradict its O(n²) class: O(n²) is the worst-case upper bound (each of the n insertions could need up to n rotations), and always picking the cheapest insertion keeps the real count well below it.
@@ -257,12 +285,16 @@ Targets for the best tier: **< 700** operations for 100 numbers, **< 5500** for 
 
 | Strategy | 100 avg / worst | 500 avg / worst |
 |---|---|---|
-| `--simple` | 568 / 608 | 4572 / 4867 |
-| `--medium` | 600 / 650 | 5295 / 5616 |
-| `--complex` | 664 / 669 | 4410 / 4427 |
+| `--simple` | 569 / 632 | 4547 / 4893 |
+| `--medium` | 606 / 670 | 5289 / 5627 |
+| `--complex` | 666 / 675 | 4413 / 4435 |
 | `--adaptive` (random input) | 629 / 675 | 4778 / 5561 |
 
-Small inputs: 3 numbers in at most 2 operations, 5 numbers in 8–11.
+*Measured on the final build: 100 random inputs per row, values spread across the whole `int` range, each output checked for correctness.*
+
+On random input the disorder is close to 50 %, so adaptive uses chunk sort in some runs and quicksort in the others; the runs that go over 5500 for 500 numbers are the ones where it picked chunk sort.
+
+Small inputs: 3 numbers in at most 2 operations, 5 numbers in at most 11 (12 with `--medium`).
 
 ## Contributions
 
@@ -277,32 +309,30 @@ Small inputs: 3 numbers in at most 2 operations, 5 numbers in 8–11.
 - **Operations:** `ra` `rb` `rr` `rra` `rrb` `rrr`.
 - **Simple and Complex algorithms**, O(n²) and O(n log n).
 - **`--bench`.**
-- **Checker** (bonus).
-- **Parsing:** Corrections to handle '+', leading '0', and trailing spaces. 
+- **Checker** (bonus), including the rule that every move must end with a newline.
+- **Parsing:** corrections to handle `+`, leading `0`, extra spaces, whitespace before a number, empty or blank arguments, and flags given without numbers.
 
 **Both**
-- Data structure design, Makefile, README.
+- Data structure design, Makefile, README, function briefs.
 - Code reviews through pull requests.
 
 ## Resources
 
 ### References
 
-- The subject of "Push_Swap" by 42 school : https://github.com/TomSwb/push_swap/blob/59fca7d7f299e73b4a2c01b5ab2b4e4872bc324d/ressources/en.subject.pdf
+- The subject of "Push_Swap" by 42 school: https://github.com/TomSwb/push_swap/blob/59fca7d7f299e73b4a2c01b5ab2b4e4872bc324d/ressources/en.subject.pdf
 - 42 fedora_checker.
 
 #### atardy:
 
-- Geeks for geeks : All the sorting algortighms that we used : https://www.geeksforgeeks.org/dsa/sorting-algorithms/
+- GeeksforGeeks, all the sorting algorithms that we used: https://www.geeksforgeeks.org/dsa/sorting-algorithms/
 
 #### tschwab:
-- Youtube:
+- YouTube:
 	1. [15 algo in 6 minutes](https://youtu.be/kPRA0W1kECg?is=gyUgX_jdO5FwnP0U)
 	2. [Radix Sort Explain](https://youtu.be/UyFH-KayvM4?is=hnHo3rKhdnE2hqAN)
 
-- TikTok: different algo videos (sorry no links)
-
-- This module PDF.
+- TikTok: different algorithm videos (sorry, no links).
 
 ### AI
 
@@ -316,7 +346,7 @@ I always write my code to the best of my abilities first. AI never wrote my code
 
 Everything AI suggested was checked: tested with the checker and the generator, measured against the benchmark targets, and reviewed with my project partner through pull requests.
 
-- `Claude:` (O(n²) `--simple` and O(n log n) `--complex` parts)
+- `Claude:` (O(n²) `--simple` and O(n log n) `--complex` parts, final testing and README)
 	1. Back-and-forth discussion to compare sorting strategies and their trade-offs on two stacks, before choosing cost-based insertion and three-way quicksort.
 	2. Checking my reasoning on the complexity of each algorithm in the project's complexity model.
 	3. Explaining new syntax and concepts (e.g. enums, passing structs by pointer) with short examples.
@@ -324,12 +354,14 @@ Everything AI suggested was checked: tested with the checker and the generator, 
 	5. Help in learning the git workflow used with my partner: feature branches, rebases, pull requests.
 	6. Shell commands to automate tests (random inputs, move counts, checker).
 	7. Reviewing the function briefs and README parts I wrote first, for wording and completeness.
+	8. Final test batteries before the evaluation (parsing compared with the subject and the reference checker, memory leaks, operation counts): it listed what to fix, and I coded the fixes myself, guided step by step.
+	9. Drafting the adaptive "Rationale for the thresholds" and "Complexity" sections, generating the measurement tables (operations by disorder, performance) and proofreading this README; all of it was then reviewed and revised with my partner.
 
 #### atardy
 
-I never asked for code review or generation to any IA but used it to understand some concepts, especially the bucket-sort algorithm. 
+I never asked any AI for code review or code generation, but I used it to understand some concepts, especially the bucket-sort algorithm.
 
 - `ChatGPT & Claude:`
-	1. Confirming my understanding of the (unused) bucket-sort and checking it's a viable choice (regarding the efficency benchmark) before coding it myself.
+	1. Confirming my understanding of the (unused) bucket sort and checking that it was a viable choice (regarding the efficiency benchmark) before coding it myself.
 	2. Helping with git for specific cases not covered by the document that Thomas provided.
-	3. Helping me to find the good-way to explain things in some of my parts of the present readme.
+	3. Helping me find a good way to explain things in some of my parts of this README.

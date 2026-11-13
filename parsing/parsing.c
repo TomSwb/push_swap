@@ -62,8 +62,9 @@ int	parsing(int start, char **argv, t_stack *stack_a)
 
 /*
 GOAL : Split one argument on spaces and add one node per number to stack_a
-	(works for a single number, a string of numbers or an empty string).
-Return 1 : if a value is not a valid int or a malloc failed.
+	(works for a single number or a string of numbers).
+Return 1 : if the argument is empty or only spaces, a value is not a valid
+	int or a malloc failed.
 Return 0 : if everything went fine.
 */
 int	stack_from_arg(char *arg, t_stack *stack_a)

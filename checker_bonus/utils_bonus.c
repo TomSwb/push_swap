@@ -12,6 +12,16 @@
 
 #include "checker_bonus.h"
 
+/**
+* @brief
+Finds which move a line read from stdin is (from push_swap or
+typed by the user). The line must end with '\n', which is
+stripped before comparing. Only the 11 exact move names are
+accepted; anything else returns ERROR.
+
+* @param char *s
+* @return t_move
+*/
 t_move	check_what_move(char *s)
 {
 	static const char	*moves[11] = {"pa", "pb", "sa", "sb", "ss",
@@ -33,6 +43,16 @@ t_move	check_what_move(char *s)
 	return (ERROR);
 }
 
+/**
+* @brief
+Used when the checker hits an invalid move: frees the current line,
+then keeps reading and freeing every remaining line of stdin until
+get_next_line returns NULL. Draining stdin this way also lets
+get_next_line free its static buffer, so nothing leaks.
+
+* @param char *line
+* @return void
+*/
 void	free_line(char *line)
 {
 	while (line)

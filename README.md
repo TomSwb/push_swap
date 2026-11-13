@@ -336,8 +336,6 @@ Small inputs: 3 numbers in at most 2 operations, 5 numbers in at most 11 (12 wit
 
 ### AI
 
-Each learner describes their own use of AI below.
-
 #### tschwab
 
 ⚠️ Disclaimer: I only ask for actual answers when I realise I am missing theoretical knowledge, e.g. a new syntax or a concept I had not explored before.

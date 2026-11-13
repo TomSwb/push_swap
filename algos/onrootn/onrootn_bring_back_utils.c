@@ -22,7 +22,6 @@ distance from the top (0 = top).
 * @param int rank
 * @return size_t
 */
-*/
 size_t	find_pos(t_stack *stack, int rank)
 {
 	size_t	pos;

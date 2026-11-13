@@ -24,6 +24,8 @@ int	main(int argc, char **argv)
 	stack_initializer(&stack_b);
 	if (parsing(1, argv, &stack_a) || check_double(&stack_a))
 		return (lstclear(&stack_a, 1));
+	// if (stack_a.top == 0) 
+	// 	return (0);
 	stack_a.size = stack_a.init_size;
 	result = checker(&stack_a, &stack_b);
 	if (result == 0)

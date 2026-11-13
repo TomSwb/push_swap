@@ -12,6 +12,17 @@
 
 #include "push_swap.h"
 
+/**
+* @brief
+Finds the position of a node by its rank, walking down the
+stack from the top until it reaches it. The position is the
+distance from the top (0 = top).
+
+* @param t_stack *stack
+* @param int rank
+* @return size_t
+*/
+*/
 size_t	find_pos(t_stack *stack, int rank)
 {
 	size_t	pos;
@@ -27,6 +38,16 @@ size_t	find_pos(t_stack *stack, int rank)
 	return (pos);
 }
 
+/**
+* @brief
+Calculates how many moves it takes to bring the node at pos
+to the top: pos moves with rotate, or size - pos moves with
+reverse rotate. Returns whichever count is smaller.
+
+* @param size_t pos
+* @param size_t size
+* @return size_t
+*/
 size_t	rot_cost(size_t pos, size_t size)
 {
 	if (size - pos < pos)
@@ -34,6 +55,17 @@ size_t	rot_cost(size_t pos, size_t size)
 	return (pos);
 }
 
+/**
+* @brief
+Brings the node at pos to the top of s_b: rb pos times if it
+is in the top half, otherwise rrb (size - pos) times.
+s_a is only passed because the move functions take both stacks.
+
+* @param t_stack *s_a
+* @param t_stack *s_b
+* @param size_t pos
+* @return void
+*/
 void	bring_to_top(t_stack *s_a, t_stack *s_b, size_t pos)
 {
 	size_t	i;
@@ -57,6 +89,17 @@ void	bring_to_top(t_stack *s_a, t_stack *s_b, size_t pos)
 	}
 }
 
+/**
+* @brief
+Used when the second highest value in s_b is cheaper to reach
+than the highest: brings the second highest to the top and pushes
+it to s_a, then does the same with the highest, then swaps them
+with sa so they end in the right order.
+
+* @param t_stack *s_a
+* @param t_stack *s_b
+* @return void
+*/
 void	second_first(t_stack *s_a, t_stack *s_b)
 {
 	int	max;

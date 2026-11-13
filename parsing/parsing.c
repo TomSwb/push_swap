@@ -17,8 +17,7 @@ GOAL : Set up the "flag" and "bench" parameters in stack_a from the leading
 	flags, and find where the numbers start.
 Return i - success: index of the first argument that is not a valid flag
 	(numbers start there; parsing() checks them).
-Return 0 - failure: a strategy flag or --bench appears twice, or there are
-	only flags and no numbers.
+Return 0: there are only flags and no numbers which means nothing to sort.
 */
 int	flags_parsing(int argc, char **argv, t_stack *s_a)
 {
@@ -63,8 +62,9 @@ int	parsing(int start, char **argv, t_stack *stack_a)
 
 /*
 GOAL : Split one argument on spaces and add one node per number to stack_a
-	(works for a single number, a string of numbers or an empty string).
-Return 1 : if a value is not a valid int or a malloc failed.
+	(works for a single number or a string of numbers).
+Return 1 : if the argument is empty or only spaces, a value is not a valid
+	int or a malloc failed.
 Return 0 : if everything went fine.
 */
 int	stack_from_arg(char *arg, t_stack *stack_a)
@@ -73,11 +73,13 @@ int	stack_from_arg(char *arg, t_stack *stack_a)
 	int		i;
 	t_value	*node;
 
-	i = 0;
+	i = -1;
 	int_lst = ft_split(arg, ' ');
 	if (!int_lst)
 		return (1);
-	while (int_lst[i])
+	if (!int_lst[0])
+		return (freeturn(int_lst));
+	while (int_lst[++i])
 	{
 		if (check_int(int_lst[i]))
 			return (freeturn (int_lst));
@@ -89,7 +91,6 @@ int	stack_from_arg(char *arg, t_stack *stack_a)
 			stack_a->top = node;
 		else
 			lstadd(stack_a, node);
-		i++;
 	}
 	freeturn (int_lst);
 	return (0);

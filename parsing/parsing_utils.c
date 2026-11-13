@@ -13,7 +13,9 @@
 #include "push_swap.h"
 
 /*
-GOAL : Check if this int is a valid one (in int range && only digit)
+GOAL : Check if this int is a valid one (leading whitespace 9-13 skipped,
+	then optional sign, only digits, in int range)
+
 Return 1 : if int is not valid
 Return 0 : if int is valid
 */
@@ -22,6 +24,8 @@ int	check_int(char *content)
 	int		neg;
 	size_t	i;
 
+	while (content[0] >= 9 && content[0] <= 13)
+		content++;
 	if (content[0] == '\0' || ((content[0] == '-' || content[0] == '+')
 			&& !ft_isdigit(content[1])))
 		return (1);

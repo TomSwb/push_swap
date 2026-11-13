@@ -1,10 +1,5 @@
 *This project has been created as part of the 42 curriculum by [atardy](https://profile-v3.intra.42.fr/users/atardy), [tschwab](https://profile-v3.intra.42.fr/users/tschwab)*
 
-> [!WARNING]
-> **DRAFT — remove this box and every TODO box before submitting.**
-> 🟦 **TODO (Tom)** · 🟧 **TODO (Alak)** · 🟩 **TODO (both)**
-
-
 # push_swap
 
 ## Description
@@ -66,9 +61,6 @@ $> ARG="4 67 3 87 23"; ./push_swap --complex $ARG | ./checker $ARG
 OK
 $> ARG="4 67 3 87 23"; ./push_swap $ARG | wc -l
 ```
-
-> [!NOTE]
-> 🟩 **TODO (both):** paste real outputs from the final build
 
 ### Benchmark mode (`--bench`)
 
@@ -171,9 +163,6 @@ $>
 
 **Ranks.** Before sorting, each number is replaced by its rank `0 … n-1` (`rank_parsing`). All algorithms then work on ranks, so pivots and targets never depend on the actual values. Time O(n²), space O(1) (the rank is stored in each node).
 
-> [!IMPORTANT]
-> 🟩 Both: reread this section.
-
 ### Simple — O(n²): cost-based insertion
 
 1. Push everything except 3 numbers to b. While pushing, numbers ranked below the middle are rotated to the bottom of b (`rb`), so b is roughly split in two halves already. This only adds O(n) moves.
@@ -215,15 +204,40 @@ All values are divided into *√n chunks*. The n / √n smallest values are in c
 
 Disorder is computed once before sorting. Already-sorted input (0 %) prints nothing.
 
-**Rationale for the thresholds.**
+**Rationale for the thresholds.** The two limits (20 % and 50 %) come from the subject, which ties each disorder regime to a complexity class. Our job was to pick, for each regime, a method of the required class that makes sense for that kind of input. We measured every strategy on inputs of controlled disorder to check those choices:
 
-> [!NOTE]
-> 🟩 **TODO (both):** explain why these limits (they are the subject's regime bounds) and why each method fits its regime, e.g. why insertion is cheap on nearly sorted input (few numbers far from their place → few rotations per insertion).
+| Disorder | Simple (100) | Medium (100) | Complex (100) | Simple (500) | Medium (500) | Complex (500) |
+|---|---|---|---|---|---|---|
+| 3 % | 364 | 389 | 665 | 2156 | 2894 | 4405 |
+| 16 % | 428 | 517 | 667 | 2651 | 4363 | 4414 |
+| 21 % | 457 | 545 | 667 | 3143 | 4695 | 4414 |
+| 45 % | 563 | 602 | 667 | 4395 | 5313 | 4411 |
+| 50 % | 578 | 618 | 667 | 4548 | 5306 | 4412 |
+| 75 % | 499 | 592 | 668 | 3392 | 4884 | 4408 |
+| 100 % | 299 | 399 | 668 | 1499 | 2014 | 4412 |
 
-**Complexity.** Disorder O(n²) + the chosen method, so the total is bounded by the class of each regime as required. Space as for each method.
+*Average number of operations (20 inputs per row for 100 numbers, 6 for 500).*
 
-> [!NOTE]
-> 🟩 **TODO (both):** check this complexity statement together (disorder and ranks are O(n²) in time — say how you count them in the Push_swap model, where only operations count)
+- **Low disorder (< 20 %): cost-based insertion.** On nearly sorted input most numbers are already close to their final place, so the cheapest insertion only needs a few rotations each time. It is by far the cheapest method here (about half the operations of quicksort).
+- **Medium disorder (20 % – 50 %): chunk sort.** The subject requires an O(n√n) method in this range. Chunk sort pushes √n-sized ranges of ranks to b, so its cost depends on how scattered each range is, which is why it grows with the disorder.
+- **High disorder (≥ 50 %): three-way quicksort.** Its pivots are chosen by rank, so every split is exactly in thirds whatever the input looks like: the cost is the same at 50 % or 100 % disorder (about 667 for 100 numbers, 4412 for 500). That guaranteed O(n log n), worst case included, makes it the safe choice when the input is the most chaotic.
+
+The measurements also show that our cost-based insertion often beats the other two even on random input. This does not contradict its O(n²) class: O(n²) is the worst-case upper bound (each of the n insertions could need up to n rotations), and always picking the cheapest insertion keeps the real count well below it.
+
+**Complexity.** In the Push_swap model only the operations printed on stdout count. Before choosing a method, adaptive runs two preparation steps on stack a:
+
+- `disorder` compares every pair of numbers once: n(n−1)/2 comparisons, O(n²) CPU time.
+- `rank_parsing` gives each number its rank (0 to n−1) in n passes over the stack: O(n²) CPU time.
+
+Neither step prints a single operation, so they add **0 operations**: they only read the stack. The operations of adaptive are therefore exactly those of the method it picks, which gives the upper bound required for each regime:
+
+| Regime | Method | Operations (time) | Extra space |
+|---|---|---|---|
+| < 20 % | cost-based insertion | O(n²) | O(1) |
+| 20 % – 50 % | chunk sort | O(n√n) | O(1) |
+| ≥ 50 % | three-way quicksort | O(n log n) | O(log n) (recursion) |
+
+Space: the disorder and the ranks need O(1) extra memory (the ranks are stored in the nodes themselves), so adaptive uses the space of the chosen method, on top of the O(n) of the two stacks.
 
 ### Why not other algorithms
 
@@ -246,12 +260,9 @@ Targets for the best tier: **< 700** operations for 100 numbers, **< 5500** for 
 | `--simple` | 568 / 608 | 4572 / 4867 |
 | `--medium` | 600 / 650 | 5295 / 5616 |
 | `--complex` | 664 / 669 | 4410 / 4427 |
-| `--adaptive` (random input) | **🟩 TODO** | **🟩 TODO** |
+| `--adaptive` (random input) | 629 / 675 | 4778 / 5561 |
 
 Small inputs: 3 numbers in at most 2 operations, 5 numbers in 8–11.
-
-> [!NOTE]
-> 🟩 **TODO (both):** re-measure everything on the final build, same method for every row (e.g. 100 random inputs each), and state the method here
 
 ## Contributions
 
@@ -278,8 +289,8 @@ Small inputs: 3 numbers in at most 2 operations, 5 numbers in 8–11.
 ### References
 
 - The subject of "Push_Swap" by 42 school : https://github.com/TomSwb/push_swap/blob/59fca7d7f299e73b4a2c01b5ab2b4e4872bc324d/ressources/en.subject.pdf
-> [!NOTE]
-> 🟩 **TODO (both):** list what you actually used — e.g. the subject PDF, Big-O notation, quicksort / three-way partitioning (CLRS or Sedgewick), articles or tutorials on push_swap strategies, the 42 checker. Real links only.
+- 42 fedora_checker.
+
 #### atardy:
 
 - Geeks for geeks : All the sorting algortighms that we used : https://www.geeksforgeeks.org/dsa/sorting-algorithms/

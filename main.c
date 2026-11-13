@@ -29,7 +29,7 @@ int	main(int argc, char **argv)
 		stack_a.flag = 4;
 	if (parsing(start, argv, &stack_a) || check_double(&stack_a))
 		return (lstclear(&stack_a, 1)); 
-	// if (stack_a.top == 0) 
+	// if (stack_a.top == NULL) 
 	// 	return (0);
 	stack_a.size = stack_a.init_size;
 	rank_parsing(&stack_a);

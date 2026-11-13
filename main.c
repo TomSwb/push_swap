@@ -24,7 +24,7 @@ int	main(int argc, char **argv)
 	stack_initializer(&stack_b);
 	start = flags_parsing(argc, argv, &stack_a);
 	if (start == 0)
-		return (write_error());
+		return (0);
 	if (stack_a.flag == 0)
 		stack_a.flag = 4;
 	if (parsing(start, argv, &stack_a) || check_double(&stack_a))

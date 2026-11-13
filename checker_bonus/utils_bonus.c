@@ -20,8 +20,9 @@ t_move	check_what_move(char *s)
 	size_t				len;
 
 	len = ft_strlen(s);
-	if (len > 0 && s[len - 1] == '\n')
-		s[len - 1] = '\0';
+	if (len == 0 || s[len - 1] != '\n')
+		return (ERROR);
+	s[len - 1] = '\0';
 	i = 0;
 	while (i < ERROR)
 	{

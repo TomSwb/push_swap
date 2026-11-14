@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: tschwab <tschwab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 12:08:15 by tschwab           #+#    #+#             */
-/*   Updated: 2026/11/03 15:46:34 by tschwab          ###   ########.ch       */
+/*   Updated: 2026/11/14 10:16:13 by tschwab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ int	main(int argc, char **argv)
 	stack_initializer(&stack_b);
 	if (parsing(1, argv, &stack_a) || check_double(&stack_a))
 		return (lstclear(&stack_a, 1));
-	// if (stack_a.top == NULL) 
-	// 	return (0);
 	stack_a.size = stack_a.init_size;
 	result = checker(&stack_a, &stack_b);
 	if (result == 0)

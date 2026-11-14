@@ -78,7 +78,7 @@ int	stack_from_arg(char *arg, t_stack *stack_a)
 	if (!int_lst)
 		return (1);
 	if (!int_lst[0])
-		return (freeturn(int_lst)); // return (freeturn(int_lst), 0);
+		return (freeturn(int_lst));
 	while (int_lst[++i])
 	{
 		if (check_int(int_lst[i]))
